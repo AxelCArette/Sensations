@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Valider ma commande{% endblock %}
+
+{% block body %}
+<div class="row justify-content-center" style="margin-bottom: 60px;"></div>
+<div class="container">
+    <h2 style="margin-bottom: 60px;">Résumé de votre commande</h2>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Les formations en cours d'achat</h4> 
+                    <hr>
+                    <ul>
+                        {% for formation in formations %}
+                            <li>
+                                <strong>{{ formation.TitreDeLaFormation }}</strong><br>
+                                Prix : {{ (formation.Prix / 100)|number_format('2', '.', ',') }} €<br>
+                                {% if formation.getFichierPDF() %}
+                                    Ce cours comprend des PDF<br>
+                                {% endif %}
+                                {% if formation.getVideo() %}
+                                    Ce cours comprend une vidéo<br>
+                                {% endif %}
+                            </li>
+                            <hr>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Vos informations personnelles</h4>
+                    <p class="card-text">
+                        {% if app.user %}
+                            {% if app.user.Civilite %}
+                                {% if app.user.Civilite == 'Monsieur' %}
+                                    Monsieur {{ app.user.Prenom }} {{ app.user.Nom }}
+                                {% elseif app.user.Civilite == 'Madame' %}
+                                    Madame {{ app.user.Prenom }} {{ app.user.Nom }}
+                                {% else %}
+                                    {{ app.user.Prenom }} {{ app.user.Nom }}
+                                {% endif %}
+                            {% else %}
+                                {{ app.user.Prenom }} {{ app.user.Nom }}
+                            {% endif %}
+                        {% endif %}
+                    </p>
+                    <h5 class="card-title">Votre adresse de facturation</h5>
+                    <p class="card-text">
+                        {% if app.user %}
+                            {% if app.user.adresses.first() %}
+                                {{ app.user.adresses.first().AdresseComplete }}
+                            {% else %}
+                                <a href="{{ path('app_adresse') }}">Ajouter une adresse</a>
+                            {% endif %}
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+           <a href="{{ path('app_paiement') }}" class="btn btn-primary mt-3">Passer au paiement</a>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-center" style="margin-bottom: 50px;"></div>
+{% endblock %}

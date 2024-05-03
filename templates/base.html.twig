@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        <link rel="stylesheet" href="{{ asset('build/vendor.css') }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="{{ asset('build/vendor.js') }}" defer></script>
+        <meta name="description" content="">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container mx-auto"> 
+    <div class="row align-items-center">
+      <div class="col-auto">  
+        <a class="navbar-brand" href="{{path('app_accueil')}}">
+          <img src="{{ asset('asset/img/sensationlogo.png') }}" alt="logoSensation" width="200" height="65">
+        </a>
+      </div>
+      <div class="col">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item  mx-4"> 
+              <a class="nav-link" href="{{path('app_qui_suis_je')}}" id="" role="button" data-bs-toggle="" aria-expanded=""> Qui-suis-je ?</a>
+            </li>
+            <li class=" nav-item dropdown mx-4">
+              <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 
+              Coaching de projets
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{{path('app_coaching_entreprise')}}">Coaching Entreprise</a></li>
+                <li><a class="dropdown-item" href="{{path('app_coaching_sportif')}}">Coaching Sportif</a></li>
+              </ul>
+            </li>
+            <li class="nav-item mx-4"> 
+              <a class="nav-link" href="{{path('app_vente_deformations')}}" id="" role="button" data-bs-toggle="" aria-expanded="">Formations</a>
+            </li>
+            <li class="nav-item mx-4"> 
+              <a class="nav-link" href="{{path('app_resumer_article')}}" id="" role="button" data-bs-toggle="" aria-expanded="">Mes articles</a>
+            </li>
+            <li class="nav-item mx-4" style="background-color: rgba(222, 62, 26, 0.15); padding: 8px 16px; border-radius: 5px; height: 40px; width: auto; display: flex; justify-content: center; align-items: center;"> 
+    <a class="nav-link" href="#" id="" role="button" data-bs-toggle="" aria-expanded="">Me contacter</a>
+</li>
+{% if app.user %}
+   <div class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 
+        Mon compte
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li> 
+            <a class="dropdown-item" href="{{path('app_accueil_compte')}}">Mon compte</a>
+        </li>
+           <li> 
+            <a class="dropdown-item" href="{{path('app_cart')}}">Mon Pannier</a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="{{path('app_logout')}}">Déconnexion</a>
+        </li>
+    </ul>
+</div>
+
+{% else %}
+    <li class="nav-item mx-4"> 
+        <a class="nav-link active btn-blue" aria-current="page" href="{{path('app_login')}}">Connexion</a>
+    </li>
+{% endif %}
+
+            </li>                                                           
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+    <body>
+        {% block body %}
+        {% endblock %}
+    </body>
+<footer class="footer" style="background-color: #FDEEE0; color: #000;">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-2 text-center">
+        <div class="mb-10">
+          <img src="{{ asset('asset/img/sensationlogo.png') }}" alt="" width="200" height="65">
+          <a href="https://www.linkedin.com/in/flaviecarette/"><img src="{{ asset('asset/img/linkedin.png') }}" alt="" width="40" height="40" style="margin-top: 10px;"></a>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-5">
+            <ul style="list-style-type: none;">
+              <p style="margin-top: 30px;">Mon offre :</p>
+              <li>
+                <a class="nav-link active" aria-current="page" href="#" style="margin-bottom: 10px;">Coaching en entreprise</a>
+              </li>
+              <li>
+                <a class="nav-link active" aria-current="page" href="#" style="margin-bottom: 10px;">Coaching pour les sportifs de haut niveau</a>
+              </li>
+              <li>
+                <a class="nav-link active" aria-current="page" href="#">Formations</a>
+              </li>
+               <li></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <a class="nav-link active" aria-current="page" href="#" style="margin-top: 30px;">Qui suis-je ?</a>
+          </div>
+          <div class="col-md-2">
+            <a class="nav-link active" aria-current="page" href="#" style="margin-top: 30px;">Mes articles</a>
+          </div>
+          <div class="col-md-3">
+            <a class="nav-link active" aria-current="page" href="#" style="margin-top: 30px;">Me contacter</a>
+          </div> 
+        </div> 
+      </div> 
+      <div class="col-md-8 offset-md-7 mt-0">
+        <button class="btn btn-custom" type="button" id="button-addon2" style="display: flex; align-items: center; font-size: 14px; height: 45px; width: 450px; border-radius: 20px;">
+          <input type="email" class="form-control" placeholder="Votre email" aria-label="Votre email" aria-describedby="button-addon2" style="font-size:15px; height:20px; padding: 12px;">
+          <span style="margin-left: 7px; white-space: nowrap;">Je m'inscris à la newsletter</span>
+        </button>
+      </div> 
+    </div>
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-md-12 text-center">
+        <p class="mb-0" style="color: black;">Copyright © Flavie Carette | <a href="#" class="text-decoration-none" style="color: black;">Politique de confidentialité</a>. <a href="#" class="text-decoration-none" style="color: black;">Mentions légales</a>. <a href="#" class="text-decoration-none" style="color: black;">CGV</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+</html>

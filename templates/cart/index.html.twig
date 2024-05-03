@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon panier{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+            <h1>Mon panier</h1>
+            {% if cart|length == 0 %}
+                <p>Votre panier est vide. <a href="{{ path('app_vente_deformations') }}">Acheter des formations</a></p>
+            {% else %}
+                <p>Voilà la ou les formations en cours d'achat :</p>
+                <hr>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Nom de la formation</th>
+                      <th>Description</th>
+                      <th>Nombre de PDF</th>
+                      <th>Prix</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% set total = 0 %}
+                    {% for item in cart %}
+                    <tr>
+                        <td>{{ item.formations.TitreDeLaFormation }}</td>
+                        <td>{{ item.formations.Description }}</td>
+                        <td>{{ item.formations.NombreDePDF }}</td>
+                        <td>{{ (item.formations.Prix / 100)|number_format('2', '.', ',') }} €</td>
+                        <td> 
+                           <a href="{{ path('delete_formation',{'id':item.formations.id})}}">
+                               <img src="{{ asset('asset/img/poubelle.png')}}" height="45px" alt="Supprimer ma formation">
+                           </a>
+                        </td>
+                    </tr>
+                    {% set total = total + item.formations.Prix %}
+                    {% endfor %}
+                  </tbody>
+                </table>
+
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 text-center">
+            {% if cart|length > 0 %}
+               <a href="{{ path('app_detail_commande') }}" class="btn btn-dark mt-3">
+    <span>Valider mon panier</span>
+    <span class="price">{{ (total / 100)|number_format('2', '.', ',') }} €</span>
+</a>
+
+                <a href="{{ path('remove_my_cart')}}" class="btn btn-danger mt-3">Vider son panier</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

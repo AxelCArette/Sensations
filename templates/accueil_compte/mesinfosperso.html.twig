@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bonjour {{ app.user.prenom }}{% endblock %}
+
+{% block body %}
+<h1> Vos informations personnelles</h1>
+<p> Votre prénom : {{ app.user.prenom }} </p>
+<p> Votre nom : {{ app.user.nom }} </p>
+<p> Votre numéro de téléphone : {{app.user.NumeroDeTelephone}}</p>
+
+{% if app.user.adresses is not empty %}
+    <h2> Votre adresses :</h2>
+    <ul>
+        {% for adresse in app.user.adresses %}
+            <li>{{ adresse.adresseComplete }}, {{ adresse.ville }}, {{ adresse.codePostale }}, {{ adresse.pays }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Vous n'avez pas encore renseigné d'adresse.</p>
+{% endif %}
+
+{% endblock %}

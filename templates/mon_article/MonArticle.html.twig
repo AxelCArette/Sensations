@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article complet - {{ article.titre }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+            <h1 class="text-center" style="margin-top: 40px;">{{ article.titre }}</h1>
+                <img class="card-img-top mx-auto d-block mb-3" src="/uploads/image/{{ article.image }}" alt="Image de l'article" style="max-width: 500px; margin-top:40px;">
+                <h2 class="text-center" style="margin-top: 50px;">{{ article.sousTitre }}</h2>
+                <p style="margin-top: 20px;">{{ article.texteDeLArticle }}</p>
+                <div class="text-center mb-3">
+                    <a href="{{ path('app_resumer_article') }}" class="btn btn-primary">Retournez aux articles</a>
+                    <!-- Bouton de partage LinkedIn -->
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ app.request.schemeAndHttpHost ~ app.request.requestUri }}" class="btn btn-primary">Partager sur LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

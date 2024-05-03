@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Compte-Sensation{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h1>Mon compte</h1>
+    <p>Bienvenue {{ app.user.prenom }}, ici vous pouvez consulter et modifier vos informations personnelles.</p>
+    <a class="nav-link" href="{{ path('app_mes_infos_perso') }}">Mon profil</a>
+    <a class="nav-link" href="{{ path('app_adresse') }}">Mon adresse</a>
+
+    Prendre rdv <br>
+    <a class="nav-link" href="{{ path('app_consulter_ces_formations', {'userId': app.user.id, 'formationId': 'valeurFormationId'}) }}"> Consulter ces formations <br></a>
+    Historique des commandes <br>
+    <a class="nav-link" href="{{ path('app_modifmotdepasse') }}">Modifier mon mot de passe</a>
+    <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <h1> Votre partie administrateur : </h1>
+        <a class="nav-link" href="{{ path('admin') }}">Partie admin</a> <br>
+    {% endif %}
+
+</div>
+
+{% endblock %}

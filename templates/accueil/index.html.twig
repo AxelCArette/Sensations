@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+{% block title %}Sensation-Accueil{% endblock %}
+{% block body %}
+
+<script>
+  AOS.init();
+</script>
+<div class="container ">
+  <div class="row padding-to" style="padding-top: 50px;">
+    <div class="offset-sm-5 col-sm-5 col-md-5 col-lg-3 mb-3">
+      <div class="card-flip eveiller">
+        <div class="card-face card-front d-flex flex-column justify-content-end" data-aos="flip-left">
+          <h2 class="card-title text-center">Éveiller</h2>
+        </div>
+        <div class="card-face card-back">
+          <h5>Trouvez les intervalles</h5><br>
+          <p>Laissez-vous porter sur le chemin de la conscience de soi et de vos relations pour plus de clarté et de nouvelles possibilités.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3 mb-3">
+      <div class="card-flip booster">
+        <div class="card-face card-front d-flex flex-column justify-content-end" data-aos="flip-left">
+          <h2 class="card-title text-center">Booster</h2>
+        </div>
+        <div class="card-face card-back">
+          <h5>Allez droit au but</h5><br>
+          <p>J'offre un espace bienveillant où chacun se sent libre et confiant de s’exprimer et d’oser se tromper pour plus de créativité.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-5 offset-md-5 col-md-3 mb-3">
+      <div class="card-flip inspirer">
+        <div class="card-face card-front d-flex flex-column justify-content-end" data-aos="flip-left">
+          <h2 class="card-title text-center">Inspirer</h2>
+        </div>
+        <div class="card-face card-back">
+          <h5>Oser perdre la balle</h5>
+          <p>Footballeuse de haut niveau, j’allie le plaisir et l’excellence pour vous permettre de performer en entreprise ou sur le terrain.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3 mb-3">
+      <div class="card-flip orchestrer">
+        <div class="card-face card-front d-flex flex-column justify-content-end" data-aos="flip-left">
+          <h2 class="card-title text-center">Orchestrer</h2>
+        </div>
+        <div class="card-face card-back">
+          <h5>Soyez le capitaine inspirant</h5>
+          <p>Grâce à un modèle systémique et énergétique unique alliant le Voice Dialogue, l'ennéagramme et les constellations, développez le potentiel collectif.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

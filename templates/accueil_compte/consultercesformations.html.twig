@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Consulter vos formations{% endblock %}
+{% block body %}
+    {% set formationsEnCoursAchat = [] %}
+    {% set hasDisplayedFormation = false %}
+    {% for commandeDetail in commandeDetails %}
+        {% set commande = commandeDetail.getCommande() %}
+        {% if commande.getUtilisateur() == app.user %}
+            {% if commandeDetail.getStatut() == 0 %}
+                {% set formation = commandeDetail.getFormation() %}
+                {% set formationsEnCoursAchat = formationsEnCoursAchat|merge([formation]) %}
+            {% elseif commandeDetail.getStatut() == 1 %}
+                {% set formation = commandeDetail.getFormation() %}
+                <p>Formation : {{ formation.getTitreDeLaFormation() }}</p>
+                <a href="{{ path('download_pdf', {'id': commandeDetail.id}) }}" class="btn btn-primary">Télécharger PDF</a>
+                {% set hasDisplayedFormation = true %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    {% if formationsEnCoursAchat is not empty %}
+        <p>Vous avez des formations en cours d'achat :</p>
+        <ul>
+            {% for formation in formationsEnCoursAchat %}
+                <li>{{ formation.getTitreDeLaFormation() }}</li>
+                <a href="{{ path('app_paiement') }}" class="btn btn-primary mt-3">Passer au paiement</a>
+            {% endfor %}
+        </ul>
+    {% elseif not hasDisplayedFormation %}
+        <p>Vous n'avez pas acheté de formation.</p>
+    {% endif %}
+{% endblock %}

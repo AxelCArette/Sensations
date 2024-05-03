@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accès interdit{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .vertical-center {
+            min-height: 63vh;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+    <script>
+        let countdown = 5;
+        function updateCountdown() {
+            countdown--;
+            document.getElementById('countdown').textContent = countdown;
+            if (countdown <= 0) {
+                window.location.href = '{{path('app_accueil')}}';
+            }
+        }
+        setInterval(updateCountdown, 1000);
+    </script>
+{% endblock %}
+{% block body %}
+<div class="container vertical-center">
+        <div class="col-md-10">
+            <div class="text-center">
+                <h1 class="mx-auto">Accès interdit</h1>
+                <p class="mx-auto text-left">{{ errorMessage }}</p>
+                 <p class="mt-4">Vous serez redirigé vers la page principale dans <span id="countdown">5</span> secondes...</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

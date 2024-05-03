@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre adresse.{% endblock %}
+
+
+{% block body %}
+<div class="container">
+<h1> Ici vous pouvez modifier et gérer votre adresse. </h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.AdresseComplete) }}
+        {{ form_row(form.Ville) }}
+        {{ form_row(form.CodePostale) }}
+        {{ form_row(form.Pays) }}
+        <button type="submit" style="margin-top: 25px" class="btn btn-primary">Ajouter ou modifier son adresse</button><br>
+    {{ form_end(form) }}
+<a class="nav-link active btn-blue" style="margin-top: 25px;" aria-current="page" href="{{path('app_accueil_compte')}}">Retour sur on compte</a>
+
+</div>
+{% endblock %}
+

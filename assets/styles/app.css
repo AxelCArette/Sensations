@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.noto-serif {
+  font-family: "Noto Serif Display", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.quicksand {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* NAVBAR */
+.btn-blue {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 5px;
+  color: #182C4A;
+}
+
+.btn-blue:hover {
+  background-color: #182C4A;
+  color: #fff !important;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+}
+
+.navbar-nav .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.navbar-nav .dropdown-menu .dropdown-item:hover {
+  color: #FF9932;
+  background-color: #ffffff;
+}
+
+.navbar-nav .dropdown-toggle::after {
+  display: none;
+}
+
+.nav-link:hover {
+  color: #DE3E1A;
+}
+
+/* FOOTER */
+.btn-custom {
+  background-color: #1A6A8D;
+  color: white;
+}
+
+.btn-custom:hover {
+  color: black;
+}
+
+.footer {
+  overflow: hidden;
+  bottom: 0;
+}
+
+/* Flip card system - Page d'accueil */
+.card-flip {
+  width: 325px;
+  height: 350px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.9s;
+  cursor: pointer;
+}
+
+.card-flip:hover {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.eveiller .card-face.card-front {
+  background-color: #182C4A;
+  color: white;
+}
+
+.eveiller .card-face.card-back {
+  background-color: #182C4A;
+  color: white;
+}
+
+.booster .card-face.card-front {
+  background-color: #DE3C19;
+  color: white;
+}
+
+.booster .card-face.card-back {
+  background-color:#DE3C19 ;
+  color: white;
+}
+
+.inspirer .card-face.card-front {
+  background-color: #FF9932;
+  color: white;
+}
+
+.inspirer .card-face.card-back {
+  background-color: #FF9932;  
+  color: white;
+}
+
+.orchestrer .card-face.card-front {
+  background-color: #1A6A8D;
+  color: white;
+}
+
+.orchestrer .card-face.card-back {
+  background-color: #1A6A8D;
+  color: white;
+}
+
+.card-flip .card-back h5 {
+  font-size: 27px;
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
+
+.card-flip .card-back p {
+  font-size: 20px;
+  margin-top: 20px;
+  text-align: center;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+@media (max-width: 1500px) {
+  .offset-sm-5,
+  .offset-md-5 {
+    margin-left: 0;
+  }
+  .card-flip {
+    width: calc(275px - 5vw); 
+    height: calc(300px - 5vw); 
+    margin-right: calc(10px - 1vw); 
+  }
+
+  .card-flip .card-title {
+    font-size: calc(30px - 1vw); 
+  }
+
+  .card-flip .card-back h5 {
+    font-size: calc(25px - 1vw); 
+    margin-top: 15px; 
+  }
+
+  .card-flip .card-back p {
+    font-size: calc(18px - 0.5vw); 
+    margin-top: 15px; 
+  }
+}
+
+
+@media (max-width: 1300px) {
+  .card-flip {
+    width: calc(250px - 5vw); 
+    height: calc(275px - 5vw); 
+    margin-right: calc(10px - 1vw);
+  }
+
+  .card-flip .card-title {
+    font-size: calc(25px - 1vw); 
+  }
+
+  .card-flip .card-back h5 {
+    font-size: calc(20px - 1vw); 
+  }
+
+  .card-flip .card-back p {
+    font-size: calc(16px - 0.5vw);
+  }
+}
+
+@media (max-width: 1100px) {
+  .card-flip {
+    width: calc(200px - 5vw); 
+    height: calc(225px - 5vw);
+    margin-right: calc(10px - 1vw); 
+  }
+
+  .card-flip .card-title {
+    font-size: calc(20px - 1vw); 
+  }
+
+  .card-flip .card-back h5 {
+    font-size: calc(18px - 1vw); 
+  }
+
+  .card-flip .card-back p {
+    font-size: calc(14px - 0.5vw); 
+    }
+}
+
+@media (max-width: 990px) {
+  .row {
+    flex-direction: row-reverse; 
+  }
+
+  .card-flip {
+    width: calc(200px - 5vw); 
+    height: calc(225px - 5vw); 
+    margin-right: calc(10px - 1vw); 
+  }
+
+  .card-flip .card-title {
+    font-size: calc(20px - 1vw); 
+  }
+
+  .card-flip .card-back h5 {
+    font-size: calc(18px - 1vw); 
+    margin-top: 10px; 
+  }
+
+  .card-flip .card-back p {
+    font-size: calc(14px - 0.5vw); 
+    margin-top: 10px; 
+  }
+}
+
+/* inscritpion */
+
+.inscription {
+  margin-top: 25px;
+  background-color: #182C4A;
+  text-align: center;
+  border-radius: 25px;
+  color: white;}
+
+  .btn:hover {
+    opacity: 0.5; /* Réglez l'opacité à la valeur souhaitée */
+}

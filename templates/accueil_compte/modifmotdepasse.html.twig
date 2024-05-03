@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier mon mot de passe - Sensation{% endblock %}
+
+{% block body %}
+<div class="container">
+<h1> Modifier mon mot de passe </h1>
+{{form(form)}}
+<a class="nav-link active btn-blue" aria-current="page" href="{{path('app_accueil_compte')}}">Mon compte</a>
+</div>
+
+{% endblock %}
