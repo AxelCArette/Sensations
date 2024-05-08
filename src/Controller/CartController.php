@@ -14,12 +14,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class CartController extends AbstractController
 {
     private $entityManager;
-    private $formationsRepository; // Ajout de la dépendance FormationsRepository
+    private $formationsRepository;
 
     public function __construct(EntityManagerInterface $entityManager, FormationsRepository $formationsRepository)
     {
         $this->entityManager = $entityManager;
-        $this->formationsRepository = $formationsRepository; // Injection de FormationsRepository
+        $this->formationsRepository = $formationsRepository;
     }
 
     #[Route('/compte/mon-panier', name: 'app_cart')]

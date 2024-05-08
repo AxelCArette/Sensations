@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Historique de vos commandes{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Historique de vos commandes</h1>
+        {% if commandeDetails is empty %}
+        <p>Il n'y a pas de commandes. Vous pouvez consulter nos formations <a style="color: black; text-decoration: none;" href="{{ path('app_vente_deformations') }}" onmouseover="this.style.color='#e34121'" onmouseout="this.style.color='black'">ici</a>.</p>
+
+
+        {% else %}
+            {% set hasCommandeWithStatusOne = false %}
+            {% for commandeDetail in commandeDetails %}
+                {% if commandeDetail.commande.Utilisateur == app.user and commandeDetail.statut == 1 %}
+                    {% set hasCommandeWithStatusOne = true %}
+                {% endif %}
+            {% endfor %}
+            {% if hasCommandeWithStatusOne %}
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Référence</th>
+                                <th>Formation commandée</th>
+                                <th>Prix total</th>
+                                <th>Date de création</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for commandeDetail in commandeDetails %}
+                                {% if commandeDetail.commande.Utilisateur == app.user and commandeDetail.statut == 1 %}
+                                    <tr>
+                                        <td>{{ commandeDetail.commande.Reference }}</td>
+                                        <td>{{ nomsFormations[commandeDetail.id] }}</td>
+                                        <td>{{ commandeDetail.prixtotal | number_format(2, ',', ' ') }} €</td>
+                                        <td>{{ commandeDetail.commande.DateDeCreationCommande|date('d-m-Y') }}</td>
+                                        <td>
+                                            <a href="{{ path('app_telecharger_facture', {'commandeId': commandeDetail.commande.id}) }}" class="btn btn-primary">Télécharger la facture</a>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %} {# Fermez le bloc hasCommandeWithStatusOne ici #}
+        {% endif %} {# Fermez le bloc commandeDetails is empty ici #}
+    </div>
+{% endblock %}

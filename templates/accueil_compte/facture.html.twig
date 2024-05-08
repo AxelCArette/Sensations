@@ -1,0 +1,30 @@
+{% block body %}
+    <div class="container mt-4">
+        <h1>Facture de votre commande {commandeid}</h1>
+        
+        <h2>Détails de la commande</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Article</th>
+                    <th>Prix unitaire</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in details %}
+                    <tr>
+                        <td>{{ item.article }}</td>
+                        <td>{{ item.prix }}</td>
+                        <td>{{ item.quantite }}</td>
+                        <td>{{ item.total }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <h2>Adresse de facturation</h2>
+        <p>124 chemin des Pratz <br> 74350 CERCIER <br> Flavie.c@sensations-coaching.com</p>
+    </div>
+{% endblock %}
