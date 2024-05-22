@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\CommandeDetail;
 use App\Repository\CommandeDetailRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
@@ -17,8 +19,16 @@ class ConsulterCesFormationsController extends AbstractController
     public function index(CommandeDetailRepository $commandeDetailRepository): Response
     {
         $commandeDetails = $commandeDetailRepository->findAll();
+        $commandes = [];
+        foreach ($commandeDetails as $commandeDetail) {
+            $commande = $commandeDetail->getCommande();
+            if (!in_array($commande, $commandes)) {
+                $commandes[] = $commande;
+            }
+        }
 
         return $this->render('accueil_compte/consultercesformations.html.twig', [
+            'commandes' => $commandes, // Passer la liste des commandes à la vue
             'commandeDetails' => $commandeDetails
         ]);
     }
@@ -26,9 +36,8 @@ class ConsulterCesFormationsController extends AbstractController
     #[Route('compte/download-pdf/{id}', name: 'download_pdf')]
     public function downloadPdf(CommandeDetail $commandeDetail = null): Response
     {
-    
         if ($commandeDetail === null) {
-            $errorMessage = 'Cette formation n existe pas';
+            $errorMessage = 'Cette formation n\'existe pas.';
             return $this->render('error403.html.twig', [
                 'errorMessage' => $errorMessage
             ]);
@@ -53,5 +62,55 @@ class ConsulterCesFormationsController extends AbstractController
         $response->setContentDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT);
 
         return $response;
+    }
+
+    #[Route('/compte/delete-formation/{id}', name: 'delete_formation')]
+    public function deleteFormation(CommandeDetail $commandeDetail, EntityManagerInterface $entityManager): Response
+    {
+        // Vérifier si l'utilisateur a le droit de supprimer cette formation
+        if ($commandeDetail->getStatut() !== 0 || $commandeDetail->getCommande()->getUtilisateur() !== $this->getUser()) {
+            throw new AccessDeniedException('Vous n\'avez pas le droit de supprimer cette formation.');
+        }
+
+        // Supprimer la commande de la base de données
+        $entityManager->remove($commandeDetail);
+        $entityManager->flush();
+
+        // Rediriger vers la page de consultation des formations
+        return $this->redirectToRoute('app_consulter_ces_formations');
+    }
+
+    #[Route('/compte/delete-all-formations-in-commande', name: 'delete_all_formations_in_commande', methods: ['POST'])]
+    public function deleteAllFormationsInCommande(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        // Vérifier si l'utilisateur est connecté
+        if (!$this->getUser()) {
+            throw new AccessDeniedException('Vous devez être connecté pour effectuer cette action.');
+        }
+
+        // Récupérer l'ID de la commande à partir de la requête
+        $commandeId = $request->request->get('commandeId');
+
+        // Récupérer toutes les formations dans la commande
+        $commandeDetails = $entityManager->getRepository(CommandeDetail::class)->findBy(['commande' => $commandeId]);
+
+        // Vérifier si des formations sont associées à la commande
+        if (empty($commandeDetails)) {
+            throw $this->createNotFoundException('Aucune formation n\'est associée à cette commande.');
+        }
+
+       
+        foreach ($commandeDetails as $commandeDetail) {
+            if ($commandeDetail->getStatut() !== 0 || $commandeDetail->getCommande()->getUtilisateur() !== $this->getUser()) {
+                throw new AccessDeniedException('Vous n\'avez pas le droit de supprimer toutes les formations dans cette commande.');
+            }
+        }
+
+        foreach ($commandeDetails as $commandeDetail) {
+            $entityManager->remove($commandeDetail);
+        }
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_consulter_ces_formations');
     }
 }

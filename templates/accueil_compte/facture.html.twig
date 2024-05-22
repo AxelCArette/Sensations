@@ -1,30 +1,66 @@
-{% block body %}
-    <div class="container mt-4">
-        <h1>Facture de votre commande {commandeid}</h1>
-        
-        <h2>Détails de la commande</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Article</th>
-                    <th>Prix unitaire</th>
-                    <th>Quantité</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in details %}
-                    <tr>
-                        <td>{{ item.article }}</td>
-                        <td>{{ item.prix }}</td>
-                        <td>{{ item.quantite }}</td>
-                        <td>{{ item.total }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        
-        <h2>Adresse de facturation</h2>
-        <p>124 chemin des Pratz <br> 74350 CERCIER <br> Flavie.c@sensations-coaching.com</p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facture</title>
+    <link rel="stylesheet" href="{{ asset('build/vendor.css') }}">
+    <script src="{{ asset('build/vendor.js') }}" defer></script>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <img src="data:image/png;base64,{{ base64_image }}" alt="Logo Sensation" width="200" height="65">
+    <div>
+        <address>
+            124 chemin des Pratz<br>
+            74350 CERCIER<br>
+            Email : Flavie.c@sensations-coaching.com
+        </address>
     </div>
-{% endblock %}
+    <div>
+        <p class="font-weight-bold">Facture de votre commande : n°{{ referenceCommande }}<br>
+         Date d'émission de la facture : {{ now|date("d/m/Y") }}<br>
+         Date d'achat : {{ DateDeCreationCommande ? DateDeCreationCommande.format("d/m/Y") : '' }}<br>
+        Civilité : {{ utilisateur.Civilite }}<br>
+        Nom : {{ utilisateur.Nom }}<br>
+        Prénom : {{ utilisateur.Prenom }}<br>
+        Votre email : {{ utilisateur.email }}<br>
+    </div>
+    <h2>Adresse de facturation</h2>
+    <address>{{ adresse }}</address>
+    <h2>Détails de la commande</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Formation</th>
+                <th>Prix unitaire</th>
+                <th>Quantité</th>
+                <th>Prix total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for detail in details %}
+            <tr>
+                <td>{{ detail.formation.titreDeLaFormation }}</td>
+                <td>{{ detail.prix }}</td>
+                <td>1</td>
+                <td>{{ detail.prixtotal }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

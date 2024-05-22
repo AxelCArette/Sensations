@@ -4,19 +4,19 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\BinaryFileResponse;
-use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\FormationsRepository;
-use App\Entity\Formations; 
+use App\Repository\CommandeDetailRepository;
 
 class VenteDeformationsController extends AbstractController
 {
     private $formationsRepository;
+    private $commandeDetailRepository;
 
-    public function __construct(FormationsRepository $formationsRepository)
+    public function __construct(FormationsRepository $formationsRepository, CommandeDetailRepository $commandeDetailRepository)
     {
         $this->formationsRepository = $formationsRepository;
+        $this->commandeDetailRepository = $commandeDetailRepository;
     }
 
     #[Route('/vente-de-formations', name: 'app_vente_deformations')]
@@ -24,8 +24,15 @@ class VenteDeformationsController extends AbstractController
     {
         $formations = $this->formationsRepository->findAll();
 
+        $commandeDetails = [];
+        foreach ($formations as $formation) {
+            $commandeDetail = $this->commandeDetailRepository->findOneBy(['formation' => $formation]);
+            $commandeDetails[$formation->getId()] = $commandeDetail;
+        }
+
         return $this->render('vente_deformations/index.html.twig', [
             'formations' => $formations,
+            'commandeDetails' => $commandeDetails,
         ]);
     }
 }

@@ -17,41 +17,147 @@
         .formation-button {
             margin-top: 10px;
         }
+        .formation-achetee {
+            background-color: lightgray;
+        }
+        .bg-danger {
+            background-color: red;
+        }
+        .bg-success {
+            background-color: green;
+        }
     </style>
-
     <div class="container">
         <h1 class="text-center mb-4">Mes formations</h1>
-        {% set formations_publiees = false %}
-        <div class="row justify-content-center">
-            {% for formation in formations %}
-                {% if formation.publier %}
-                    {% set formations_publiees = true %}
-                    <div class="col-md-4 mb-3">
-                        <div class="card" style="background-color:#fdeee0;">
-                            <div class="card-body">
-                                <strong>{{ formation.titreDeLaFormation }}</strong><br>
-                                <div>Description: {{ formation.description }}</div><br>
-                                <div>Prix : {{ (formation.prix / 100)|number_format('2', '.', ',') }} €</div><br>
-                                {% if formation.getFichierPDF() %}
-                                    <p>Ce cours comprend des PDF</p>
+        {% if app.user %}
+            {% set formations_publiees = false %}
+            <div class="row justify-content-center">
+                {% for formation in formations %}
+                    {% if formation.publier %}
+                        {% set formations_publiees = true %}
+                        {% set commande_detail = commandeDetails[formation.id]|default(null) %}
+                        {% if not commande_detail %}
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <strong>{{ formation.titreDeLaFormation }}</strong><br>
+                                        <div>Description: {{ formation.description }}</div><br>
+                                        <div>Prix : {{ (formation.prix / 100)|number_format('2', '.', ',') }} €</div><br>
+                                        {% if formation.getFichierPDF() %}
+                                            <p>Ce cours comprend des PDF</p>
+                                        {% endif %}
+                                        {% if formation.getVideo() %}
+                                            <p>Ce cours comprend une vidéo</p>
+                                        {% endif %}
+                                        <div class="formation-container">
+                                            <form action="{{ path('add_to_cart',{'id': formation.id}) }}" method="post">
+                                                <input type="hidden" name="formationId" value="{{ formation.id }}">
+                                                <button type="submit" class="btn btn-primary formation-button">Ajouter au panier</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% elseif app.user %}
+                            {% if commande_detail.getCommande().getUtilisateur() == app.user %}
+                                {% if commande_detail.getStatut() == 0 %}
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card bg-danger">
+                                            <div class="card-body">
+                                                <strong>{{ formation.titreDeLaFormation }}</strong><br>
+                                                <div>Description: {{ formation.description }}</div><br>
+                                                <div>Prix : {{ (formation.prix / 100)|number_format('2', '.', ',') }} €</div><br>
+                                                {% if formation.getFichierPDF() %}
+                                                    <p>Ce cours comprend des PDF</p>
+                                                {% endif %}
+                                                {% if formation.getVideo() %}
+                                                    <p>Ce cours comprend une vidéo</p>
+                                                {% endif %}
+                                                <div class="formation-container">
+                                                    <p>En cours d'achat</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% elseif commande_detail.getStatut() == 1 %}
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card bg-success">
+                                            <div class="card-body">
+                                                <strong>{{ formation.titreDeLaFormation }}</strong><br>
+                                                <div>Description: {{ formation.description }}</div><br>
+                                                <div>Prix : {{ (formation.prix / 100)|number_format('2', '.', ',') }} €</div><br>
+                                                {% if formation.getFichierPDF() %}
+                                                    <p>Ce cours comprend des PDF</p>
+                                                {% endif %}
+                                                {% if formation.getVideo() %}
+                                                    <p>Ce cours comprend une vidéo</p>
+                                                {% endif %}
+                                                <div class="formation-container">
+                                                    <p>Formation achetée</p>
+                                                    <a href="{{ path('app_consulter_ces_formations') }}" class="btn btn-success formation-button">Consulter</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 {% endif %}
-                                {% if formation.getVideo() %}
-                                    <p>Ce cours comprend une vidéo</p>
-                                {% endif %}
-                                <div class="formation-container">
-                                    <form action="{{ path('add_to_cart',{'id': formation.id}) }}" method="post">
-                                        <input type="hidden" name="formationId" value="{{ formation.id }}">
-                                        <button type="submit" class="btn btn-primary formation-button">Ajouter au panier</button>
-                                    </form>
+                            {% else %}
+                                <div class="col-md-4 mb-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <strong>{{ formation.titreDeLaFormation }}</strong><br>
+                                            <div>Description: {{ formation.description }}</div><br>
+                                            <div>Prix : {{ (formation.prix / 100)|number_format('2', '.', ',') }} €</div><br>
+                                            {% if formation.getFichierPDF() %}
+                                                <p>Ce cours comprend des PDF</p>
+                                            {% endif %}
+                                            {% if formation.getVideo() %}
+                                                <p>Ce cours comprend une vidéo</p>
+                                            {% endif %}
+                                            <div class="formation-container">
+                                                <form action="{{ path('add_to_cart',{'id': formation.id}) }}" method="post">
+                                                    <input type="hidden" name="formationId" value="{{ formation.id }}">
+                                                    <button type="submit" class="btn btn-primary formation-button">Ajouter au panier</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% if not formations_publiees %}
+                <p class="text-center">Aucune formation disponible pour le moment.</p>
+            {% endif %}
+        {% else %}
+            <div class="row justify-content-center">
+                {% for formation in formations %}
+                    {% if formation.publier %}
+                        <div class="col-md-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <strong>{{ formation.titreDeLaFormation }}</strong><br>
+                                    <div>Description: {{ formation.description }}</div><br>
+                                    <div>Prix : {{ (formation.prix / 100)|number_format('2', '.', ',') }} €</div><br>
+                                    {% if formation.getFichierPDF() %}
+                                        <p>Ce cours comprend des PDF</p>
+                                    {% endif %}
+                                    {% if formation.getVideo() %}
+                                        <p>Ce cours comprend une vidéo</p>
+                                    {% endif %}
+                                    <div class="formation-container">
+                                        <form action="{{ path('add_to_cart',{'id': formation.id}) }}" method="post">
+                                            <input type="hidden" name="formationId" value="{{ formation.id }}">
+                                            <button type="submit" class="btn btn-primary formation-button">Ajouter au panier</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div>
-        {% if not formations_publiees %}
-            <p class="text-center">Aucune formation disponible pour le moment.</p>
+                    {% endif %}
+                {% endfor %}
+            </div>
         {% endif %}
     </div>
 {% endblock %}

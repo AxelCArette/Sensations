@@ -7,37 +7,39 @@
     <div class="col-md-4">
         {% set formationsEnCoursAchat = [] %}
         {% set hasDisplayedFormation = false %}
+        {% set displayedFormationIds = [] %} {# Ensemble pour stocker les IDs des formations déjà affichées #}
         {% for commandeDetail in commandeDetails %}
             {% set commande = commandeDetail.getCommande() %}
             {% if commande.getUtilisateur() == app.user %}
                 {% if commandeDetail.getStatut() == 0 %}
                     {% set formation = commandeDetail.getFormation() %}
-                    {% set formationsEnCoursAchat = formationsEnCoursAchat|merge([formation]) %}
+                    {% set formationId = formation.getId() %}
+                    {% if formationId not in displayedFormationIds %} {# Vérifier si l'ID de la formation n'a pas déjà été affiché #}
+                        {% set displayedFormationIds = displayedFormationIds|merge([formationId]) %}
+                        <p>Formation : {{ formation.getTitreDeLaFormation() }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="{{ path('delete_formation', {'id': commandeDetail.id}) }}" class="btn btn-danger">Supprimer</a>
+                            <a href="{{ path('app_paiement') }}" class="btn btn-primary">Passer au paiement</a>
+                        </div>
+                    {% endif %}
                 {% elseif commandeDetail.getStatut() == 1 %}
                     {% set formation = commandeDetail.getFormation() %}
-                    <p>Formation : {{ formation.getTitreDeLaFormation() }}</p>
-                    <a href="{{ path('download_pdf', {'id': commandeDetail.id}) }}" class="btn btn-primary">Télécharger PDF</a>
-                    {% set hasDisplayedFormation = true %}
+                    {% set formationId = formation.getId() %}
+                    {% if formationId not in displayedFormationIds %}
+                        {% set displayedFormationIds = displayedFormationIds|merge([formationId]) %}
+                        <p>Formation : {{ formation.getTitreDeLaFormation() }}</p>
+                        <a href="{{ path('download_pdf', {'id': commandeDetail.id}) }}" class="btn btn-primary">Télécharger PDF</a>
+                        {% set hasDisplayedFormation = true %}
+                    {% endif %}
                 {% endif %}
             {% endif %}
         {% endfor %}
-        
-        {% if formationsEnCoursAchat is not empty %}
-            <p>Vous avez des formations en cours d'achat :</p>
-            <ul>
-                {% for formation in formationsEnCoursAchat %}
-                    <li>{{ formation.getTitreDeLaFormation() }}</li>
-                    <a href="{{ path('app_paiement') }}" class="btn btn-primary mt-3">Passer au paiement</a>
-                {% endfor %}
-            </ul>
-    {% elseif not hasDisplayedFormation %}
-    <div class="alert alert-warning text-center mt-4" role="alert">
-        <p class="mb-2">Vous n'avez pas acheté de formation.</p>
-        <p class="mb-2">Vous pouvez en acheter <a style="color: black; text-decoration: none;" href="{{ path('app_vente_deformations') }}" onmouseover="this.style.color='#e34121'" onmouseout="this.style.color='black'">ici</a>.</p>
-    </div>
-{% endif %}
-
-
+        {% if not formationsEnCoursAchat and not hasDisplayedFormation %}
+            <div class="alert alert-warning text-center mt-4" role="alert">
+                <p class="mb-2">Vous n'avez pas acheté de formation.</p>
+                <p class="mb-2">Vous pouvez en acheter <a style="color: black; text-decoration: none;" href="{{ path('app_vente_deformations') }}" onmouseover="this.style.color='#e34121'" onmouseout="this.style.color='black'">ici</a>.</p>
+            </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

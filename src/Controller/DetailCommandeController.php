@@ -52,25 +52,29 @@ class DetailCommandeController extends AbstractController
 
     #[Route('/paiement', name: 'app_paiement')]
     public function paiement(Cart $cart, Request $request, FormationsRepository $formationsRepository): Response
-   {
+    {
         if (!$this->getUser()) {
             return $this->redirectToRoute('app_login');
         }
-
+    
         if ($request->isMethod('POST')) {
             $this->addFlash('success', 'Votre commande a été passée avec succès.');
         }
-
+    
         $formationsIdsDansPanier = $cart->get();
         $formationsDansPanier = [];
-
+        $totalPrixCommande = 0; 
+    
         foreach ($formationsIdsDansPanier as $formationId => $quantity) {
             $formation = $formationsRepository->find($formationId);
             if ($formation) {
                 $formationsDansPanier[] = $formation;
+    
+                // Ajouter le prix de la formation au prix total de la commande
+                $totalPrixCommande += $formation->getPrix();
             }
         }
-
+    
         $commandeDetails = [];
         foreach ($formationsDansPanier as $formation) {
             $commandeDetail = new CommandeDetail();
@@ -80,25 +84,29 @@ class DetailCommandeController extends AbstractController
             $prixFormation = $formation->getPrix();
             if ($prixFormation !== null) {
                 $commandeDetail->setPrix($prixFormation);
-                $commandeDetail->setPrixtotal($prixFormation);
+                $commandeDetail->setPrixtotal($prixFormation); // Set le prix total initial à celui de la formation
             }
-
+    
+            // Mettre à jour le prix total de la commande détaillée
+            $commandeDetail->setPrixtotal($totalPrixCommande);
+    
             $commandeDetail->setStatut(0);
             $adresseUtilisateur = $this->getUser()->getAdresses()->first();
             $adresseUser = $adresseUtilisateur ? $adresseUtilisateur->getAdresseComplete() : '';
             $commandeDetail->setAdresseUser($adresseUser);
-
+    
             $commandeDetails[] = $commandeDetail;
         }
-
+    
         foreach ($commandeDetails as $commandeDetail) {
             $this->entityManager->persist($commandeDetail);
         }
         $this->entityManager->flush();
-
+    
         $cart->remove();
-
+    
         return new Response('C ok');
     }
+    
 }
 

@@ -22,11 +22,17 @@ class HistoriqueDesCommandesController extends AbstractController
     #[Route('/compte/historique-des-commandes', name: 'app_historique_des_commandes')]
     public function historiqueDesCommandes(): Response
     {
+    
         $commandes = $this->entityManager->getRepository(Commande::class)->findAll();
 
         $commandeDetails = $this->entityManager->getRepository(CommandeDetail::class)->findBy(['statut' => 1]);
         
-        // Récupérer les noms des formations à partir de leurs IDs
+        $commandeDetailsGroupedByCommande = [];
+        foreach ($commandeDetails as $commandeDetail) {
+            $commandeId = $commandeDetail->getCommande()->getId();
+            $commandeDetailsGroupedByCommande[$commandeId][] = $commandeDetail;
+        }
+
         $nomsFormations = [];
         foreach ($commandeDetails as $commandeDetail) {
             $formationId = $commandeDetail->getFormation()->getId();
@@ -36,7 +42,7 @@ class HistoriqueDesCommandesController extends AbstractController
 
         return $this->render('accueil_compte/historiquedescommandes.html.twig', [
             'commandes' => $commandes,
-            'commandeDetails' => $commandeDetails,
+            'commandeDetailsGroupedByCommande' => $commandeDetailsGroupedByCommande,
             'nomsFormations' => $nomsFormations,
         ]);
     }
