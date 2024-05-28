@@ -10,13 +10,13 @@
         <div class="col-md-5">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Les formations en cours d'achat</h4> 
+                    <h4 class="card-title">Les formations en cours d'achat</h4>
                     <hr>
                     <ul>
                         {% for formation in formations %}
                             <li>
                                 <strong>{{ formation.TitreDeLaFormation }}</strong><br>
-                                Prix : {{ (formation.Prix / 100)|number_format('2', '.', ',') }} €<br>
+                                Prix : {{ (formation.Prix / 100)|number_format(2, '.', ',') }} €<br>
                                 {% if formation.getFichierPDF() %}
                                     Ce cours comprend des PDF<br>
                                 {% endif %}
@@ -61,7 +61,9 @@
                     </p>
                 </div>
             </div>
-           <a href="{{ path('app_paiement') }}" class="btn btn-primary mt-3">Passer au paiement</a>
+            <form action="{{ path('app_paiement') }}" method="POST" class="mt-3">
+                <button type="submit" class="btn btn-primary">Passer au paiement</button>
+            </form>
         </div>
     </div>
 </div>

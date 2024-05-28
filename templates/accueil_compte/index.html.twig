@@ -9,7 +9,7 @@
     <p>Bienvenue {{ app.user.prenom }}, ici vous pouvez consulter et modifier vos informations personnelles.</p>
     <a class="nav-link" href="{{ path('app_mes_infos_perso') }}">Mon profil</a>
     <a class="nav-link" href="{{ path('app_adresse') }}">Mon adresse</a>
-    <a class="nav-link" href="{{ path('app_reservation') }}"> Prendre rdv </a>
+    <a class="nav-link" href="{{ path('app_contact') }}"> Prendre rdv </a>
     <a class="nav-link" href="{{ path('app_consulter_ces_formations', {'userId': app.user.id, 'formationId': 'valeurFormationId'}) }}"> Consulter ces formations <br></a>
     <a class="nav-link" href="{{ path('app_historique_des_commandes')}}"> Historique des commandes <br></a>
     <a class="nav-link" href="{{ path('app_modifmotdepasse') }}">Modifier mon mot de passe</a>

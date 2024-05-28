@@ -15,3 +15,13 @@ download_pdf:
 app_panier:
     path: '/compte/panier' # Ajout du slash au début du chemin de l'URL
     controller: 'App\Controller\PanierController::index'
+
+app_success:
+    path: '/success'
+    controller: 'App\Controller\DetailCommandeController::success'
+
+app_continue_paiement:
+    path: '/continue-paiement/{id}'
+    controller: 'App\Controller\DetailCommandeController::continuePaiement'
+
+

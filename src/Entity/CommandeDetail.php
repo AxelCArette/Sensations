@@ -33,6 +33,9 @@ class CommandeDetail
     #[ORM\Column(length: 255)]
     private ?string $adresseUser = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $sessionStripeId = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -106,6 +109,18 @@ class CommandeDetail
     public function setAdresseUser(string $adresseUser): static
     {
         $this->adresseUser = $adresseUser;
+
+        return $this;
+    }
+
+    public function getSessionStripeId(): ?string
+    {
+        return $this->sessionStripeId;
+    }
+
+    public function setSessionStripeId(string $sessionStripeId): static
+    {
+        $this->sessionStripeId = $sessionStripeId;
 
         return $this;
     }

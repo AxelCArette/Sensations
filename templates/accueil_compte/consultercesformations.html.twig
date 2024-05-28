@@ -7,19 +7,19 @@
     <div class="col-md-4">
         {% set formationsEnCoursAchat = [] %}
         {% set hasDisplayedFormation = false %}
-        {% set displayedFormationIds = [] %} {# Ensemble pour stocker les IDs des formations déjà affichées #}
+        {% set displayedFormationIds = [] %}
         {% for commandeDetail in commandeDetails %}
             {% set commande = commandeDetail.getCommande() %}
             {% if commande.getUtilisateur() == app.user %}
                 {% if commandeDetail.getStatut() == 0 %}
                     {% set formation = commandeDetail.getFormation() %}
                     {% set formationId = formation.getId() %}
-                    {% if formationId not in displayedFormationIds %} {# Vérifier si l'ID de la formation n'a pas déjà été affiché #}
+                    {% if formationId not in displayedFormationIds %}
                         {% set displayedFormationIds = displayedFormationIds|merge([formationId]) %}
                         <p>Formation : {{ formation.getTitreDeLaFormation() }}</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <a href="{{ path('delete_formation', {'id': commandeDetail.id}) }}" class="btn btn-danger">Supprimer</a>
-                            <a href="{{ path('app_paiement') }}" class="btn btn-primary">Passer au paiement</a>
+                            <a href="{{ path('app_continue_paiement', {'id': commandeDetail.id}) }}" class="btn btn-primary">Passer au paiement</a>
                         </div>
                     {% endif %}
                 {% elseif commandeDetail.getStatut() == 1 %}
