@@ -3,6 +3,16 @@
   padding: 0;
 }
 
+.abril-fatface-regular {
+  font-family: "Abril Fatface", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.custom-navbar {
+  background-color: #ffefd7 !important;
+}
+
 .noto-serif {
   font-family: "Noto Serif Display", serif;
   font-optical-sizing: auto;
@@ -17,7 +27,6 @@
   font-style: normal;
 }
 
-/* NAVBAR */
 .btn-blue {
   display: inline-block;
   padding: 8px 16px;
@@ -25,9 +34,163 @@
   color: #182C4A;
 }
 
+.calendrierEtTexte {
+  display: flex;
+  align-items: center;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.calendrierEtTexte img {
+  margin-right: 15px;
+}
+
 .btn-blue:hover {
   background-color: #182C4A;
   color: #fff !important;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  width: 100%;
+  background: linear-gradient(to right, #ffefd8, #ffffff);
+}
+
+.centered-content {
+  grid-column: 4 / span 10;
+  display: flex;
+  align-items: center;
+}
+
+.shift-right {
+  margin-left: 200px;
+  margin-top: 20px;
+  font-size: 25px;
+}
+
+.text-container {
+  flex: 1;
+  text-align: center;
+}
+
+h1 {
+  color: #2a405b;
+  font-family: 'Abril Fatface', cursive;
+  font-size: 55px;
+  margin: 0;
+}
+
+.image-container {
+  width: 200px;
+  margin-right: 180px;
+  margin-top: -100px;
+}
+
+.CSPA {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: row;
+}
+
+.problems {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px; /* Espacement entre les éléments */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.problem-item {
+  grid-column: 2 / span 10; /* Conditionne les éléments dans les colonnes 2 à 10 */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Aligne le contenu au début de la colonne */
+  margin-bottom: 20px; /* Espacement entre les éléments */
+}
+
+.problem-item img {
+  width: 50px; /* Taille des images */
+  margin-right: 50px; /* Espace entre l'image et le texte */
+}
+
+.problem-item p {
+  font-family: "Noto Serif Display", serif;
+  font-size: 18px; /* Taille du texte */
+  color: #172d4b; /* Couleur du texte */
+ 
+}
+.problems02 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px; /* Espacement entre les éléments */
+  padding: 20px;
+  border-radius: 10px;
+}
+.problems02 img {
+  grid-column: 1 / span 2; /* Conditionne les images dans les colonnes 1 à 2 */
+  width: 50px; /* Taille des images */
+  margin-right: 20px; /* Espace entre l'image et le texte */
+}
+
+.problems02 p {
+  grid-column: 3 / span 10; /* Conditionne le texte dans les colonnes 3 à 12 */
+  font-family: "Noto Serif Display", serif;
+  font-size: 18px; /* Taille du texte */
+  color: #172d4b; /* Couleur du texte */
+  margin: 0; /* Élimine les marges supplémentaires */
+}
+
+
+.CSPA h3 {
+  color: white;
+  margin: 0 300px;
+  border-radius: 10px;
+  padding: 20px 30px;
+  white-space: nowrap;
+  font-size: 25px;
+}
+
+.CSPA h3:first-child {
+  border-radius: 10px;
+  background-color: #f1902f;
+  padding: 15px 25px;
+}
+
+.CSPA h3:last-child {
+  border-radius: 10px;
+  background-color: #DD3E1A;
+  padding: 15px 25px;
+}
+
+.image-container img {
+  height: 200px;
+}
+
+.boucleRouge img {
+  height: 400px;
+  margin-top: -250px;
+  margin-left: 200px;
+}
+
+.boucleRouge {
+  position: relative;
+}
+
+.boucleRouge p {
+  font-family: Abril Fatface;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  text-align: center;
+  margin-top: -45px;
+  color: #172d4b;
+  text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .dropdown-menu {
@@ -53,7 +216,6 @@
   color: #DE3E1A;
 }
 
-/* FOOTER */
 .btn-custom {
   background-color: #1A6A8D;
   color: white;
@@ -68,7 +230,6 @@
   bottom: 0;
 }
 
-/* Flip card system - Page d'accueil */
 .card-flip {
   width: 325px;
   height: 350px;
@@ -109,7 +270,7 @@
 }
 
 .booster .card-face.card-back {
-  background-color:#DE3C19 ;
+  background-color: #DE3C19;
   color: white;
 }
 
@@ -119,7 +280,7 @@
 }
 
 .inspirer .card-face.card-back {
-  background-color: #FF9932;  
+  background-color: #FF9932;
   color: white;
 }
 
@@ -139,7 +300,6 @@
   margin-left: 15px;
 }
 
-
 .card-flip .card-back p {
   font-size: 20px;
   margin-top: 20px;
@@ -148,108 +308,14 @@
   margin-right: 15px;
 }
 
-@media (max-width: 1500px) {
-  .offset-sm-5,
-  .offset-md-5 {
-    margin-left: 0;
-  }
-  .card-flip {
-    width: calc(275px - 5vw); 
-    height: calc(300px - 5vw); 
-    margin-right: calc(10px - 1vw); 
-  }
-
-  .card-flip .card-title {
-    font-size: calc(30px - 1vw); 
-  }
-
-  .card-flip .card-back h5 {
-    font-size: calc(25px - 1vw); 
-    margin-top: 15px; 
-  }
-
-  .card-flip .card-back p {
-    font-size: calc(18px - 0.5vw); 
-    margin-top: 15px; 
-  }
-}
-
-
-@media (max-width: 1300px) {
-  .card-flip {
-    width: calc(250px - 5vw); 
-    height: calc(275px - 5vw); 
-    margin-right: calc(10px - 1vw);
-  }
-
-  .card-flip .card-title {
-    font-size: calc(25px - 1vw); 
-  }
-
-  .card-flip .card-back h5 {
-    font-size: calc(20px - 1vw); 
-  }
-
-  .card-flip .card-back p {
-    font-size: calc(16px - 0.5vw);
-  }
-}
-
-@media (max-width: 1100px) {
-  .card-flip {
-    width: calc(200px - 5vw); 
-    height: calc(225px - 5vw);
-    margin-right: calc(10px - 1vw); 
-  }
-
-  .card-flip .card-title {
-    font-size: calc(20px - 1vw); 
-  }
-
-  .card-flip .card-back h5 {
-    font-size: calc(18px - 1vw); 
-  }
-
-  .card-flip .card-back p {
-    font-size: calc(14px - 0.5vw); 
-    }
-}
-
-@media (max-width: 990px) {
-  .row {
-    flex-direction: row-reverse; 
-  }
-
-  .card-flip {
-    width: calc(200px - 5vw); 
-    height: calc(225px - 5vw); 
-    margin-right: calc(10px - 1vw); 
-  }
-
-  .card-flip .card-title {
-    font-size: calc(20px - 1vw); 
-  }
-
-  .card-flip .card-back h5 {
-    font-size: calc(18px - 1vw); 
-    margin-top: 10px; 
-  }
-
-  .card-flip .card-back p {
-    font-size: calc(14px - 0.5vw); 
-    margin-top: 10px; 
-  }
-}
-
-/* inscritpion */
-
 .inscription {
   margin-top: 25px;
   background-color: #182C4A;
   text-align: center;
   border-radius: 25px;
-  color: white;}
+  color: white;
+}
 
-  .btn:hover {
-    opacity: 0.5; /* Réglez l'opacité à la valeur souhaitée */
+.btn:hover {
+  opacity: 0.5;
 }

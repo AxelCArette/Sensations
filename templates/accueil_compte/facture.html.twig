@@ -55,9 +55,9 @@
             {% for detail in details %}
             <tr>
                 <td>{{ detail.formation.titreDeLaFormation }}</td>
-                <td>{{ detail.prix }}</td>
+                <td>{{ detail.prix / 100 }} €</td>
                 <td>1</td>
-                <td>{{ detail.prixtotal }}</td>
+                <td>{{ detail.prixtotal / 100 }} €</td>
             </tr>
             {% endfor %}
         </tbody>

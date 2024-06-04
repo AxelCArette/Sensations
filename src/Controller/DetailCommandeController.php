@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Commande;
 use App\Entity\CommandeDetail;
 use App\Classe\Cart;
+use App\Classe\Mail;
 use App\Repository\CommandeDetailRepository;
 use App\Repository\FormationsRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -50,47 +51,69 @@ class DetailCommandeController extends AbstractController
 
         return $this->render('detail_commande/index.html.twig', [
             'formations' => $formationsDansPanier,
-            'nomsFormationsStr' => $nomsFormationsStr, // Passer la variable à la vue si nécessaire
+            'nomsFormationsStr' => $nomsFormationsStr, 
         ]);
     }
 
     #[Route('/paiement', name: 'app_paiement')]
-    public function paiement(Cart $cart, Request $request, FormationsRepository $formationsRepository): Response
-    {
-        if (!$this->getUser()) {
-            return $this->redirectToRoute('app_login');
+public function paiement(Cart $cart, Request $request, FormationsRepository $formationsRepository): Response
+{
+    if (!$this->getUser()) {
+        return $this->redirectToRoute('app_login');
+    }
+
+    if ($request->isMethod('POST')) {
+        $this->addFlash('success', 'Votre commande a été passée avec succès.');
+    }
+
+    $formationsIdsDansPanier = $cart->get();
+    $formationsDansPanier = [];
+    $totalPrixCommande = 0;
+    $nomsFormations = [];
+
+    foreach ($formationsIdsDansPanier as $formationId => $quantity) {
+        $formation = $formationsRepository->find($formationId);
+        if ($formation) {
+            $formationsDansPanier[] = $formation;
+            $totalPrixCommande += $formation->getPrix();
+            $nomsFormations[] = $formation->getTitreDeLaFormation();
         }
+    }
+
+    $nomsFormationsStr = implode(', ', $nomsFormations);
+
+    if (empty($nomsFormationsStr) || $totalPrixCommande <= 0) {
+        throw new \Exception('Les informations nécessaires pour la session de paiement sont manquantes.');
+    }
+
+    Stripe::setApiKey("sk_test_51OeCoOLne9zIBO1LFsIggYXSCeeeAlmO3g1Afr1XD2Goex6leMNqAtoRklDbmHyxBun3OcdDeIQkRPGGhLKIfps500yL0fKbML");
+    $YOUR_DOMAIN = 'http://127.0.0.1:8000';
     
-        if ($request->isMethod('POST')) {
-            $this->addFlash('success', 'Votre commande a été passée avec succès.');
-        }
-    
-        $formationsIdsDansPanier = $cart->get();
-        $formationsDansPanier = [];
-        $totalPrixCommande = 0;
-        $nomsFormations = [];
-    
-        foreach ($formationsIdsDansPanier as $formationId => $quantity) {
-            $formation = $formationsRepository->find($formationId);
-            if ($formation) {
-                $formationsDansPanier[] = $formation;
-                $totalPrixCommande += $formation->getPrix();
-                $nomsFormations[] = $formation->getTitreDeLaFormation();
-            }
-        }
-    
-        $nomsFormationsStr = implode(', ', $nomsFormations);
-    
-        if (empty($nomsFormationsStr) || $totalPrixCommande <= 0) {
-            throw new \Exception('Les informations nécessaires pour la session de paiement sont manquantes.');
-        }
-    
+    $checkout_session = \Stripe\Checkout\Session::create([
+        'payment_method_types' => ['card'],
+        'line_items' => [[
+            'price_data' => [
+                'currency' => 'eur',
+                'product_data' => [
+                    'name' => $nomsFormationsStr,
+                ],
+                'unit_amount' => $totalPrixCommande, // Assurez-vous que le prix est en centimes
+            ],
+            'quantity' => 1,
+        ]],
+        'allow_promotion_codes' => true,
+        'mode' => 'payment',
+        'success_url' => $YOUR_DOMAIN . '/success?session_id={CHECKOUT_SESSION_ID}',
+        'cancel_url' => $YOUR_DOMAIN . '/cancel?session_id={CHECKOUT_SESSION_ID}',
+    ]);
+
+    if (isset($checkout_session->id) && !empty($checkout_session->id)) {
         $commandeDetails = [];
         foreach ($formationsDansPanier as $formation) {
             $commandeDetail = new CommandeDetail();
             $commandeDetail->setCommande($this->getUser()->getCommandeActuelle());
             $commandeDetail->setFormation($formation);
-    
+
             $prixFormation = $formation->getPrix();
             if ($prixFormation !== null) {
                 $commandeDetail->setPrix($prixFormation);
@@ -101,60 +124,34 @@ class DetailCommandeController extends AbstractController
             $adresseUtilisateur = $this->getUser()->getAdresses()->first();
             $adresseUser = $adresseUtilisateur ? $adresseUtilisateur->getAdresseComplete() : '';
             $commandeDetail->setAdresseUser($adresseUser);
+            
+            // Ajoutez le sessionStripeId à chaque commandeDetail
+            $commandeDetail->setSessionStripeId($checkout_session->id);
+            
             $commandeDetails[] = $commandeDetail;
         }
-    
+
         foreach ($commandeDetails as $commandeDetail) {
-         
-            $commandeDetail->setSessionStripeId('YOUR_SESSION_STRIPE_ID_HERE');
             $this->entityManager->persist($commandeDetail);
         }
         $this->entityManager->flush();
-    
-        Stripe::setApiKey("sk_test_51OeCoOLne9zIBO1LFsIggYXSCeeeAlmO3g1Afr1XD2Goex6leMNqAtoRklDbmHyxBun3OcdDeIQkRPGGhLKIfps500yL0fKbML");
-    
-        $YOUR_DOMAIN = 'http://127.0.0.1:8000';
-    
-        // Créez la session Stripe
-        $checkout_session = Session::create([
-            'payment_method_types' => ['card'],
-            'line_items' => [[
-                'price_data' => [
-                    'currency' => 'eur',
-                    'product_data' => [
-                        'name' => $nomsFormationsStr,
-                    ],
-                    'unit_amount' => $totalPrixCommande, 
-                ],
-                'quantity' => 1,
-            ]],
-            'mode' => 'payment',
-            'success_url' => $YOUR_DOMAIN . '/success?session_id={CHECKOUT_SESSION_ID}',
-            'cancel_url' => $YOUR_DOMAIN . '/cancel.html',
-        ]);
-        if (isset($checkout_session->id) && !empty($checkout_session->id)) {
-            foreach ($commandeDetails as $commandeDetail) {
-                $commandeDetail->setSessionStripeId($checkout_session->id);
-                $this->entityManager->persist($commandeDetail);
-            }
-    
-            $this->entityManager->flush();
-    
-            $cart->remove();
-            return $this->redirect($checkout_session->url);
-        } else {
-            throw new \Exception('La création de la session Stripe a échoué.');
-        }
-    }
 
-    #[Route('/continue-paiement/{id}', name: 'app_continue_paiement')]
-    public function continuePaiement(int $id, CommandeDetailRepository $commandeDetailRepository): Response
-    {
-        $commandeDetail = $commandeDetailRepository->find($id);
+        $cart->remove();
+        return $this->redirect($checkout_session->url);
+    } else {
+        throw new \Exception('La création de la session Stripe a échoué.');
+    }
+}
+
+
+     #[Route('/continue-paiement/{id}', name: 'app_continue_paiement')]
+ public function continuePaiement(int $id, CommandeDetailRepository $commandeDetailRepository): Response
+ {
+     $commandeDetail = $commandeDetailRepository->find($id);
 
         if (!$commandeDetail) {
             throw $this->createNotFoundException('Détail de commande non trouvé');
-        }
+         }
 
         Stripe::setApiKey("sk_test_51OeCoOLne9zIBO1LFsIggYXSCeeeAlmO3g1Afr1XD2Goex6leMNqAtoRklDbmHyxBun3OcdDeIQkRPGGhLKIfps500yL0fKbML");
         $YOUR_DOMAIN = 'http://127.0.0.1:8000';
@@ -167,43 +164,101 @@ class DetailCommandeController extends AbstractController
                     'product_data' => [
                         'name' => $commandeDetail->getFormation()->getTitreDeLaFormation(),
                     ],
-                    'unit_amount' => $commandeDetail->getPrixtotal() , // Stripe requires the amount in cents
-                ],
+                    'unit_amount' => $commandeDetail->getPrixtotal() ,
+               ],
                 'quantity' => 1,
             ]],
+            'allow_promotion_codes' => true,
             'mode' => 'payment',
             'success_url' => $YOUR_DOMAIN . '/success?session_id={CHECKOUT_SESSION_ID}',
-            'cancel_url' => $YOUR_DOMAIN . '/cancel.html',
-        ]);
+         'cancel_url' => $YOUR_DOMAIN . '/cancel.html',
+      ]);
         
         $commandeDetail->setSessionStripeId($nouvelleSessionStripe->id);
-        $this->entityManager->flush();
+       $this->entityManager->flush();
         
-        return $this->redirect($nouvelleSessionStripe->url);
+       return $this->redirect($nouvelleSessionStripe->url);
         }
-        
-        #[Route('/success', name: 'app_success')]
-        public function success(Request $request, CommandeDetailRepository $commandeDetailRepository): Response
-        {
-            $sessionId = $request->query->get('session_id');
-        
-            if (!$sessionId) {
-                throw new \Exception('Session ID manquant');
-            }
+
+
+    #[Route('/success', name: 'app_success')]
+    public function success(Request $request, CommandeDetailRepository $commandeDetailRepository, EntityManagerInterface $entityManager, Mail $mail): Response
+    {
+        $sessionId = $request->query->get('session_id');
+    
+        if (!$sessionId) {
+            throw new \Exception('Session ID manquant');
+        }
+    
+     
+        Stripe::setApiKey("sk_test_51OeCoOLne9zIBO1LFsIggYXSCeeeAlmO3g1Afr1XD2Goex6leMNqAtoRklDbmHyxBun3OcdDeIQkRPGGhLKIfps500yL0fKbML");
+        $session = Session::retrieve($sessionId);
  
-           $commandeDetail = $commandeDetailRepository->findOneBy(['sessionStripeId' => $sessionId]);
-        
+        if ($session && $session->payment_status === 'paid') {
+           
+            $totalPaid = $session->amount_total;
+    
+            
+            $commandeDetail = $commandeDetailRepository->findOneBy(['sessionStripeId' => $sessionId]);
+    
             if ($commandeDetail) {
+              
                 $commandeDetail->setStatut(1);
-                $this->entityManager->flush();
-                $message = 'Votre paiement a été réussi et votre commande est confirmée.';
+                $commandeDetail->setPrixtotal($totalPaid);
+                $entityManager->flush();
+                $commande = $commandeDetail->getCommande();
+                $utilisateur = $commande->getUtilisateur();
+                $content = "Bonjour " . $utilisateur->getPrenom() . "</br> Merci pour votre commande.<br>";
+                $mail->send($utilisateur->getEmail(), $utilisateur->getPrenom(), 'Votre formation est disponible dans votre compte client', $content);
+    
+                $message = 'Votre paiement a été réussi et votre commande est confirmée. Vous pouvez la retrouver dans votre compte client.';
             } else {
                 throw new \Exception('Commande non trouvée.');
             }
-        
-            return $this->render('succes/index.html.twig', [
-                'message' => $message ?? null,
-            ]);
+        } else {
+            throw new \Exception('La session de paiement n\'a pas été trouvée ou n\'a pas été payée.');
         }
+    
+        return $this->render('succes/index.html.twig', [
+            'message' => $message,
+        ]);
+    }
+    #[Route('/cancel', name: 'app_cancel')]
+    public function cancel(Request $request, CommandeDetailRepository $commandeDetailRepository, EntityManagerInterface $entityManager, Mail $mail): Response
+    {
+        $sessionId = $request->query->get('session_id');
+    
+        if (!$sessionId) {
+            throw new \Exception('Session ID manquant');
         }
-        
+    
+        Stripe::setApiKey("sk_test_51OeCoOLne9zIBO1LFsIggYXSCeeeAlmO3g1Afr1XD2Goex6leMNqAtoRklDbmHyxBun3OcdDeIQkRPGGhLKIfps500yL0fKbML");
+        $session = Session::retrieve($sessionId);
+    
+        if ($session && $session->payment_status === 'canceled') {
+            $totalPaid = $session->amount_total;
+            $commandeDetail = $commandeDetailRepository->findOneBy(['sessionStripeId' => $sessionId]);
+    
+            if ($commandeDetail) {
+                $commandeDetail->setStatut(0);
+                $commandeDetail->setPrixtotal($totalPaid);
+                $entityManager->flush();
+    
+    
+                $commande = $commandeDetail->getCommande();
+                $utilisateur = $commande->getUtilisateur();
+                $content = "Bonjour " . $utilisateur->getPrenom() . "</br> Votre commande a été annulée.<br>";
+                $mail->send($utilisateur->getEmail(), $utilisateur->getPrenom(), 'Annulation de commande', $content);
+    
+                return $this->render('cancel/index.html.twig', [
+                    'message' => 'Votre commande a été annulée avec succès.'
+                ]);
+            } else {
+                throw new \Exception('Commande non trouvée.');
+            }
+        } else {
+            throw new \Exception('La session de paiement n\'a pas été trouvée ou le paiement n\'a pas été annulé.');
+        }
+    }
+    
+}    
