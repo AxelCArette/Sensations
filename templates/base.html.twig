@@ -1,6 +1,54 @@
 <!DOCTYPE html>
 <html>
     <head>
+    <script src="/tarteaucitron/tarteaucitron.js-master/tarteaucitron.js"></script>
+
+        <script type="text/javascript">
+        tarteaucitron.init({
+    	  "privacyUrl": "", 
+        "bodyPosition": "bottom", 
+
+    	  "hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
+    	  "cookieName": "tarteaucitron", /* Cookie name */
+    
+    	  "orientation": "middle", /* Banner position (top - bottom) */
+       
+          "groupServices": false, /* Group services by category */
+          "showDetailsOnClick": true, /* Click to expand the description */
+          "serviceDefaultState": "wait", /* Default state (true - wait - false) */
+                           
+    	  "showAlertSmall": false, /* Show the small banner on bottom right */
+    	  "cookieslist": false, /* Show the cookie list */
+                  
+          "closePopup": false, /* Show a close X on the banner */
+          "showIcon": false, /* Show cookie icon to manage cookies */
+          //"iconSrc": "", /* Optionnal: URL or base64 encoded image */
+          "iconPosition": "BottomRight",
+    	  "adblocker": false, /* Show a Warning if an adblocker is detected */         
+          "DenyAllCta" : true, /* Show the deny all button */
+          "AcceptAllCta" : true, /* Show the accept all button when highPrivacy on */
+          "highPrivacy": true, /* HIGHLY RECOMMANDED Disable auto consent */
+          "alwaysNeedConsent": false, /* Ask the consent for "Privacy by design" services */       
+    	  "handleBrowserDNTRequest": false, 
+    	  "removeCredit": false, 
+    	  "moreInfoLink": true, /* Show more info link */
+          "useExternalCss": false, /* If false, the tarteaucitron.css file will be loaded */
+          "useExternalJs": false, 
+
+    	  //"cookieDomain": ".my-multisite-domaine.fr", /* Shared cookie for multisite */
+                          
+          "readmoreLink": "", /* Change the default readmore link */
+
+          "mandatory": true, /* Show a message about mandatory cookies */
+          "mandatoryCta": true, /* Show the disabled accept button when mandatory on */
+    
+          //"customCloserId": "", /* Optional a11y: Custom element ID used to open the panel */
+          
+          "googleConsentMode": true, /* Enable Google Consent Mode v2 for Google ads and GA4 */
+          
+          "partnersList": false /* Show the number of partners on the popup/middle banner */
+        });
+        </script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Welcome!{% endblock %}</title>
@@ -12,8 +60,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script src="{{ asset('build/vendor.js') }}" defer></script>
         <meta name="description" content="">
@@ -25,7 +73,8 @@
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
-    
+
+ <body>   
 <nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
   <div class="container">
     <a class="navbar-brand me-3" href="{{ path('app_accueil') }}">
@@ -44,7 +93,7 @@
             Entreprises
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-            <li><a class="dropdown-item" href="{{ path('app_coaching_entreprise') }}">Collectif</a></li>
+            <li><a class="dropdown-item" href="{{ path('app_coaching_collectif') }}">Collectif</a></li>
             <li><a class="dropdown-item" href="{{ path('app_coaching_sportif') }}">Individuel</a></li>
           </ul>
         </li>
@@ -53,7 +102,7 @@
             Sportifs
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-            <li><a class="dropdown-item" href="{{ path('app_coaching_entreprise') }}">Joueurs et athlètes</a></li>
+            <li><a class="dropdown-item" href="{{ path('app_coaching_collectif') }}">Joueurs et athlètes</a></li>
             <li><a class="dropdown-item" href="{{ path('app_coaching_sportif') }}">Entraîneurs</a></li>
             <li><a class="dropdown-item" href="{{ path('app_coaching_sportif') }}">Arbitres</a></li>
           </ul>
@@ -78,9 +127,10 @@
             Qui-suis-je ?
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
-            <li><a class="dropdown-item" href="{{ path('app_coaching_entreprise') }}">Mon histoire</a></li>
-            <li><a class="dropdown-item" href="{{ path('app_coaching_sportif') }}">Pourquoi me choisir ?</a></li>
-            <li><a class="dropdown-item" href="{{ path('app_coaching_sportif') }}">Déontologie</a></li>
+             <li><a class="dropdown-item" href="{{ path('app_qui_suis_je') }}">Une coach au coeur du jeu</a></li>
+            <li><a class="dropdown-item" href="{{ path('app_qui_suis_je') }}#monHistoire">Mon histoire</a></li>
+            <li><a class="dropdown-item" href="{{ path('app_qui_suis_je') }}#pourQuoiMechoisir">Pourquoi me choisir ?</a></li>
+            <li><a class="dropdown-item" href="{{ path('app_qui_suis_je') }}#parcoursetdentologie">Déontologie</a></li>
           </ul>
         </li>
         {% if app.user %}
@@ -96,18 +146,16 @@
         </li>
         {% else %}
         <li class="nav-item me-3">
-          <a class="nav-link btn btn-primary text-white" href="{{ path('app_login') }}">Connexion</a>
+          <a class="btn" href="{{ path('app_login') }}">Connexion</a>
         </li>
         {% endif %}
       </ul>
     </div>
   </div>
 </nav>
-
-
         {% block body %}
         {% endblock %}
-    </body>
+    
 <footer class="footer" style="background-color: #FDEEE0; color: #000;">
   <div class="container">
     <div class="row align-items-center">
@@ -151,12 +199,19 @@
     <div class="row" style="margin-top: 20px;">
       <div class="col-md-12 text-center">
        <p class="mb-0" style="color: black;">
-    Copyright ©Sensation Coaching | Mentions Légales | CVG | 
-    <a href="https://www.linkedin.com/in/axel-carette-aa9060280/" style="color: black; text-decoration: none;">Réalisation  Axel Carette</a></p>
-      </div>
+    Copyright ©Sensation Coaching |<a href="{{path('app_mentions_legale')}}" style="color: black; text-decoration: none;"> Mentions Légales | 
+    <a href="{{ path('app_c_g_v') }}" style="color: black; text-decoration: none;">CGV</a> | 
+    <a href="https://www.linkedin.com/in/axel-carette-aa9060280/" style="color: black; text-decoration: none;">Réalisation Axel Carette</a>
+</p>
+
     </div>
   </div>
 </footer>
-
-
+<script type="text/javascript">
+        (tarteaucitron.job = tarteaucitron.job || []).push('gcmanalyticsstorage');
+</script>
+ <script type="text/javascript">
+        (tarteaucitron.job = tarteaucitron.job || []).push('calendly');
+        </script>
+</body>
 </html>

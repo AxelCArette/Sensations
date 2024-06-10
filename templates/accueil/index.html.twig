@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}Sensation-Accueil{% endblock %}
 {% block body %}
-
 <script>
   AOS.init();
 </script>
@@ -38,8 +37,7 @@
             </div>
           </div>
         </div>
-
-        <div class="col-sm-5 offset-md-4 col-md-3 mb-3"> <!-- Ajustement de la marge gauche -->
+        <div class="col-sm-5 offset-md-4 col-md-3 mb-3"> 
           <div class="card-flip inspirer" style="position: relative; margin-left: -250px;"> <!-- Ajustement de la marge gauche -->
             <div class="card-face card-front d-flex flex-column justify-content-end" data-aos="flip-left">
               <h2 class="card-title text-center" style="position: absolute; top: 25px; right: 25px; margin-right: 10px; margin-top: 10px;">Inspirer</h2>
@@ -73,7 +71,7 @@
 <div class="grid-container">
         <div class="centered-content">
             <div class="text-container">
-                <h1 style="margin-top: -30px;">Mes accompagnements</h1>
+                <h1 style="margin-top: -30px; margin-left:-50px">Mes accompagnements</h1>
                 <p class="shift-right">Et si les émotions ne restaient pas au vestiaire ?</p>
             </div>
             <div class="image-container">
@@ -109,44 +107,133 @@
 ces situations ...</p>
 </div>
 <div class="CSPA">
-    <h3> Chef de projet, manager ...</h3>
+    <div class="left-section">
+        <h3> Chef de projet, manager ...</h3>
+        <div class="problems">
+            <div class="problem-item">
+                <img src="{{ asset('asset/img/pointbleu.png') }}" alt="Point bleu foncé">
+                <p>Vous jonglez avec le <b>manque de<br> temps,</b> tout en luttant contre vos<br> propres réactions, votre <b>lucidité</b> se<br> fragilise ?</p>
+            </div>
+            <div class="problem-item">
+                <img src="{{ asset('asset/img/pointorange.png') }}" alt="Point dans les tons jaune et orange">
+                <p>Vous vous sentez dans la <b>confusion</b><br> face au manque de solidarité et de<br> <b>coopération</b> dans votre équipe ?</p>
+            </div>
+            <div class="problem-item">
+                <img src="{{ asset('asset/img/pointorangefoncer.png') }}" alt="Point orange foncé">
+                <p>Votre projet stagne, vous ressentez de<br> <b>l’agacement</b> face au manque de <b>prise<br> d’initiatives</b> de vos collaborateurs et à<br> la perspective de l'échec de votre<br> projet ?</p>
+            </div>
+            <div class="problem-item">
+                <img src="{{ asset('asset/img/pointbleuclair.png') }}" alt="Point bleu clair">
+                <p>Vous êtes minés par les tensions et les<br> <b>doutes</b> au sein de votre équipe, vous<br> craignez de ne pas <b>être à la hauteur ?</b></p>
+            </div>
+            <div class="problem-item">
+                <img src="{{ asset('asset/img/pointorange.png') }}" alt="Point bleu">
+                <p>Les départs réguliers ne font<br> qu'accentuer votre sentiment de<br> <b>fatigue,</b> vous laissant avec un manque<br> cruel d'énergie et de <b>vitalité ?</b></p>
+            </div>
+        </div>
+    </div>
+    <div class="right-section">
     <h3> Sportif, arbitre entraîneur ...</h3>
-</div>
-
-<div class="problems">
-    <div class="problem-item">
-        <img src="{{ asset('asset/img/pointbleu.png') }}" alt="Point bleu foncé">
-        <p>Vous jonglez avec le <b>manque de<br> temps,</b> tout en luttant contre vos<br> propres réactions, votre <b>lucidité</b> se<br> fragilise ?</p>
-    </div>
-    <div class="problem-item">
-        <img src="{{ asset('asset/img/pointorange.png') }}" alt="Point dans les tons jaune et orange">
-        <p>Vous vous sentez dans la <b>confusion</b><br> face au manque de solidarité et de<br> <b>coopération</b> dans votre équipe ?</p>
-    </div>
-    <div class="problem-item">
-        <img src="{{ asset('asset/img/pointorangefoncer.png') }}" alt="Point orange foncé">
-        <p>Votre projet stagne, vous ressentez de<br> <b>l’agacement</b> face au manque de <b>prise<br> d’initiatives</b> de vos collaborateurs et à<br> la perspective de l'échec de votre<br> projet ?</p>
-    </div>
-    <div class="problem-item">
-        <img src="{{ asset('asset/img/pointbleuclair.png') }}" alt="Point bleu clair">
-        <p>Vous êtes minés par les tensions et les<br> <b>doutes</b> au sein de votre équipe, vous<br> craignez de ne pas <b>être à la hauteur ?</b></p>
-    </div>
-    <div class="problem-item">
-        <img src="{{ asset('asset/img/pointorange.png') }}" alt="Point bleu">
-        <p>Les départs réguliers ne font<br> qu'accentuer votre sentiment de<br> <b>fatigue,</b> vous laissant avec un manque<br> cruel d'énergie et de <b>vitalité ?</b></p>
-    </div>
     <div class="problems02">
-    <img src="{{ asset('asset/img/pointbleuclair.png') }}" alt="Point bleu clair">
-    <p>Vous vous sentez frustré après une défaite malgré tous vos entraînements, vous doutez de votre propre réussite ?</p>
-    <img src="{{ asset('asset/img/pointorangefoncer.png') }}" alt="Point orange foncé">
-    <p>La pression avant une compétition importante vous envahit, plus moyen de retrouver votre sérénité ?</p>
-    <img src="{{ asset('asset/img/pointorange.png') }}" alt="Point dans les tons jaune et orange">
-    <p>Vous craignez ne pas être à la hauteur des attentes extérieures, vous avez l’impression que votre performance stagne ?</p>
-    <img src="{{ asset('asset/img/pointbleu.png') }}" alt="Point bleu foncé">
-    <p>Vous faites face à un choix de carrière, vous n’êtes plus certain de rien ?</p>
-    <img src="{{ asset('asset/img/pointorangefoncer.png') }}" alt="Point orange foncé">
-    <p>Blessé, en manque d’énergie et parfois seul, vous avez peur de ne pas retrouver votre meilleur niveau ?</p>
+        <div class="problem02-item">
+            <img src="{{ asset('asset/img/pointbleuclair.png') }}" alt="Point bleu clair">
+            <p>Vous vous sentez <b> frustré </b> après une<br> défaite malgré tous vos<br> entraînements, vous doutez de votre <br> propre réussite ?</p>
+        </div>
+        <div class="problem02-item">
+            <img src="{{ asset('asset/img/pointorangefoncer.png') }}" alt="Point orange foncé">
+            <p>La <b> pression</b> avant une compétition <br> importante vous envahit, plus moyen <br> de retrouver votre <b> sérénité </b> ?</p>
+        </div>
+        <div class="problem02-item">
+            <img src="{{ asset('asset/img/pointorange.png') }}" alt="Point dans les tons jaune et orange">
+            <p>Vous craignez ne pas être à la <br> hauteur des <b> attentes extérieures,</b><br> vous avez l’impression que votre <br><b> performance </b> stagne ?</p>
+        </div>
+        <div class="problem02-item">
+            <img src="{{ asset('asset/img/pointbleu.png') }}" alt="Point bleu foncé">
+            <p>Vous faites face à un <b> choix de <br> carrière,</b> vous n’êtes plus <b>certain</b> de <br> rien ?</p>
+        </div>
+        <div class="problem02-item">
+            <img src="{{ asset('asset/img/pointorangefoncer.png') }}" alt="Point orange foncé">
+            <p><b> Blessé,</b> en manque d’énergie et <br> parfois seul, vous avez peur de ne <br> pas retrouver votre <b> meilleur niveau </b> ?</p>
+        </div>
     </div>
 </div>
+</div>
+<div style="height:250px;"></div>
 
+<div class="pied">
+  <div class="piedimage">
+    <img src="{{ asset('asset/img/pied.png') }}" alt="Une image qui fait penser à un pied">
+  </div>
+  <h3> Et vous souhaitez ... </h3>
+  <div class="imagetorsader">
+    <img src="{{asset('asset/img/flechetorsader.png')}}" alt="Une flêche rouge avec une torsade">
+  </div>
+  <div data-aos="fade-right"> 
+ <div class="couronne">
+  <img src="{{asset('asset/img/couronne.png')}}" alt="Une couronne" class="couronne-img">
+  <p>Devenir le champion serein que vous êtes destiné à être en domptant vos peurs et en surmontant les doutes.</p>
+</div>
+ </div>
+  <div data-aos="fade-left">
+  <div class="etoile">
+    <img src="{{asset('asset/img/etoile.png')}}" alt="Des étoiles bleu" class="etoile-img">
+    <p>Retrouver la passion et le plaisir dans votre pratique,votre source de motivation inépuisable.</p>
+    </div>
+  </div>
+    <div data-aos="fade-right">
+<div class="eclair">
+<img src="{{asset('asset/img/eclair.png')}}" alt="Un eclair de couleur jaune et orange" class="eclair-img">
+<p> Oser suivre votre intuition pour surpasser vos limites et réaliser vos propres rêves.</p>
+</div>
+ <div data-aos="fade-left">
+ <div class="diamant">
+ <img src="{{asset('asset/img/diamant.png')}}" alt="Un diamant de couleur jaune" class="diamant-img">
+ <p>Redevenir le capitaine confiant de votre monde intérieur pour une nouvelle liberté de choix équilibré et en conscience.</p>
+ </div>
+ </div>
+<div data-aos="fade-right">
+<div class="pointetoile">
+<img src="{{asset('asset/img/pointetoile.png')}}" alt="Un eclair de couleur jaune et orange" class="pointetoile-img">
+<p> Forger une mentalité de gagnant et apprendre à rebondir après l'échec en transformant chaque défi en opportunités de victoire.</p>
+</div>
+<div data-aos="fade-left">
+<div class="cible">
+<img src="{{asset('asset/img/cible.png')}}" alt="Un eclair de couleur jaune et orange" class="cible-img">
+<p>Maximiser votre énergie vitale et garder le cap sur vos objectifs, même dans les situations les plus critiques.</p>
+</div>
+</div>
+</div>
+</div>
 
+<div class="rdv">
+    <h2>Alors prêt à vous propulser vers <br> l’excellence ?</h2>
+    <a href="{{ path('app_contact') }}"><button class="text-align">Je réserve mon rdv offert</button></a>
+      <div class="tacheorange">
+      <img src="{{asset('asset/img/tacheorange.png')}}" alt="Une tache orange">
+      </div>
+      </div>
+      </div>
+      <div class="flcquisuisje">
+<img src="{{asset('asset/img/backgroundmontagne.png')}}" alt="Un fond représentré par des montagnes">
+</div>
+<div class="flcphoto">
+<img src="{{asset('asset/img/flaviedoigt.png')}}" alt="Flavie Carette coaching">
+<p> Je suis Flavie Carette, coach professionnelle certifiée, ancienne joueuse de haut-niveau et arbitre de football, j’utilise mon expertise du sport collectif et mon intelligence émotionnelle pour accompagner les leaders en entreprise et dans le sport à œuvrer à un projet inédit et humain.</p>
+ <a href="{{ path('app_qui_suis_je') }}"><button class="text-align">En savoir +</button></a>
+</div>
+<div class="bulle">
+ <h3> Ils témoignent ...</h3>
+ <img src="{{asset('asset/img/bulle.png')}}" alt="Flavie Carette coaching">
+ <p> Je me suis très bien senti dans la relation. J’ai apprécié cet espace de bienveillance, de non-jugement et d’écoute. Je me sens plus confiant pour l’avenir et plus sécurisé dans ma capacité à gérer mon stress ou un potentiel problème relationnel. Les séances m’ont permis d’en apprendre davantage au sujet de mon fonctionnement, de ma gestion des émotions. Merci beaucoup Flavie pour votre temps, et votre aide. Au plaisir de vous revoir
+prochainement. - Vincent</p>
+</div>
+ <img src="{{'asset/img/rondbleu.png'}}" alt="Un rond bleu avec des lignes à l'intérieur" class="ronblounet">
+   <div class="imagetorsader01">
+    <img src="{{asset('asset/img/flechetorsader.png')}}" alt="Une flêche rouge avec une torsade">
+    <p> Commencez votre transformation maintenant</p>
+     <a href="{{ path('app_contact') }}"><button class="text-align">1er rendez-vous gratuit !</button></a>
+  </div>
+  <div style="height:250px;"></div>
+ </div>
+</div>
 {% endblock %}

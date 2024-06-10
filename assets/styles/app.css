@@ -2,38 +2,32 @@
   margin: 0;
   padding: 0;
 }
-
 .abril-fatface-regular {
   font-family: "Abril Fatface", serif;
   font-weight: 400;
   font-style: normal;
 }
-
 .custom-navbar {
   background-color: #ffefd7 !important;
 }
-
 .noto-serif {
   font-family: "Noto Serif Display", serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings: "wdth" 100;
 }
-
 .quicksand {
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
-
 .btn-blue {
   display: inline-block;
   padding: 8px 16px;
   border-radius: 5px;
   color: #182C4A;
 }
-
 .calendrierEtTexte {
   display: flex;
   align-items: center;
@@ -58,13 +52,11 @@
   width: 100%;
   background: linear-gradient(to right, #ffefd8, #ffffff);
 }
-
 .centered-content {
   grid-column: 4 / span 10;
   display: flex;
   align-items: center;
 }
-
 .shift-right {
   margin-left: 200px;
   margin-top: 20px;
@@ -92,59 +84,61 @@ h1 {
 .CSPA {
   display: flex;
   justify-content: center;
-  text-align: center;
   flex-direction: row;
 }
 
 .problems {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 20px; /* Espacement entre les éléments */
+  gap: 20px;
   padding: 20px;
   border-radius: 10px;
 }
-
 .problem-item {
-  grid-column: 2 / span 10; /* Conditionne les éléments dans les colonnes 2 à 10 */
+  padding-top: 50px;
+  grid-column: 4 / span 10;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Aligne le contenu au début de la colonne */
-  margin-bottom: 20px; /* Espacement entre les éléments */
+  margin-bottom: 20px;
 }
 
 .problem-item img {
-  width: 50px; /* Taille des images */
-  margin-right: 50px; /* Espace entre l'image et le texte */
+  width: 50px;
+  margin-right: 75px; 
 }
 
 .problem-item p {
   font-family: "Noto Serif Display", serif;
-  font-size: 18px; /* Taille du texte */
-  color: #172d4b; /* Couleur du texte */
- 
+  font-size: 20px;
+  color: #172d4b; 
 }
+
 .problems02 {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 20px; /* Espacement entre les éléments */
+  grid-template-columns: repeat(10, 1fr);
+  gap: 20px;
   padding: 20px;
   border-radius: 10px;
 }
-.problems02 img {
-  grid-column: 1 / span 2; /* Conditionne les images dans les colonnes 1 à 2 */
-  width: 50px; /* Taille des images */
-  margin-right: 20px; /* Espace entre l'image et le texte */
+
+.problem02-item {
+  padding-top: 50px;
+  grid-column: 1/ span 6;
+  display: flex;
+  margin-left: -55px ;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.problems02 p {
-  grid-column: 3 / span 10; /* Conditionne le texte dans les colonnes 3 à 12 */
+.problem02-item img {
+  width: 50px;
+  margin-right: 75px;
+}
+.problem02-item p {
   font-family: "Noto Serif Display", serif;
-  font-size: 18px; /* Taille du texte */
-  color: #172d4b; /* Couleur du texte */
-  margin: 0; /* Élimine les marges supplémentaires */
+  font-size: 20px;
+  color: #172d4b; 
 }
-
-
 .CSPA h3 {
   color: white;
   margin: 0 300px;
@@ -153,33 +147,35 @@ h1 {
   white-space: nowrap;
   font-size: 25px;
 }
-
-.CSPA h3:first-child {
+.CSPA h3{
   border-radius: 10px;
   background-color: #f1902f;
   padding: 15px 25px;
 }
 
-.CSPA h3:last-child {
+.right-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.right-section h3 {
   border-radius: 10px;
   background-color: #DD3E1A;
   padding: 15px 25px;
+  margin: 0; /* Supprime toutes les marges */
+  align-self: flex-start;
 }
-
 .image-container img {
   height: 200px;
 }
-
 .boucleRouge img {
   height: 400px;
   margin-top: -250px;
   margin-left: 200px;
 }
-
 .boucleRouge {
   position: relative;
 }
-
 .boucleRouge p {
   font-family: Abril Fatface;
   position: absolute;
@@ -192,44 +188,35 @@ h1 {
   color: #172d4b;
   text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
 .dropdown-menu {
   display: none;
   position: absolute;
   z-index: 1000;
 }
-
 .navbar-nav .dropdown:hover .dropdown-menu {
   display: block;
 }
-
 .navbar-nav .dropdown-menu .dropdown-item:hover {
   color: #FF9932;
   background-color: #ffffff;
 }
-
 .navbar-nav .dropdown-toggle::after {
   display: none;
 }
-
 .nav-link:hover {
   color: #DE3E1A;
 }
-
 .btn-custom {
   background-color: #1A6A8D;
   color: white;
 }
-
 .btn-custom:hover {
   color: black;
 }
-
 .footer {
   overflow: hidden;
   bottom: 0;
 }
-
 .card-flip {
   width: 325px;
   height: 350px;
@@ -238,18 +225,15 @@ h1 {
   transition: transform 0.9s;
   cursor: pointer;
 }
-
 .card-flip:hover {
   transform: rotateY(180deg);
 }
-
 .card-face {
   width: 100%;
   height: 100%;
   position: absolute;
   backface-visibility: hidden;
 }
-
 .card-back {
   transform: rotateY(180deg);
 }
@@ -276,7 +260,7 @@ h1 {
 
 .inspirer .card-face.card-front {
   background-color: #FF9932;
-  color: white;
+  color:white;
 }
 
 .inspirer .card-face.card-back {
@@ -307,7 +291,6 @@ h1 {
   margin-left: 15px;
   margin-right: 15px;
 }
-
 .inscription {
   margin-top: 25px;
   background-color: #182C4A;
@@ -315,7 +298,932 @@ h1 {
   border-radius: 25px;
   color: white;
 }
-
 .btn:hover {
   opacity: 0.5;
+}
+.pied {
+  background: linear-gradient(to right, #ffefd8, #ffffff);
+}
+.piedimage img 
+{
+  width: 400px;
+  margin-top: -225px;
+  margin-left: -200px;
+}
+.pied h3 {
+  text-align: center;
+  margin-top: -325px;
+  color: #2a405b;
+  font-family: 'Abril Fatface', cursive;
+  font-size: 55px;
+}
+
+.imagetorsader img 
+{
+  margin-left: 1250px;
+  width: 200px;
+}
+.couronne {
+  margin-left: 550px;
+  width: 450px;
+  height: 180px;
+  padding-left: 15px;
+  border-radius: 25px;
+  background-color: #74a1b2;
+  color: white;
+  margin-bottom: 150px;
+  align-items: center; /* Centrez verticalement le contenu */
+}
+.couronne p {
+  font-size: 20px; /* Taille de police désirée */
+}
+.couronne-img {
+  width: 150px;
+  height: auto; 
+  margin-left: -90px;
+  margin-top: -70px;
+}
+.etoile {
+  margin-left: 950px;
+  width: 450px;
+  height: 180px;
+  padding-left: 15px ;
+  border-radius: 25px;
+  background-color: #ea8870;
+  color: white;
+  margin-bottom: 100px;
+}
+.etoile-img
+{
+  width: 100px;
+  height: auto; 
+  margin-left: -70px;
+  margin-top: -55px;
+}
+.etoile p {
+  font-size: 20px; /* Taille de police désirée */
+}
+.eclair {
+  margin-left: 550px;
+  width: 450px;
+  height: 180px;
+  padding-left: 15px;
+  border-radius: 25px;
+  background-color: #3E4E65;
+  color: white;
+  margin-bottom: 100px;
+  align-items: center; 
+}
+.eclair-img
+{
+  width: 100px;
+  height: auto; 
+  margin-left: -50px;
+  margin-top: -85px;
+}
+.eclair p {
+  font-size: 20px;
+}
+.diamant {
+  margin-left: 950px;
+  width: 450px;
+  height: 180px;
+  padding-left: 15px ;
+  border-radius: 25px;
+  background-color: #f6b97b;
+  color: white;
+  margin-bottom: 100px;
+}
+.diamant-img
+{
+  width: 100px;
+  height: auto; 
+  margin-left: -70px;
+  margin-top: -55px;
+}
+.diamant p {
+  font-size: 20px;
+}
+
+.pointetoile {
+  margin-left: 550px;
+  width: 450px;
+  height: 180px;
+  padding-left: 15px;
+  border-radius: 25px;
+  background-color: #74a0af;
+  color: white;
+  margin-bottom: 100px;
+  align-items: center; 
+}
+.pointetoile-img
+{
+  width: 100px;
+  height: auto; 
+  margin-left: -50px;
+  margin-top: -85px;
+}
+.pointetoile p {
+  margin-top: 10px;
+  font-size: 20px;
+}
+.cible {
+  margin-left: 950px;
+  width: 450px;
+  height: 180px;
+  padding-left: 15px ;
+  border-radius: 25px;
+  background-color: #ea8870;
+  color: white;
+  margin-bottom: 100px;
+}
+.cible-img
+{
+  width: 100px;
+  height: auto; 
+  margin-left: -70px;
+  margin-top: -55px;
+}
+.cible p {
+  font-size: 20px;
+}
+.pied h2 
+{
+  text-align: center;
+}
+.excellence h2 {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.tacheorange img{
+  position: relative;
+  margin-top: -200px;
+  margin-left: 83%;
+  height: 400px;
+}
+.rdv {
+  text-align: center; /* Aligner le contenu au centre */
+}
+
+.rdv button {
+  position: relative;
+  margin-top: 25px;
+  font-family: Abril Fatface;
+  color: white; 
+  background-color:#1c6a8d;
+  padding-top: 15px;
+  padding-bottom:15px ;
+  padding-left:25px ;
+  padding-right:25px ;
+  border-radius: 50px; 
+  font-size: 40px;
+}
+.flcquisuisje {
+  margin-top: -250px;
+  width: 100%; /* Assurez-vous que la div occupe toute la largeur disponible */
+  overflow: hidden; /* Pour cacher les parties de l'image qui dépassent de la div */
+}
+
+.flcquisuisje img {
+  width: 100%; /* La largeur de l'image prend toute la largeur de la div parent */
+  height: 100%; /* La hauteur de l'image prend toute la hauteur de la div parent */
+  object-fit: cover; /* Pour que l'image conserve ses proportions tout en remplissant la div */
+}
+.flcphoto img
+{
+  margin-top: -1300px;
+  width: 600px;
+  margin-right: 800px;
+}
+.flcphoto p 
+{ 
+  position: relative;
+  margin-left: 750px;
+  margin-top: -900px;
+  background-color:#feeed7;
+  width: 750px;
+  padding: 10px;
+  border-radius: 25px;
+  font-size: 25px;
+}
+.flcphoto button {
+  position: relative;
+  margin-top: -85px;
+  margin-left: 1250px;
+  text-align: center;
+  background-color: #172d4b; 
+  color: white; 
+  font-size: 30px; 
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 30px; 
+  cursor: pointer; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+.flcphoto button:hover {
+  background-color: #0e1f34; 
+  transform: translateY(-5px); 
+}
+.bulle h3 {
+  margin-top: -300px;
+  text-align: center;
+  font-size: 75px;
+  font-family: Abril Fatface;
+  color: #172d4b;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Ombre solide */
+}
+
+.bulle p {
+  padding-left: 50px;
+  margin-top: -600px;
+  margin-left: auto; /* Supprime la marge gauche */
+  margin-right: auto; /* Supprime la marge droite */
+  width: 650px;
+  font-size: 25px;
+  text-align: center; /* Aligne le texte au centre */
+}
+
+.bulle img {
+  display: block; /* Permet de centrer l'image */
+  margin: 0 auto; /* Centre l'image horizontalement */
+  margin-top: -50px;
+  width: 800px;
+}
+.ronblounet {
+  margin-top: -500px;
+  margin-left:-250px ;
+  width: 400px;
+}
+.imagetorsader01 img
+{
+  margin-top: -50px;
+  margin-left: 1200px;
+  width: 300px;
+}
+.imagetorsader01 {
+  text-align: center; /* Centre le contenu horizontalement */
+}
+.imagetorsader01 button {
+  background-color: #1c6a8d;
+  margin-top: 45px;
+  color: white;
+  font-size: 30px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.imagetorsader01 p
+{
+  font-size: 50px;
+}
+
+.flcquisuisje01 img {
+  width: 100%; /* La largeur de l'image prend toute la largeur de la div parent */
+}
+.flaviesoleil img
+{
+  margin-left: 300px;
+  margin-top: -1700px;
+  width: 650px;
+}
+.flctexte {
+  margin-left: 1050px;
+  margin-top: -1050px;
+  font-family: 'Abril Fatface';
+  color: #172d4b;
+  width: 550px;
+  text-align: center;
+}
+.flctexte p
+{
+  margin-top: 50px;
+  font-family: 'Quicksand';
+  color: black;
+  font-size: 20px;
+}
+.MonHistoire h2 
+{
+  text-align: center;
+  font-family: 'Abril Fatface';
+  color: #1C6A8D;
+  font-size: 75px;
+  margin-top: -75px;
+}
+.Historique h3 
+{
+  position: relative; 
+  z-index: 2;
+  margin-top: 100px;
+  margin-left: 250px;
+  padding: 10px;
+  text-align: center;
+  width: 500px;
+  color: white;
+  font-size: 45px;
+  border-radius: 10px;
+  background-color:#DD3E1A;
+}
+.Historique .resilience-sensibilite 
+{
+  margin-left: 900px;
+  width: 700px;
+  background-color: #F1902F;
+}
+
+.Historique .etoileorangeclair
+{
+  position: relative;
+  margin-top: -100px;
+  margin-left: 300px;
+  width: 400px;
+}
+.Historique p 
+{
+  margin-top: -400px;
+  position: relative; 
+  margin-left: 350px;
+  text-align: center;
+  width: 500px;
+  font-size: 20px;
+}
+.Historique .cerveauinge
+{
+  margin-top: -700px;
+  margin-left: 1200px;
+  width: 500px;
+}
+.resilience-sensibilitetexte
+{
+  position: relative;
+  z-index: 2;
+  margin-left: 700px;
+  margin-top: 50px;
+  font-size: 25px;
+  text-align: center;
+  width: 800px;
+}
+.damerouge
+{
+  position: relative;
+  margin-left: 250px;
+  margin-top: -550px;
+  width: 700px;
+}
+.Aventureetincertitude
+{
+  position: relative; 
+  z-index: 2;
+  margin-top: 100px;
+  margin-left: 250px;
+  padding: 10px;
+  text-align: center;
+  width: 700px;
+  color: white;
+  font-size: 45px;
+  border-radius: 10px;
+  background-color:#1B6A8D ;
+  color:white;
+}
+.Aventureetincertitudetexte
+{
+  position: relative;
+  z-index: 2;
+  margin-left:150px;
+  margin-top: 50px;
+  font-size: 25px;
+  text-align: center;
+  width: 800px;
+}
+.frigo
+{
+  position: relative;
+  margin-left: 900px;
+  margin-top: -550px;
+  width: 700px;
+}
+.PuissanceElandevie
+{
+  position: relative; 
+  z-index: 2;
+  margin-top: 100px;
+  margin-left: 250px;
+  padding: 10px;
+  text-align: center;
+  width: 700px;
+  color: white;
+  font-size: 45px;
+  border-radius: 10px;
+  margin-left: 900px;
+  width: 700px;
+  background-color: #172D4B;
+}
+.eclairrouge
+  {
+    position: relative;
+    margin-left: 750px;
+    margin-top: -300px;
+    width: 200px;
+  }
+.PuissanceElandevieTexte
+{
+  text-align: center;
+  margin-left:800px;
+  margin-top: 50px;
+  font-size: 25px;
+  text-align: center;
+  width: 600px;
+}
+.soleiletlune
+{
+  margin-left: 200px;
+  margin-top: -650px;
+  width: 500px;
+  margin-bottom: 250px;
+}
+.Pourquoimechoisir {
+  background: linear-gradient(to right, #ffefd8, #ffffff);
+  position: relative;
+  padding-top: 50px; /* Ajout de padding-top pour que le contenu commence sous le titre */
+  text-align: center; /* Centre le texte à l'intérieur de la div */
+  width: 100%; /* Assurez-vous que le conteneur utilise toute la largeur disponible */
+  box-sizing: border-box; /* Inclut le padding et les bordures dans la largeur et la hauteur totales de l'élément */
+}
+.Pourquoimechoisir h3 {
+  color: #1C6A8D;
+  font-family: 'Abril Fatface';
+  font-size: 50px;
+  margin-top: -75px; /* Ajustez le marge supérieure pour que le titre sorte un peu de la div */
+}
+.Pourquoimechoisir p {
+  text-align: center;
+  font-size: 25px;
+  max-width: 1000px;
+  margin: 0 auto; /* Centre horizontalement le paragraphe */
+}
+.Pourquoimechoisir .image-container {
+  display: flex;
+  flex-wrap: nowrap; /* Empêche le renvoi à la ligne */
+  justify-content: center; /* Centre les images horizontalement */
+  gap: 100px; /* Espace entre les images */
+  margin-top: 20px; /* Espace au-dessus des images */
+  width: 100%; /* Assurez-vous que le conteneur utilise toute la largeur disponible */
+  box-sizing: border-box; /* Inclut le padding et les bordures dans la largeur et la hauteur totales de l'élément */
+}
+.Pourquoimechoisir .image-container .image-item {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.Pourquoimechoisir .image-container .image-item h4 {
+  font-size: 35px;
+  margin-top: -10px;
+  background-color: #1B3C65;
+  color: white; /* Couleur du titre */
+  border-radius: 15px;
+  width: 250px;
+  padding: 10px;
+}
+.Pourquoimechoisir .image-container .image-item p {
+  margin-top: 25px;
+  font-size: 20px;
+  width: 250px;
+}
+.Pourquoimechoisir .image-container img {
+  margin-top: 50px;
+  width: 250px; /* Définir la largeur souhaitée pour les images */
+  height: auto; /* Maintenir le ratio d'aspect des images */
+}
+.orange-background {
+  margin-top: 50px;
+  position: relative;
+  display: inline-block;
+  background-color: #F1902F;
+  color: white;
+  padding: 10px;
+  border-radius: 15px;
+}
+.multiwork
+ {
+  width: 500px;
+  margin-right: 500px;
+  margin-top: -200px;
+ }
+.demarches
+{
+  margin-top:30px; 
+  font-size:25px
+}
+.cemodeledenergie
+{
+  margin-top:50px; 
+  margin-left:1000px; 
+  width:600px;
+}
+.jaijustechaque
+{
+  margin-top:-200px;
+   margin-left:1000px; 
+   width:600px;
+}
+.lorsdecoaching
+{
+  margin-top: 100px;
+}
+.mapromesseunepuissante h2
+{
+  color: white;
+  background-color:#1B6A8D ;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 50px;
+  margin-right: 600px;
+}
+.mapromesseunepuissante {
+  width: 100%;
+  text-align: center; /* Centre le texte à l'intérieur du conteneur */
+  }
+.mapromesseunepuissante {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 150px;
+  }
+  .item .title {
+    margin-right: 200px;
+    margin-left: 200px;
+  }
+  .item.right .title {
+    order: 2;
+  }
+.title {
+    font-size: 30px;
+    width: 300px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+.text {
+    width: 700px;
+  }
+.parcoursetdentologie2024
+  {
+    margin-left: 1250px;
+    margin-top: -1200px;
+  }
+  .parcoursetdentologie2023
+  {
+    margin-right: 1000px;
+  }
+  .parcoursetdentologie202152023
+  {
+    margin-left: 1250px;
+    margin-top: 150px;
+  }
+  .parcoursetdentologie20215
+  {
+    margin-right: 1000px;
+    margin-top: 100px;
+  }
+.Deantologiequementparlant
+{
+  background: linear-gradient(to right, #ffefd8, #ffffff);
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.Deantologiequementparlant h3 
+{
+  text-align: center;
+  font-size: 30px;
+}
+.content-wrapper {
+  width: 1500px;
+}
+.tacheorange05 img {
+  position: absolute;
+  margin-left: 41.8%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  max-width: 100%;
+}
+.Deantologiequementparlant h3 {
+  margin-top:70px;
+  margin-bottom: 100px; /* Espace entre le titre et la liste */
+}
+.Deantologiequementparlant ul {
+  font-size: 25px;
+}
+.Deantologiequementparlant ul li {
+  padding-bottom: 50px;
+} 
+.containerMentionLegale {
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+}
+.containerMentionLegale h1
+{
+  text-align: center;
+  margin-bottom: 50px;
+}
+.pieddepagequisuisje01 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.pieddepagequisuisje01 h2 {
+  margin-top: 45px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size:45px;
+}
+.pieddepagequisuisje01 a {
+  display: inline-block;
+  font-size: 30px;
+  font-family: 'Abril Fatface';
+  text-align: center;
+  font-size:40px;
+  background-color: #1C6A8D;
+  color: white; 
+  padding: 10px 20px; 
+  text-decoration: none; 
+  border-radius: 45px; 
+  margin-top: 20px;
+  margin-bottom: 15px;
+  transition: background-color 0.3s ease; 
+  margin-bottom: 40px;
+}
+.pieddepagequisuisje01 a:hover {
+  background-color: #145375; 
+}
+.backgroundcoachingdequipe img
+{
+  position: relative;
+  max-height: 750px;
+  width: 100%;
+  object-fit: cover;
+}
+.backgroundcoachingdequipe01 img
+{
+  position: absolute;
+  width: 450px;
+  margin-top: -650px;
+  margin-left: 400px;
+}
+.backgroundcoachingdequipe02 img
+{
+  position: absolute;
+  margin-top: -725px;
+  width: 200px;
+  margin-left: 700px;
+}
+.backgroundcoachingdequipe02 h1
+{
+  margin-top: -550px;
+  margin-left: 1000px;
+  width: 600px;
+  position:absolute;
+}
+.backgroundcoachingdequipe02 p
+{
+  font-family: 'Quicksand';
+  position:absolute;
+  color:#DD3E1A ;
+  font-size: 26px;
+  margin-top: -400px;
+  margin-left: 1000px;
+  text-align: right;
+}
+.caffouillagedanslasurface h2
+{
+  position: relative;
+  margin-top: -25px;
+  text-align: center;
+  margin-bottom: 70px;
+  color: #2a405b;
+  font-size: 45px;
+  font-family: 'Abril Fatface';
+}
+.caffouillagedanslasurface {
+  width: 50%;
+  margin: auto;
+}
+.caffouillagedanslasurface img {
+  width: 40px;
+  float: left; 
+  margin-top: 15px;
+  margin-right: 15px;
+  margin-right: 10px; 
+}
+.caffouillagedanslasurface p {
+  margin-bottom: 45px; 
+  font-size: 25px;
+  overflow: hidden;
+  vertical-align: middle;
+  margin-left: 100px;
+}
+.caffouillagedanslasurface01 h4
+{
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  font-size: 40px;
+}
+.caffouillagedanslasurface01 img
+{
+  width: 15%;
+  margin-left: 70%;
+  transform: rotate(340deg);
+}
+.caffouillagedanslasurface01 h3
+{
+  background-color:#F1902F;
+  color: white;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 35px;
+}
+.eveiller05 img 
+{
+  margin-top: 50px;
+  margin-left: 10%;
+  width: 400px;
+}
+.eveiller05 h2 
+{
+  margin-left: 500px;
+  margin-top: -200px;
+  font-size: 45px;
+  color:#172D4B ;
+  font-family: 'Abril Fatface';
+}
+.eveiller05 h4
+{
+  margin-left: 500px;
+  margin-top: 10px;
+  color: #172D4B;
+  font-family: 'Quicksand';
+}
+.eveiller05 p 
+{
+  margin-left: 500px;
+  color: #1E3451;
+  width: 500px;
+  font-size: 20px;
+  margin-top: 50px;
+}
+.eveiller06 img
+{
+  width: 350px;
+}
+.liberer05 img
+{
+  margin-top: 50px;
+  margin-left: 1050px;
+  width: 400px;
+}
+.liberer05 h2
+{
+  position: relative;
+  margin-left: 1200px;
+  margin-top: -250px;
+  font-size: 45px;
+  color:#F1902F ;
+  font-family: 'Abril Fatface';
+
+}
+.liberer05 h4
+{
+  position: relative;
+  margin-left:1200px;
+  margin-top: 10px;
+  color: #F1902F;
+  font-family: 'Quicksand';
+}
+.liberer05 p
+{
+  width: 500px;
+  font-size: 20px;
+  margin-top: 50px;
+  width: 400px;
+  margin-left: 1200px;
+  color: black;
+  margin-bottom: 50px;
+}
+.Orchestrer05 img 
+{
+  margin-top: 50px;
+  margin-left: 10%;
+  width: 400px;
+}
+.Orchestrer05 h2 {
+  margin-left: 500px;
+  margin-top: -200px;
+  font-size: 45px;
+  color:#172D4B ;
+  font-family: 'Abril Fatface';
+}
+.Orchestrer05 h4 
+{
+  margin-left: 500px;
+  margin-top: 10px;
+  color: #172D4B;
+  font-family: 'Quicksand';
+}
+.Orchestrer05 p 
+{
+  margin-left: 500px;
+  color: #1E3451;
+  width: 500px;
+  font-size: 20px;
+  margin-top: 50px;
+}
+.BOOSTER05 img
+{
+  margin-top: 50px;
+  margin-left: 1050px;
+  width: 400px;
+}
+.BOOSTER05 h2
+{
+  position: relative;
+  margin-left: 1250px;
+  margin-top: -150px;
+  font-size: 45px;
+  color:#DD3E1A;
+  font-family: 'Abril Fatface';
+}
+.BOOSTER05 h4
+{
+  position: relative;
+  margin-left:1250px;
+  margin-top: 10px;
+  color:#DD3E1A;
+  font-family: 'Quicksand';
+}
+.BOOSTER05 p
+{
+  width: 500px;
+  font-size: 20px;
+  margin-top: 100px;
+  width: 400px;
+  margin-left: 1200px;
+  color: black;
+  margin-bottom: 50px;
+}
+.carrequibougepourflavie img 
+{
+  width: 500px;
+  margin-left: -250px;
+}
+.carrequibougepourflavie h2 
+{
+  text-align: center;
+  font-size: 50px;
+}
+.pieddepagequisuisje0105 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -350px;
+  justify-content: center;
+}
+.pieddepagequisuisje0105 h2 {
+  margin-top: 120px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size:55px;
+  font-family: 'Abril Fatface';
+  color: #145375;
+
+}
+.pieddepagequisuisje0105 a {
+  font-size: 30px;
+  font-family: 'Abril Fatface';
+  font-size:40px;
+  background-color: #1C6A8D;
+  color: white; 
+  padding: 10px 20px; 
+  text-decoration: none; 
+  border-radius: 45px; 
+  margin-top: 20px;
+  margin-bottom: 15px;
+  transition: background-color 0.3s ease; 
+  margin-bottom: 40px;
+}
+.pieddepagequisuisje0105 a:hover {
+  background-color: #145375; 
 }

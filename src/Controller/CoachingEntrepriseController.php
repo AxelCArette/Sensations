@@ -8,9 +8,9 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class CoachingEntrepriseController extends AbstractController
 {
-    #[Route('/coaching-entreprise', name: 'app_coaching_entreprise')]
+    #[Route('/coaching-d-equipe', name: 'app_coaching_collectif')]
     public function index(): Response
     {
-        return $this->render('coaching_entreprise/index.html.twig');
+        return $this->render('coaching_collectif/index.html.twig');
     }
 }
