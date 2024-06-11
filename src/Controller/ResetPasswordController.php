@@ -82,8 +82,6 @@ class ResetPasswordController extends AbstractController
         
         if ($form->isSubmitted() && $form->isValid()) {
             $new_pwd=$form->get('new_password')->getData();
-         
-
                 $password = $encoder->hashPassword($resetPassword->getUtilisateur(), $new_pwd);
                 $resetPassword->getUtilisateur()->setPassword($password);
                 $this->entityManager->flush(); 

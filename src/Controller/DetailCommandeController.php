@@ -171,7 +171,7 @@ public function paiement(Cart $cart, Request $request, FormationsRepository $for
             'allow_promotion_codes' => true,
             'mode' => 'payment',
             'success_url' => $YOUR_DOMAIN . '/success?session_id={CHECKOUT_SESSION_ID}',
-         'cancel_url' => $YOUR_DOMAIN . '/cancel.html',
+         'cancel_url' => $YOUR_DOMAIN . '/cancel?session_id={CHECKOUT_SESSION_ID}',
       ]);
         
         $commandeDetail->setSessionStripeId($nouvelleSessionStripe->id);
@@ -224,41 +224,14 @@ public function paiement(Cart $cart, Request $request, FormationsRepository $for
         ]);
     }
     #[Route('/cancel', name: 'app_cancel')]
-    public function cancel(Request $request, CommandeDetailRepository $commandeDetailRepository, EntityManagerInterface $entityManager, Mail $mail): Response
+    public function cancel(Request $request, CommandeDetailRepository $commandeDetailRepository): Response
     {
         $sessionId = $request->query->get('session_id');
     
-        if (!$sessionId) {
-            throw new \Exception('Session ID manquant');
-        }
+        $commandeDetail = $commandeDetailRepository->findOneBy(['sessionStripeId' => $sessionId]);
     
-        Stripe::setApiKey("sk_test_51OeCoOLne9zIBO1LFsIggYXSCeeeAlmO3g1Afr1XD2Goex6leMNqAtoRklDbmHyxBun3OcdDeIQkRPGGhLKIfps500yL0fKbML");
-        $session = Session::retrieve($sessionId);
-    
-        if ($session && $session->payment_status === 'canceled') {
-            $totalPaid = $session->amount_total;
-            $commandeDetail = $commandeDetailRepository->findOneBy(['sessionStripeId' => $sessionId]);
-    
-            if ($commandeDetail) {
-                $commandeDetail->setStatut(0);
-                $commandeDetail->setPrixtotal($totalPaid);
-                $entityManager->flush();
-    
-    
-                $commande = $commandeDetail->getCommande();
-                $utilisateur = $commande->getUtilisateur();
-                $content = "Bonjour " . $utilisateur->getPrenom() . "</br> Votre commande a été annulée.<br>";
-                $mail->send($utilisateur->getEmail(), $utilisateur->getPrenom(), 'Annulation de commande', $content);
-    
-                return $this->render('cancel/index.html.twig', [
-                    'message' => 'Votre commande a été annulée avec succès.'
-                ]);
-            } else {
-                throw new \Exception('Commande non trouvée.');
-            }
-        } else {
-            throw new \Exception('La session de paiement n\'a pas été trouvée ou le paiement n\'a pas été annulé.');
-        }
-    }
-    
+        return $this->render('cancel/index.html.twig', [
+            'message' => 'Votre commande a été annulée avec succès.'
+        ]);
+    }    
 }    

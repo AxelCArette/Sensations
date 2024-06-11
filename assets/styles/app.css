@@ -1227,3 +1227,79 @@ h1 {
 .pieddepagequisuisje0105 a:hover {
   background-color: #145375; 
 }
+.deroulcoaching {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.card-flip:hover .card-inner {
+  transform: rotateY(180deg);
+}
+.card-front01, .card-back01 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.card-back01 {
+  transform: rotateY(180deg);
+}
+.defisobjectifs01, .diagnostic01, .coachingcollectif01, .bilanetsuivi01 {
+  width: 105%;
+  height: 100%;
+  padding: 20px;
+  color: white;
+}
+.defisobjectifs01 {
+  background-color: #003366;
+}
+.diagnostic01 {
+  background-color: #cc3300;
+}
+.coachingcollectif01 {
+  background-color: #ff9933;
+  margin-top: 10px;
+ 
+}
+.bilanetsuivi01 {
+  background-color: #1a6a8d;
+  margin-top: 10px;
+}
+.defisobjectifs01 h2
+{
+  position: absolute; 
+  bottom: 0; 
+  right: 25px; 
+  margin-bottom: 25px;
+}
+.diagnostic01 h2
+{
+  position: absolute; 
+  bottom: 0; 
+  left: 25px; 
+  margin-bottom: 25px;
+}
+.coachingcollectif01 h2
+{
+  position: absolute; 
+  top: 25px; 
+  right: 25px; 
+  margin-right: 10px; 
+  margin-top: 10px;
+}
+.bilanetsuivi01 h2
+{
+  position: absolute; 
+  top: 25px; 
+  left: 25px; 
+  margin-right: 10px; 
+  margin-top: 10px;
+}
+.defisobjectifs01 p, .diagnostic01 p, .coachingcollectif01 p, .bilanetsuivi01 p {
+  margin: 0;
+}
+.femmetriangle img 
+{
+  width:400px ;
+}

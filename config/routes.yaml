@@ -24,4 +24,6 @@ app_continue_paiement:
     path: '/continue-paiement/{id}'
     controller: 'App\Controller\DetailCommandeController::continuePaiement'
 
-
+app_cancel:
+    path: '/cancel'
+    controller: 'App\Controller\DetailCommandeController::cancel'

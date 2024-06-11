@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block title %}Sensation-Accueil{% endblock %}
 {% block body %}
+
 <script>
   AOS.init();
 </script>
@@ -37,7 +38,8 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-5 offset-md-4 col-md-3 mb-3"> 
+
+        <div class="col-sm-5 offset-md-4 col-md-3 mb-3"> <!-- Ajustement de la marge gauche -->
           <div class="card-flip inspirer" style="position: relative; margin-left: -250px;"> <!-- Ajustement de la marge gauche -->
             <div class="card-face card-front d-flex flex-column justify-content-end" data-aos="flip-left">
               <h2 class="card-title text-center" style="position: absolute; top: 25px; right: 25px; margin-right: 10px; margin-top: 10px;">Inspirer</h2>
@@ -79,7 +81,7 @@
             </div>
 </div>
 <div style="height:500px;"></div>
-
+Bouton cliquable
 <div class="centered-content">
     <div class="row justify-content-center">
         <div class="col-md-3" style="position: relative; text-align: center; margin-bottom: 20px;">
@@ -103,6 +105,7 @@
 </div>
 <div class="boucleRouge">
  <img src="{{ asset('asset/img/bouclerouge.png') }}">
+ police à vérifier
  <p>Vous êtes dans l’une de <br> 
 ces situations ...</p>
 </div>

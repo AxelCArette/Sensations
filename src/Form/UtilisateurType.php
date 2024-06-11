@@ -46,7 +46,7 @@ class UtilisateurType extends AbstractType
                 'multiple' => false, 
             ])
             ->add('agreeCGV', CheckboxType::class, [
-                'label' => "J'accepte les conditions générales de vente ainsi que la politique de confidentialité de Sensation.",
+                'label' => "J'accepte les conditions générales de vente ainsi que la politique de confidentialité de Sensations.",
                 'mapped' => false,
                 'required' => true,
                 ])
