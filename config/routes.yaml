@@ -27,3 +27,7 @@ app_continue_paiement:
 app_cancel:
     path: '/cancel'
     controller: 'App\Controller\DetailCommandeController::cancel'
+
+articles_by_tag:
+  path: '/articles/tag/{tag}'
+  controller: 'App\Controller\ResumerArticleController::articlesByTag'

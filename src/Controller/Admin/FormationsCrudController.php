@@ -22,6 +22,11 @@ class FormationsCrudController extends AbstractCrudController
     {
         yield TextField::new('TitreDeLaFormation')->setLabel('Titre de la Formation');
         yield SlugField::new('slug')->setTargetFieldName('TitreDeLaFormation');
+        yield ImageField::new('image')
+        ->setUploadDir('public/uploads/image')
+        ->setUploadedFileNamePattern('[randomhash].[extension]')
+        ->setRequired(false)
+        ->setBasePath('uploads/image');
         yield ImageField::new('fichier_pdf')
             ->setLabel('Fichier PDF')
             ->setUploadDir('public/uploads/pdf')

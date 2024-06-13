@@ -13,7 +13,7 @@
         <div class="col-md-6">
             <div class="card mt-5">
                 <div class="card-body">
-                    <h2 class="card-title text-center mb-4">Réinitialisez votre mot de passe</h2>
+                    <h2 class="card-title text-center mb-4" style="color:#1c618d; font-family: Abril Fatface">Réinitialisez votre mot de passe</h2>
                     <form action="{{ path('app_reset_password') }}" method="POST">
                         <div class="mb-3">
                             <label for="inputEmail" class="text-center form-label mb-4">Votre email</label>
@@ -21,14 +21,15 @@
                         </div>
                         <div class="mb-3">
                             <div class="d-grid">
-                                <button class="btn btn-lg mb-4" style="background:#DE3C19" type="submit">Valider</button><br>
-                                <a class="nav-link active btn-blue" style="text-align:center" aria-current="page" href="{{path('app_login')}}">Vous connectez</a>
+                                <button class="btn btn-lg mb-4" type="submit">Valider</button><br>
+                                <a class="nav-link active btn-blue" style="text-align:center" aria-current="page" href="{{path('app_login')}}">Vous connecter</a>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>  
+        <div style="margin-bottom: 100px;"></div>
     </div>
 </div>
 

@@ -8,7 +8,7 @@
             <div class="col-md-6">
                 <div class="card mt-5">
                     <div class="card-body">
-                        <h2 class="card-title text-center">Inscrivez-vous</h2>
+                        <h2 class="card-title text-center"style="color:#1c618d; font-family: Abril Fatface">Inscrivez-vous</h2>
                         {% if notification %}
                         <div class="alert alert-warning" role="alert"> {{ notification }}</div>
                     
@@ -22,12 +22,13 @@
                             {{ form_row(form.NumeroDeTelephone, {'attr': {'class': 'form-control mb-3', 'placeholder': 'Numéro de téléphone'}}) }}
                             {{ form_row(form.Entreprise, {'attr': {'class': 'form-control mb-3', 'placeholder': 'Entreprise'}}) }}
                             {{ form_row(form.NumeroDeSiret, {'attr': {'class': 'form-control mb-3', 'placeholder': 'Numéro de SIRET'}}) }}
-                            <button type="submit" class="btn btn-primary btn-block">S'inscrire</button>
+                           <button type="submit" style="margin-top: 15px; margin-bottom: 15px; background-color:#1c618d;color:white;" class="btn btn-block">S'inscrire</button>
                         {{ form_end(form) }}
                         <p class="mt-3 text-center">Déjà inscrit ? <a href="{{ path('app_login') }}">Connectez-vous</a></p>
                     </div>
                 </div>
             </div>
         </div>
+        <div style="margin-bottom: 50px;"></div>
     </div>
 {% endblock %}

@@ -21,9 +21,6 @@ class RedactionArticles
     private ?string $sousTitre = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $tag = null;
-
-    #[ORM\Column(type: Types::TEXT)]
     private ?string $resumer = null;
 
     #[ORM\Column(type: Types::TEXT)]
@@ -37,6 +34,12 @@ class RedactionArticles
 
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $date = null;
+
+    #[ORM\Column(type: Types::ARRAY)]
+    private array $tags = [];
 
     public function getId(): ?int
     {
@@ -63,18 +66,6 @@ class RedactionArticles
     public function setSousTitre(string $sousTitre): static
     {
         $this->sousTitre = $sousTitre;
-
-        return $this;
-    }
-
-    public function getTag(): ?string
-    {
-        return $this->tag;
-    }
-
-    public function setTag(string $tag): static
-    {
-        $this->tag = $tag;
 
         return $this;
     }
@@ -135,6 +126,30 @@ class RedactionArticles
     public function setSlug(string $slug): static
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): static
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getTags(): array
+    {
+        return $this->tags;
+    }
+
+    public function setTags(array $tags): static
+    {
+        $this->tags = $tags;
 
         return $this;
     }

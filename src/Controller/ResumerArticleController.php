@@ -3,41 +3,48 @@
 namespace App\Controller;
 
 use App\Entity\RedactionArticles;
+use App\Repository\ArticleTagRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ResumerArticleController extends AbstractController
 {
     private $entityManager;
-    
-    public function __construct(EntityManagerInterface $entityManager)
+    private $tagRepository;
+
+    public function __construct(EntityManagerInterface $entityManager, ArticleTagRepository $tagRepository)
     {
         $this->entityManager = $entityManager;
+        $this->tagRepository = $tagRepository;
     }
 
-    #[Route('/resumer/article', name: 'app_resumer_article')]
-    public function index(): Response
+    #[Route('/resumer/article/{tag}', name: 'app_resumer_article', defaults: ['tag' => null])]
+    public function index(?string $tag, Request $request): Response
     {
-        $repository = $this->entityManager->getRepository(RedactionArticles::class);
-        $articles = $repository->findAll();
-    
-        $resumes = [];
-        foreach ($articles as $article) {
-            $resumes[] = [
-                'id' => $article->getId(),
-                'titre' => $article->getTitre(),
-                'image'=>$article->getImage(),
-                'sousTitre' => $article->getSousTitre(),
-                'resumer' => $article->getResumer(),
-                'published' => $article->getPublished(),
-            ];
+      
+        $articleRepository = $this->entityManager->getRepository(RedactionArticles::class);
+        $articles = $articleRepository->findAll();
+
+ 
+        $tags = $this->tagRepository->findAll();
+
+        if ($tag) {
+            $filteredArticles = [];
+            foreach ($articles as $article) {
+                if (in_array($tag, $article->getTags())) {
+                    $filteredArticles[] = $article;
+                }
+            }
+            $articles = $filteredArticles;
         }
-    
+        
         return $this->render('mon_article/resumes.html.twig', [
-            'resumes' => $resumes,
+            'resumes' => $articles,
+            'tags' => $tags,
+            'selectedTag' => $tag,
         ]);
     }
-    
 }

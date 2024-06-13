@@ -3,40 +3,50 @@
 {% block title %}Résumés des Articles{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-                <h1 class="text-center" style="margin-top: 30px;">Liste des Résumés d'Articles</h1>
+<div class="hautdepagecoachingdequipe">
+  <div class="backgroundcoachingdequipe">
+    <img src="{{ asset('asset/img/backgroundmontagne.png') }}" alt="Un fond représenté par des montagnes">
+  </div>
+  <div class="backgroundcoachingdequipe01">
+    <img src="{{ asset('asset/img/ordipersonnetravaillantpa.png') }}" alt="Des personnes faisant une activité ensemble">
+  </div>
+  <div class="backgroundcoachingdequipe02">
+    <h1 style="font-size: 65px; text-align: right;">Mes articles</h1>
+    <p style="font-size:35px">Découvrez des conseils, des stratégies<br> et des insights pour booster<br> votre carrière.</p>
+  </div>
+</div>
 
-                {% set aucun_article_publie = true %}
+<div class="container">
+    <div class="mb-3">
+        {% for tag in tags %}
+            <a href="{{ path('app_resumer_article', { tag: tag.TagArticle }) }}"
+               class="btn btn-primary mr-2 mb-2 {% if tag.TagArticle == selectedTag %}active{% endif %}">
+                {{ tag.TagArticle }}
+            </a>
+        {% endfor %}
+    </div>
 
-                <div class="row" style="margin-top: 40px;">
-                    {% for resume in resumes %}
-                        {% if attribute(resume, 'published') is defined and resume.published %}
-                            {% set aucun_article_publie = false %}
-                            <div class="col-md-4" style="margin-bottom: 20px;">
-                                <div class="card" style="background-color: #FFE5CB; height: 650px;"> 
-                                    <div class="card-body d-flex flex-column justify-content-between"> <!-- Utiliser flexbox pour centrer le contenu -->
-                                        <div>
-                                            <h5 class="card-title text-center">{{ resume.titre }}</h5> 
-                                            <img class="card-img-top mx-auto d-block mb-3" src="/uploads/image/{{ resume.image }}" alt="Image de l'article" style="max-width: 300px;">
-                                            <h6 class="card-subtitle mb-2 text-muted text-center">Sous titre: {{ resume.sousTitre }}</h6>
-                                            <p class="card-text">{{ resume.resumer }}</p>
-                                        </div>
-                                        <div class="text-center">
-                                            <a href="{{ path('app_mon_article', {id: resume.id}) }}" class="btn btn-primary">Voir l'article complet</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-
-                {% if aucun_article_publie %}
-                    <p class="text-center">Les articles sont en cours d'écriture.</p>
-                {% endif %}
-            </div>
+   
+        <div class="col-md-10">
+            {% if resumes is empty %}
+                <p>Aucun article trouvé pour ce tag.</p>
+            {% else %}
+                {% for resume in resumes %}
+                 
+                    <div>
+                      <p>{{ resume.date|date('d-m-Y') }}</p>
+                      <h5>{{ resume.titre }}</h5> 
+                      <img src="/uploads/image/{{ resume.image }}" alt="Image de l'article" style="width:100%;">
+                      <h6 class="card-subtitle mb-2 text-muted text-center">{{ resume.sousTitre }}</h6>
+                      <p>{{ resume.resumer }}</p>
+                    </div>
+                    <a href="{{ path('app_mon_article', {id: resume.id}) }}" class="btn btn-primary">Voir l'article complet</a>
+                  </div>
+              </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
+</div>
 {% endblock %}

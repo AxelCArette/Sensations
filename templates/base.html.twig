@@ -7,25 +7,20 @@
         tarteaucitron.init({
     	  "privacyUrl": "", 
         "bodyPosition": "bottom", 
-
-    	  "hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
-    	  "cookieName": "tarteaucitron", /* Cookie name */
-    
-    	  "orientation": "middle", /* Banner position (top - bottom) */
-       
-          "groupServices": false, /* Group services by category */
-          "showDetailsOnClick": true, /* Click to expand the description */
-          "serviceDefaultState": "wait", /* Default state (true - wait - false) */
-                           
+    	  "hashtag": "#tarteaucitron", 
+    	  "cookieName": "tarteaucitron", 
+    	  "orientation": "middle", 
+        "groupServices": false, 
+        "showDetailsOnClick": true, 
+        "serviceDefaultState": "wait",               
     	  "showAlertSmall": false, /* Show the small banner on bottom right */
-    	  "cookieslist": false, /* Show the cookie list */
-                  
-          "closePopup": false, /* Show a close X on the banner */
-          "showIcon": false, /* Show cookie icon to manage cookies */
+    	  "cookieslist": false, 
+          "closePopup": false, 
+          "showIcon": false,
           //"iconSrc": "", /* Optionnal: URL or base64 encoded image */
           "iconPosition": "BottomRight",
-    	  "adblocker": false, /* Show a Warning if an adblocker is detected */         
-          "DenyAllCta" : true, /* Show the deny all button */
+    	  "adblocker": false,        
+          "DenyAllCta" : true, 
           "AcceptAllCta" : true, /* Show the accept all button when highPrivacy on */
           "highPrivacy": true, /* HIGHLY RECOMMANDED Disable auto consent */
           "alwaysNeedConsent": false, /* Ask the consent for "Privacy by design" services */       
@@ -34,7 +29,6 @@
     	  "moreInfoLink": true, /* Show more info link */
           "useExternalCss": false, /* If false, the tarteaucitron.css file will be loaded */
           "useExternalJs": false, 
-
     	  //"cookieDomain": ".my-multisite-domaine.fr", /* Shared cookie for multisite */
                           
           "readmoreLink": "", /* Change the default readmore link */
@@ -86,7 +80,9 @@
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item me-3">
-          <p class="nav-link mb-0">Le<b> Coaching</b> pour les :</p>
+        <a href="{{ path('app_accueil') }}#boutoncliquable" style="text-decoration: none;">
+          <p class="nav-link mb-0" >Le<b> Coaching</b> pour les :</p>
+          </a>
         </li>
         <li class="nav-item dropdown me-3">
           <a class="nav-link dropdown-toggle" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -94,7 +90,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
             <li><a class="dropdown-item" href="{{ path('app_coaching_collectif') }}">Collectif</a></li>
-            <li><a class="dropdown-item" href="{{ path('app_coaching_sportif') }}">Individuel</a></li>
+            <li><a class="dropdown-item" href="{{ path('app_individuel') }}">Individuel</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown me-3">
@@ -102,9 +98,10 @@
            <b> Sportifs</b>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-            <li><a class="dropdown-item" href="{{ path('app_coaching_collectif') }}">Joueurs et athlètes</a></li>
-            <li><a class="dropdown-item" href="{{ path('app_coaching_sportif') }}">Entraîneurs</a></li>
-            <li><a class="dropdown-item" href="{{ path('app_coaching_sportif') }}">Arbitres</a></li>
+            <li><a class="dropdown-item" href="{{ path('app_coaching_sportif') }}">Coaching Sportifs</a></li>
+            <li><a class="dropdown-item" href="{{ path('app_coaching_sportif') }}#joueurhautniveau">Joueurs et athlètes</a></li>
+            <li><a class="dropdown-item" href="{{ path('app_coaching_sportif') }}#entraineuretdirigeant">Entraîneurs</a></li>
+            <li><a class="dropdown-item" href="{{ path('app_coaching_sportif') }}#arbitres">Arbitres</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown me-3">
@@ -112,9 +109,9 @@
             Formations
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
-             <li><a class="dropdown-item" href="{{ path('app_vente_deformations') }}">Ebook</a></li>
-            <li><a class="dropdown-item" href="{{ path('app_vente_deformations') }}">Ressources humaines</a></li>
-            <li><a class="dropdown-item" href="{{ path('app_coaching_sportif') }}">Management</a></li>
+            <li><a class="dropdown-item" href="{{ path('app_vente_deformations') }}#ebook">Ebook</a></li>
+            <li><a class="dropdown-item" href="{{ path('app_vente_deformations') }}#formationRH">Ressources humaines</a></li>
+            <li><a class="dropdown-item" href="{{ path('app_vente_deformations') }}#FormationManagement">Management</a></li>
           </ul>
         </li>
         <li class="nav-item me-3">
@@ -158,7 +155,7 @@
         {% block body %}
         {% endblock %}
     
-<footer class="footer" style="background-color: #FDEEE0; color: #000;">
+<footer class="footer" style="background-color: #FDEEE0; color: #000;color:#172D4B; font-family:quicksand;">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-md-2 text-center">
@@ -187,10 +184,11 @@
 </div>
 
         <div class="calendrierEtTexte" style="margin-top: 20px;"> 
-          <a href="{{ path('app_contact') }}" style="display: flex; align-items: center;">
+          <a href="{{ path('app_contact') }}" style="display: flex; align-items: center; text-decoration:none; color:#172D4B">
             <img src="{{ asset('asset/img/calendrier.png') }}" alt="" width="125px" height="75px" style="margin-top: 10px;">
-          </a>
-          <p style="text-align: center;">Réservez votre rendez-vous <br> gratuit dès maintenant</p>
+      
+          <p style="text-align: center;"><b>Réservez votre rendez-vous <br> gratuit dès maintenant</b></p>
+              </a>
         </div>
         <button class="btn btn-custom" type="button" id="button-addon2" style="display: flex; align-items: center; font-size: 14px; height: 45px; width: 450px; border-radius: 20px; margin-top: 20px;"> <!-- Ajout de la marge en haut -->
           <input type="email" class="form-control" placeholder="Votre email" aria-label="Votre email" aria-describedby="button-addon2" style="font-size:15px; height:20px; padding: 12px;">
@@ -198,10 +196,10 @@
         </button>
       </div>
     </div>
-    <div class="row" style="margin-top: 20px;">
+    <div class="row" style="margin-top: 30px;">
       <div class="col-md-12 text-center">
-       <p class="mb-0" style="color: black;">
-    Copyright ©Sensation Coaching |<a href="{{path('app_mentions_legale')}}" style="color: black; text-decoration: none;"> Mentions Légales | 
+       <p class="mb-0">
+    Copyright ©Sensations Coaching |<a href="{{path('app_mentions_legale')}}" style="color: black; text-decoration: none;"> Mentions Légales | 
     <a href="{{ path('app_c_g_v') }}" style="color: black; text-decoration: none;">CGV</a> | 
     <a href="https://www.linkedin.com/in/axel-carette-aa9060280/" style="color: black; text-decoration: none;">Réalisation Axel Carette</a>
 </p>

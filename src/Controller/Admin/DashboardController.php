@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\ArticleTag;
 use App\Entity\Formations;
 use App\Entity\RedactionArticles;
 use App\Entity\Utilisateur;
@@ -32,7 +33,9 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Gestion des contenus');
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-users', Utilisateur::class);
+        yield MenuItem::linkToCrud('Tag des articles','fa-solid fa-tags', ArticleTag::class);
         yield MenuItem::linkToCrud('Rédaction d\'articles', 'fas fa-newspaper', RedactionArticles::class);
         yield MenuItem::linkToCrud('Formations','fa fa-graduation-cap', Formations::class);
+        
     }
 }

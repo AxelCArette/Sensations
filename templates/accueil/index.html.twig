@@ -39,8 +39,8 @@
           </div>
         </div>
 
-        <div class="col-sm-5 offset-md-4 col-md-3 mb-3"> <!-- Ajustement de la marge gauche -->
-          <div class="card-flip inspirer" style="position: relative; margin-left: -250px;"> <!-- Ajustement de la marge gauche -->
+        <div class="col-sm-5 offset-md-4 col-md-3 mb-3"> 
+          <div class="card-flip inspirer" style="position: relative; margin-left: -250px;">
             <div class="card-face card-front d-flex flex-column justify-content-end" data-aos="flip-left">
               <h2 class="card-title text-center" style="position: absolute; top: 25px; right: 25px; margin-right: 10px; margin-top: 10px;">Inspirer</h2>
             </div>
@@ -66,10 +66,7 @@
     </div>
   </div>
 </div>
-
 <div style="height: 200px;"></div>
-
-
 <div class="grid-container">
         <div class="centered-content">
             <div class="text-container">
@@ -81,31 +78,44 @@
             </div>
 </div>
 <div style="height:500px;"></div>
-Bouton cliquable
+
 <div class="centered-content">
+
     <div class="row justify-content-center">
+   
         <div class="col-md-3" style="position: relative; text-align: center; margin-bottom: 20px;">
+        <a href="{{ path('app_coaching_collectif') }}">
             <img src="{{ asset('asset/img/puzzlebleu.png') }}" alt="Plusieurs mains tenant des pièces d'échecs" style="width: 250px; border-radius: 25px;">
             <p style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 24px; font-weight: bold; color: white; margin: 0;">Coaching d’équipe en entreprise</p>
+        </a>
         </div>
+        
+
         <div class="col-md-3" style="position: relative; text-align: center; margin-bottom: 20px;">
+ <a href="{{ path('app_individuel') }}">
             <img src="{{ asset('asset/img/mainorange.png') }}" alt="Petit point jaune" style="width: 250px;">
             <p style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 24px; font-weight: bold; color: white; margin: 0;">Coaching individuel</p>
+        </a>
         </div>
-        <div class="col-md-3" style="position: relative; text-align: center; margin-bottom: 20px;">
+
+        <div id="boutoncliquable" class="col-md-3" style="position: relative; text-align: center; margin-bottom: 20px;">
+          <a href="{{ path('app_coaching_sportif') }}">
             <img src="{{ asset('asset/img/FlavieOrange.png') }}" alt="Petit point jaune" style="width: 250px; border-radius: 25px;">
             <p style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 24px; font-weight: bold; color: white;">Coaching de sportifs de haut-niveau</p>
+        </a>
         </div>
+
         <div class="col-md-3" style="position: relative; text-align: center; margin-bottom: 20px;">
+     <a href="{{ path('app_vente_deformations') }}">
             <img src="{{ asset('asset/img/FlavieTravailBleu.png') }}" alt="Petit point jaune" style="width: 250px; border-radius: 25px;">
             <p style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 24px; font-weight: bold; color: white; margin: 0;">Formations</p>
+        </a>
         </div>
     </div>
 </div>
 </div>
 <div class="boucleRouge">
  <img src="{{ asset('asset/img/bouclerouge.png') }}">
- police à vérifier
  <p>Vous êtes dans l’une de <br> 
 ces situations ...</p>
 </div>
@@ -115,23 +125,23 @@ ces situations ...</p>
         <div class="problems">
             <div class="problem-item">
                 <img src="{{ asset('asset/img/pointbleu.png') }}" alt="Point bleu foncé">
-                <p>Vous jonglez avec le <b>manque de<br> temps,</b> tout en luttant contre vos<br> propres réactions, votre <b>lucidité</b> se<br> fragilise ?</p>
+                <p style="color:#172D4B; font-family:quicksand;">Vous jonglez avec le <b>manque de<br> temps,</b> tout en luttant contre vos<br> propres réactions, votre <b>lucidité</b> se<br> fragilise ?</p>
             </div>
             <div class="problem-item">
                 <img src="{{ asset('asset/img/pointorange.png') }}" alt="Point dans les tons jaune et orange">
-                <p>Vous vous sentez dans la <b>confusion</b><br> face au manque de solidarité et de<br> <b>coopération</b> dans votre équipe ?</p>
+                <p style="color:#172D4B; font-family:quicksand;">Vous vous sentez dans la <b>confusion</b><br> face au manque de solidarité et de<br> <b>coopération</b> dans votre équipe ?</p>
             </div>
             <div class="problem-item">
                 <img src="{{ asset('asset/img/pointorangefoncer.png') }}" alt="Point orange foncé">
-                <p>Votre projet stagne, vous ressentez de<br> <b>l’agacement</b> face au manque de <b>prise<br> d’initiatives</b> de vos collaborateurs et à<br> la perspective de l'échec de votre<br> projet ?</p>
+                <p style="color:#172D4B; font-family:quicksand;">Votre projet stagne, vous ressentez de<br> <b>l’agacement</b> face au manque de <b>prise<br> d’initiatives</b> de vos collaborateurs et à<br> la perspective de l'échec de votre<br> projet ?</p>
             </div>
             <div class="problem-item">
                 <img src="{{ asset('asset/img/pointbleuclair.png') }}" alt="Point bleu clair">
-                <p>Vous êtes minés par les tensions et les<br> <b>doutes</b> au sein de votre équipe, vous<br> craignez de ne pas <b>être à la hauteur ?</b></p>
+                <p style="color:#172D4B; font-family:quicksand;">Vous êtes minés par les tensions et les<br> <b>doutes</b> au sein de votre équipe, vous<br> craignez de ne pas <b>être à la hauteur ?</b></p>
             </div>
             <div class="problem-item">
                 <img src="{{ asset('asset/img/pointorange.png') }}" alt="Point bleu">
-                <p>Les départs réguliers ne font<br> qu'accentuer votre sentiment de<br> <b>fatigue,</b> vous laissant avec un manque<br> cruel d'énergie et de <b>vitalité ?</b></p>
+                <p style="color:#172D4B; font-family:quicksand;">Les départs réguliers ne font<br> qu'accentuer votre sentiment de<br> <b>fatigue,</b> vous laissant avec un manque<br> cruel d'énergie et de <b>vitalité ?</b></p>
             </div>
         </div>
     </div>
@@ -140,23 +150,23 @@ ces situations ...</p>
     <div class="problems02">
         <div class="problem02-item">
             <img src="{{ asset('asset/img/pointbleuclair.png') }}" alt="Point bleu clair">
-            <p>Vous vous sentez <b> frustré </b> après une<br> défaite malgré tous vos<br> entraînements, vous doutez de votre <br> propre réussite ?</p>
+            <p style="color:#172D4B; font-family:quicksand;">Vous vous sentez <b> frustré </b> après une<br> défaite malgré tous vos<br> entraînements, vous doutez de votre <br> propre réussite ?</p>
         </div>
         <div class="problem02-item">
             <img src="{{ asset('asset/img/pointorangefoncer.png') }}" alt="Point orange foncé">
-            <p>La <b> pression</b> avant une compétition <br> importante vous envahit, plus moyen <br> de retrouver votre <b> sérénité </b> ?</p>
+            <p style="color:#172D4B; font-family:quicksand;">La <b> pression</b> avant une compétition <br> importante vous envahit, plus moyen <br> de retrouver votre <b> sérénité </b> ?</p>
         </div>
         <div class="problem02-item">
             <img src="{{ asset('asset/img/pointorange.png') }}" alt="Point dans les tons jaune et orange">
-            <p>Vous craignez ne pas être à la <br> hauteur des <b> attentes extérieures,</b><br> vous avez l’impression que votre <br><b> performance </b> stagne ?</p>
+            <p style="color:#172D4B; font-family:quicksand;">Vous craignez ne pas être à la <br> hauteur des <b> attentes extérieures,</b><br> vous avez l’impression que votre <br><b> performance </b> stagne ?</p>
         </div>
         <div class="problem02-item">
             <img src="{{ asset('asset/img/pointbleu.png') }}" alt="Point bleu foncé">
-            <p>Vous faites face à un <b> choix de <br> carrière,</b> vous n’êtes plus <b>certain</b> de <br> rien ?</p>
+            <p style="color:#172D4B; font-family:quicksand;">Vous faites face à un <b> choix de <br> carrière,</b> vous n’êtes plus <b>certain</b> de <br> rien ?</p>
         </div>
         <div class="problem02-item">
             <img src="{{ asset('asset/img/pointorangefoncer.png') }}" alt="Point orange foncé">
-            <p><b> Blessé,</b> en manque d’énergie et <br> parfois seul, vous avez peur de ne <br> pas retrouver votre <b> meilleur niveau </b> ?</p>
+            <p style="color:#172D4B; font-family:quicksand;"><b> Blessé,</b> en manque d’énergie et <br> parfois seul, vous avez peur de ne <br> pas retrouver votre <b> meilleur niveau </b> ?</p>
         </div>
     </div>
 </div>
@@ -207,9 +217,8 @@ ces situations ...</p>
 </div>
 </div>
 </div>
-
 <div class="rdv">
-    <h2>Alors prêt à vous propulser vers <br> l’excellence ?</h2>
+    <h2 style="color:#172D4B; font-family:quicksand;" ><b>Alors prêt à vous propulser vers <br> l’excellence ?</b></h2>
     <a href="{{ path('app_contact') }}"><button class="text-align">Je réserve mon rdv offert</button></a>
       <div class="tacheorange">
       <img src="{{asset('asset/img/tacheorange.png')}}" alt="Une tache orange">
@@ -221,7 +230,7 @@ ces situations ...</p>
 </div>
 <div class="flcphoto">
 <img src="{{asset('asset/img/flaviedoigt.png')}}" alt="Flavie Carette coaching">
-<p> Je suis Flavie Carette, coach professionnelle certifiée, ancienne joueuse de haut-niveau et arbitre de football, j’utilise mon expertise du sport collectif et mon intelligence émotionnelle pour accompagner les leaders en entreprise et dans le sport à œuvrer à un projet inédit et humain.</p>
+<p style="color:#172D4B; font-family:quicksand;" > Je suis Flavie Carette, coach professionnelle certifiée, ancienne joueuse de haut-niveau et arbitre de football. J’utilise mon expertise du sport collectif et mon intelligence émotionnelle pour accompagner les leaders en entreprise et dans le sport à œuvrer à un projet inédit et humain.</p>
  <a href="{{ path('app_qui_suis_je') }}"><button class="text-align">En savoir +</button></a>
 </div>
 <div class="bulle">
@@ -233,9 +242,10 @@ prochainement. - Vincent</p>
  <img src="{{'asset/img/rondbleu.png'}}" alt="Un rond bleu avec des lignes à l'intérieur" class="ronblounet">
    <div class="imagetorsader01">
     <img src="{{asset('asset/img/flechetorsader.png')}}" alt="Une flêche rouge avec une torsade">
-    <p> Commencez votre transformation maintenant</p>
-     <a href="{{ path('app_contact') }}"><button class="text-align">1er rendez-vous gratuit !</button></a>
-  </div>
+    <div class="rdv">
+    <h2 style="color:#172D4B; font-family:quicksand;" ><b>Commencez votre transformation maintenant</b></h2>
+    <a href="{{ path('app_contact') }}"><button class="text-align" style="font-size:45px">1er rendez-vous gratuit !</button></a>
+     </div>
   <div style="height:250px;"></div>
  </div>
 </div>

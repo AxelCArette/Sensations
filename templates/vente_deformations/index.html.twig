@@ -3,33 +3,51 @@
 {% block title %}Mes formations{% endblock %}
 
 {% block body %}
-    <style>
-        .card-body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .formation-container {
-            margin-top: 10px;
-            text-align: center;
-        }
-        .formation-button {
-            margin-top: 10px;
-        }
-        .formation-achetee {
-            background-color: lightgray;
-        }
-        .bg-danger {
-            background-color: red;
-        }
-        .bg-success {
-            background-color: green;
-        }
-    </style>
-    <div class="container">
-        <h1 class="text-center mb-4">Mes formations</h1>
-        {% if app.user %}
+<div class="hautdepagecoachingdequipe">
+  <div class="backgroundcoachingdequipe">
+    <img src="{{ asset('asset/img/backgroundmontagne.png') }}" alt="Un fond représenté par des montagnes">
+  </div>
+  <div class="backgroundcoachingdequipe01">
+    <img src="{{ asset('asset/img/salledereunion.png') }}" alt="Des personnes faisant une activité ensemble">
+  </div>
+  <div class="backgroundcoachingdequipe02">
+    <h1 style="font-size: 65px; text-align: center;">Formations <br>& Ebook</h1><br><br>
+    <p style="font-size:35px; text-align: center;">Plongez dans nos formations et e-books<br> innovants en management, RH et<br> gestion mentale du sportif.</p>
+  </div>
+</div>
+
+<div class="caffouillagedanslasurface01">
+  <h2 style="color:#1c6a8d;margin-top:-85px">Révélez le leader inspiré et performant<br> qui sommeille en vous</h2>
+</div>
+
+<div class="vousetesportif">
+  <img src="{{ asset('asset/img/vagueblancorange.png') }}" alt="Des vagues blanche et oranges.">
+</div>
+
+<div class="vousetesportif01">
+  <div class="image-container">
+    <a href="{{ path('app_vente_deformations') }}#ebook">
+      <img src="{{ asset('asset/img/livrerouge.png') }}" alt="Des vagues blanche et oranges.">
+      <p><b>Ebook</b></p>
+    </a>
+  </div>
+  <div class="image-container">
+    <a href="{{ path('app_vente_deformations') }}#formationRH">
+      <img src="{{ asset('asset/img/FlavieTravailBleu.png') }}" alt="Un entraineur parlant à des enfants">
+      <p style="text-align: center;"><b>Formations<br>RH</b></p>
+    </a>
+  </div>
+  <div class="image-container">
+    <a href="{{ path('app_vente_deformations') }}#FormationManagement">
+      <img src="{{ asset('asset/img/mainorange01.png') }}" alt="Des vagues blanche et oranges.">
+      <p style="text-align:center; margin-left:-50px;"><b>Formations<br>Management</b></p>
+    </a>
+  </div>
+</div>
+
+<div id="ebook" class="ebook">
+  <h3>Ebook</h3>
+ {% if app.user %}
             {% set formations_publiees = false %}
             <div class="row justify-content-center">
                 {% for formation in formations %}
@@ -75,6 +93,7 @@
                                                 {% endif %}
                                                 <div class="formation-container">
                                                     <p>En cours d'achat</p>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -160,4 +179,58 @@
             </div>
         {% endif %}
     </div>
+</div>
+<div id="formationRH" class="formationRH05" style="padding-bottom:50px">
+<img src="{{ asset('asset/img/vagueorangeetjauneetrouge.png') }}">
+<h3>Formations RH</h3>
+<h4>Recrutement et fidélisation : vers une identité<br> employeur innovante et responsable</h4>
+<div class="listeapuceformation">
+<p style="padding-top:25px; padding-bottom:25px; font-size:25px"><b>Devenez un employeur de choix</b> grâce à notre démarche structurante et ludique, en : </p>
+<ul>
+<li>Développant un <b>leadership inspirant</b> avec notre<b> accompagnement personnalisé</b> et adoptez des pratiques alignées avec les<b> valeurs de la RSO</b>. </li>
+<li>Optant pour une approche qui allie<b> expertise, engagement</b> et<b> vision systémique</b> pour un<b> impact durable et positif.</b></li>
+</ul>
+<p>Notre équipe, composée d’experts en recrutement forts d'une solide expérience terrain et de coachs certifiés, vous guidera dans chacune des étapes de votre stratégie. 
+</div>
+<p style="color:#1B6A8D; text-align:left"><b>Notre offre vous permettra de :</b></p>
+<ul>
+<li>Attirer et fidéliser les meilleurs candidats : Ajustez vos processus de recrutement en adoptant des stratégies gagnantes et adaptées.</li>
+<li>Renforcer votre marque employeur : Devenez un employeur de choix grâce à des pratiques éthiques et responsables</li>
+<li>Développer la diversité et l’inclusion : Favorisez une culture d'entreprise inclusive, valorisant la diversité sous toutes ses formes.</li>
+<li>
+Stimuler l'engagement de votre équipe : Développez votre leadership pour inspirer vos collaborateurs et faciliter la transformation. </li>
+</ul>
+<p style="color:#1B6A8D"><b>Pourquoi choisir notre accompagnement ?</b></p>
+<ul>
+<li>Choisissez notre accompagnement pour sa méthodologie structurante et éprouvée, applicable à tout type d’entreprise, et modulable selon vos besoins spécifiques. </li>
+<li>Notre approche ludique et innovante favorise l'engagement des collaborateurs en prenant de la hauteur sur les enjeux réciproques entre candidats et recruteurs. </li>
+<li>Nous impliquons activement les différents acteurs pour atteindre un objectif commun, grâce à des outils simples et efficaces définissant les cibles et actions à chaque étape du processus. </li>
+<li>Nous vous proposons un coaching individuel ou collectif pour développer votre leadership, inspirer et guider vos équipes.</li>
+<li>Nous vous accompagnons sur la durée au fil de la progression de votre projet pour s'assurer de la mise en œuvre effective de vos décisions.</li>
+<li>Avec une solide expérience terrain et une vision systémique, nous vous aiderons à transformer vos pratiques et à aligner votre projet de recrutement avec vos valeurs.</li>
+</ul>
+<h5 style="text-align:center">Transformez votre entreprise en un employeur vertueux, responsable et attractif !</h5>
+<div class="rdv">
+    <a href="{{ path('app_contact') }}"><button class="text-align">Parlons-nous !</button></a>
+    </div>
+</div>
+<div id="FormationManagement" class="formationmanagement">
+<h3>Formations Management</h3>
+<p>Nos formations en management sont conçues pour vous doter des compétences essentielles afin de devenir un leader accompli et inspirant. 
+<br><br>
+Chaque module est conçu sur-mesure pour être interactif et pratique, garantissant une application immédiate et concrète dans votre environnement professionnel.<br><br></p>
+<h4><b>Sujets pouvant être abordés :</b></h4>
+<ul>
+<li><b><span style="color: #F1902F;">L’intelligence émotionnelle:</span></b> compréhension et gestion des émotions, développement de l'empathie ...</li>
+<li><b><span style="color: #F1902F;"> La gestion du stress :</span></b> Identification des sources de stress au travail, techniques de gestion et réduction du stress ...</li>
+<li><b><span style="color: #F1902F;">L’intelligence collective :</span></b> techniques de brainstorming et co-création, gestion des dynamiques de groupe ...</li>
+<li><b><span style="color: #F1902F;">La communication en entreprise :</span></b> CNV, écoute active, feedback, gestion des conflits ...</li>
+<li><b><span style="color: #F1902F;">Être un manager coach :</span></b> techniques pour favoriser l'autonomie et la croissance personnelle des membres de l'équipe, gestion émotionnelle ...</li>
+</ul>
+<h5 style="text-align:center">Rejoignez-nous pour un voyage vers<br>le plaisir de l’excellence </h5>
+<div class="rdv" style="padding-bottom:50px">
+    <a href="{{ path('app_contact') }}"><button class="text-align">Parlons-nous !</button></a>
+    </div>
+</div>
+
 {% endblock %}
