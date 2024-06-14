@@ -18,14 +18,15 @@ class ChangerSonMotDePasseType extends AbstractType
         $builder
         ->add('Nom',TypeTextType::class, [
             'disabled'=>true,
-            'label'=>'Mon nom de famille'
+            'label'=>'Votre nom',
+            
         ])
         ->add('Prenom',TypeTextType::class,[
             'disabled'=>true,
-            'label'=>'Mon Prénom'
+            'label'=>'Votre prénom'
         ])
             ->add('old_password', PasswordType::class,[
-                'label'=>'Mon mot de passe actuel',
+                'label'=>'Votre mot de passe actuel',
                 'mapped'=>false
                 ])
             ->add('new_password', RepeatedType::class, [
@@ -36,20 +37,23 @@ class ChangerSonMotDePasseType extends AbstractType
                 'first_options' => [
                     'label' => 'Votre nouveau mot de passe',
                     'attr' => [
-                        'placeholder' => 'Votre mot de passe.',
-                        'style' => 'background-color: transparent; border: none;',
+                        'placeholder' => 'Votre mot de passe',
+                        'style' => 'background-color: transparent;',
                     ]
                 ],
                 'second_options' => [
                     'label' => 'Confirmez votre nouveau mot de passe',
                     'attr' => [
-                        'placeholder' => 'Confirmez votre mot de passe.',
-                        'style' => 'background-color: transparent; border: none;',
+                        'placeholder' => 'Confirmez votre mot de passe',
+                        'style' => 'background-color: transparent;',
                     ]
                 ]
             ])
             ->add('submit', SubmitType::class, [
-                'label'=> 'Changez votre mot de passe'
+                'label' => 'Changez votre mot de passe',
+                'attr' => [
+                    'style' => 'color: white; background-color:#172d4b;', // Ajoute du style en ligne
+                ],
             ])
             ;
        

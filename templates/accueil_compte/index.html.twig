@@ -4,22 +4,23 @@
 
 {% block body %}
 
-<div class="container">
-    <h1>Mon compte</h1>
-    <p>Bienvenue {{ app.user.prenom }}, ici vous pouvez consulter et modifier vos informations personnelles.</p>
-    <a class="nav-link" href="{{ path('app_mes_infos_perso') }}">Mon profil</a>
-    <a class="nav-link" href="{{ path('app_adresse') }}">Mon adresse</a>
-    <a class="nav-link" href="{{ path('app_contact') }}"> Prendre rdv </a>
-    <a class="nav-link" href="{{ path('app_consulter_ces_formations', {'userId': app.user.id, 'formationId': 'valeurFormationId'}) }}"> Consulter ces formations <br></a>
-    <a class="nav-link" href="{{ path('app_historique_des_commandes')}}"> Historique des commandes <br></a>
-    <a class="nav-link" href="{{ path('app_modifmotdepasse') }}">Modifier mon mot de passe</a>
-    <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+<div class="container" style="margin-left:200px;margin-top:100px;">
+    <h1 style="font-size:40px; margin-bottom:1rem;">Mon compte</h1>
+    <p style="font-size:25px">Bienvenue {{ app.user.prenom }}, ici vous pouvez consulter et modifier vos informations personnelles.</p>
+    <a style="font-size:25px" class="nav-link" href="{{ path('app_mes_infos_perso') }}">Mon profil</a>
+    <a style="font-size:25px" class="nav-link" href="{{ path('app_adresse') }}">Mon adresse</a>
+    <a style="font-size:25px" class="nav-link" href="{{ path('app_contact') }}"> Prendre rdv </a>
+    <a style="font-size:25px" class="nav-link" href="{{ path('app_consulter_ces_formations', {'userId': app.user.id, 'formationId': 'valeurFormationId'}) }}"> Consulter ces formations <br></a>
+    <a style="font-size:25px" class="nav-link" href="{{ path('app_historique_des_commandes')}}"> Historique des commandes <br></a>
+    <a style="font-size:25px" class="nav-link" href="{{ path('app_modifmotdepasse') }}">Modifier mon mot de passe</a>
+    <a style="font-size:25px" class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
 
     {% if is_granted('ROLE_ADMIN') %}
-        <h1> Votre partie administrateur : </h1>
+         <h1 style="font-size:35px; margin:1rem;"> Votre partie administrateur : </h1>
         <a class="nav-link" href="{{ path('admin') }}">Partie admin</a> <br>
     {% endif %}
 
+<div style="margin-top:150px"></div>
 </div>
 
 {% endblock %}

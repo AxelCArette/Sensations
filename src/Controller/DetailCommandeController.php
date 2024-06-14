@@ -38,7 +38,7 @@ class DetailCommandeController extends AbstractController
         $commande->setReference($reference);
         $formationsIdsDansPanier = $cart->get();
         $formationsDansPanier = [];
-        $nomsFormations = []; // Défini la variable ici
+        $nomsFormations = [];
 
         foreach ($formationsIdsDansPanier as $formationId => $quantity) {
             $formation = $formationsRepository->find($formationId);
@@ -86,8 +86,8 @@ public function paiement(Cart $cart, Request $request, FormationsRepository $for
         throw new \Exception('Les informations nécessaires pour la session de paiement sont manquantes.');
     }
 
-    Stripe::setApiKey("sk_test_51OeCoOLne9zIBO1LFsIggYXSCeeeAlmO3g1Afr1XD2Goex6leMNqAtoRklDbmHyxBun3OcdDeIQkRPGGhLKIfps500yL0fKbML");
-    $YOUR_DOMAIN = 'http://127.0.0.1:8000';
+    Stripe::setApiKey("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");
+    $YOUR_DOMAIN = 'https://sensations-coaching.com/';
     
     $checkout_session = \Stripe\Checkout\Session::create([
         'payment_method_types' => ['card'],
@@ -97,7 +97,7 @@ public function paiement(Cart $cart, Request $request, FormationsRepository $for
                 'product_data' => [
                     'name' => $nomsFormationsStr,
                 ],
-                'unit_amount' => $totalPrixCommande, // Assurez-vous que le prix est en centimes
+                'unit_amount' => $totalPrixCommande,
             ],
             'quantity' => 1,
         ]],
@@ -125,7 +125,6 @@ public function paiement(Cart $cart, Request $request, FormationsRepository $for
             $adresseUser = $adresseUtilisateur ? $adresseUtilisateur->getAdresseComplete() : '';
             $commandeDetail->setAdresseUser($adresseUser);
             
-            // Ajoutez le sessionStripeId à chaque commandeDetail
             $commandeDetail->setSessionStripeId($checkout_session->id);
             
             $commandeDetails[] = $commandeDetail;
@@ -143,7 +142,6 @@ public function paiement(Cart $cart, Request $request, FormationsRepository $for
     }
 }
 
-
      #[Route('/continue-paiement/{id}', name: 'app_continue_paiement')]
  public function continuePaiement(int $id, CommandeDetailRepository $commandeDetailRepository): Response
  {
@@ -154,7 +152,7 @@ public function paiement(Cart $cart, Request $request, FormationsRepository $for
          }
 
         Stripe::setApiKey("sk_test_51OeCoOLne9zIBO1LFsIggYXSCeeeAlmO3g1Afr1XD2Goex6leMNqAtoRklDbmHyxBun3OcdDeIQkRPGGhLKIfps500yL0fKbML");
-        $YOUR_DOMAIN = 'http://127.0.0.1:8000';
+        $YOUR_DOMAIN = 'https://sensations-coaching.com/';
 
         $nouvelleSessionStripe = Session::create([
             'payment_method_types' => ['card'],
@@ -191,7 +189,7 @@ public function paiement(Cart $cart, Request $request, FormationsRepository $for
         }
     
      
-        Stripe::setApiKey("sk_test_51OeCoOLne9zIBO1LFsIggYXSCeeeAlmO3g1Afr1XD2Goex6leMNqAtoRklDbmHyxBun3OcdDeIQkRPGGhLKIfps500yL0fKbML");
+        Stripe::setApiKey("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");
         $session = Session::retrieve($sessionId);
  
         if ($session && $session->payment_status === 'paid') {
@@ -208,8 +206,8 @@ public function paiement(Cart $cart, Request $request, FormationsRepository $for
                 $entityManager->flush();
                 $commande = $commandeDetail->getCommande();
                 $utilisateur = $commande->getUtilisateur();
-                $content = "Bonjour " . $utilisateur->getPrenom() . "</br> Merci pour votre commande.<br>";
-                $mail->send($utilisateur->getEmail(), $utilisateur->getPrenom(), 'Votre formation est disponible dans votre compte client', $content);
+                $content = "Bonjour" . $utilisateur->getPrenom() . "";
+                $mail->sendTemplateB($utilisateur->getEmail(), $utilisateur->getPrenom(), '', $content);
     
                 $message = 'Votre paiement a été réussi et votre commande est confirmée. Vous pouvez la retrouver dans votre compte client.';
             } else {

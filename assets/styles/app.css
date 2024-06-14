@@ -1596,6 +1596,10 @@ color:#172D4B;
 {
   background: linear-gradient(to right, #ffefd8, #ffffff);
 }
+.formaforma05{
+  margin: auto;
+  width: 50%;
+}
 .formationRH05 img 
 {
   margin-left: -200px;
@@ -1619,11 +1623,80 @@ color:#172D4B;
 {
   font-family: 'Abril Fatface';
   text-align: center;
-  color: #003366;
+  color:#172D4B;
   font-size: 45px;
 }
 .formationRH05 p 
 {
+  font-family: "Quicksand";
+  color:#172D4B;
   text-align: center;
+  margin-top: 2rem;
+  font-size:25px;
+}
+.formationRH05 li
+{
+  font-family: "Quicksand";
+  color:#172D4B;
+  margin-top: 2rem;
+  font-size:25px;
+}
+.formationRH05 h5 {
+  color:#172D4B;
+  font-size:25px;
+}
+.formationmanagement h3
+{
+  position: relative;
+  margin-top: 45px;
+  margin-left: 15%;
+  border-radius: 15px;
+  padding: 10px;
+  text-align: center;
+  width: 450px;
+  color: white;
+  margin-bottom: 55px;
+  color: white;
+  background-color: #F1902F;
+}
+.formationmanagement p 
+{
+  font-family: "Quicksand";
+  color:#172D4B; 
+  margin-top: 2rem;
+  font-size:25px;
+}
+.formationmanagement li
+{
+  font-family: "Quicksand";
+  color:#172D4B;
+  margin-top: 2rem;
+  font-size:25px;
 }
 
+.formationmanagement p
+{
+  margin-top: 2rem;
+  font-size:25px;
+  font-family: "Quicksand";
+  color:#172D4B;
+}
+.formationmanagement h4
+{
+  font-family: "Quicksand";
+  color:#172D4B;
+}
+.formationmanagement li 
+{
+  margin-top: 2rem;
+  font-size:25px;
+  font-family: "Quicksand";
+  color:#172D4B;
+}
+.formationmanagement h5 
+{
+  margin-top: 2rem;
+  font-size:25px;
+  font-family: "Quicksand";
+  color:#172D4B;
+}

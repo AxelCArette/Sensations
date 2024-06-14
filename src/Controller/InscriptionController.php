@@ -26,7 +26,7 @@ class InscriptionController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            // Vérification du champ honeypot
+            
             $honeypot = $form->get('honeypot')->getData();
 
             if (!empty($honeypot)) {
@@ -48,8 +48,8 @@ class InscriptionController extends AbstractController
                     $entityManager->flush();
 
                     $mail = new Mail();
-                    $content= "Bonjour ".$utilisateur->getPrenom()."</br> Bienvenue chez Sensation Coaching.<br><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam massa orci, sodales eu vestibulum at, gravida eget lacus. Sed maximus purus in auctor fermentum. Quisque elementum vitae magna eu egestas. Aliquam magna ante, aliquam ac iaculis ac, fringilla a sem. Etiam vulputate diam vitae turpis malesuada, vitae blandit nibh dictum. Pellentesque condimentum, magna sit amet imperdiet tincidunt, purus purus feugiat purus, in accumsan nunc nisl ut leo. Integer blandit, mauris in ultrices accumsan, enim tortor hendrerit nisl, vitae imperdiet lorem mauris at erat. Duis at feugiat felis, pharetra consectetur elit. Morbi porta urna lectus, sit amet consectetur nisl lacinia sit amet. Proin sed purus id diam tincidunt sodales. Donec tempor faucibus odio, at placerat mauris cursus vitae. Cras eget vehicula ante, ut vulputate sapien. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin eget sodales risus, sed fringilla sapien.";
-                    $mail->send($utilisateur->getEmail(), $utilisateur->getPrenom(), 'Bienvenue chez Sensation Coaching', $content);
+                    $content= "Bonjour ".$utilisateur->getPrenom()."";
+                    $mail->sendTemplateA($utilisateur->getEmail(), $utilisateur->getPrenom(), '', $content);
                     
                     $notification = "Votre inscription s'est correctement déroulée. Vous pouvez vous connecter à votre compte.";
 

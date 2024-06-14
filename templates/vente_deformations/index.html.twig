@@ -1,6 +1,12 @@
 {% extends 'base.html.twig' %}
+{% block head %}
+<meta name="description" content="Découvrez nos formations et ebook en ressources humaines, management, coaching mental et performance. Adaptez votre parcours avec nos experts.">
+<meta name="keywords" content="formations, développement personnel, coaching, performance, ateliers, séminaires, formation management, formation rh, formations ressources humaines, ebook gestion mentale, teambuilding">
+<meta name="author" content=" Flavie Carette de Sensations Coaching ">
+<meta name="robots" content="noindex"/>
+{% endblock %}
 
-{% block title %}Mes formations{% endblock %}
+{% block title %}Formations - Votre Site de Coaching{% endblock %}
 
 {% block body %}
 <div class="hautdepagecoachingdequipe">
@@ -58,20 +64,23 @@
                             <div class="col-md-4 mb-3">
                                 <div class="card">
                                     <div class="card-body">
-                                        <strong>{{ formation.titreDeLaFormation }}</strong><br>
-                                        <div>Description: {{ formation.description }}</div><br>
-                                        <div>Prix : {{ (formation.prix / 100)|number_format('2', '.', ',') }} €</div><br>
+                                      <img src="/uploads/image/{{ formation.Image }}" alt="Couverture de la formation" style="width:100%;" > 
+                                       <div style="margin-top:2rem; font-size:25px; text-align:center;color:#172D4B"> <strong>{{ formation.titreDeLaFormation }}</strong><br></div>
+                                        <div style="color:#172D4B"><b>Description :</b> <br><br>{{ formation.description }}</div><br>
+                                        <div style="margin-top:1rem; color:#172D4B;"><b>Prix : {{ (formation.prix / 100)|number_format('2', '.', ',') }} €</b></div><br>
                                         {% if formation.getFichierPDF() %}
-                                            <p>Ce cours comprend des PDF</p>
+                                            <p style="color:#172D4B">Format PDF</p>
                                         {% endif %}
                                         {% if formation.getVideo() %}
-                                            <p>Ce cours comprend une vidéo</p>
+                                            <p style="color:#172D4B">Format vidéo</p>
                                         {% endif %}
                                         <div class="formation-container">
                                             <form action="{{ path('add_to_cart',{'id': formation.id}) }}" method="post">
                                                 <input type="hidden" name="formationId" value="{{ formation.id }}">
-                                                <button type="submit" class="btn btn-primary formation-button">Ajouter au panier</button>
-                                            </form>
+                                                <p style="text-align: center;">
+                                                <button type="submit" class="btn formation-button" style="background-color:#1B6A8D; color:white; text-align:center;">Ajouter au panier</button>
+                                                </p>
+                                        </form>
                                         </div>
                                     </div>
                                 </div>
@@ -82,6 +91,7 @@
                                     <div class="col-md-4 mb-3">
                                         <div class="card bg-danger">
                                             <div class="card-body">
+                                              <img src="/uploads/image/{{ formation.Image }}" alt="Couverture de la formation" style="width:100%;" > 
                                                 <strong>{{ formation.titreDeLaFormation }}</strong><br>
                                                 <div>Description: {{ formation.description }}</div><br>
                                                 <div>Prix : {{ (formation.prix / 100)|number_format('2', '.', ',') }} €</div><br>
@@ -92,8 +102,7 @@
                                                     <p>Ce cours comprend une vidéo</p>
                                                 {% endif %}
                                                 <div class="formation-container">
-                                                    <p>En cours d'achat</p>
-                                                    
+                                                    <p><i>En cours d'achat</i></p>  
                                                 </div>
                                             </div>
                                         </div>
@@ -102,6 +111,7 @@
                                     <div class="col-md-4 mb-3">
                                         <div class="card bg-success">
                                             <div class="card-body">
+                                              <img src="/uploads/image/{{ formation.Image }}" alt="Couverture de la formation" style="width:100%;" > 
                                                 <strong>{{ formation.titreDeLaFormation }}</strong><br>
                                                 <div>Description: {{ formation.description }}</div><br>
                                                 <div>Prix : {{ (formation.prix / 100)|number_format('2', '.', ',') }} €</div><br>
@@ -123,6 +133,7 @@
                                 <div class="col-md-4 mb-3">
                                     <div class="card">
                                         <div class="card-body">
+                                          <img src="/uploads/image/{{ formation.Image }}" alt="Couverture de la formation" style="width:100%;" > 
                                             <strong>{{ formation.titreDeLaFormation }}</strong><br>
                                             <div>Description: {{ formation.description }}</div><br>
                                             <div>Prix : {{ (formation.prix / 100)|number_format('2', '.', ',') }} €</div><br>
@@ -156,6 +167,7 @@
                         <div class="col-md-4 mb-3">
                             <div class="card">
                                 <div class="card-body">
+                                 <img src="/uploads/image/{{ formation.Image }}" alt="Couverture de la formation" style="width:100%;" >                               
                                     <strong>{{ formation.titreDeLaFormation }}</strong><br>
                                     <div>Description: {{ formation.description }}</div><br>
                                     <div>Prix : {{ (formation.prix / 100)|number_format('2', '.', ',') }} €</div><br>
@@ -180,56 +192,61 @@
         {% endif %}
     </div>
 </div>
+
 <div id="formationRH" class="formationRH05" style="padding-bottom:50px">
-<img src="{{ asset('asset/img/vagueorangeetjauneetrouge.png') }}">
-<h3>Formations RH</h3>
-<h4>Recrutement et fidélisation : vers une identité<br> employeur innovante et responsable</h4>
-<div class="listeapuceformation">
-<p style="padding-top:25px; padding-bottom:25px; font-size:25px"><b>Devenez un employeur de choix</b> grâce à notre démarche structurante et ludique, en : </p>
-<ul>
-<li>Développant un <b>leadership inspirant</b> avec notre<b> accompagnement personnalisé</b> et adoptez des pratiques alignées avec les<b> valeurs de la RSO</b>. </li>
-<li>Optant pour une approche qui allie<b> expertise, engagement</b> et<b> vision systémique</b> pour un<b> impact durable et positif.</b></li>
-</ul>
-<p>Notre équipe, composée d’experts en recrutement forts d'une solide expérience terrain et de coachs certifiés, vous guidera dans chacune des étapes de votre stratégie. 
-</div>
-<p style="color:#1B6A8D; text-align:left"><b>Notre offre vous permettra de :</b></p>
-<ul>
-<li>Attirer et fidéliser les meilleurs candidats : Ajustez vos processus de recrutement en adoptant des stratégies gagnantes et adaptées.</li>
-<li>Renforcer votre marque employeur : Devenez un employeur de choix grâce à des pratiques éthiques et responsables</li>
-<li>Développer la diversité et l’inclusion : Favorisez une culture d'entreprise inclusive, valorisant la diversité sous toutes ses formes.</li>
-<li>
-Stimuler l'engagement de votre équipe : Développez votre leadership pour inspirer vos collaborateurs et faciliter la transformation. </li>
-</ul>
-<p style="color:#1B6A8D"><b>Pourquoi choisir notre accompagnement ?</b></p>
-<ul>
-<li>Choisissez notre accompagnement pour sa méthodologie structurante et éprouvée, applicable à tout type d’entreprise, et modulable selon vos besoins spécifiques. </li>
-<li>Notre approche ludique et innovante favorise l'engagement des collaborateurs en prenant de la hauteur sur les enjeux réciproques entre candidats et recruteurs. </li>
-<li>Nous impliquons activement les différents acteurs pour atteindre un objectif commun, grâce à des outils simples et efficaces définissant les cibles et actions à chaque étape du processus. </li>
-<li>Nous vous proposons un coaching individuel ou collectif pour développer votre leadership, inspirer et guider vos équipes.</li>
-<li>Nous vous accompagnons sur la durée au fil de la progression de votre projet pour s'assurer de la mise en œuvre effective de vos décisions.</li>
-<li>Avec une solide expérience terrain et une vision systémique, nous vous aiderons à transformer vos pratiques et à aligner votre projet de recrutement avec vos valeurs.</li>
-</ul>
-<h5 style="text-align:center">Transformez votre entreprise en un employeur vertueux, responsable et attractif !</h5>
-<div class="rdv">
-    <a href="{{ path('app_contact') }}"><button class="text-align">Parlons-nous !</button></a>
+
+    <img src="{{ asset('asset/img/vagueorangeetjauneetrouge.png') }}">
+    <h3>Formations RH</h3>
+    
+    <h4>Recrutement et fidélisation :<br>vers une identité employeur innovante et responsable</h4>
+    <div class="formaforma05">
+    <div class="listeapuceformation">
+        <p style="padding-top:25px; padding-bottom:25px; font-size:25px"><b>Devenez un employeur de choix</b> grâce à notre démarche structurante et ludique, en : </p>
+        <ul>
+            <li style="color:#172D4B">Développant un <b>leadership inspirant</b> avec notre<b> accompagnement personnalisé</b> et adoptez des pratiques alignées avec les<b> valeurs de la RSO</b>. </li>
+            <li style="color:#172D4B">Optant pour une approche qui allie<b> expertise, engagement</b> et<b> vision systémique</b> pour un<b> impact durable et positif.</b></li>
+        </ul>
+        <p style="color:#172D4B">Notre équipe, composée d’experts en recrutement forts d'une solide expérience terrain et de coachs certifiés, vous guidera dans chacune des étapes de votre stratégie. </p>
+    </div>
+    <p style="color:#172D4B; text-align:left"><b>Notre offre vous permettra de :</b></p>
+    <ul>
+        <li style="color:#172D4B">Attirer et fidéliser les meilleurs candidats : Ajustez vos processus de recrutement en adoptant des stratégies gagnantes et adaptées.</li>
+        <li style="color:#172D4B">Renforcer votre marque employeur : Devenez un employeur de choix grâce à des pratiques éthiques et responsables.</li>
+        <li style="color:#172D4B">Développer la diversité et l’inclusion : Favorisez une culture d'entreprise inclusive, valorisant la diversité sous toutes ses formes.</li>
+        <li style="color:#172D4B">Stimuler l'engagement de votre équipe : Développez votre leadership pour inspirer vos collaborateurs et faciliter la transformation.</li>
+    </ul>
+    <p style="color:#172D4B"><b>Pourquoi choisir notre accompagnement ?</b></p>
+    <ul>
+        <li style="color:#172D4B">Choisissez notre accompagnement pour sa méthodologie structurante et éprouvée, applicable à tout type d’entreprise, et modulable selon vos besoins spécifiques.</li>
+        <li style="color:#172D4B">Notre approche ludique et innovante favorise l'engagement des collaborateurs en prenant de la hauteur sur les enjeux réciproques entre candidats et recruteurs.</li>
+        <li style="color:#172D4B">Nous impliquons activement les différents acteurs pour atteindre un objectif commun, grâce à des outils simples et efficaces définissant les cibles et actions à chaque étape du processus.</li>
+        <li style="color:#172D4B">Nous vous proposons un coaching individuel ou collectif pour développer votre leadership, inspirer et guider vos équipes.</li>
+        <li style="color:#172D4B">Nous vous accompagnons sur la durée au fil de la progression de votre projet pour s'assurer de la mise en œuvre effective de vos décisions.</li>
+        <li style="color:#172D4B">Avec une solide expérience terrain et une vision systémique, nous vous aiderons à transformer vos pratiques et à aligner votre projet de recrutement avec vos valeurs.</li>
+    </ul>
+    <h5 style="text-align:center;color:#172D4B">Transformez votre entreprise en un employeur vertueux, responsable et attractif !</h5>
+    <div class="rdv">
+        <a href="{{ path('app_contact') }}"><button class="text-align">Parlons-nous !</button></a>
+        </div>
     </div>
 </div>
+
 <div id="FormationManagement" class="formationmanagement">
-<h3>Formations Management</h3>
-<p>Nos formations en management sont conçues pour vous doter des compétences essentielles afin de devenir un leader accompli et inspirant. 
-<br><br>
-Chaque module est conçu sur-mesure pour être interactif et pratique, garantissant une application immédiate et concrète dans votre environnement professionnel.<br><br></p>
-<h4><b>Sujets pouvant être abordés :</b></h4>
-<ul>
-<li><b><span style="color: #F1902F;">L’intelligence émotionnelle:</span></b> compréhension et gestion des émotions, développement de l'empathie ...</li>
-<li><b><span style="color: #F1902F;"> La gestion du stress :</span></b> Identification des sources de stress au travail, techniques de gestion et réduction du stress ...</li>
-<li><b><span style="color: #F1902F;">L’intelligence collective :</span></b> techniques de brainstorming et co-création, gestion des dynamiques de groupe ...</li>
-<li><b><span style="color: #F1902F;">La communication en entreprise :</span></b> CNV, écoute active, feedback, gestion des conflits ...</li>
-<li><b><span style="color: #F1902F;">Être un manager coach :</span></b> techniques pour favoriser l'autonomie et la croissance personnelle des membres de l'équipe, gestion émotionnelle ...</li>
-</ul>
-<h5 style="text-align:center">Rejoignez-nous pour un voyage vers<br>le plaisir de l’excellence </h5>
-<div class="rdv" style="padding-bottom:50px">
-    <a href="{{ path('app_contact') }}"><button class="text-align">Parlons-nous !</button></a>
+    <h3>Formations Management</h3>
+    <div class="formaforma05">
+    <p >Nos formations en management sont conçues pour vous doter des compétences essentielles afin de devenir un leader accompli et inspirant. <br><br> Chaque module est conçu sur-mesure pour être interactif et pratique, garantissant une application immédiate et concrète dans votre environnement professionnel.<br><br></p>
+    <h4><b>Sujets pouvant être abordés :</b></h4>
+    <ul>
+        <li><b><span style="color: #F1902F;">L’intelligence émotionnelle:</span></b> compréhension et gestion des émotions, développement de l'empathie ...</li>
+        <li><b><span style="color: #F1902F;">La gestion du stress :</span></b> Identification des sources de stress au travail, techniques de gestion et réduction du stress ...</li>
+        <li><b><span style="color: #F1902F;">L’intelligence collective :</span></b> techniques de brainstorming et co-création, gestion des dynamiques de groupe ...</li>
+        <li><b><span style="color: #F1902F;">La communication en entreprise :</span></b> CNV, écoute active, feedback, gestion des conflits ...</li>
+        <li><b><span style="color: #F1902F;">Être un manager coach :</span></b> techniques pour favoriser l'autonomie et la croissance personnelle des membres de l'équipe, gestion émotionnelle ...</li>
+    </ul>
+    <h5 style="text-align:center"><b>Rejoignez-nous pour un voyage vers<br>le plaisir de l’excellence</b> </h5>
+    <div class="rdv" style="padding-bottom:50px">
+        <a href="{{ path('app_contact') }}"><button class="text-align">Parlons-nous !</button></a>
+    </div>
     </div>
 </div>
 

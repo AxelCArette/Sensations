@@ -25,13 +25,13 @@ class UtilisateurCrudController extends AbstractCrudController
             TextField::new('Nom'),
             TextField::new('Prenom'),
             IntegerField::new('NumeroDeTelephone'),
-            ArrayField::new('roles', 'Roles'),
             TextField::new('email'),
-            AssociationField::new('adresses', 'Adresse(s)')
-                ->hideOnForm()
-                ->formatValue(function ($value, $entity) {
-                    return $entity->getAdresses()->first()->getVille();
-                }),
+            // AssociationField::new('adresses', 'Adresse(s)')
+            // ->hideOnForm()
+            // ->formatValue(function ($value, $entity) {
+            //     return $entity->getAdresses()->first()->getVille();
+            // }),
+            
         ];
     }
 }

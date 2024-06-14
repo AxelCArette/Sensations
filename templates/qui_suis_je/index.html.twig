@@ -1,10 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block head %}
-    <meta name="description" content="Une page où on rassemble un maximum d'information">
+   <meta name="description" content="Découvrez le parcours de Flavie Carette, coach professionnelle certifiée, ancienne joueuse de football en haut-niveau, arbitre officielle et fondatrice de Sensations Coaching.">
+<meta name="keywords" content="Flavie Carette, coach professionnelle, parcours, intelligence émotionnelle, gestion de la blessure, Sensations Coaching, joueuse de football, sportif, sportif de haut niveau, haut-niveau, sport de haut niveau, arbitre, arbitre de foot, arbitre officielle">
+<meta name="author" content=" Flavie Carette de Sensations Coaching ">
 {% endblock %}
 
-{% block title %}Qui suis-je ?{% endblock %}
+{% block title %}Qui suis-je ? - Sensations Coaching{% endblock %}
 
 {% block body %}
 
@@ -143,7 +145,7 @@
 <div id="parcoursetdentologie" class="Parcoursetdentologie">
 <h2 style="font-family: 'Abril Fatface'; text-align: center; font-size:50px; margin-top:150px ; color:#1c618d;"> Parcours & Déontologie</h2>
 <div style="text-align: center;">
-<img src="{{asset('asset/img/organigramemulticouleur.png')}}" style="margin-top:50px; width:500px">
+<img src="{{asset('asset/img/organigramemulticouleur.png')}}" style="margin-top:50px; width:500px" alt="Organigrame de ma vie">
   <div class="parcoursetdentologie2024" style="display: flex; flex-direction: column; align-items: center;">
   <h4 style="background-color:#FFEFD7; width:100px; border-radius: 10px; padding:10px;">2024</h4>
   <p style="width:500px; font-size:25px; text-align:center; color:#172D4B; font-family:quicksand;">
@@ -187,6 +189,7 @@
 </div>
 <div class="pieddepagequisuisje01" style="color:#172D4B; font-family:quicksand; padding-bottom:100px">
 <h2 style="margin-top:80px "><b>Explorons ensemble vos défis !</b></h2>
+
 <a href="{{ path('app_contact') }}">Réservez votre rdv gratuit !</a>
 </div>
 </div>

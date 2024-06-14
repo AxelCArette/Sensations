@@ -3,20 +3,20 @@
 {% block title %}Bonjour {{ app.user.prenom }}{% endblock %}
 
 {% block body %}
-<h1> Vos informations personnelles</h1>
-<p> Votre prénom : {{ app.user.prenom }} </p>
-<p> Votre nom : {{ app.user.nom }} </p>
-<p> Votre numéro de téléphone : {{app.user.NumeroDeTelephone}}</p>
+ <h1 style="font-size:35px; margin-left:15rem; margin-bottom:1rem; margin-top:6rem;">Vos informations personnelles</h1>
+<p style="margin-left:15rem"> Votre prénom : {{ app.user.prenom }} </p>
+<p style="margin-left:15rem">Votre nom : {{ app.user.nom }} </p>
+<p style="margin-left:15rem"> Votre numéro de téléphone : 0{{app.user.NumeroDeTelephone}}</p>
 
 {% if app.user.adresses is not empty %}
-    <h2> Votre adresses :</h2>
-    <ul>
+  <p style="margin-left:15rem"> Votre adresse :
+   
         {% for adresse in app.user.adresses %}
-            <li>{{ adresse.adresseComplete }}, {{ adresse.ville }}, {{ adresse.codePostale }}, {{ adresse.pays }}</li>
+            {{ adresse.adresseComplete }}, {{ adresse.ville }}, {{ adresse.codePostale }}, {{ adresse.pays }}</p>
         {% endfor %}
-    </ul>
+   
 {% else %}
     <p>Vous n'avez pas encore renseigné d'adresse.</p>
 {% endif %}
-
+ <div style="margin-bottom:200px"></div>
 {% endblock %}

@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Article complet - {{ article.titre }}{% endblock %}
+{% block head %}
+<meta name="description" content="Explorez mes articles sur le coaching professionnel, l’intelligence émotionnelle, le coaching mental, et la performance en équipe. Des conseils pratiques pour votre quotidien.">
+<meta name="keywords" content="articles, développement personnel, coaching, performance, conseils, astuces, ebook, coaching d’équipe, séminaire, teambuilding">
+<meta name="author" content=" Flavie Carette de Sensations Coaching ">
+{% endblock %}
+{% block title %}Article complet - {{ article.titre }}- Sensations Coaching{% endblock %}
 
 {% block body %}
     <div class="container">
@@ -12,7 +16,6 @@
                 <p style="margin-top: 20px;">{{ article.texteDeLArticle }}</p>
                 <div class="text-center mb-3">
                     <a href="{{ path('app_resumer_article') }}" class="btn btn-primary">Retournez aux articles</a>
-                    <!-- Bouton de partage LinkedIn -->
                     <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ app.request.schemeAndHttpHost ~ app.request.requestUri }}" class="btn btn-primary">Partager sur LinkedIn</a>
                 </div>
             </div>

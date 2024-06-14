@@ -1,5 +1,8 @@
 <!DOCTYPE html>
+
 <html>
+<html lang="fr">
+
     <head>
     <script src="/tarteaucitron/tarteaucitron.js-master/tarteaucitron.js"></script>
 
@@ -44,8 +47,15 @@
         });
         </script>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        
+        <title>{% block title %}Sensations-coaching{% endblock %}</title>
+        
+        <meta name="description" content="Sensations-coaching ici pour aller toujours vers le meilleur !">
+        <meta name="keywords" content="formations, développement personnel, coaching, performance, ateliers, séminaires, formation management, formation rh, formations ressources humaines, ebook gestion mentale, teambuilding">
+        <meta name="author" content=" Flavie Carette de Sensations Coaching ">
+        {% block head %}
+         {% endblock %}
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         <link rel="stylesheet" href="{{ asset('build/vendor.css') }}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,7 +68,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script src="{{ asset('build/vendor.js') }}" defer></script>
-        <meta name="description" content="">
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -67,6 +76,7 @@
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
+  
 
  <body>   
 <nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
@@ -168,12 +178,12 @@
       <div class="col-md-4" style="margin-left: 50px;">
   <p style="font-weight: bold; margin-top: 30px; margin-bottom: 10px;">Mon offre :</p>
   <ul style="list-style-type: none; padding-left: 0;">
-    <li><a class="nav-link active" aria-current="page" href="#" style="margin-bottom: 10px;">Coaching collectif</a></li>
-    <li><a class="nav-link active" aria-current="page" href="#" style="margin-bottom: 10px;">Coaching individuel</a></li>
-    <li><a class="nav-link active" aria-current="page" href="#" style="margin-bottom: 10px;">Coaching pour les sportifs de haut niveau</a></li>
+    <li><a class="nav-link active" aria-current="page" href="{{ path('app_coaching_collectif') }}" style="margin-bottom: 10px;">Coaching collectif</a></li>
+    <li><a class="nav-link active" aria-current="page" href="{{ path('app_individuel') }}" style="margin-bottom: 10px;">Coaching individuel</a></li>
+    <li><a class="nav-link active" aria-current="page" href="{{ path('app_coaching_sportif') }}" style="margin-bottom: 10px;">Coaching pour les sportifs de haut niveau</a></li>
     <li><a class="nav-link active" aria-current="page" href="{{path('app_vente_deformations')}}" style="margin-bottom: 10px;">Formations</a></li>
-    <li><a class="nav-link active" aria-current="page" href="#" style="margin-bottom: 10px; font-weight: bold;">Qui suis-je ?</a></li>
-    <li><a class="nav-link active" aria-current="page" href="#" style="margin-bottom: 10px; font-weight: bold;">Mes articles</a></li>
+    <li><a class="nav-link active" aria-current="page" href="{{ path('app_qui_suis_je') }}" style="margin-bottom: 10px; font-weight: bold;">Qui suis-je ?</a></li>
+    <li><a class="nav-link active" aria-current="page" href="{{ path('app_resumer_article') }}" style="margin-bottom: 10px; font-weight: bold;">Mes articles</a></li>
   </ul>
 </div>
       <div class="col-md-4">

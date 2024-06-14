@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="container mt-4">
-        <h1 class="mb-4">Historique de vos commandes</h1>
+        <h1 class="mb-4" style="font-size:35px">Historique de vos commandes</h1>
         {% if commandeDetailsGroupedByCommande is empty %}
             <p>Il n'y a pas de commandes. Vous pouvez consulter nos formations <a style="color: black; text-decoration: none;" href="{{ path('app_vente_deformations') }}" onmouseover="this.style.color='#e34121'" onmouseout="this.style.color='black'">ici</a>.</p>
         {% else %}
@@ -30,7 +30,7 @@
                                 </td>
                                 <td>{{ commande.DateDeCreationCommande|date('d-m-Y') }}</td>
                                 <td>
-                                    <a href="{{ path('app_telecharger_facture', {'commandeId': commande.id}) }}" class="btn btn-primary">Télécharger la facture</a>
+                                    <a href="{{ path('app_telecharger_facture', {'commandeId': commande.id}) }}" class="btn" style="background-color:#172d4b; color:white">Télécharger la facture</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -38,5 +38,6 @@
                 </div>
             {% endfor %}
         {% endif %}
+        <div style="margin-top:300px"></div>
     </div>
 {% endblock %}
