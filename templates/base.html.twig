@@ -24,26 +24,24 @@
           "iconPosition": "BottomRight",
     	  "adblocker": false,        
           "DenyAllCta" : true, 
-          "AcceptAllCta" : true, /* Show the accept all button when highPrivacy on */
-          "highPrivacy": true, /* HIGHLY RECOMMANDED Disable auto consent */
-          "alwaysNeedConsent": false, /* Ask the consent for "Privacy by design" services */       
+          "AcceptAllCta" : true, 
+          "highPrivacy": true, 
+          "alwaysNeedConsent": false,  
     	  "handleBrowserDNTRequest": false, 
     	  "removeCredit": false, 
-    	  "moreInfoLink": true, /* Show more info link */
-          "useExternalCss": false, /* If false, the tarteaucitron.css file will be loaded */
+    	  "moreInfoLink": true,
+          "useExternalCss": false, 
           "useExternalJs": false, 
-    	  //"cookieDomain": ".my-multisite-domaine.fr", /* Shared cookie for multisite */
-                          
+    	  //"cookieDomain": ".my-multisite-domaine.fr", /* Shared cookie for multisite */ 
           "readmoreLink": "", /* Change the default readmore link */
 
-          "mandatory": true, /* Show a message about mandatory cookies */
+          "mandatory": true, 
           "mandatoryCta": true, /* Show the disabled accept button when mandatory on */
     
           //"customCloserId": "", /* Optional a11y: Custom element ID used to open the panel */
           
-          "googleConsentMode": true, /* Enable Google Consent Mode v2 for Google ads and GA4 */
-          
-          "partnersList": false /* Show the number of partners on the popup/middle banner */
+          "googleConsentMode": true, 
+          "partnersList": false 
         });
         </script>
         <meta charset="UTF-8">
@@ -175,7 +173,7 @@
         <div class=" mr-3">
           <img src="{{ asset('asset/img/sensationlogo.png') }}" alt="" width="200" height="65">
           <a href="https://www.linkedin.com/in/flaviecarette/"><img src="{{ asset('asset/img/linkedin.png') }}" alt="" width="40" height="40" style="margin-top: 10px;"></a>
-        le bleu du site à favie  <a href="https://www.instagram.com/flavie.crt/"><img src="{{ asset('asset/img/instagram.png') }}" alt="" width="40" height="40" style="margin-top: 10px;"></a>
+        <a href="https://www.instagram.com/flavie.crt/"><img src="{{ asset('asset/img/instagram.png') }}" alt="" width="40" height="40" style="margin-top: 10px;"></a>
         </div>
       </div>
       <div class="col-md-4" style="margin-left: 50px;">
@@ -203,10 +201,14 @@
           <p style="text-align: center;"><b>Réservez votre rendez-vous <br> gratuit dès maintenant</b></p>
               </a>
         </div>
-        <button class="btn btn-custom" type="button" id="button-addon2" style="display: flex; align-items: center; font-size: 14px; height: 45px; width: 450px; border-radius: 20px; margin-top: 20px;"> <!-- Ajout de la marge en haut -->
-          <input type="email" class="form-control" placeholder="Votre email" aria-label="Votre email" aria-describedby="button-addon2" style="font-size:15px; height:20px; padding: 12px;">
-          <span style="margin-left: 7px; white-space: nowrap;">Je m'inscris à la newsletter</span>
-        </button>
+        
+        
+  <form method="post" action="{{ path('app_newsletter') }}">
+    <button class="btn btn-custom" type="submit" id="button-addon2" style="display: flex; align-items: center; font-size: 14px; height: 45px; width: 450px; border-radius: 20px; margin-top: 20px;">
+        <input type="email" name="emailpournewletter" class="form-control" placeholder="Votre email" aria-label="Votre email" aria-describedby="button-addon2" style="font-size:15px; height:20px; padding: 12px;" required>
+        <span style="margin-left: 7px; white-space: nowrap;">Je m'inscris à la newsletter</span>
+    </button>
+</form>
       </div>
     </div>
     <div class="row" style="margin-top: 30px;">
