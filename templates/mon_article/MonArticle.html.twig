@@ -1,24 +1,89 @@
 {% extends 'base.html.twig' %}
+
 {% block head %}
-<meta name="description" content="Explorez mes articles sur le coaching professionnel, l’intelligence émotionnelle, le coaching mental, et la performance en équipe. Des conseils pratiques pour votre quotidien.">
-<meta name="keywords" content="articles, développement personnel, coaching, performance, conseils, astuces, ebook, coaching d’équipe, séminaire, teambuilding">
-<meta name="author" content=" Flavie Carette de Sensations Coaching ">
+    <meta name="description" content="Explorez mes articles sur le coaching professionnel, l’intelligence émotionnelle, le coaching mental, et la performance en équipe. Des conseils pratiques pour votre quotidien.">
+    <meta name="keywords" content="articles, développement personnel, coaching, performance, conseils, astuces, ebook, coaching d’équipe, séminaire, teambuilding">
+    <meta name="author" content="Flavie Carette de Sensations Coaching">
 {% endblock %}
-{% block title %}Article complet - {{ article.titre }}- Sensations Coaching{% endblock %}
+
+{% block title %}Article complet - {{ article.titre }} - Sensations Coaching{% endblock %}
 
 {% block body %}
+    <h1 class="text-center" style="margin-top: 40px;">{{ article.titre }}</h1>
+    <h4 class="text-center" style="margin-top: 50px; color:#DD3E30; font-family:Quicksand; margin-bottom:25px">{{ article.sousTitre }}</h4>
+    <p style="text-align:center; font-family:Quicksand;">{{ article.date|date('d/m/Y') }}</p>
+
+    <div class="image-container05" style="width: 100%; height: 500px; overflow: hidden; margin-top:50px">
+        <img class="card-img-top mx-auto d-block" 
+             src="/uploads/image/{{ article.image }}" 
+             alt="Image de l'article"
+             style="object-fit: cover; width: 100%; height: 100%;">
+    </div>
+
+    {% if article.tags is not empty %}
+        <div class="tags-container" style="margin-top: 3rem;">
+            <div class="mb-3 d-flex justify-content-center">
+                <div class="tags-list">
+                    {% for tag in article.tags %}
+                        <a href="{{ path('app_resumer_article', { tag: tag }) }}"
+                           class="btn mr-2 mb-2"
+                           style="background-color: #172D4B; color: white; margin-right: 10px; font-size:25px">
+                            {{ tag }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
-            <h1 class="text-center" style="margin-top: 40px;">{{ article.titre }}</h1>
-                <img class="card-img-top mx-auto d-block mb-3" src="/uploads/image/{{ article.image }}" alt="Image de l'article" style="max-width: 500px; margin-top:40px;">
-                <h2 class="text-center" style="margin-top: 50px;">{{ article.sousTitre }}</h2>
-                <p style="margin-top: 20px;">{{ article.texteDeLArticle }}</p>
+                <p style="margin-top: 20px; font-family:Quicksand; color:#172D4B; font-size:25px">{{ article.texteDeLArticle }}</p>
                 <div class="text-center mb-3">
-                    <a href="{{ path('app_resumer_article') }}" class="btn btn-primary">Retournez aux articles</a>
-                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ app.request.schemeAndHttpHost ~ app.request.requestUri }}" class="btn btn-primary">Partager sur LinkedIn</a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ app.request.schemeAndHttpHost ~ app.request.requestUri }}" class="btn" style="background-color: #172D4B; color: white; margin-top:2rem; font-size:30px">Partager sur LinkedIn</a>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="rdv" style="margin-top:4rem;">
+        <h2 style="color:#172D4B; font-family:quicksand;" ><b>Des mots résonnent pour vous ?</b></h2>
+        <a href="{{ path('app_contact') }}"><button class="text-align" style="font-size:45px">Rendez-vous offert</button></a>
+    </div>
+
+    {% if resumes is not empty %}
+        {% set displaySimilarArticles = false %}
+        <h1 style="text-align:center; margin-top:3rem">Ces articles vont t'intéresser…</h1>
+
+        <div class="container" style="margin-top:4rem;">
+            <div class="row justify-content-center">
+                {% for resume in resumes %}
+                    {% if resume.published and resume.id != article.id %}
+                        {% set displaySimilarArticles = true %}
+                        <div class="col-md-6 mb-4">
+                            <div class="card">
+                                <img src="/uploads/image/{{ resume.image }}" class="card-img-top" alt="Image de l'article">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">{{ resume.titre }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ resume.sousTitre }}</h6>
+                                    <p class="card-text">{{ resume.resumer }}</p>
+                                    <a href="{{ path('app_mon_article', {id: resume.id}) }}" class="btn" style="background-color: #172D4B; color: white;">Voir l'article complet</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        {% if not displaySimilarArticles %}
+            <p style="text-align:center; margin-top:3rem;color:#172D4B; font-size:25px">D'autres articles sont en cours d'écriture.</p>
+        {% endif %}
+    {% else %}
+        <p style="text-align:center; margin-top:3rem; color:#172D4B; font-size:25px">Aucun résumé d'article disponible.</p>
+    {% endif %}
+
+    <div style="margin-bottom:4rem"></div>
+
 {% endblock %}

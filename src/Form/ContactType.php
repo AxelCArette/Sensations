@@ -26,7 +26,11 @@ class ContactType extends AbstractType
             ])
             ->add('Sujet', TextType::class)
             ->add('VotreMessage', TextareaType::class)
-            ->add('Envoyer', SubmitType::class)
+            ->add('Envoyer', SubmitType::class,[
+                'attr'=> [
+                    'style' => 'color: white; background-color:#172d4b;', // Ajoute du style en ligne
+            ]
+            ]);
         ;
     }
 

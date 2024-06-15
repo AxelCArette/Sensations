@@ -22,12 +22,15 @@ class VenteDeformationsController extends AbstractController
     #[Route('/vente-de-formations', name: 'app_vente_deformations')]
     public function index(): Response
     {
+        $user = $this->getUser();
         $formations = $this->formationsRepository->findAll();
 
         $commandeDetails = [];
-        foreach ($formations as $formation) {
-            $commandeDetail = $this->commandeDetailRepository->findOneBy(['formation' => $formation]);
-            $commandeDetails[$formation->getId()] = $commandeDetail;
+        if ($user) {
+            $details = $this->commandeDetailRepository->findByUser($user);
+            foreach ($details as $detail) {
+                $commandeDetails[$detail->getFormation()->getId()] = $detail;
+            }
         }
 
         return $this->render('vente_deformations/index.html.twig', [
@@ -35,4 +38,5 @@ class VenteDeformationsController extends AbstractController
             'commandeDetails' => $commandeDetails,
         ]);
     }
+    
 }

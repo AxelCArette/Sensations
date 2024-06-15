@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Classe\Cart;
 use App\Entity\Commande;
-use App\Repository\FormationsRepository; // Utilisation de FormationsRepository
+use App\Repository\FormationsRepository; 
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

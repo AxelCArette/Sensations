@@ -31,3 +31,4 @@ app_cancel:
 articles_by_tag:
   path: '/articles/tag/{tag}'
   controller: 'App\Controller\ResumerArticleController::articlesByTag'
+

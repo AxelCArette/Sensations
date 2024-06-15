@@ -12,6 +12,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use Doctrine\ORM\EntityManagerInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 
 class RedactionArticlesCrudController extends AbstractCrudController
 {
@@ -36,8 +37,8 @@ class RedactionArticlesCrudController extends AbstractCrudController
             TextField::new('titre'),
             SlugField::new('slug')->setTargetFieldName('titre'),
             TextField::new('sousTitre'),
-            TextField::new('resumer'),
-            TextField::new('TexteDeLArticle'),
+            TextEditorField::new('resumer'),
+            TextEditorField::new('TexteDeLArticle'),
             BooleanField::new('published')->setLabel('Publié'),
             ImageField::new('image')
                 ->setUploadDir('public/uploads/image')

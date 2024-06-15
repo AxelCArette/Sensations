@@ -75,6 +75,9 @@
             {{ encore_entry_script_tags('app') }}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
+        {% block modal %}
+    {# Fenêtre modale (déjà définie dans base.html.twig) #}
+        {% endblock %}
     </head>
   
 

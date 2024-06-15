@@ -29,17 +29,22 @@
                     {% if formationId not in displayedFormationIds %}
                         {% set displayedFormationIds = displayedFormationIds|merge([formationId]) %}
                       <h1 style="font-size:35px; margin-bottom:1rem; margin-top:6rem;">Formation : {{ formation.getTitreDeLaFormation() }}</h1>
+                 
                        <img src="/uploads/image/{{ formation.Image }}" alt="Couverture de la formation" style="width:50%;" ><br><br>
-                              <div>Description: {{ formation.description }}</div><br>
-                        <a href="{{ path('download_pdf', {'id': commandeDetail.id}) }}" class="btn" style="background-color:#172d4b; color:white">Télécharger PDF</a>
-                
-                            {# <a href="{{ path('download_pdf', {'id': commandeDetail.id}) }}" class="btn" style="background-color:#172d4b; color:white">Visioner la vidéo</a>
-                  #}
+                         <b>Description :</b> <br><br>{{ formation.description }}<br><br>
+                     {% if formation.video %}
+                        <div class="embed-responsive embed-responsive-16by9 mt-3">
+                            <iframe class="embed-responsive-item" src="{{ formation.video }}"></iframe>
+                        </div>
+                    {% endif %}
+                    
+                    <a href="{{ path('download_pdf', {'id': commandeDetail.id}) }}" class="btn btn-primary mt-3">Télécharger PDF</a>
+                {% endif %}
+            {% endif %}
+  
                         {% set hasDisplayedFormation = true %}
                     {% endif %}
              
-                {% endif %}
-            {% endif %}
             
                     {% endfor %}
         {% if not formationsEnCoursAchat and not hasDisplayedFormation %}

@@ -7,5 +7,7 @@
 {% endblock %}
 
 {% block main %}
-Bienvenue {{ app.user.prenom }}
+Bienvenue {{ app.user.prenom }}<br><br>
+  <a href="{{ path('app_accueil') }}"><button class="text-align">Retour sur le site </button></a>
+
 {% endblock %}

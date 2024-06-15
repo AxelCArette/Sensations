@@ -1,14 +1,66 @@
 {% extends 'base.html.twig' %}
+
 {% block head %}
+    <meta name="description" content="Découvrez nos services de coaching collectif et individuel, nos formations pour entreprises et sportifs de haut niveau. Boostez votre performance avec Sensations Coaching.">
+    <meta name="keywords" content="coaching, préparation mentale, coaching sportif, formation entreprise, développement personnel, performance, séminaire, intelligence émotionnelle, gestion du stress, gestion des émotions, teambuilding">
+    <meta name="author" content="Flavie Carette de Sensations Coaching">
 
-<meta name="description" content="Découvrez nos services de coaching collectif et individuel, nos formations pour entreprises et sportifs de haut niveau. Boostez votre performance avec Sensations Coaching.">
-<meta name="keywords" content="coaching, préparation mentale, coaching sportif, formation entreprise, développement personnel, performance, séminaire, intelligence émotionnelle, gestion du stress, gestion des émotions, teambuilding">
-<meta name="author" content="Flavie Carette de Sensations Coaching">
+ 
+{% endblock %}
 
+{% block modal %}
+    <div class="modal fade" id="popupModal" tabindex="-1" aria-labelledby="popupModalLabel" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="">
+                        <h1 class="modal-title" id="popupModalLabel" style="font-size:20px;text-align:center">Rejoignez notre communauté de champions</h1>
+                    </div>
+                    
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                           <p class="quicksand-font">Recevez des conseils exclusifs, des stratégies éprouvées et des inspirations directement dans votre boîte de réception. Que vous soyez un leader en entreprise ou un sportif de haut niveau, notre newsletter est conçue pour vous aider à oser le plaisir de votre excellence.</p>
+                        </div>
+                        <div class="col-md-12">
+                            {{ form_start(form) }}
+                                {{ form_row(form.emailpournewletter) }}
+                                {{ form_row(form.entreprise, {
+                                    'label': 'Entreprises',
+                                }) }}
+                                {{ form_row(form.sportifDeHautNiveau, {
+                                    'label': 'Sportifs de haut-niveau',
+                                }) }}
+                                {{ form_row(form._token) }}
+                                {{ form_row(form.submit) }}
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                $('#popupModal').modal('show');
+            }, 40000); 
+        });
+    </script>
 {% endblock %}
 
 {% block title %}Accueil - Sensations Coaching{% endblock %}
+
 {% block body %}
 
 <script>
@@ -75,6 +127,7 @@
     </div>
   </div>
 </div>
+
 <div style="height: 200px;"></div>
 <div class="grid-container">
         <div class="centered-content">

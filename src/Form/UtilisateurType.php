@@ -64,15 +64,14 @@ class UtilisateurType extends AbstractType
             ])
             ->add('Prenom', TextType::class, [
                 'label' => 'Prénom*'
-            ]) // Ajout du type TextType
+            ]) 
             ->add('NumeroDeTelephone', TextType::class, [
                 'label' => 'Numéro de téléphone*'
-            ]) // Ajout du type TextType
-            ->add('Entreprise', TextType::class) // Ajout du type TextType
-            ->add('NumeroDeSiret', TextType::class) // Ajout du type TextType
+            ]) 
+            ->add('Entreprise', TextType::class) 
+            ->add('NumeroDeSiret', TextType::class)
         ;
     }
-
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

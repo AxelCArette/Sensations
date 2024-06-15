@@ -7,6 +7,12 @@
   font-weight: 400;
   font-style: normal;
 }
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
 .noto-serif {
   font-family: "Noto Serif Display", serif;
   font-optical-sizing: auto;

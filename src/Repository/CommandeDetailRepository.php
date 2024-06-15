@@ -21,28 +21,19 @@ class CommandeDetailRepository extends ServiceEntityRepository
         parent::__construct($registry, CommandeDetail::class);
     }
 
-    //    /**
-    //     * @return CommandeDetail[] Returns an array of CommandeDetail objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('c.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
-
-    //    public function findOneBySomeField($value): ?CommandeDetail
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+    /**
+     * Récupère les détails des commandes liées à un utilisateur spécifique
+     *
+     * @param User $user
+     * @return CommandeDetail[]
+     */
+    public function findByUser($user): array
+    {
+        return $this->createQueryBuilder('cd')
+            ->join('cd.commande', 'c')
+            ->where('c.Utilisateur = :user')
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->getResult();
+    }
 }

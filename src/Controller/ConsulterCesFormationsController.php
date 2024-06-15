@@ -83,18 +83,17 @@ class ConsulterCesFormationsController extends AbstractController
     #[Route('/compte/delete-all-formations-in-commande', name: 'delete_all_formations_in_commande', methods: ['POST'])]
     public function deleteAllFormationsInCommande(Request $request, EntityManagerInterface $entityManager): Response
     {
-        // Vérifier si l'utilisateur est connecté
+    
         if (!$this->getUser()) {
             throw new AccessDeniedException('Vous devez être connecté pour effectuer cette action.');
         }
 
-        // Récupérer l'ID de la commande à partir de la requête
         $commandeId = $request->request->get('commandeId');
 
-        // Récupérer toutes les formations dans la commande
+        
         $commandeDetails = $entityManager->getRepository(CommandeDetail::class)->findBy(['commande' => $commandeId]);
 
-        // Vérifier si des formations sont associées à la commande
+ 
         if (empty($commandeDetails)) {
             throw $this->createNotFoundException('Aucune formation n\'est associée à cette commande.');
         }
