@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 
 class FormationsCrudController extends AbstractCrudController
 {
@@ -23,10 +24,10 @@ class FormationsCrudController extends AbstractCrudController
         yield TextField::new('TitreDeLaFormation')->setLabel('Titre de la Formation');
         yield SlugField::new('slug')->setTargetFieldName('TitreDeLaFormation');
         yield ImageField::new('image')
-        ->setUploadDir('public/uploads/image')
-        ->setUploadedFileNamePattern('[randomhash].[extension]')
-        ->setRequired(false)
-        ->setBasePath('uploads/image');
+            ->setUploadDir('public/uploads/image')
+            ->setUploadedFileNamePattern('[randomhash].[extension]')
+            ->setRequired(false)
+            ->setBasePath('uploads/image');
         yield ImageField::new('fichier_pdf')
             ->setLabel('Fichier PDF')
             ->setUploadDir('public/uploads/pdf')
@@ -34,7 +35,7 @@ class FormationsCrudController extends AbstractCrudController
             ->setRequired(false)
             ->setBasePath('uploads/pdf');
         yield TextField::new('video')->setLabel('Lien vidéo');
-        yield TextField::new('description')->setLabel('Description');
+        yield TextEditorField::new('description')->setLabel('Description');
         yield IntegerField::new('dureeEnSecondes')->setLabel('Durée en Secondes');
         yield IntegerField::new('nombreDePDF')->setLabel('Nombre de PDF');
         yield MoneyField::new('prix')->setLabel('Prix')->setCurrency('EUR');

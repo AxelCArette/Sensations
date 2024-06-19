@@ -10,7 +10,27 @@
 
 {% block body %}
 <script>
-  AOS.init();
+ AOS.init({
+    disable: function() {
+        return window.innerWidth < 1600;
+    },
+    startEvent: 'DOMContentLoaded', // Ajustez en fonction de votre événement de démarrage
+    initClassName: 'aos-init', // Nom de classe appliqué après l'initialisation
+    animatedClassName: 'aos-animate', // Nom de classe appliqué pour les animations
+    useClassNames: true, // Ajoute des noms de classes pour l'animation et l'initialisation
+    disableMutationObserver: false, // Désactive l'observateur de mutation si true
+    debounceDelay: 50, // délai avant d'exécuter la détection de scroll
+    throttleDelay: 99, // délai avant d'exécuter la détection de scroll en mode throttling
+
+    // Des options pour les animations
+    offset: 120, // décalage (en px) à partir duquel les animations sont déclenchées
+    delay: 0, // délai (en ms) avant de déclencher les animations
+    duration: 400, // durée (en ms) des animations
+    easing: 'ease', // fonction d'easing
+    once: true, // si true, les animations ne se déclenchent qu'une seule fois
+    mirror: false, // si true, les animations se déclenchent aussi en défilement inverse
+    anchorPlacement: 'top-bottom', // position de déclenchement des animations
+});
 </script>
 
 <div class="backgroundcoachingdequipe">

@@ -39,9 +39,27 @@
   margin-top: 20px;
   font-size: 25px;
 }
+.mesaccompagnements
+{
+  padding-bottom: 150px;
+  padding-top: 250px;
+  background: linear-gradient(to right, #ffefd8, #ffffff);
+}
+.image-container55 img 
+{
+  margin-top: -150px;
+}
+.mesaccompagnements h1
+{
+  margin-top: -275px;
+}
+
 .text-container {
   flex: 1;
   text-align: center;
+}
+.custom-navbar {
+  background-color: #ffefd7 !important;
 }
 h1 {
   color: #2a405b;
@@ -136,12 +154,17 @@ h1 {
   margin: 0; /* Supprime toutes les marges */
   align-self: flex-start;
 }
-.image-container img {
+.centered-content
+{
+  margin-top: -100px;
+}
+.image-container55 img {
+  margin-left:1500px;
   height: 200px;
 }
 .boucleRouge img {
   height: 400px;
-  margin-top: -250px;
+ margin-top: -75px;
   margin-left: 200px;
 }
 .boucleRouge {
@@ -155,7 +178,7 @@ h1 {
   transform: translate(-50%, -50%);
   font-size: 50px;
   text-align: center;
-  margin-top: -45px;
+
   color: #172d4b;
   text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -410,8 +433,7 @@ h1 {
 .tacheorange img{
   position: relative;
   margin-top: -200px;
-  margin-left: 83%;
-  height: 400px;
+
 }
 .rdv {
   text-align: center; 
@@ -429,7 +451,22 @@ h1 {
   border-radius: 50px; 
   font-size: 40px;
 }
+.flcquisuisje img 
+{
+ margin-top: -250px;
+  width: 100%;
+}
+.flaviesoleil
+{
+  margin-top: -1000px;
+}
+.flaviesoleil img
+{
+  margin-left:10%;
+  width: 30%;
+}
 .flcphoto img {
+  margin-top:-1400px;
   width: 600px;
   margin-left: 150px;
 }
@@ -463,26 +500,25 @@ h1 {
   transform: translateY(-5px); 
 }
 .bulle h3 {
-  margin-top: -300px;
+  margin-top: -50px;
   text-align: center;
   font-size: 75px;
   font-family: Abril Fatface;
   color: #172d4b;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Ombre solide */
 }
 .bulle p {
-  padding-left: 50px;
   margin-top: -600px;
-  margin-left: auto; /* Supprime la marge gauche */
-  margin-right: auto; /* Supprime la marge droite */
+  padding-left: 50px;
+  margin-left: auto; 
+  margin-right: auto;
   width: 650px;
   font-size: 25px;
-  text-align: center; /* Aligne le texte au centre */
+  text-align: center; 
 }
 .bulle img {
   display: block; /* Permet de centrer l'image */
   margin: 0 auto; /* Centre l'image horizontalement */
-  margin-top: -50px;
+
   width: 800px;
 }
 .ronblounet {
@@ -491,7 +527,7 @@ h1 {
   width: 400px;
 }
 .imagetorsader01 img {
-  margin-top: -50px;
+
   margin-left: 1200px;
   width: 300px;
 }
@@ -512,7 +548,7 @@ h1 {
 }
 .flctexte {
   margin-left: 1050px;
-  margin-top: -1050px;
+  margin-top: -500px;
   font-family: 'Abril Fatface';
   color: #172d4b;
   width: 550px;

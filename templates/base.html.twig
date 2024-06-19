@@ -48,14 +48,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
         
         <title>{% block title %}Sensations-coaching{% endblock %}</title>
-        
-        <meta name="description" content="Sensations-coaching ici pour aller toujours vers le meilleur !">
-        <meta name="keywords" content="formations, développement personnel, coaching, performance, ateliers, séminaires, formation management, formation rh, formations ressources humaines, ebook gestion mentale, teambuilding">
-        <meta name="author" content=" Flavie Carette de Sensations Coaching ">
-        {% block head %}
-         {% endblock %}
+        {% block head %}{% endblock %}
+       <meta name="author" content=" Flavie Carette de Sensations Coaching ">
+ 
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         <link rel="stylesheet" href="{{ asset('build/vendor.css') }}">
+        <script src="{{ asset('build/vendor.js') }}" defer></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -74,7 +72,6 @@
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
         {% block modal %}
-    {# Fenêtre modale (déjà définie dans base.html.twig) #}
         {% endblock %}
     </head>
   

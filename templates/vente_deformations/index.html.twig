@@ -68,7 +68,7 @@
                                     <strong>{{ formation.titreDeLaFormation }}</strong><br>
                                 </div>
                                 <div style="color:#172D4B">
-                                    <b>Description :</b> <br><br>{{ formation.description }}
+                                    <b>Description :</b> <br><br>{{ formation.description | raw }}
                                 </div><br>
                                 <div style="margin-top:1rem; color:#172D4B;">
                                     <b>Prix : {{ (formation.prix / 100)|number_format('2', '.', ',') }} €</b>
@@ -122,7 +122,7 @@
                                     <strong>{{ formation.titreDeLaFormation }}</strong><br>
                                 </div>
                                 <div style="color:#172D4B">
-                                    <b>Description :</b> <br><br>{{ formation.description }}
+                                    <b>Description :</b> <br><br>{{ formation.description | raw }}
                                 </div><br>
                                 <div style="margin-top:1rem; color:#172D4B;">
                                     <b>Prix : {{ (formation.prix / 100)|number_format('2', '.', ',') }} €</b>

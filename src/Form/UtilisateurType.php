@@ -10,7 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
-use Symfony\Component\Form\Extension\Core\Type\TextType; // Correction ici
+use Symfony\Component\Form\Extension\Core\Type\TextType; 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -21,7 +21,7 @@ class UtilisateurType extends AbstractType
         $builder
             ->add('email', EmailType::class, [
                 'label' => 'Email*'
-            ]) // Ajout du type EmailType
+            ]) 
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'invalid_message' => 'Le mot de passe et la confirmation doivent être identiques.',

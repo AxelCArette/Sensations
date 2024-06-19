@@ -1,237 +1,386 @@
 {% extends 'base.html.twig' %}
 
-{% block head %}
-<meta name="description" content="Bénéficiez d'un coaching individuel personnalisé pour développer votre potentiel et atteindre vos objectifs spécifiques.">
-<meta name="keywords" content="coaching individuel, coaching personnalisé, développement personnel, objectifs personnels, performance individuelle, voice dialogue, systemique, potentiel ">
-<meta name="author" content=" Flavie Carette de Sensations Coaching ">
+	<meta name="description" content="Bénéficiez d'un coaching individuel personnalisé pour développer votre potentiel et atteindre vos objectifs spécifiques.">
+	<meta name="keywords" content="coaching individuel, coaching personnalisé, développement personnel, objectifs personnels, performance individuelle, voice dialogue, systemique, potentiel ">
+	<meta name="author" content=" Flavie Carette de Sensations Coaching ">
+
+
+{% block title %}Coaching Individuel – Sensations Coaching
 {% endblock %}
 
-{% block title %}Coaching Individuel – Sensations Coaching{% endblock %}
-
 {% block body %}
-<script>
-  AOS.init();
-</script>
-<div class="hautdepagecoachingdequipe">
-  <div class="backgroundcoachingdequipe">
-    <img src="{{asset('asset/img/backgroundmontagne.png')}}" alt="Un fond représenté par des montagnes">
-  </div>
-  <div class="backgroundcoachingdequipe01">
-    <img src="{{asset('asset/img/papiersoleil.png')}}" alt="Une personne tenant un cahier pour écrire dedans">
-  </div>
-  <div class="backgroundcoachingdequipe02">
-    <h1> Cultivez un état d’esprit positif et engageant</h1>
-    <p style="font-family:quicksand;">Managez votre climat émotionnel et relationnel</p>
-  </div>
-</div>
+	<style>
+		@media(max-width: 1600px) {
+			.hautdepagecoachingdequipe {
+				display: none;
+			}
+			.caffouillagedanslasurface h2 {
+				margin-top: 50px;
+			}
+      .notresponsive
+      {
+        display:none;
+      }
+      .piedinverser
+      {
+        display:none;
+      }
+      .piedinversercontainer
+      {
+        display:none;
+      }
+      .femmetriangle
+      {
+        display:none;
+      }
 
-<div class="caffouillagedanslasurface">
-  <h2 style="color:#1C6A8D"> C’est le brouillard …  </h2>
-  <img src="{{asset('asset/img/pointbleu.png')}}" alt="Un point bleu foncé">
-  <p style="color:#172D4B; font-family:quicksand;" ><b>Confus(e)</b> : Vous vous sentez dépassé(e) par vos propres <b> réactions émotionnelles</b>, compromettant ainsi votre<b> clarté d'esprit</b> et votre <b>efficacité</b> ?</p><br>
+			@media(max-width: 700px) {
+				.deroulcoaching {
+					flex-direction: column;
+					max-width: 50%;
+					margin-left: 50px
+				}
+     
+				.flechounetterouge05 img {
+					display: none;
+				}
+				.flcphoto01 {
+					display: none;
+				}
+				.caffouillagedanslasurface h2 {
+					margin-top: 50px;
+				}
+				.flechounetterouge05 img {
+					display: none;
+				}
+				.flcphoto01 {
+					display: none;
+				}
+				.zone01,
+				.zone02 {
+					flex-direction: column;
+				}
+				.card-flip {
+					margin-bottom: 20px;
+				}
+			}
+		}
+	</style>
+	<script>
+			 AOS.init({
+    disable: function() {
+        return window.innerWidth < 1600;
+    },
+    startEvent: 'DOMContentLoaded', // Ajustez en fonction de votre événement de démarrage
+    initClassName: 'aos-init', // Nom de classe appliqué après l'initialisation
+    animatedClassName: 'aos-animate', // Nom de classe appliqué pour les animations
+    useClassNames: true, // Ajoute des noms de classes pour l'animation et l'initialisation
+    disableMutationObserver: false, // Désactive l'observateur de mutation si true
+    debounceDelay: 50, // délai avant d'exécuter la détection de scroll
+    throttleDelay: 99, // délai avant d'exécuter la détection de scroll en mode throttling
 
-  <img src="{{asset('asset/img/pointorange.png')}}" alt="Un point orange">
-  <p style="color:#172D4B; font-family:quicksand;"><b>Fatigué(e)</b> : Les<b> tensions</b> et les<b> doutes</b> vous envahissent face à des exigences professionnelles élevées et des<b> responsabilités</b> importantes, vous laissant avec un manque de <b>vitalité ? </b></p><br>
-  
-  <img src="{{asset('asset/img/pointorangefoncer.png')}}" alt="Un point orange foncé">
-  <p style="color:#172D4B; font-family:quicksand;"><b>Stressé(e)</b> : Vous luttez avec des sentiments d'<b>insécurité</b> et de doutes par rapport à vos compétences et vos<b> capacités</b>, affectant votre santé mentale et physique ?</p><br>
-  
-  <img src="{{asset('asset/img/pointbleuclair.png')}}" alt="Un point bleu clair">
-  <p style="color:#172D4B; font-family:quicksand;"><b>Incompris(e)</b> : Vous êtes confronté(e) à des difficultés de <b>communication</b> et des <b>conflits</b> avec vos collègues ou vos supérieurs, vous ne vous sentez pas<b> reconnu(e)</b> dans vos efforts ?</p><br>
-  
-  <img src="{{asset('asset/img/pointorange.png')}}" alt="Un point orange clair">
-  <p style="color:#172D4B; font-family:quicksand;"><b>Coupable </b>: La<b> procrastination</b> est votre mentor. Vous éprouvez une détresse intense liée à votre incapacité à accomplir des tâches importantes et avez l’impression de ne pas<b> progresser </b>?</p><br>
+    // Des options pour les animations
+    offset: 120, // décalage (en px) à partir duquel les animations sont déclenchées
+    delay: 0, // délai (en ms) avant de déclencher les animations
+    duration: 400, // durée (en ms) des animations
+    easing: 'ease', // fonction d'easing
+    once: true, // si true, les animations ne se déclenchent qu'une seule fois
+    mirror: false, // si true, les animations se déclenchent aussi en défilement inverse
+    anchorPlacement: 'top-bottom', // position de déclenchement des animations
+});
 
-   <img src="{{asset('asset/img/pointbleu.png')}}" alt="Un point bleu foncé">
-  <p style="color:#172D4B; font-family:quicksand;"><b>Découragé(e)</b> :  Sans but ni direction, votre sensation de ne pas<b> avancer</b> est source de grande<b> frustration</b> et de découragement.</p><br>
-  
- <img src="{{asset('asset/img/pointorangefoncer.png')}}" alt="Un point orange foncé">
-  <p style="color:#172D4B; font-family:quicksand;"><b>Anxieux(se)</b> : Paralysé(e) par vos inquiétudes, vous êtes réticent(e) à sortir de votre<b> zone de confort</b> et ne voyez même plus les<b> opportunités</b> qui s’offrent à vous.</p><br>
-</div>
+	</script>
+	<div class="hautdepagecoachingdequipe">
+		<div class="backgroundcoachingdequipe">
+			<img src="{{asset('asset/img/backgroundmontagne.png')}}" alt="Un fond représenté par des montagnes">
+		</div>
+		<div class="backgroundcoachingdequipe01">
+			<img src="{{asset('asset/img/papiersoleil.png')}}" alt="Une personne tenant un cahier pour écrire dedans">
+		</div>
+		<div class="backgroundcoachingdequipe02">
+			<h1>
+				Cultivez un état d’esprit positif et engageant</h1>
+			<p style="font-family:quicksand;">Managez votre climat émotionnel et relationnel</p>
+		</div>
+	</div>
 
-<div class="flechounetterouge05">
-  <h4 style="color:#172D4B; font-family:quicksand;"><i>« Sans émotion, il est impossible de transformer l’ombre en lumière et l’apathie en mouvement. »</i> - Jung</h4>
-  <img src="{{asset('asset/img/flechounetterouge.png')}}" alt="flêche torsader rouge">
-</div>
+	<div class="caffouillagedanslasurface">
+		<h2 style="color:#1C6A8D">
+			C’est le brouillard …
+		</h2>
+		<img src="{{asset('asset/img/pointbleu.png')}}" alt="Un point bleu foncé">
+		<p style="color:#172D4B; font-family:quicksand;">
+			<b>Confus(e)</b>
+			: Vous vous sentez dépassé(e) par vos propres
+			<b>
+				réactions émotionnelles</b>, compromettant ainsi votre<b>
+				clarté d'esprit</b>
+			et votre
+			<b>efficacité</b>
+			?</p><br>
 
-<div data-aos="fade-right">
-  <div class="eveiller05">
-    <img src="{{asset('asset/img/etoilepied.png')}}" alt="Des étoiles bleu sur un fond beige">
-    <h2>Éveiller</h2>
-    <h4>La balle est dans votre camp</h4>
-    <p style="color:#172D4B;font-family:quicksand">
-      Chaque décision, chaque action est influencée par vos émotions. En leur accordant une attention particulière, vous libérez votre intuition et créez un chemin vers le succès.
-      <br><br>
-      En conscientisant vos énergies corporelles et votre émotionnel, vous pourrez intégrer le changement désiré vers une croissance personnelle et professionnelle.
-    </p>
-  </div>
-</div>
+		<img src="{{asset('asset/img/pointorange.png')}}" alt="Un point orange">
+		<p style="color:#172D4B; font-family:quicksand;">
+			<b>Fatigué(e)</b>
+			: Les<b>
+				tensions</b>
+			et les<b>
+				doutes</b>
+			vous envahissent face à des exigences professionnelles élevées et des<b>
+				responsabilités</b>
+			importantes, vous laissant avec un manque de
+			<b>vitalité ?
+			</b>
+		</p><br>
 
-<div class="eveiller06">
-  <img src="{{asset('asset/img/petitpoint.png')}}" alt="Des petits point jaune">
-</div>
+		<img src="{{asset('asset/img/pointorangefoncer.png')}}" alt="Un point orange foncé">
+		<p style="color:#172D4B; font-family:quicksand;">
+			<b>Stressé(e)</b>
+			: Vous luttez avec des sentiments d'<b>insécurité</b>
+			et de doutes par rapport à vos compétences et vos<b>
+				capacités</b>, affectant votre santé mentale et physique ?</p><br>
 
-<div data-aos="fade-left">
-  <div class="liberer05">
-    <img src="{{asset('asset/img/tacheampoule.png')}}" alt="Des étoiles bleu sur un fond beige">
-    <h2>Libérer</h2>
-    <h4>Osez perdre la balle</h4>
-    <p style="color:#172D4B; font-family:quicksand;">
-      Créons un environnement où vous vous sentez libre d'être vous-même, où vous pouvez exprimer vos doutes, vos peurs et vos frustrations en toute confiance. <br><br>
-C'est dans cet espace de vulnérabilité que se trouvent les véritables connexions et les idées novatrices.
- </p>
-  </div>
-</div>
+		<img src="{{asset('asset/img/pointbleuclair.png')}}" alt="Un point bleu clair">
+		<p style="color:#172D4B; font-family:quicksand;">
+			<b>Incompris(e)</b>
+			: Vous êtes confronté(e) à des difficultés de
+			<b>communication</b>
+			et des
+			<b>conflits</b>
+			avec vos collègues ou vos supérieurs, vous ne vous sentez pas<b>
+				reconnu(e)</b>
+			dans vos efforts ?</p><br>
 
-<div class="Orchestrer05">
-  <div data-aos="fade-right">
-    <img src="{{asset('asset/img/clapmain.png')}}" alt="Plusieurs main faisant un clap">
-    <h2>ORCHESTRER</h2>
-    <h4>Insufflez ce supplément d'âme</h4>
-    <p style="color:#172D4B; font-family:quicksand;">En travaillant ensemble sur le développement de la connaissance et conscience de soi, vous développerez votre espace de choix et de liberté pour une vie pleine de sens et de vitalité. 
-<br><br>
-    Changez de regard, sur soi et sur l’extérieur, en intégrant toutes les facettes de soi, vous permettra de sortir des situations difficiles de manière sereine. </p>
-  </div>
-</div>
+		<img src="{{asset('asset/img/pointorange.png')}}" alt="Un point orange clair">
+		<p style="color:#172D4B; font-family:quicksand;">
+			<b>Coupable
+			</b>: La<b>
+				procrastination</b>
+			est votre mentor. Vous éprouvez une détresse intense liée à votre incapacité à accomplir des tâches importantes et avez l’impression de ne pas<b>
+				progresser
+			</b>?</p><br>
 
-<div class="BOOSTER05">
-  <div data-aos="fade-left">
-    <img src="{{asset('asset/img/ciblenuage.png')}}" alt="Plusieurs main faisant un clap">
-    <h2>BOOSTER</h2>
-    <h4>Allez droit au but</h4>
-    <p style="color:#172D4B; font-family:quicksand;">Passez à l'action pour progresser avec confiance et détermination vers vos objectifs. <br><br>
+		<img src="{{asset('asset/img/pointbleu.png')}}" alt="Un point bleu foncé">
+		<p style="color:#172D4B; font-family:quicksand;">
+			<b>Découragé(e)</b>
+			:  Sans but ni direction, votre sensation de ne pas<b>
+				avancer</b>
+			est source de grande<b>
+				frustration</b>
+			et de découragement.</p><br>
 
-Assumez pleinement qui vous êtes, dépassez vos croyances limitantes et reconnectez-vous à vos talents innés pour une vie épanouissante et équilibrée.
-      </div>
-</div>
-<div class="carrequibougepourflavie">
-  <img src="{{asset('asset/img/rondbleu.png')}}" alt="Un rond avec des lignes bleu">
-  <div class="pieddepagequisuisje0105">
-    <h3 style="color:#172D4B; font-family:quicksand;"><b>Quels sont vos objectifs ?</b></h3>
-    <a href="{{ path('app_contact') }}">Parlons-en !</a>
-    <h2 style="color:#1C6A8D">Déroulement des séances</h2>
-  </div>
-</div>
+		<img src="{{asset('asset/img/pointorangefoncer.png')}}" alt="Un point orange foncé">
+		<p style="color:#172D4B; font-family:quicksand;">
+			<b>Anxieux(se)</b>
+			: Paralysé(e) par vos inquiétudes, vous êtes réticent(e) à sortir de votre<b>
+				zone de confort</b>
+			et ne voyez même plus les<b>
+				opportunités</b>
+			qui s’offrent à vous.</p><br>
+	</div>
 
-<div class="deroulcoaching">
-  <div class="zone01">
-    <div class="card-flip">
-      <div class="card-front01 defisobjectifs01">
-        <h2 style="text-align:right">Prise de contact et<br> objectifs</h2>
-      </div>
-      <div class="card-back01">
-        <div class="defisobjectifs01">
-          <p>Lors de notre première rencontre, nous établirons un premier lien de confiance essentiel pour votre cheminement. <br><br>
-          Cette séance permettra de comprendre votre environnement, définir vos objectifs et indicateurs spécifiques du coaching, qu'ils soient professionnels ou personnels.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="card-flip">
-      <div class="card-front01 coachingcollectif01">
-        <h2>Clôture & Bilan</h2>
-      </div>
-      <div class="card-back01">
-        <div class="coachingcollectif01">
-          <p>À la fin du programme de coaching, une séance de clôture est organisée pour faire le point sur l'ensemble du parcours. <br><br>
-            Nous discuteront des progrès réalisés, des objectifs atteints et des apprentissages. <br><br>
-            Vous me formaliserez vos feedbacks quant à cet accompagnement. 
-           </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="zone02">
-    <div class="card-flip">
-      <div class="card-front01 diagnostic01">
-        <h2>Séances</h2>
-      </div>
-      <div class="card-back01">
-        <div class="diagnostic01">
-          <p>Nous co-créerons un plan de coaching sur plusieurs séances.<br><br>
-          Tout au long du processus, nous évalurons régulièrement les progrès réalisés. Des ajustements au plan de coaching peuvent être faits en fonction des résultats obtenus et des nouveaux défis qui émergent.<br><br>
-          A chaque fin de séance, vous déciderez des actions spécifiques à entreprendre avant la prochaine séance.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="card-flip">
-      <div class="card-front01 bilanetsuivi01">
-        <h2>Pratico-pratique</h2>
-      </div>
-      <div class="card-back01">
-        <div class="bilanetsuivi01">
-          <p>
-          Accompagnement entre 6 et 10 séances, sur 4 à 6 mois. Cela vous permet d’ancrer vos prises de conscience, de vous mettre en mouvement et d’atteindre vos objectifs de manière sereine et durable.<br><br>
-          Une séance dure en moyenne 1h15.<br><br>
-          Elle peut se faire en visio ou en présentiel (bureau ou en extérieur) entre Annecy & Genève. 
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="femmetriangle">
-  <img src="{{asset('asset/img/femmeavecdestriangleetrond.png')}}" alt="Une femme sur la pointe des pieds avec des triangles et rond">
-  <p style="color:#172D4B;font-family:quicksand">Tout est une question d’équilibre, je vous propose un accompagnement alliant :</p>
-  <ul>
-    <li style="color:#172D4B;font-family:quicksand">Approche ludique et cadre de travail exigeant</li>
-    <li style="color:#172D4B;font-family:quicksand">Confiance relationnelle et performance</li>
-    <li style="color:#172D4B;font-family:quicksand">Bienveillance et confrontation</li>
-    <li style="color:#172D4B;font-family:quicksand">Lâcher prise et détermination</li>
-  </ul>
-</div>
-<div class="piedinverser">
-  <h2 style="margin-top:25px; color:#172D4B; font-family:quicksand;"><b>Alors prêt à vous propulser vers l’excellence ?</b></h2>
-  <div class="piedinversercontainer">
-    <img src="{{asset('asset/img/pied.png')}}" alt="Une image qui ressemble un peu a un pied">
-  </div>
-  <a style="margin-top:-350px" href="{{ path('app_contact') }}">Je réserve mon rdv offert</a>
-</div>
+	<div class="flechounetterouge05">
+		<h4 style="color:#172D4B; font-family:quicksand;">
+			<i>« Sans émotion, il est impossible de transformer l’ombre en lumière et l’apathie en mouvement. »</i>
+			- Jung</h4>
+		<img src="{{asset('asset/img/flechounetterouge.png')}}" alt="flêche torsader rouge">
+	</div>
+<div class="notresponsive">
+	<div data-aos="fade-right">
+		<div class="eveiller05">
+			<img src="{{asset('asset/img/etoilepied.png')}}" alt="Des étoiles bleu sur un fond beige">
+			<h2>Éveiller</h2>
+			<h4>La balle est dans votre camp</h4>
+			<p style="color:#172D4B;font-family:quicksand">
+				Chaque décision, chaque action est influencée par vos émotions. En leur accordant une attention particulière, vous libérez votre intuition et créez un chemin vers le succès.
+				<br><br>
+				En conscientisant vos énergies corporelles et votre émotionnel, vous pourrez intégrer le changement désiré vers une croissance personnelle et professionnelle.
+			</p>
+		</div>
+	</div>
 
-<div class="flcphoto01">
-  <img src="{{asset('asset/img/flaviedoigt.png')}}" alt="Flavie Carette coaching">
-  <div class="text-container01">
-    <p>Je suis Flavie Carette, coach professionnelle certifiée, ancienne joueuse de haut-niveau et arbitre de football. J’utilise mon expertise du sport collectif et mon intelligence émotionnelle pour accompagner les leaders en entreprise et dans le sport à œuvrer à un projet inédit et humain.</p>
-    <a href="{{ path('app_qui_suis_je') }}">
-      <button class="text-align">En savoir +</button>
-    </a>
-  </div>
-</div>
-<div class="tarif">
-<h1 style="color:#1c6a8d;text-align:center; margin-top:75px">Tarifs</h1>
-<div class="packELite">
-<h5 style="font-size:35px">Pack “Elite”</h5>
+	<div class="eveiller06">
+		<img src="{{asset('asset/img/petitpoint.png')}}" alt="Des petits point jaune">
+	</div>
 
-<p style="font-size:30px; text-align:center; ">8 séances de coaching + 1 séance exploratoire incluse </p>
-<ul>
-<li  style="font-size:30px">Pour les particuliers : 1200€ TTC (au lieu de 1800€)</li>
-<li  style="font-size:30px">Pour les entreprises : 2400€ HT</li>
-</ul>
-</div>
-<div class="packBoost">
-<h5 style="font-size:35px">Pack “Boost”</h5>
-<p style="font-size:30px; text-align:center; "> 5 séances de coaching +  1 séance exploratoire incluse </p>
-<ul>
-<li  style="font-size:30px">Pour les particuliers : 900€ TTC (au lieu de 1200€)</li>
-<li  style="font-size:30px">Pour les entreprises : 1700€ HT</li>
-</ul>
-</div>
+	<div data-aos="fade-left">
+		<div class="liberer05">
+			<img src="{{asset('asset/img/tacheampoule.png')}}" alt="Des étoiles bleu sur un fond beige">
+			<h2>Libérer</h2>
+			<h4>Osez perdre la balle</h4>
+			<p style="color:#172D4B; font-family:quicksand;">
+				Créons un environnement où vous vous sentez libre d'être vous-même, où vous pouvez exprimer vos doutes, vos peurs et vos frustrations en toute confiance.
+				<br><br>
+				C'est dans cet espace de vulnérabilité que se trouvent les véritables connexions et les idées novatrices.
+			</p>
+		</div>
+	</div>
 
-<div class="packSeance" style="font-size:35px;color:#172D4B; ">
-<b>La séance : </b>
-<ul>
-<li>Pour les particuliers : 200€ TTC </li>
-<li>Pour les entreprises : 300€ HT</li>
-</ul>
+	<div class="Orchestrer05">
+		<div data-aos="fade-right">
+			<img src="{{asset('asset/img/clapmain.png')}}" alt="Plusieurs main faisant un clap">
+			<h2>ORCHESTRER</h2>
+			<h4>Insufflez ce supplément d'âme</h4>
+			<p style="color:#172D4B; font-family:quicksand;">En travaillant ensemble sur le développement de la connaissance et conscience de soi, vous développerez votre espace de choix et de liberté pour une vie pleine de sens et de vitalité.
+				<br><br>
+				Changez de regard, sur soi et sur l’extérieur, en intégrant toutes les facettes de soi, vous permettra de sortir des situations difficiles de manière sereine.
+			</p>
+		</div>
+	</div>
 
-<b>Modalités de paiement : </b>
-<ul>
-<li>Pour les particuliers : Le règlement s’effectue à l’issue de chaque séance</li>
-<li>Pour les entreprises : 50% d’acompte à la signature du contrat, le solde en fin de prestation.</li>
-</ul>
-</div>
+	<div class="BOOSTER05">
+		<div data-aos="fade-left">
+			<img src="{{asset('asset/img/ciblenuage.png')}}" alt="Plusieurs main faisant un clap">
+			<h2>BOOSTER</h2>
+			<h4>Allez droit au but</h4>
+			<p style="color:#172D4B; font-family:quicksand;">Passez à l'action pour progresser avec confiance et détermination vers vos objectifs.
+				<br><br>Assumez pleinement qui vous êtes, dépassez vos croyances limitantes et reconnectez-vous à vos talents innés pour une vie épanouissante et équilibrée.
+			</p>
+		</div>
+	</div>
+ </div> 
+	<div class="carrequibougepourflavie">
+		<img src="{{asset('asset/img/rondbleu.png')}}" alt="Un rond avec des lignes bleu">
+		<div class="pieddepagequisuisje0105">
+			<h3 style="color:#172D4B; font-family:quicksand;">
+				<b>Quels sont vos objectifs ?</b>
+			</h3>
+			<a href="{{ path('app_contact') }}" alt="Liens vers contact">Parlons-en !</a>
+			<h2 style="color:#1C6A8D">Déroulement des séances</h2>
+		</div>
+	</div>
 
- <div style="height:120px;"></div>
-</div>
+	<div class="deroulcoaching">
+		<div class="zone01">
+			<div class="card-flip">
+				<div class="card-front01 defisobjectifs01">
+					<h2 style="text-align:right">Prise de contact et<br>
+						objectifs</h2>
+				</div>
+				<div class="card-back01">
+					<div class="defisobjectifs01">
+						<p>Lors de notre première rencontre, nous établirons un premier lien de confiance essentiel pour votre cheminement.
+							<br><br>
+							Cette séance permettra de comprendre votre environnement, définir vos objectifs et indicateurs spécifiques du coaching, qu'ils soient professionnels ou personnels.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="card-flip">
+				<div class="card-front01 coachingcollectif01">
+					<h2>Clôture & Bilan</h2>
+				</div>
+				<div class="card-back01">
+					<div class="coachingcollectif01">
+						<p>À la fin du programme de coaching, une séance de clôture est organisée pour faire le point sur l'ensemble du parcours.
+							<br><br>
+							Nous discuteront des progrès réalisés, des objectifs atteints et des apprentissages.
+							<br><br>
+							Vous me formaliserez vos feedbacks quant à cet accompagnement.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="zone02">
+			<div class="card-flip">
+				<div class="card-front01 diagnostic01">
+					<h2>Séances</h2>
+				</div>
+				<div class="card-back01">
+					<div class="diagnostic01">
+						<p>Nous co-créerons un plan de coaching sur plusieurs séances.<br><br>
+							Tout au long du processus, nous évalurons régulièrement les progrès réalisés. Des ajustements au plan de coaching peuvent être faits en fonction des résultats obtenus et des nouveaux défis qui émergent.<br><br>
+							A chaque fin de séance, vous déciderez des actions spécifiques à entreprendre avant la prochaine séance.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="card-flip">
+				<div class="card-front01 bilanetsuivi01">
+					<h2>Pratico-pratique</h2>
+				</div>
+				<div class="card-back01">
+					<div class="bilanetsuivi01">
+						<p>
+							Accompagnement entre 6 et 10 séances, sur 4 à 6 mois. Cela vous permet d’ancrer vos prises de conscience, de vous mettre en mouvement et d’atteindre vos objectifs de manière sereine et durable.<br><br>
+							Une séance dure en moyenne 1h15.<br><br>
+							Elle peut se faire en visio ou en présentiel (bureau ou en extérieur) entre Annecy & Genève.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="femmetriangle">
+		<img src="{{asset('asset/img/femmeavecdestriangleetrond.png')}}" alt="Une femme sur la pointe des pieds avec des triangles et rond">
+		<p style="color:#172D4B;font-family:quicksand">Tout est une question d’équilibre, je vous propose un accompagnement alliant :</p>
+		<ul>
+			<li style="color:#172D4B;font-family:quicksand">Approche ludique et cadre de travail exigeant</li>
+			<li style="color:#172D4B;font-family:quicksand">Confiance relationnelle et performance</li>
+			<li style="color:#172D4B;font-family:quicksand">Bienveillance et confrontation</li>
+			<li style="color:#172D4B;font-family:quicksand">Lâcher prise et détermination</li>
+		</ul>
+	</div>
+	<div class="piedinverser">
+		<h2 style="margin-top:25px; color:#172D4B; font-family:quicksand;">
+			<b>Alors prêt à vous propulser vers l’excellence ?</b>
+		</h2>
+		<div class="piedinversercontainer">
+			<img src="{{asset('asset/img/pied.png')}}" alt="Une image qui ressemble un peu a un pied">
+		</div>
+		<a href="{{ path('app_contact') }}" alt="Liens vers contact">Je réserve mon rdv offert</a>
+	</div>
+<h1 style="text-align:center; margin-bottom:100px;">Pourquoi me choisir ?</h1>
+	<div class="flcphoto01">
+		<img src="{{asset('asset/img/flaviedoigt.png')}}" alt="Flavie Carette coaching">
+		<div class="text-container01">
+			<p>Je suis Flavie Carette, coach professionnelle certifiée, ancienne joueuse de haut-niveau et arbitre de football. J’utilise mon expertise du sport collectif et mon intelligence émotionnelle pour accompagner les leaders en entreprise et dans le sport à œuvrer à un projet inédit et humain.</p>
+			<a href="{{ path('app_qui_suis_je') }}" alt="Liens vers qui-suis je">
+				<button class="text-align">En savoir +</button>
+			</a>
+		</div>
+	</div>
+	<div class="tarif">
+		<h1 style="color:#1c6a8d;text-align:center; margin-top:75px">Tarifs</h1>
+		<div class="packELite">
+			<h5 style="font-size:35px">Pack “Elite”</h5>
+
+			<p style="font-size:30px; text-align:center; ">8 séances de coaching + 1 séance exploratoire incluse
+			</p>
+			<ul>
+				<li style="font-size:30px">Pour les particuliers : 1200€ TTC (au lieu de 1800€)</li>
+				<li style="font-size:30px">Pour les entreprises : 2400€ HT</li>
+			</ul>
+		</div>
+		<div class="packBoost">
+			<h5 style="font-size:35px">Pack “Boost”</h5>
+			<p style="font-size:30px; text-align:center; ">
+				5 séances de coaching +  1 séance exploratoire incluse
+			</p>
+			<ul>
+				<li style="font-size:30px">Pour les particuliers : 900€ TTC (au lieu de 1200€)</li>
+				<li style="font-size:30px">Pour les entreprises : 1700€ HT</li>
+			</ul>
+		</div>
+
+		<div class="packSeance" style="font-size:35px;color:#172D4B; ">
+			<b>La séance :
+			</b>
+			<ul>
+				<li>Pour les particuliers : 200€ TTC
+				</li>
+				<li>Pour les entreprises : 300€ HT</li>
+			</ul>
+
+			<b>Modalités de paiement :
+			</b>
+			<ul>
+				<li>Pour les particuliers : Le règlement s’effectue à l’issue de chaque séance</li>
+				<li>Pour les entreprises : 50% d’acompte à la signature du contrat, le solde en fin de prestation.</li>
+			</ul>
+		</div>
+
+		<div style="height:120px;"></div>
+	</div>
 {% endblock %}

@@ -42,14 +42,14 @@
         <div class="container">
             <div class="row justify-content-center">
                 {% for resume in resumes %}
-                    {% if resume.published %} {# Vérifie si l'article est publié #}
+                    {% if resume.published %} 
                         <div class="col-md-6 mb-4">
                             <div class="card">
                                 <img src="/uploads/image/{{ resume.image }}" class="card-img-top" alt="Image de l'article">
                                 <div class="card-body" style="text-align:center">
-                                    <h5 class="card-title">{{ resume.titre }}</h5>
+                                    <h5 class="card-title">{{ resume.titre | raw }}</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">{{ resume.sousTitre }}</h6>
-                                    <p class="card-text">{{ resume.resumer }}</p>
+                                    <p class="card-text">{{ resume.resumer | raw }}</p>
                                     <a href="{{ path('app_mon_article', {id: resume.id}) }}" class="btn" style="background-color: #172D4B; color: white;">Voir l'article complet</a>
                                 </div>
                             </div>

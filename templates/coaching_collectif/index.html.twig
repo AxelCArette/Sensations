@@ -8,9 +8,114 @@
 
 {% block title %}Coaching Collectif - Sensations Coaching{% endblock %}
 
+
 {% block body %}
+<style>
+@media (max-width: 1600px) {
+  .hautdepagecoachingdequipe {
+  display:none;
+}
+.piedinversercontainer
+{
+  display:none;
+}
+.piedinverser
+{
+  display:none;
+}
+.flcphoto01{
+  display:none;
+}
+.femmetriangle
+{
+  display:none;
+}
+.caffouillagedanslasurface
+{
+  width:100%
+}
+.caffouillagedanslasurface h2
+{
+ margin-top:50px;
+}
+.lestrucslide  {
+margin:0;
+margin-top:75px;
+flex-direction: column;
+    align-items: center; 
+  }
+.eveiller06
+{
+  display:none;
+}
+.eveiller05
+{
+  margin-left:-100px;
+}
+.eveiller05 p 
+{
+  width:50%
+}
+.Orchestrer05
+{
+  margin-left:-100px
+}
+.Orchestrer05 p
+{
+   width:50%
+}
+.liberer05 
+{
+  margin-left:-1800px
+}
+.BOOSTER05
+{
+  margin-left:-1700px
+}
+@media (max-width: 700px) {
+  .deroulcoaching {
+    flex-direction: column;
+    max-width:50%;
+    margin-left:50px
+  }
+
+  .zone01, .zone02 {
+    flex-direction: column;
+  }
+
+  .card-flip {
+    margin-bottom: 20px;
+  }
+}
+}
+@media (max-width: 1599px) {
+    .lestrucslide {
+        opacity: 1 !important; /* Assurez-vous que l'opacité est forcée à 1 */
+        transform: none !important; /* Assurez-vous qu'il n'y a pas de transformation */
+        margin-left:-100px;
+    }
+}
+</style>
 <script>
-  AOS.init();
+ AOS.init({
+    disable: function() {
+        return window.innerWidth < 1600;
+    },
+    startEvent: 'DOMContentLoaded',
+    initClassName: 'aos-init', 
+    animatedClassName: 'aos-animate', 
+    useClassNames: true, 
+    disableMutationObserver: false, 
+    debounceDelay: 50, 
+    throttleDelay: 99,
+    offset: 120, 
+    delay: 0, 
+    duration: 400, 
+    easing: 'ease',
+    once: true,
+    mirror: false, 
+    anchorPlacement: 'top-bottom', 
+});
 </script>
 
 <div class="hautdepagecoachingdequipe">
@@ -51,8 +156,8 @@
   <h3>Ensemble, propulsons votre équipe vers l'excellence en cultivant un état d’esprit positif et proactif.</h3>
 </div>
 
-<div data-aos="fade-right">
-  <div class="eveiller05">
+<div class="lestrucslide row">
+<div data-aos="fade-right" class="lestrucslide eveiller05">
     <img src="{{asset('asset/img/etoilepied.png')}}" alt="Des étoiles bleu sur un fond beige">
     <h2>Éveiller</h2>
     <h4>La balle est dans votre camp</h4>
@@ -62,14 +167,12 @@
       En conscientisant vos énergies corporelles et votre émotionnel, vous pourrez intégrer le changement désiré vers une croissance personnelle et professionnelle.
     </p>
   </div>
-</div>
 
 <div class="eveiller06">
   <img src="{{asset('asset/img/petitpoint.png')}}" alt="Des petits point jaune">
 </div>
 
-<div data-aos="fade-left">
-  <div class="liberer05">
+<div data-aos="fade-left" class="lestrucslide liberer05">
     <img src="{{asset('asset/img/tacheampoule.png')}}" alt="Des étoiles bleu sur un fond beige">
     <h2>Libérer</h2>
     <h4>Osez perdre la balle</h4>
@@ -77,11 +180,9 @@
       Plus l’équipe joue libérée, plus elle gagne !<br><br>
       Créons un environnement hors des sentiers battus, propice à l'innovation, en favorisant la liberté d'erreur, l’agilité et l'expression authentique des membres de l'équipe, garantissant ainsi une puissance collective.
     </p>
-  </div>
 </div>
 
-<div class="Orchestrer05">
-  <div data-aos="fade-right">
+<div data-aos="fade-right" class="lestrucslide Orchestrer05">
     <img src="{{asset('asset/img/clapmain.png')}}" alt="Plusieurs main faisant un clap">
     <h2>ORCHESTRER</h2>
     <h4>Insufflez ce supplément d'âme</h4>
@@ -89,16 +190,16 @@
       <br>
       Nous travaillons à vous redonner votre rôle de « capitaine » qui guide l'équipe à travers les défis avec assurance et engagement.
     </p>
-  </div>
 </div>
 
-<div class="BOOSTER05">
-  <div data-aos="fade-left">
+<div data-aos="fade-left" class="lestrucslide BOOSTER05">
+ 
     <img src="{{asset('asset/img/ciblenuage.png')}}" alt="Plusieurs main faisant un clap">
     <h2>BOOSTER</h2>
     <h4>Allez droit au but</h4>
     <p style="color:#172D4B; font-family:quicksand;">En élaborant un plan d'actions concret, nous embarquons l'équipe dans une aventure orientée solutions, la propulsant ainsi vers le succès avec confiance et détermination.</p>
   </div>
+</div>
 </div>
 
 <div class="carrequibougepourflavie">
@@ -168,9 +269,9 @@
       </div>
     </div>
   </div>
-</div>
 
-<div class="femmetriangle">
+</div>
+ <div class="femmetriangle">
   <img src="{{asset('asset/img/femmeavecdestriangleetrond.png')}}" alt="Une femme sur la pointe des pieds avec des triangles et rond">
   <p style="color:#172D4B; font-family:quicksand; font-size:20px">Tout est une question d’équilibre, je vous propose un accompagnement alliant :</p>
   <ul>
@@ -182,14 +283,16 @@
 </div>
 
 <div class="piedinverser">
-  <h2 style="margin-top:25px; color:#172D4B; font-family:quicksand;"><b>Alors prêt à vous propulser vers l’excellence ?</b></h2>
+  <h2 style="margin-top:25px; color:#172D4B; font-family:quicksand;" class="btn-rdv"><b>Alors prêt à vous propulser vers l’excellence ?</b></h2>
   <div class="piedinversercontainer">
-    <img src="{{asset('asset/img/pied.png')}}" alt="Une image qui ressemble un peu a un pied">
+    <img src="{{asset('asset/img/pied055.png')}}" alt="Une image qui ressemble un peu a un pied">
   </div>
-  <a style="margin-top:-350px" href="{{ path('app_contact') }}">Je réserve mon rdv offert</a>
+  <a href="{{ path('app_contact') }}">Je réserve mon rdv offert</a>
 </div>
-
+</div>
+<h1 style="text-align:center; margin-bottom:100px;">Pourquoi me choisir ?</h1>
 <div class="flcphoto01">
+
   <img src="{{asset('asset/img/flaviedoigt.png')}}" alt="Flavie Carette coaching">
   <div class="text-container01">
     <p style="margin-top:25px; color:#172D4B; font-family:quicksand;" >Je suis Flavie Carette, coach professionnelle certifiée, ancienne joueuse de haut-niveau et arbitre de football. J’utilise mon expertise du sport collectif et mon intelligence émotionnelle pour accompagner les leaders en entreprise et dans le sport à œuvrer à un projet inédit et humain.</p>
@@ -197,11 +300,7 @@
       <button class="text-align; margin-lef:70px">En savoir +</button>
     </a>
   </div>
-
 </div>
-
-
- <div style="height:100x;"></div>
-</div>
+<div style="height:100px;"></div>
 
 {% endblock %}

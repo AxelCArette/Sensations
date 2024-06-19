@@ -90,7 +90,7 @@ public function paiement(Cart $cart, Request $request, FormationsRepository $for
     $YOUR_DOMAIN = 'https://sensations-coaching.com/';
     
     $checkout_session = \Stripe\Checkout\Session::create([
-        'payment_method_types' => ['card'],
+        'payment_method_types' => ['card','paypal'],
         'line_items' => [[
             'price_data' => [
                 'currency' => 'eur',
@@ -155,7 +155,7 @@ public function paiement(Cart $cart, Request $request, FormationsRepository $for
         $YOUR_DOMAIN = 'https://sensations-coaching.com/';
 
         $nouvelleSessionStripe = Session::create([
-            'payment_method_types' => ['card'],
+            'payment_method_types' => ['card','paypal'],
             'line_items' => [[
                 'price_data' => [
                     'currency' => 'eur',

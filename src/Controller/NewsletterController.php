@@ -23,25 +23,22 @@ class NewsletterController extends AbstractController
     {
         $email = $request->request->get('emailpournewletter');
 
-        // Vérifier si l'email existe déjà en base (optionnel)
+       
         $existingEmail = $this->entityManager->getRepository(EmailNewsletter::class)->findOneBy([
             'emailpournewletter' => $email,
         ]);
 
         if ($existingEmail) {
-            // Gérer le cas où l'email existe déjà
-            // Vous pouvez rediriger vers une autre page par exemple
+          
             return $this->redirectToRoute('newsletter_existante');
         }
 
-        // Enregistrer l'email en base de données
         $emailEntity = new EmailNewsletter();
         $emailEntity->setEmailpournewletter($email);
 
         $this->entityManager->persist($emailEntity);
         $this->entityManager->flush();
 
-        // Rediriger vers une page de confirmation
         return $this->redirectToRoute('app_accueil');
     }
 }

@@ -3,7 +3,7 @@
 {% block head %}
     <meta name="description" content="Explorez mes articles sur le coaching professionnel, l’intelligence émotionnelle, le coaching mental, et la performance en équipe. Des conseils pratiques pour votre quotidien.">
     <meta name="keywords" content="articles, développement personnel, coaching, performance, conseils, astuces, ebook, coaching d’équipe, séminaire, teambuilding">
-    <meta name="author" content="Flavie Carette de Sensations Coaching">
+   
 {% endblock %}
 
 {% block title %}Article complet - {{ article.titre }} - Sensations Coaching{% endblock %}
@@ -39,7 +39,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <p style="margin-top: 20px; font-family:Quicksand; color:#172D4B; font-size:25px">{{ article.texteDeLArticle }}</p>
+                <p style="margin-top: 20px; font-family:Quicksand; color:#172D4B; font-size:25px">{{ article.texteDeLArticle | raw}}</p>
                 <div class="text-center mb-3">
                     <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ app.request.schemeAndHttpHost ~ app.request.requestUri }}" class="btn" style="background-color: #172D4B; color: white; margin-top:2rem; font-size:30px">Partager sur LinkedIn</a>
                 </div>
@@ -65,9 +65,9 @@
                             <div class="card">
                                 <img src="/uploads/image/{{ resume.image }}" class="card-img-top" alt="Image de l'article">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">{{ resume.titre }}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">{{ resume.sousTitre }}</h6>
-                                    <p class="card-text">{{ resume.resumer }}</p>
+                                    <h5 class="card-title">{{ resume.titre | raw }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ resume.sousTitre | raw}}</h6>
+                                    <p class="card-text">{{ resume.resumer | raw }}</p>
                                     <a href="{{ path('app_mon_article', {id: resume.id}) }}" class="btn" style="background-color: #172D4B; color: white;">Voir l'article complet</a>
                                 </div>
                             </div>
