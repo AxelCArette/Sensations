@@ -45,10 +45,7 @@
   padding-top: 250px;
   background: linear-gradient(to right, #ffefd8, #ffffff);
 }
-.image-container55 img 
-{
-  margin-top: -150px;
-}
+
 .mesaccompagnements h1
 {
   margin-top: -275px;
@@ -108,7 +105,7 @@ h1 {
   grid-template-columns: repeat(10, 1fr);
   gap: 20px;
   padding: 20px;
-  border-radius: 10px;
+ 
 }
 
 .problem02-item {
@@ -158,10 +155,7 @@ h1 {
 {
   margin-top: -100px;
 }
-.image-container55 img {
-  margin-left:1500px;
-  height: 200px;
-}
+
 .boucleRouge img {
   height: 400px;
  margin-top: -75px;
@@ -285,17 +279,17 @@ h1 {
 .btn:hover {
   opacity: 0.5;
 }
+.flcquisuisje 
+{
+  margin-top: -300px;
+}
+
 .pied {
   background: linear-gradient(to right, #ffefd8, #ffffff);
 }
-.piedimage img {
-  width: 400px;
-  margin-top: -225px;
-  margin-left: -200px;
-}
+
 .pied h3 {
   text-align: center;
-  margin-top: -325px;
   color: #2a405b;
   font-family: 'Abril Fatface', cursive;
   font-size: 55px;
@@ -433,10 +427,15 @@ h1 {
 .tacheorange img{
   position: relative;
   margin-top: -200px;
-
+  margin-left:50
+}
+.tacheorange55 img{
+  position: relative;
+  margin-top: -200px;
+  margin-left:82%;
 }
 .rdv {
-  text-align: center; 
+  text-align: center;
 }
 .rdv button {
   position: relative;
@@ -453,9 +452,9 @@ h1 {
 }
 .flcquisuisje img 
 {
- margin-top: -250px;
   width: 100%;
 }
+
 .flaviesoleil
 {
   margin-top: -1000px;
@@ -527,7 +526,6 @@ h1 {
   width: 400px;
 }
 .imagetorsader01 img {
-
   margin-left: 1200px;
   width: 300px;
 }
@@ -871,6 +869,7 @@ h1 {
   align-items: center;
   justify-content: center;
 }
+
 .pieddepagequisuisje01 h2 {
   margin-top: 45px;
   margin-bottom: 20px;
@@ -1224,7 +1223,7 @@ margin-top: 5%;
 .piedinversercontainer img {
   transform: rotate(180deg);
   width: 300px;
-  margin-left: 90%;
+
   clip-path: inset(0 0 0 25%);
 }
 .piedinverser a {

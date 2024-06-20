@@ -166,11 +166,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			{
 				display:none;
 			}
-		
-			 .espacenbas
-			 {
-				display:none;
-			 }
 
 		}
 		@media(max-width: 1700px) {
@@ -184,11 +179,16 @@ document.addEventListener('DOMContentLoaded', function () {
 				margin-top: 75px
 			}
 		}
-		.rdv01
+	
+		@media(max-width: 1540px) {
+		.rdv01 
 		{
 			display: none;
 		}
-		@media(max-width: 1540px) {
+		.tacheorange55
+		{
+			display:none;
+		}
 
 			.lestrucslide {
 				margin: 75px auto auto;
@@ -204,10 +204,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				margin-left: 0;
 			}
 		}
-		.lestrucslide.couronne {
-    opacity: 1; /* Assurez-vous que l'opacité est à 1 */
-    transform: none; /* Assurez-vous qu'il n'y a pas de transformation qui cache l'élément */
-}
+
 /* Styles par défaut pour les éléments avec animations désactivées */
 @media (max-width: 1599px) {
     .lestrucslide {
@@ -236,14 +233,6 @@ document.addEventListener('DOMContentLoaded', function () {
     debounceDelay: 50, // délai avant d'exécuter la détection de scroll
     throttleDelay: 99, // délai avant d'exécuter la détection de scroll en mode throttling
 
-    // Des options pour les animations
-    offset: 120, // décalage (en px) à partir duquel les animations sont déclenchées
-    delay: 0, // délai (en ms) avant de déclencher les animations
-    duration: 400, // durée (en ms) des animations
-    easing: 'ease', // fonction d'easing
-    once: true, // si true, les animations ne se déclenchent qu'une seule fois
-    mirror: false, // si true, les animations se déclenchent aussi en défilement inverse
-    anchorPlacement: 'top-bottom', 
 });
 
 	</script>
@@ -322,9 +311,9 @@ document.addEventListener('DOMContentLoaded', function () {
 				<h1>Mes accompagnements</h1>
 				<p class="shift-right">Et si les émotions ne restaient pas au vestiaire ?</p>
 		
-			<div class="image-container55">
-				<img src="{{ asset('asset/img/petitpoint.png') }}" alt="Petit point jaune">
-				</div>
+		
+				<img src="{{ asset('asset/img/petitpoint.png') }}" alt="Petit point jaune" style="  margin-left:1300px; width: 500px; margin-top: -150px;" >
+			
 			</div>
 		</div>
 	
@@ -502,15 +491,18 @@ document.addEventListener('DOMContentLoaded', function () {
 	<div style="height:350px;"></div>
 
 	<div class="pied">
-		<div class="piedimage"></div>
-		<h3 style="">
+		<div  class="piedimage">
+		<img src="{{asset('asset/img/pied055.png')}}" alt="Pied image bleu et des petits points rouges" style="width:200px; margin-top:-200px;">
+		
+		<h3 style="margin-top:-310px;">
 			Et vous souhaitez ...
 		</h3>
-		<div class="imagetorsader">
+		
+</div>
+<div class="imagetorsader">
 			<img src="{{asset('asset/img/flechetorsader.png')}}" alt="Une flêche rouge avec une torsade">
 		</div>
-
-		<div class="lestrucslide row">
+		<div class=" row">
 
 			<div class="lestrucslide couronne" data-aos="fade-right">
 				<img src="{{asset('asset/img/couronne.png')}}" alt="Une couronne" class="couronne-img">
@@ -537,17 +529,17 @@ document.addEventListener('DOMContentLoaded', function () {
 			<img src="{{asset('asset/img/cible.png')}}" alt="Un eclair de couleur jaune et orange" class="cible-img">
 			<p>Maximiser votre énergie vitale et garder le cap sur vos objectifs, même dans les situations les plus critiques.</p>
 		</div>
-		<div class="rdv">
+		<div class="rdv"  style="margin-top:200px;">
 			<h2 style="color:#172D4B; font-family:quicksand;">
 				<b>Alors prêt à vous propulser vers
 					<br>
 					l’excellence ?</b>
 			</h2>
 			<button class="text-align" href="{{ path('app_contact') }}">Je réserve mon rdv offert</button>
-			<div class="tacheorange"><img src="{{asset('asset/img/tacheorange.png')}}" alt="Une tache orange"></div>
+			<div class="tacheorange55"><img src="{{asset('asset/img/tacheorange.png')}}" alt="Une tache orange" style="width:300px; margin-left:1525px"></div>
 		</div>
 	</div>
-	<div class="flcquisuisje">
+	<div class="flcquisuisje" style="margin-top:-200px;">
 		<img src="{{asset('asset/img/backgroundmontagne.png')}}" alt="Un fond représentré par des montagnes">
 	</div>
 	<div class="flcphoto">

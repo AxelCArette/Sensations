@@ -15,6 +15,10 @@
   .hautdepagecoachingdequipe {
   display:none;
 }
+.pourquoichoi
+{
+  display:none;
+}
 .piedinversercontainer
 {
   display:none;
@@ -22,6 +26,14 @@
 .piedinverser
 {
   display:none;
+}
+.liberer05
+{
+  margin-left:-900px;
+}
+.BOOSTER05
+{
+  margin-left:-900px;
 }
 .flcphoto01{
   display:none;
@@ -38,40 +50,24 @@
 {
  margin-top:50px;
 }
-.lestrucslide  {
-margin:0;
-margin-top:75px;
-flex-direction: column;
-    align-items: center; 
-  }
+
 .eveiller06
 {
   display:none;
 }
-.eveiller05
-{
-  margin-left:-100px;
-}
-.eveiller05 p 
-{
-  width:50%
-}
-.Orchestrer05
-{
-  margin-left:-100px
-}
+
 .Orchestrer05 p
 {
    width:50%
 }
-.liberer05 
+
+@media (max-width: 950px){
+.row
 {
-  margin-left:-1800px
+  display:none;
 }
-.BOOSTER05
-{
-  margin-left:-1700px
 }
+
 @media (max-width: 700px) {
   .deroulcoaching {
     flex-direction: column;
@@ -82,39 +78,37 @@ flex-direction: column;
   .zone01, .zone02 {
     flex-direction: column;
   }
-
   .card-flip {
     margin-bottom: 20px;
   }
 }
+	.CPSA05 {
+				flex-direction: column; 
+				align-items: center; 
+         margin-left:0;
+				margin-bottom: 50px;
+			}
 }
 @media (max-width: 1599px) {
     .lestrucslide {
         opacity: 1 !important; /* Assurez-vous que l'opacité est forcée à 1 */
-        transform: none !important; /* Assurez-vous qu'il n'y a pas de transformation */
-        margin-left:-100px;
+        transform: none !important; 
     }
 }
 </style>
 <script>
- AOS.init({
+		 AOS.init({
     disable: function() {
         return window.innerWidth < 1600;
     },
-    startEvent: 'DOMContentLoaded',
-    initClassName: 'aos-init', 
-    animatedClassName: 'aos-animate', 
-    useClassNames: true, 
-    disableMutationObserver: false, 
-    debounceDelay: 50, 
-    throttleDelay: 99,
-    offset: 120, 
-    delay: 0, 
-    duration: 400, 
-    easing: 'ease',
-    once: true,
-    mirror: false, 
-    anchorPlacement: 'top-bottom', 
+    startEvent: 'DOMContentLoaded', // Ajustez en fonction de votre événement de démarrage
+    initClassName: 'aos-init', // Nom de classe appliqué après l'initialisation
+    animatedClassName: 'aos-animate', // Nom de classe appliqué pour les animations
+    useClassNames: true, // Ajoute des noms de classes pour l'animation et l'initialisation
+    disableMutationObserver: false, // Désactive l'observateur de mutation si true
+    debounceDelay: 50, // délai avant d'exécuter la détection de scroll
+    throttleDelay: 99, // délai avant d'exécuter la détection de scroll en mode throttling
+
 });
 </script>
 
@@ -156,8 +150,9 @@ flex-direction: column;
   <h3>Ensemble, propulsons votre équipe vers l'excellence en cultivant un état d’esprit positif et proactif.</h3>
 </div>
 
-<div class="lestrucslide row">
-<div data-aos="fade-right" class="lestrucslide eveiller05">
+<div class="CPSA05">
+<div class="row">
+<div data-aos="fade-right" class=" eveiller05">
     <img src="{{asset('asset/img/etoilepied.png')}}" alt="Des étoiles bleu sur un fond beige">
     <h2>Éveiller</h2>
     <h4>La balle est dans votre camp</h4>
@@ -172,7 +167,7 @@ flex-direction: column;
   <img src="{{asset('asset/img/petitpoint.png')}}" alt="Des petits point jaune">
 </div>
 
-<div data-aos="fade-left" class="lestrucslide liberer05">
+<div data-aos="fade-left" class=" liberer05">
     <img src="{{asset('asset/img/tacheampoule.png')}}" alt="Des étoiles bleu sur un fond beige">
     <h2>Libérer</h2>
     <h4>Osez perdre la balle</h4>
@@ -182,7 +177,7 @@ flex-direction: column;
     </p>
 </div>
 
-<div data-aos="fade-right" class="lestrucslide Orchestrer05">
+<div data-aos="fade-right" class=" Orchestrer05">
     <img src="{{asset('asset/img/clapmain.png')}}" alt="Plusieurs main faisant un clap">
     <h2>ORCHESTRER</h2>
     <h4>Insufflez ce supplément d'âme</h4>
@@ -192,7 +187,7 @@ flex-direction: column;
     </p>
 </div>
 
-<div data-aos="fade-left" class="lestrucslide BOOSTER05">
+<div data-aos="fade-left" class=" BOOSTER05">
  
     <img src="{{asset('asset/img/ciblenuage.png')}}" alt="Plusieurs main faisant un clap">
     <h2>BOOSTER</h2>
@@ -269,7 +264,7 @@ flex-direction: column;
       </div>
     </div>
   </div>
-
+</DIV>
 </div>
  <div class="femmetriangle">
   <img src="{{asset('asset/img/femmeavecdestriangleetrond.png')}}" alt="Une femme sur la pointe des pieds avec des triangles et rond">
@@ -290,7 +285,9 @@ flex-direction: column;
   <a href="{{ path('app_contact') }}">Je réserve mon rdv offert</a>
 </div>
 </div>
+<div class="pourquoichoi">
 <h1 style="text-align:center; margin-bottom:100px;">Pourquoi me choisir ?</h1>
+</div>
 <div class="flcphoto01">
 
   <img src="{{asset('asset/img/flaviedoigt.png')}}" alt="Flavie Carette coaching">
