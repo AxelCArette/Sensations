@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class InscriptionController extends AbstractController
 {
@@ -50,8 +51,11 @@ class InscriptionController extends AbstractController
                     $mail = new Mail();
                     $content= "Bonjour ".$utilisateur->getPrenom()."";
                     $mail->sendTemplateA($utilisateur->getEmail(), $utilisateur->getPrenom(), '', $content);
-                    
-                    $notification = "Votre inscription s'est correctement déroulée. Vous pouvez vous connecter à votre compte.";
+                    $loginUrl = $this->generateUrl('app_login', [], UrlGeneratorInterface::ABSOLUTE_URL);
+
+                    // Message de notification avec le lien vers la page de connexion
+                    $notification = "Votre inscription s'est correctement déroulée. Vous pouvez vous connecter à votre compte par ici : <a href=\"" . $loginUrl . "\">Se connecter</a>";
+                   
 
                 } else {
                     $notification = "L'email que vous avez renseigné existe déjà.";

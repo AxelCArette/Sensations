@@ -47,4 +47,36 @@ class ResumerArticleController extends AbstractController
             'selectedTag' => $tag,
         ]);
     }
+    #[Route('/api/resumer/article/{tag}', name: 'api_resumer_article', defaults: ['tag' => null], methods: ['GET'])]
+public function apiIndex(?string $tag, Request $request): Response
+{
+    $articleRepository = $this->entityManager->getRepository(RedactionArticles::class);
+    $articles = $articleRepository->findAll();
+
+    if ($tag) {
+        $filteredArticles = [];
+        foreach ($articles as $article) {
+            if (in_array($tag, $article->getTags())) {
+                $filteredArticles[] = $article;
+            }
+        }
+        $articles = $filteredArticles;
+    }
+
+    $responseArray = [];
+    foreach ($articles as $article) {
+        if ($article->getPublished()) {
+            $responseArray[] = [
+                'id' => $article->getId(),
+                'titre' => $article->getTitre(),
+                'sousTitre' => $article->getSousTitre(),
+                'resumer' => $article->getResumer(),
+                'image' => $article->getImage(),
+            ];
+        }
+    }
+
+    return $this->json($responseArray);
+}
+
 }

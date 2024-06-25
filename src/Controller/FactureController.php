@@ -47,6 +47,7 @@ class FactureController extends AbstractController
     #[Route('/compte/telecharger-facture/{commandeId}', name: 'app_telecharger_facture')]
     public function telechargerFacture($commandeId): Response
     {
+       
         $utilisateur = $this->getUser();
         $commande = $this->entityManager->getRepository(Commande::class)->find($commandeId);
 
@@ -54,7 +55,8 @@ class FactureController extends AbstractController
             throw $this->createNotFoundException('La commande n\'existe pas ou vous n\'êtes pas autorisé à la consulter.');
         }
 
-        $commandeDetails = $this->entityManager->getRepository(CommandeDetail::class)->findBy(['Commande' => $commande]);
+        $commandeDetails = $this->entityManager->getRepository(commandeDetail::class)->findBy(['commande' => $commande]);
+        $commandeDetails=$this->entityManager->getRepository(commandeDetail::class)->findByStatut('1');
 
         if (!$commandeDetails) {
             throw $this->createNotFoundException('Les détails de la commande n\'existent pas.');

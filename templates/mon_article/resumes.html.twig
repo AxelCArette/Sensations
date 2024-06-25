@@ -9,54 +9,96 @@
 {% block title %}Résumés des Articles - Sensations Coaching{% endblock %}
 
 {% block body %}
-    <div class="hautdepagecoachingdequipe">
-        <div class="backgroundcoachingdequipe">
-            <img src="{{ asset('asset/img/backgroundmontagne.png') }}" alt="Un fond représenté par des montagnes">
-        </div>
-        <div class="backgroundcoachingdequipe01">
-            <img src="{{ asset('asset/img/ordipersonnetravaillantpa.png') }}" alt="Des personnes faisant une activité ensemble">
-        </div>
-        <div class="backgroundcoachingdequipe02">
-            <h1 style="font-size: 65px; text-align: right;">Mes articles</h1>
-            <p style="font-size: 35px">Découvrez des conseils, des stratégies<br> et des insights pour booster<br> votre carrière.</p>
-        </div>
+<style>
+@media(max-width: 1600px) {
+			.hautdepagecoachingdequipe {
+				display: none;
+			} 
+            }
+</style>
+  
+<div class="hautdepagecoachingdequipe">
+    <div class="backgroundcoachingdequipe">
+        <img src="{{ asset('asset/img/backgroundmontagne.png') }}" alt="Un fond représenté par des montagnes">
     </div>
-    
-    {% if resumes is empty %}
-        <div class="container" style="margin-top: 3rem;">
-            <p style="text-align: center; font-size: 20px;">Les articles sont en cours d'écriture. Revenez bientôt pour découvrir nos derniers contenus.</p>
-        </div>
-    {% else %}
-        <div class="container" style="margin-top: 3rem;">
-            <div class="mb-3 d-flex justify-content-center">
-                {% for tag in tags %}
-                    <a href="{{ path('app_resumer_article', { tag: tag.TagArticle }) }}"
-                       class="btn mr-2 mb-2"
-                       style="background-color: #172D4B; color: white; margin-right: 10px; {% if tag.TagArticle == selectedTag %}active{% endif %}">
-                        {{ tag.TagArticle }}
-                    </a>
-                {% endfor %}
-            </div>
-        </div>
+    <div class="backgroundcoachingdequipe01">
+        <img src="{{ asset('asset/img/ordipersonnetravaillantpa.png') }}" alt="Des personnes faisant une activité ensemble">
+    </div>
+    <div class="backgroundcoachingdequipe02">
+        <h1 style="font-size: 65px; text-align: right;">Mes articles</h1>
+        <p style="font-size: 35px">Découvrez des conseils, des stratégies<br> et des insights pour booster<br> votre carrière.</p>
+    </div>
+</div>
 
-        <div class="container">
-            <div class="row justify-content-center">
-                {% for resume in resumes %}
-                    {% if resume.published %} 
-                        <div class="col-md-6 mb-4">
-                            <div class="card">
-                                <img src="/uploads/image/{{ resume.image }}" class="card-img-top" alt="Image de l'article">
-                                <div class="card-body" style="text-align:center">
-                                    <h5 class="card-title">{{ resume.titre | raw }}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">{{ resume.sousTitre }}</h6>
-                                    <p class="card-text">{{ resume.resumer | raw }}</p>
-                                    <a href="{{ path('app_mon_article', {id: resume.id}) }}" class="btn" style="background-color: #172D4B; color: white;">Voir l'article complet</a>
-                                </div>
-                            </div>
+<div class="container" style="margin-top: 3rem;">
+    <div class="mb-3 d-flex justify-content-center">
+        {% for tag in tags %}
+            <a href="#" class="btn mr-2 mb-2 tag-link" data-tag="{{ tag.TagArticle }}"
+               style="background-color: #172D4B; color: white; margin-right: 10px;">
+                {{ tag.TagArticle }}
+            </a>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center" id="articles-container">
+        {% for resume in resumes %}
+            {% if resume.published %}
+                <div class="col-md-6 mb-4 article-card">
+                    <div class="card">
+                        <img src="/uploads/image/{{ resume.image }}" class="card-img-top" alt="Image de l'article">
+                        <div class="card-body" style="text-align:center">
+                            <h5 class="card-title">{{ resume.titre | raw }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ resume.sousTitre }}</h6>
+                            <p class="card-text">{{ resume.resumer | raw }}</p>
+                            <a href="{{ path('app_mon_article', {id: resume.id}) }}" class="btn"
+                               style="background-color: #172D4B; color: white;">Voir l'article complet</a>
                         </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        </div>
-    {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tagLinks = document.querySelectorAll('.tag-link');
+    tagLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const tag = event.target.getAttribute('data-tag');
+            fetch(`/api/resumer/article/${tag}`)
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('articles-container');
+                    container.innerHTML = '';
+                    if (data.length === 0) {
+                        container.innerHTML = '<p style="text-align: center; font-size: 20px;">Aucun article trouvé pour ce tag.</p>';
+                    } else {
+                        data.forEach(article => {
+                            const articleCard = `
+                                <div class="col-md-6 mb-4 article-card">
+                                    <div class="card">
+                                        <img src="/uploads/image/${article.image}" class="card-img-top" alt="Image de l'article">
+                                        <div class="card-body" style="text-align:center">
+                                            <h5 class="card-title">${article.titre}</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">${article.sousTitre}</h6>
+                                            <p class="card-text">${article.resumer}</p>
+                                            <a href="/mon/article/${article.id}" class="btn" style="background-color: #172D4B; color: white;">Voir l'article complet</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            container.innerHTML += articleCard;
+                        });
+                    }
+                });
+        });
+    });
+});
+
+</script>
 {% endblock %}
+

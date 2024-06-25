@@ -162,7 +162,7 @@ public function paiement(Cart $cart, Request $request, FormationsRepository $for
                     'product_data' => [
                         'name' => $commandeDetail->getFormation()->getTitreDeLaFormation(),
                     ],
-                    'unit_amount' => $commandeDetail->getPrixtotal() ,
+                    'unit_amount' => $commandeDetail->getPrix() ,
                ],
                 'quantity' => 1,
             ]],
@@ -173,6 +173,7 @@ public function paiement(Cart $cart, Request $request, FormationsRepository $for
       ]);
         
         $commandeDetail->setSessionStripeId($nouvelleSessionStripe->id);
+        $commandeDetail->setPrixtotal($commandeDetail->getprix());
        $this->entityManager->flush();
         
        return $this->redirect($nouvelleSessionStripe->url);

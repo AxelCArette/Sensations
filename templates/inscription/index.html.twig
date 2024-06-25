@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <h2 class="card-title text-center"style="color:#1c618d; font-family: Abril Fatface">Inscrivez-vous</h2>
                         {% if notification %}
-                        <div class="alert alert-warning" role="alert"> {{ notification }}</div>
+                        <div class="alert alert-warning" role="alert"> {{ notification|raw }}</div>
                     
                         {% endif %}
                         {{ form_start(form, {'attr': {'class': 'mt-3'}}) }}

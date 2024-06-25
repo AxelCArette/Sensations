@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
-
+{% block head %}
 	<meta name="description" content="Bénéficiez d'un coaching individuel personnalisé pour développer votre potentiel et atteindre vos objectifs spécifiques.">
 	<meta name="keywords" content="coaching individuel, coaching personnalisé, développement personnel, objectifs personnels, performance individuelle, voice dialogue, systemique, potentiel ">
 	<meta name="author" content=" Flavie Carette de Sensations Coaching ">
-
+ {% endblock %}
 
 {% block title %}Coaching Individuel – Sensations Coaching
 {% endblock %}
@@ -41,7 +41,7 @@
 					margin-left: 50px
 				}
      
-				.flechounetterouge05 img {
+				.flechounetterouge05  {
 					display: none;
 				}
 				.flcphoto01 {
@@ -64,6 +64,41 @@
 					margin-bottom: 20px;
 				}
 			}
+			@media (max-width: 768px) {
+    .pack h5 {
+        font-size: 1.5em;
+    }
+
+    .pack p, .pack ul li {
+        font-size: 1.2em;
+    }
+	.packELite{
+		width:300px;
+	}
+    .packSeance {
+		width:300px;
+        font-size: 1.2em;
+    }
+
+	.packBoost
+	{
+		width:300px;
+	}
+}
+
+@media (max-width: 480px) {
+    .pack h5 {
+        font-size: 1.2em;
+    }
+
+    .pack p, .pack ul li {
+        font-size: 1em;
+    }
+
+    .packSeance {
+        font-size: 1em;
+    }
+}
 		}
 	</style>
 	<script>
@@ -321,7 +356,7 @@
 			<b>Alors prêt à vous propulser vers l’excellence ?</b>
 		</h2>
 		<div class="piedinversercontainer">
-			<img src="{{asset('asset/img/pied.png')}}" alt="Une image qui ressemble un peu a un pied">
+			<img src="{{asset('asset/img/pied.png')}}" style=" margin-left: 90%;" alt="Une image qui ressemble un peu a un pied">
 		</div>
 		<a href="{{ path('app_contact') }}" alt="Liens vers contact">Je réserve mon rdv offert</a>
 	</div>

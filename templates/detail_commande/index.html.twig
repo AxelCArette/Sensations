@@ -49,23 +49,29 @@
                             {% endif %}
                         {% endif %}
                     </p>
+                    
                     <h5 class="card-title">Votre adresse de facturation</h5>
                     <p class="card-text">
                         {% if app.user %}
+    
                             {% if app.user.adresses.first() %}
                                 {{ app.user.adresses.first().AdresseComplete }}
-                            {% else %}
-                                <a href="{{ path('app_adresse') }}">Ajouter une adresse</a>
+                          
                             {% endif %}
-                        {% endif %}
+                       
                     </p>
                 </div>
             </div>
             <div class="col-md-5">
 </div>
+            {% if app.user.adresses.first()%}
             <form action="{{ path('app_paiement') }}" method="POST" class="mt-3">
                 <button type="submit" class="btn btn-primary">Passer au paiement</button>
             </form>
+            {% else %}
+            <a href="{{ path('app_adresse') }}">Ajouter une adresse pour passer au paiement</a>
+            {% endif %}
+             {% endif %}
         </div>
     </div>
 </div>

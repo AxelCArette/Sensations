@@ -7,7 +7,46 @@
 
 {% block title %}Formations - Votre Site de Coaching{% endblock %}
 
+
 {% block body %}
+<style>
+@media(max-width: 1600px) {
+			.hautdepagecoachingdequipe {
+				display: none;
+			}
+     .image-container
+     {
+        display:none;
+     }
+     .ebook h3
+     {
+        margin-top:500px;
+     }
+     .caffouillagedanslasurface01 
+     {
+        margin-top:150px;
+     }
+      .vousetesportif
+      {
+        display:none;
+      }
+      .card
+      {
+        margin-top:100px;
+      }
+@media(max-width: 500px){
+      .formationmanagement h3
+      {
+        width: 200px;
+      }
+      .formationRH05 img 
+      {
+        display:none;
+      }
+
+      }
+      }
+</style>
 <div class="hautdepagecoachingdequipe">
   <div class="backgroundcoachingdequipe">
     <img src="{{ asset('asset/img/backgroundmontagne.png') }}" alt="Un fond représenté par des montagnes">

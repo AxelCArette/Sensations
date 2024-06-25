@@ -45,7 +45,7 @@ class MonArticleController extends AbstractController
 
         return $this->render('mon_article/MonArticle.html.twig', [
             'article' => $article,
-            'resumes' => $articles, // Passer les articles filtrés à la vue
+            'resumes' => $articles,
         ]);
     }
 }

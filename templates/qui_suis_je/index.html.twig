@@ -9,14 +9,181 @@
 {% block title %}Qui suis-je ? - Sensations Coaching{% endblock %}
 
 {% block body %}
+<style>
+/* Styles pour les écrans jusqu'à 1599px */
+@media (max-width: 1599px) {
+    /* Styles existants */
+    .flcquisuisje,
+    .cerveauinge,
+    .damerouge,
+    .mapromesseunepuissante,
+    .eclairrouge,
+    .multiwork,
+    .decouvrezflaviecarette,
+    .parlons-en,
+    .decouvrezflaviecarette65,
+    .parcoursetdentologie202152023,
+    .parcoursetdentologie20215,
+    .parcoursetdentologie2023,
+    .cemodeledenergie,
+    .jaijustechaque,
+    .tacheorange05,
+    .cemodeledenergie img,
+    .Historique img {
+        display: none;
+    }
+    .organigramedemavie {
+    display:none;
+}
+.Deantologiequementparlant h3 {
+     width:500px;
+    text-align: left;
+    text:center;
+    }
+.Deantologiequementparlant ul li {
+    padding-bottom:0;
+    width:500px;
+
+    }
+.content-wrapper
+{
+    width:500px;
+}
+    .Aventureetincertitude,
+    .PuissanceElandevie
+    {
+          width: 250px;
+        margin-left:0;
+     }
+     .decouvrezflaviecarette 
+     {
+        width: 250px;
+        margin-top:50px;
+     }
+     .resilience-sensibilitetexte {
+        width: 300px; 
+        margin-left:0;
+         text-align:left;
+    }
+     .ParlonsEn 
+{
+    width:200px;
+}
+
+.parlons-en {
+        padding-left: 0;
+        padding-right: 0;
+    }
+     .Pourquoimechoisir .image-container01
+     {
+            display: flex;
+            flex-direction: column;
+     }
+     .Aventureetincertitudetexte,
+     .Pourquoimechoisir,
+     .PuissanceElandevieTexte
+     {
+         width: 250px;
+        margin-left:0;
+     }
+    .MonHistoire h2 {
+        margin-top: -420px;
+        margin-left:0;
+        text-align:left;
+    }
+     .Historique h3 {
+          width: 250px;
+        margin-left:0;
+     }
+    .Historique p {
+        width: 500px;
+        font-size: 20px;
+        margin-top:0;
+        margin-left:0;
+        
+    }
+    .Pourquoimechoisir h3 
+    {
+        margin-top:30px;
+    }
+    .Historique .resilience-sensibilite , 
+    .resilience-sensibilitetexte, 
+    .PuissanceElandevie, 
+    .PuissanceElandevieTexte,
+    ..Historique h3
+     {
+         text-align:left;
+        margin-left:0;
+             }
+   .Historique .resilience-sensibilite 
+               {
+                width:250px;
+        margin-left:0;
+             }
+    .frigo,
+    .soleiletlune 
+    {
+        display:none;
+    }
+    .Historique h3,
+    .Historique p,
+    .Aventureetincertitude,
+    .Aventureetincertitudetexte,
+    .resilience-sensibilite,
+    {
+        margin-left:0;
+        width: 400px;
+    }
+}
+
+/* Styles pour les écrans jusqu'à 991px (tablettes) */
+@media (max-width: 991px) {
+    .flaviesoleil {
+        margin-top: -400px; /* Ajustement pour l'image sur tablette */
+    }
+   
+    .PuissanceElandevieTexte
+    .Historique .resilience-sensibilite h3 {
+        margin-left: 0; /* Centrage pour les petits écrans */
+        width: 100%; /* Pleine largeur */
+    }
+    
+}
+
+@media (max-width: 767px) {
+    .flaviesoleil {
+        margin-top: -300px; 
+    }
+    .PuissanceElandevie {
+        display: none;
+    }
+    .Historique {
+        width: 100px;
+}
+
+
+}
+</style>
 
 <script>
-  AOS.init();
+   AOS.init({
+    disable: function() {
+        return window.innerWidth < 1600;
+    },
+    startEvent: 'DOMContentLoaded', // Ajustez en fonction de votre événement de démarrage
+    initClassName: 'aos-init', // Nom de classe appliqué après l'initialisation
+    animatedClassName: 'aos-animate', // Nom de classe appliqué pour les animations
+    useClassNames: true, // Ajoute des noms de classes pour l'animation et l'initialisation
+    disableMutationObserver: false, // Désactive l'observateur de mutation si true
+    debounceDelay: 50, // délai avant d'exécuter la détection de scroll
+    throttleDelay: 99, // délai avant d'exécuter la détection de scroll en mode throttling
+
+});
 </script>
 <div class="flcquisuisje">
     <img src="{{asset('asset/img/backgroundmontagne.png')}}" alt="Un fond représenté par des montagnes">
 
-    <div class="flaviesoleil">
+    <div class="flaviesoleil" style="margin-top:-800px">
         <img src="{{asset('asset/img/flaviesoleil.png')}}" alt="La coaching Flavie Carette">
         
         <div class="flctexte">
@@ -33,7 +200,7 @@
     </div>
 <div style="height: 470px;"></div>
 
-    <div id="monHistoire" class="MonHistoire">
+    <div id="monHistoire" class="MonHistoire" style="margin-top:-275px;">
         <h2>Mon histoire</h2>
     </div>
     <div class="Historique">
@@ -104,6 +271,7 @@
       <p>Je crois en la puissance de l'intégrité, et je m'engage à travailler sur moi-même pour être toujours à la hauteur des défis que vous m'apportez. </p>
     </div>
   </div>
+
      <h2 class="orange-background">Ma pratique : une approche systémique innovante,<br>ludique et sur-mesure</h2>
      <div class="demarches"style="color:#172D4B; font-family:quicksand;">
      <p>Associant 3 démarches, j’utilise un modèle unique d’accompagnement, associant le Voice Dialogue, la constellation systémique et l’Ennéagramme. </p>
@@ -118,6 +286,7 @@
     <div class="lorsdecoaching" style="color:#172D4B; font-family:quicksand;">
     <p style="color:#172D4B; font-family:quicksand;">Lors de coaching d’équipe, plongez dans des <b>ateliers</b> très ludiques où chaque jeu devient une<b> aventure</b> et découvrez à travers des<b> débriefs percutants</b> comment le reflet de vos actions peut transformer votre perception et<b> booster</b> votre<b> croissance personnelle au service de la performance collective</b>.</p>
      </div>
+
 <div class="mapromesseunepuissante" style="color:#172D4B; font-family:quicksand;">
     <h2 style="margin-bottom:50px;">Ma promesse : une puissante légèreté</h2>
     <div data-aos="fade-left" class="item left">
@@ -141,20 +310,27 @@
         <p class="text" style="color:#172D4B; font-family:quicksand;">Ayant évolué dans le haut niveau sportif, je comprends intimement les défis et exigences auxquels vous faites face, ce qui me permet de vous offrir un accompagnement où <b> vous vous sentirez compris</b> et entendu.</p>
     </div>
 </div>
+
      </div>
-     <h2 style="font-size: 50px; text-align:center; margin-top:-40px; position:relative;color:#172D4B; font-family:quicksand; "><b>Découvrez votre potentiel !</b></h2>
-   <div style="text-align: center; margin-top:50px; margin-bottom:50px">
-    <a href="{{ path('app_contact') }}" style="background-color:#1C6A8D; font-size: 40px; color:white; padding:25px; padding-left:400px; padding-right:400px; border-radius: 50px; text-decoration: none; font-family: 'Abril Fatface';"> Parlons-en !</a>
+     <div class="decouvrezflaviecarette"> 
+        
+     <h2 style="font-size: 50px; text-align:center; margin-top:-40px; position:relative;color:#172D4B; font-family:quicksand;" ><b>Découvrez votre potentiel !</b></h2>
+   </div>
+   <div class="ParlonsEn" style="text-align: center; margin-top:50px; margin-bottom:50px" >
+    <a href="{{ path('app_contact') }}" style="background-color:#1C6A8D; font-size: 40px; color:white; padding:25px; padding-left:400px; padding-right:400px; border-radius: 50px; text-decoration: none; font-family: 'Abril Fatface';" class="parlons-en"> Parlons-en !</a>
 </div>
+
 <div id="parcoursetdentologie" class="Parcoursetdentologie">
+<div class="decouvrezflaviecarette65">
 <h2 style="font-family: 'Abril Fatface'; text-align: center; font-size:50px; margin-top:150px ; color:#1c618d;"> Parcours & Déontologie</h2>
 <div style="text-align: center;">
-<img src="{{asset('asset/img/organigramemulticouleur.png')}}" style="margin-top:50px; width:500px" alt="Organigrame de ma vie">
+<img src="{{asset('asset/img/organigramemulticouleur.png')}}" style="margin-top:50px; width:500px" alt="Organigrame de ma vie" class="organigramedemavie">
   <div class="parcoursetdentologie2024" style="display: flex; flex-direction: column; align-items: center;">
   <h4 style="background-color:#FFEFD7; width:100px; border-radius: 10px; padding:10px;">2024</h4>
   <p style="width:500px; font-size:25px; text-align:center; color:#172D4B; font-family:quicksand;">
     Certificat<b> “Coaching systémique d’équipe”</b>, Méthode des énergies, NRGy Training<br> +<br><b> Lancement de mon activité</b>
   </p>
+
 </div>
    <div class="parcoursetdentologie2023"  style="display: flex; flex-direction: column; align-items: center;">
     <h4 style="background-color:#FFEFD7; width:100px; border-radius: 10px;padding:10px; ">2023</h4>
@@ -169,10 +345,12 @@
 <p style="width:300px; font-size:25px; text-align:center; margin-bottom:300px; color:#172D4B; font-family:quicksand;">Master<br>“International Sales & E-<br>business", ISCID-CO</p>
 </div>
 </div>
+</div>
+
 <div class="Deantologiequementparlant" style="color:#172D4B; font-family:quicksand; padding-bottom:50px">
     <div class="content-wrapper">
         <div class="tacheorange05 text-center">
-            <img src="{{asset('asset/img/tacheorange.png')}}" alt="Une tache orange">
+            <img src="{{asset('asset/img/tacheorange.png')}}" alt="Une tache orange" style="width:250px; margin-left: 43.1%;">
         </div>
         <h3>Déontologie en accord avec le “Code de déontologie et bonne conduite” de l’EMCC :</h3>
         <ul>
@@ -194,7 +372,7 @@
 <div class="pieddepagequisuisje01" style="color:#172D4B; font-family:quicksand; padding-bottom:100px">
 <h2 style="margin-top:80px "><b>Explorons ensemble vos défis !</b></h2>
 
-<a href="{{ path('app_contact') }}">Réservez votre rdv gratuit !</a>
+<a href="{{ path('app_contact')  }} ">Réservez votre rdv gratuit !</a>
 </div>
 </div>
 </div>

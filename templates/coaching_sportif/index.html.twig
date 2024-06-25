@@ -1,272 +1,545 @@
 {% extends 'base.html.twig' %}
 
 {% block head %}
-<meta name="description" content="Suivez un coaching spécialisé pour les sportifs de haut niveau, arbitres et entraineurs axé sur la performance, gestion de la blessure et la préparation mentale.">
-<meta name="keywords" content="coaching sportif, sportifs de haut niveau, préparation mentale, performance sportive, coaching mental, gestion émotionnelle, gestion de la blessure, gestion du stress, excellence ">
-<meta name="author" content=" Flavie Carette de Sensations Coaching ">
+	<meta name="description" content="Suivez un coaching spécialisé pour les sportifs de haut niveau, arbitres et entraineurs axé sur la performance, gestion de la blessure et la préparation mentale.">
+	<meta name="keywords" content="coaching sportif, sportifs de haut niveau, préparation mentale, performance sportive, coaching mental, gestion émotionnelle, gestion de la blessure, gestion du stress, excellence ">
+	<meta name="author" content=" Flavie Carette de Sensations Coaching ">
 {% endblock %}
 
-{% block title %}Coaching pour Sportifs de Haut-Niveau - Sensations Coaching{% endblock %}
+{% block title %}Coaching pour Sportifs de Haut-Niveau - Sensations Coaching
+{% endblock %}
 
 {% block body %}
-<script>
- AOS.init({
-    disable: function() {
-        return window.innerWidth < 1600;
-    },
-    startEvent: 'DOMContentLoaded', // Ajustez en fonction de votre événement de démarrage
-    initClassName: 'aos-init', // Nom de classe appliqué après l'initialisation
-    animatedClassName: 'aos-animate', // Nom de classe appliqué pour les animations
-    useClassNames: true, // Ajoute des noms de classes pour l'animation et l'initialisation
-    disableMutationObserver: false, // Désactive l'observateur de mutation si true
-    debounceDelay: 50, // délai avant d'exécuter la détection de scroll
-    throttleDelay: 99, // délai avant d'exécuter la détection de scroll en mode throttling
+	<script>
+		AOS.init({
+disable: function () {
+return window.innerWidth < 1600;
+},
+startEvent: 'DOMContentLoaded', // Ajustez en fonction de votre événement de démarrage
+initClassName: 'aos-init', // Nom de classe appliqué après l'initialisation
+animatedClassName: 'aos-animate', // Nom de classe appliqué pour les animations
+useClassNames: true, // Ajoute des noms de classes pour l'animation et l'initialisation
+disableMutationObserver: false, // Désactive l'observateur de mutation si true
+debounceDelay: 50, // délai avant d'exécuter la détection de scroll
+throttleDelay: 99, // délai avant d'exécuter la détection de scroll en mode throttling
 
-    // Des options pour les animations
-    offset: 120, // décalage (en px) à partir duquel les animations sont déclenchées
-    delay: 0, // délai (en ms) avant de déclencher les animations
-    duration: 400, // durée (en ms) des animations
-    easing: 'ease', // fonction d'easing
-    once: true, // si true, les animations ne se déclenchent qu'une seule fois
-    mirror: false, // si true, les animations se déclenchent aussi en défilement inverse
-    anchorPlacement: 'top-bottom', // position de déclenchement des animations
 });
-</script>
+	</script>
+	<style>
+		@media(max-width: 1600px) {
+			.backgroundcoachingdequipe {
+				display: none;
+			}
+			.backgroundcoachingdequipe03,
+			.backgroundcoachingdequipe03 img
+			{
+				display: none;
+			}
+      .caffouillagedanslasurface
+      {
+        margin-top:100px;
 
-<div class="backgroundcoachingdequipe">
-  <img src="{{ asset('asset/img/backgroundmontagne.png') }}" alt="Un fond représenté par des montagnes">
-</div>
-<div class="backgroundcoachingdequipe03">
-  <img src="{{ asset('asset/img/gensquipalre.png') }}" alt="Une personne tenant un cahier pour écrire dedans avec une personne en face d'elle">
-</div>
-<div class="backgroundcoachingdequipe03">
-  <h1> Libérez votre esprit pour atteindre l’excellence</h1>
-  <p>Découvrez la sérénité intérieure pour une <br> performance maximale</p>
-</div>
-<div class="caffouillagedanslasurface">
-  <h2>Et si votre véritable adversaire était vos propres émotions ?</h2>
-  <img src="{{ asset('asset/img/pointbleu.png') }}" alt="Un point bleu foncé">
-  <p style="color:#172D4B; font-family:quicksand;">Vous vous sentez <b>frustré(e)</b> après une défaite ou une erreur malgré tous vos entraînements, vous doutez de votre propre <b>réussite</b> ?</p><br>
-  <img src="{{ asset('asset/img/pointorange.png') }}" alt="Un point orange">
-  <p style="color:#172D4B; font-family:quicksand;">La <b>pression</b> avant une compétition importante vous envahit, plus moyen de retrouver votre <b>sérénité </b>?</p><br>
-  <img src="{{ asset('asset/img/pointorangefoncer.png') }}" alt="Un point orange foncé">
-  <p style="color:#172D4B; font-family:quicksand;">Vous craignez ne pas être à la hauteur des attentes <b>extérieures</b>, vous avez l’impression que votre <b>performance</b> stagne ? </p><br>
-  <img src="{{ asset('asset/img/pointbleuclair.png') }}" alt="Un point bleu clair">
-  <p style="color:#172D4B; font-family:quicksand;">Vous faites face à un <b>choix de carrière</b>, vous n’êtes plus <b>certain(e)</b> de rien ?</p><br>
-  <img src="{{ asset('asset/img/pointorange.png') }}" alt="Un point orange clair">
-  <p style="color:#172D4B; font-family:quicksand;"><b>Blessé(e)</b>, en manque d’énergie et parfois seul(e), vous avez peur de ne pas retrouver votre <b>meilleur niveau</b> ?</p><br>
-  <img src="{{ asset('asset/img/pointbleu.png') }}" alt="Un point bleu foncé">
-  <p style="color:#172D4B; font-family:quicksand;">Vous ne comprenez pas vos <b>réactions émotionnelles</b>, vous avez des difficultés à <b>canaliser</b> votre colère ou vos pleurs, même à l’entraînement ?</p><br>
-</div>
-<div class="container full-height">
-  <div class="row w-100">
-    <div class="col-md-1 col-lg-1"></div>
-    <div class="col-md-10 col-lg-10 lesportdehautniveau">
-      <p style="color:#172D4B; font-family:quicksand;"><b>Le sport de haut niveau ne se résume pas seulement à la condition physique ou aux compétences techniques. ou tactiques. La pression des compétitions, les attentes élevées, les blessures et les défis personnels peuvent tous avoir un impact significatif sur la performance.<br><br>Mettez de la conscience sur vos émotions pour les transformer en une force motrice grâce au coaching mental.</b></p>
-    </div>
-    <div class="lesportdehautniveau05">
-      <img src="{{ asset('asset/img/petitpoint.png') }}" alt="Petit point jaune">
-    </div>
-    <div class="col-md-1 col-lg-1"></div>
-  </div>
-</div>
-<div class="vousetesportif">
-  <h1>Vous êtes ...</h1>
-  <img src="{{ asset('asset/img/vagueblancorange.png') }}" alt="Des vagues blanche et oranges.">
-</div>
-<div class="vousetesportif01">
-  <div class="image-container">
-    <a href="{{ path('app_coaching_sportif') }}#joueurhautniveau">
-      <img src="{{ asset('asset/img/carrerrougeflavie.png') }}" alt="Des vagues blanche et oranges.">
-      <p style="font-family:quicksand;"><b>Joueurs<br> Athlètes</b></p>
-    </a>
-  </div>
-  <div class="image-container">
-    <a href="{{ path('app_coaching_sportif') }}#entraineuretdirigeant">
-      <img src="{{ asset('asset/img/carrerbleuflavie.png') }}" alt="Un entraineur parlant à des enfants">
-      <p><b>Entraîneurs</b></p>
-    </a>
-  </div>
-  <div class="image-container">
-    <a href="{{ path('app_coaching_sportif') }}#arbitres">
-      <img src="{{ asset('asset/img/carrerorangeflavie.png') }}" alt="Des vagues blanche et oranges.">
-      <p><b>Arbitres</b></p>
-    </a>
-  </div>
-</div>
-<div id="joueurhautniveau" class="joueurshautniveau" style="style=color:#172D4B; font-family:quicksand;">
-  <h3><b>Joueurs et athlètes de haut-niveau</b></h3>
-  <p style="color:#172D4B; font-family:quicksand;"><b>Sportif de haut-niveau, on vous a appris à vous concentrer sur votre corps et vos performances en sacrifiant, parfois, votre esprit. Anticipez et prenez soin de votre santé mentale dès maintenant pour lever vos barrières et optimiser vos performances.</b></p>
-  <h4><b>Êtes-vous prêts à ...</b></h4>
-  <ul>
-    <li style="color:#172D4B; font-family:quicksand;">Transformer vos peurs et vos doutes en force et devenir l'athlète <b>confiant</b> et imperturbable que vous aspirez à être ?</li>
-    <li style="color:#172D4B; font-family:quicksand;">Retrouver la confiance et le <b>soutien</b> nécessaire pour retourner à votre <b>meilleur niveau</b> ? Revenez plus fort que jamais même après une blessure.</li>
-    <li style="color:#172D4B; font-family:quicksand;">Raviver votre passion et le <b>plaisir</b> dans chacun de vos entraînements et compétitions ?</li>
-    <li>Écouter votre instinct pour dépasser vos propres limites et <b>atteindre vos objectifs</b> sportifs les plus <b>ambitieux</b> ?</li>
-    <li>Prendre le contrôle de votre mental pour une <b>maîtrise totale</b> de vos choix et de vos performances ?</li>
-    <li>Optimiser votre <b>énergie</b> et rester focus sur vos objectifs, même sous la pression la plus intense ?</li>
-    <li>Adopter une <b>mentalité victorieuse</b> et transformer chaque obstacle en une opportunité de <b>succès</b> ?</li>
-  </ul>
-  <img src="{{ asset('asset/img/etoilebeige.png') }}" alt="Des étoile de couleur beige.">
-  <div class="rdv">
-    <h2 style="color:#172D4B;"><b>Quel est votre blocage ?</b></h2>
-    <a href="{{ path('app_contact') }}"><button class="text-align">Je réserve mon rdv offert</button></a>
-  </div>
-</div>
-<div id="entraineuretdirigeant" class="entraineuretdirigeant">
-  <h3><b>Entraîneurs & dirigeants</b></h3>
-  <p><b>Les émotions mal gérées peuvent perturber la communication et la cohésion au sein d'une équipe, affectant la dynamique et la performance collective. La spirale négative vous parle ?</b></p>
-  <h4><b>Êtes-vous prêts à ...</b></h4>
-  <ul>
-    <li>Gérer votre stress face aux <b>exigences</b> extérieures pour favoriser une atmosphère plus <b>sereine</b> et performante au sein de l’équipe.</li>
-    <li>Apprendre à gérer les échecs et les contretemps, développant ainsi une <b>résilience</b> essentielle pour surmonter les <b>défis</b> sportifs.</li>
-    <li>Renforcer la <b>confiance</b> en vous-même et celle entre les membres de l'équipe, améliorant ainsi la coopération et la <b>performance</b> collective.</li>
-    <li>Développer une meilleure compréhension des dynamiques d’équipes et une <b>communication</b> plus claire et <b>efficace</b> entre vos joueurs et vous-même.</li>
-    <li>Prendre de la hauteur sur <b>vos choix</b> et <b>stratégies</b> pour une amélioration continue de vos propres capacités d'entraîneur.</li>
-    <li><b>Comprendre</b> et mieux gérer vos réactions émotionnelles lors de périodes difficiles ou de baisse de moral de la part de l’équipe pour créer un environnement de travail plus <b>équilibré</b> et harmonieux.</li>
-  </ul>
-  <img src="{{ asset('asset/img/etoiletransparente.png') }}" alt="Des étoile de couleur beige.">
-  <div class="rdv">
-    <h2 style="color:#172D4B; font-family:quicksand;"><b>Quels sont vos défis ?</b></h2>
-    <a href="{{ path('app_contact') }}"><button class="text-align">Je réserve mon rdv offert</button></a>
-  </div>
-</div>
-<div id="arbitres" class="arbitres">
-  <h3><b>Arbitres</b></h3>
-  <p><b>Vous faites face à une multitude de défis psychologiques et émotionnels dans ce rôle crucial, allant du stress intense, aux critiques constantes en passant par la gestion des erreurs et la solitude.</b></p>
-  <h4><b>Êtes-vous prêts à ...</b></h4>
-  <ul>
-    <li>Retrouver votre <b>sérénité</b> pour prendre des <b>décisions justes</b> et rapides.</li>
-    <li>Conserver votre <b>confiance</b> en vous-même en vous détachant des jugements et des critiques extérieures.</li>
-    <li>Développer la <b>résilience</b> nécessaire pour rebondir après des erreurs et à rester <b>focus</b> sur le reste du match.</li>
-    <li><b>Manager</b> les situations de conflits sur le terrain, que ce soit entre joueurs ou avec les entraîneurs, de manière efficace et <b>apaisée</b>.</li>
-    <li>Gérer votre <b>énergie</b> et la fatigue mentale pour être en <b>excellente</b> forme physique et mentale et suivre le rythme des jeux.</li>
-  </ul>
-  <img src="{{ asset('asset/img/etoilerosebonbon.png') }}" alt="Des étoile de rose clair">
-  <div class="rdv">
-    <h2 style="color:#172D4B; font-family:quicksand;"><b>Quel est votre plus grand défi ?</b></h2>
-    <a href="{{ path('app_contact') }}"><button class="text-align">Je réserve mon rdv offert</button></a>
-  </div>
-</div>
-<div class="pourquoiavecmoi">
-  <h2>Pourquoi avec moi ?</h2>
-  <p>
-    Mon <b>approche unique</b> alliant le Dialogue Intérieur et la constellation systémique permet de mettre au coeur de notre travail vos émotions et vos sensations. <b>La tête, le coeur et le corps sont pris en compte</b> pour un choix aligné de votre part.<br><br>
-    En tant que sportif de haut-niveau, nous pouvons avoir tendance à nous adapter, à être formaté par nos entraîneurs, et ne plus savoir comment écouter notre propre voix intérieure. Mon approche unique permet de <b>révéler vos vraies craintes, vos réelles motivations et de découvrir vos ressources cachées.</b><br><br>
-    Ensemble, nous irons au-delà des techniques traditionnelles de visualisation et de respiration, en explorant l'<b>origine des blocages</b> pour aboutir à une véritable <b>compréhension</b> et à un <b>apaisement durable</b>.<br><br>
-    Forte de mon expérience personnelle en tant que sportive et arbitre officielle, j'offre à mes clients un <b>sentiment profond d'être compris</b> et une <b>alliance authentique.</b><br><br>
-    En étant extérieure à votre club, j'apporte un <b>regard neuf et impartial</b>, garantissant un accompagnement sur-mesure et dénué de tout biais.<br><br>
-  </p>
-</div>
-<div class="flcphoto55">
-<img src="{{asset('asset/img/flaviefootballbalon.png')}}" alt="Flavie en tenue de joueuse de foot">
-<div class="text-container55">
-<p > Je suis Flavie Carette,<b> coach professionnelle</b> certifiée, ancienne<b> joueuse de haut-niveau</b> et<b> arbitre de football</b>, j’utilise mon expertise du sport collectif et mon intelligence émotionnelle pour accompagner les<b> leaders</b> en entreprise et dans le sport à œuvrer à un<b> projet inédit et humain.</b></p>
- <a href="{{ path('app_qui_suis_je') }}"><button class="text-align">En savoir +</button></a>
- </div>
-</div>
-<div class="carrequibougepourflavie">
-  <img src="{{asset('asset/img/rondbleu.png')}}" alt="Un rond avec des lignes bleu">
-  <div class="pieddepagequisuisje0105">
-    <h2 style="color:#1c6a8d">Déroulement des séances</h2>
-  </div>
-</div>
+      }
+      .caffouillagedanslasurface
+      {
+        text-align:center;
+      }
+      .lesportdehautniveau05 img 
+      {
+        display:none;
+      }
+      .flcphoto55 img 
+      {
+        display:none;
+      }
+      .text-container55 {
+      margin:0;
+      margin:  auto;
+      }
+      .vousetesportif
+      {
+       display:none;
+      }
+          .image-container 
+      {
+       display:none;
+      }
+      .joueurshautniveau
+      {
+        width: 450px;
+        margin-top:450px;
+		}
+    .joueurshautniveau b 
+    {
+      display:block;
+      width:300px;
+      margin:auto;
+    }
+  .joueurshautniveau li 
+  {display:block;
+      width:300px;
+      margin:auto;
 
-<div class="deroulcoaching">
-  <div class="zone01">
-    <div class="card-flip">
-      <div class="card-front01 defisobjectifs01">
-        <h2 style="text-align: right;">Prise de contact et objectifs</h2>
-      </div>
-      <div class="card-back01">
-        <div class="defisobjectifs01">
-          <p>
-          Lors de notre première rencontre, nous établirons un premier lien de confiance essentiel pour votre cheminement.<br><br>
-          Cette séance permettra de comprendre votre environnement, définir vos objectifs et indicateurs spécifiques du coaching, qu'ils soient professionnels ou personnels.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="card-flip">
-      <div class="card-front01 coachingcollectif01">
-        <h2>Clôture & Bilan</h2>
-      </div>
-      <div class="card-back01">
-        <div class="coachingcollectif01">
-          <p>
-          À la fin du programme de coaching, une séance de clôture est organisée pour faire le point sur l'ensemble du parcours.<br><br>
-          Nous discuterons des progrès réalisés, des objectifs atteints et des apprentissages.<br><br>
-          Vous me formaliserez vos feedbacks quant à cet accompagnement. 
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="zone02">
-    <div class="card-flip">
-      <div class="card-front01 diagnostic01">
-        <h2>Séances</h2>
-      </div>
-      <div class="card-back01">
-        <div class="diagnostic01">
-          <p>
-          Nous co-créerons un plan de coaching sur plusieurs séances.<br><br>
-          Tout au long du processus, nous évalurons régulièrement les progrès réalisés. Des ajustements au plan de coaching peuvent être faits en fonction des résultats obtenus et des nouveaux défis qui émergent.<br><br>
-          A chaque fin de séance, vous déciderez des actions spécifiques à entreprendre avant la prochaine
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="card-flip">
-      <div class="card-front01 bilanetsuivi01">
-        <h2>Pratico-pratique</h2>
-      </div>
-      <div class="card-back01">
-        <div class="bilanetsuivi01">
-          <p>
-          Accompagnement entre 6 et 10 séances, sur 4 à 6 mois. Cela vous permet d’ancrer vos prises de conscience, de vous mettre en mouvement et d’atteindre vos objectifs de manière sereine et durable.<br><br>
-          Une séance dure en moyenne 1h15.<br><br>
-          Elle peut se faire en visio ou en présentiel (bureau ou en extérieur) entre Annecy & Genève. 
-             </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  }
+  .entraineuretdirigeant b
+   {
+      display:block;
+      width:300px;
+      margin:auto;
+    }
+    .entraineuretdirigeant li
+      {display:block;
+      width:300px;
+      margin:auto;
+  }
+  .arbitres img 
+  {
+    display:none;
+  }
+  @media(max-width: 600px) {
+  img 
+  {
+    display:none;
+  }
+  .arbitres 
+  {
+    display:none;
+  }
+  .pieddepagequisuisje0105
+  {
+    display:none;
+  }
+  .text-container55
+  {
+    display:none;
+  }.packELite{
+		width:300px;
+	}
+    .packSeance {
+		width:300px;
+        font-size: 1.2em;
+    }
+    .pourquoiavecmoi
+    {
+      margin:auto;
+      margin-top:500px;
+      	width:300px;
+    }
+    .pourquoiavecmoi p
+    {
+      	width:300px;
+    }
+    .joueurshautniveau
+    {
+      display:none;
+    }
+    .deroulcoaching
+    {
+      display:flex;
+      flex-direction: column;
+      
+    }
+.entraineuretdirigeant
+{
+  display:none;
+}
+	.packBoost
+	{
+		width:300px;
+	}
+  }
+  }
+  
+	</style>
 
-<h1 style="color:#1c6a8d;text-align:center; margin-top:75px">Tarifs</h1>
-<div class="packELite">
-<h5 style="font-size:35px">Pack “Elite”</h5>
+	<div class="backgroundcoachingdequipe">
+		<img src="{{ asset('asset/img/backgroundmontagne.png') }}" alt="Un fond représenté par des montagnes">
+	</div>
+	<div class="backgroundcoachingdequipe03">
+		<img src="{{ asset('asset/img/gensquipalre.png') }}" alt="Une personne tenant un cahier pour écrire dedans avec une personne en face d'elle">
+	</div>
+	<div class="backgroundcoachingdequipe03">
+		<h1>
+			Libérez votre esprit pour atteindre l’excellence</h1>
+		<p>Découvrez la sérénité intérieure pour une
+			<br>
+			performance maximale</p>
+	</div>
+	<div class="caffouillagedanslasurface">
+		<h2>Et si votre véritable adversaire était vos propres émotions ?</h2>
+		<img src="{{ asset('asset/img/pointbleu.png') }}" alt="Un point bleu foncé">
+		<p style="color:#172D4B; font-family:quicksand;">Vous vous sentez
+			<b>frustré(e)</b>
+			après une défaite ou une erreur malgré tous vos entraînements, vous doutez de votre propre
+			<b>réussite</b>
+			?</p><br>
+		<img src="{{ asset('asset/img/pointorange.png') }}" alt="Un point orange">
+		<p style="color:#172D4B; font-family:quicksand;">La
+			<b>pression</b>
+			avant une compétition importante vous envahit, plus moyen de retrouver votre
+			<b>sérénité
+			</b>?</p><br>
+		<img src="{{ asset('asset/img/pointorangefoncer.png') }}" alt="Un point orange foncé">
+		<p style="color:#172D4B; font-family:quicksand;">Vous craignez ne pas être à la hauteur des attentes
+			<b>extérieures</b>, vous avez l’impression que votre
+			<b>performance</b>
+			stagne ?
+		</p><br>
+		<img src="{{ asset('asset/img/pointbleuclair.png') }}" alt="Un point bleu clair">
+		<p style="color:#172D4B; font-family:quicksand;">Vous faites face à un
+			<b>choix de carrière</b>, vous n’êtes plus
+			<b>certain(e)</b>
+			de rien ?</p><br>
+		<img src="{{ asset('asset/img/pointorange.png') }}" alt="Un point orange clair">
+		<p style="color:#172D4B; font-family:quicksand;">
+			<b>Blessé(e)</b>, en manque d’énergie et parfois seul(e), vous avez peur de ne pas retrouver votre
+			<b>meilleur niveau</b>
+			?</p><br>
+		<img src="{{ asset('asset/img/pointbleu.png') }}" alt="Un point bleu foncé">
+		<p style="color:#172D4B; font-family:quicksand;">Vous ne comprenez pas vos
+			<b>réactions émotionnelles</b>, vous avez des difficultés à
+			<b>canaliser</b>
+			votre colère ou vos pleurs, même à l’entraînement ?</p><br>
+	</div>
+	<div class="container full-height">
+		<div class="row w-100">
+			<div class="col-md-1 col-lg-1"></div>
+			<div class="col-md-10 col-lg-10 lesportdehautniveau">
+				<p style="color:#172D4B; font-family:quicksand;">
+					<b>Le sport de haut niveau ne se résume pas seulement à la condition physique ou aux compétences techniques. ou tactiques. La pression des compétitions, les attentes élevées, les blessures et les défis personnels peuvent tous avoir un impact significatif sur la performance.<br><br>Mettez de la conscience sur vos émotions pour les transformer en une force motrice grâce au coaching mental.</b>
+				</p>
+			</div>
+			<div class="lesportdehautniveau05">
+				<img src="{{ asset('asset/img/petitpoint.png') }}" alt="Petit point jaune">
+			</div>
+			<div class="col-md-1 col-lg-1"></div>
+		</div>
+	</div>
+	<div class="vousetesportif">
+		<h1>Vous êtes ...</h1>
+		<img src="{{ asset('asset/img/vagueblancorange.png') }}" alt="Des vagues blanche et oranges.">
+	</div>
+	<div class="vousetesportif01">
+		<div class="image-container">
+			<a href="{{ path('app_coaching_sportif') }}#joueurhautniveau">
+				<img src="{{ asset('asset/img/carrerrougeflavie.png') }}" alt="Des vagues blanche et oranges.">
+				<p style="font-family:quicksand;">
+					<b>Joueurs<br>
+						Athlètes</b>
+				</p>
+			</a>
+		</div>
+		<div class="image-container">
+			<a href="{{ path('app_coaching_sportif') }}#entraineuretdirigeant">
+				<img src="{{ asset('asset/img/carrerbleuflavie.png') }}" alt="Un entraineur parlant à des enfants">
+				<p>
+					<b>Entraîneurs</b>
+				</p>
+			</a>
+		</div>
+		<div class="image-container">
+			<a href="{{ path('app_coaching_sportif') }}#arbitres">
+				<img src="{{ asset('asset/img/carrerorangeflavie.png') }}" alt="Des vagues blanche et oranges.">
+				<p>
+					<b>Arbitres</b>
+				</p>
+			</a>
+		</div>
+	</div>
+	<div id="joueurhautniveau" class="joueurshautniveau" style="style=color:#172D4B; font-family:quicksand;">
+		<h3>
+			<b>Joueurs et athlètes de haut-niveau</b>
+		</h3>
+		<p style="color:#172D4B; font-family:quicksand;">
+			<b>Sportif de haut-niveau, on vous a appris à vous concentrer sur votre corps et vos performances en sacrifiant, parfois, votre esprit. Anticipez et prenez soin de votre santé mentale dès maintenant pour lever vos barrières et optimiser vos performances.</b>
+		</p>
+		<h4>
+			<b>Êtes-vous prêts à ...</b>
+		</h4>
+		<ul>
+			<li style="color:#172D4B; font-family:quicksand;">Transformer vos peurs et vos doutes en force et devenir l'athlète
+				<b>confiant</b>
+				et imperturbable que vous aspirez à être ?</li>
+			<li style="color:#172D4B; font-family:quicksand;">Retrouver la confiance et le
+				<b>soutien</b>
+				nécessaire pour retourner à votre
+				<b>meilleur niveau</b>
+				? Revenez plus fort que jamais même après une blessure.</li>
+			<li style="color:#172D4B; font-family:quicksand;">Raviver votre passion et le
+				<b>plaisir</b>
+				dans chacun de vos entraînements et compétitions ?</li>
+			<li>Écouter votre instinct pour dépasser vos propres limites et
+				<b>atteindre vos objectifs</b>
+				sportifs les plus
+				<b>ambitieux</b>
+				?</li>
+			<li>Prendre le contrôle de votre mental pour une
+				<b>maîtrise totale</b>
+				de vos choix et de vos performances ?</li>
+			<li>Optimiser votre
+				<b>énergie</b>
+				et rester focus sur vos objectifs, même sous la pression la plus intense ?</li>
+			<li>Adopter une
+				<b>mentalité victorieuse</b>
+				et transformer chaque obstacle en une opportunité de
+				<b>succès</b>
+				?</li>
+		</ul>
+		<img src="{{ asset('asset/img/etoilebeige.png') }}" alt="Des étoile de couleur beige.">
+		<div class="rdv">
+			<h2 style="color:#172D4B;">
+				<b>Quel est votre blocage ?</b>
+			</h2>
+			<a href="{{ path('app_contact') }}">
+				<button class="text-align">Je réserve mon rdv offert</button>
+			</a>
+		</div>
+	</div>
+	<div id="entraineuretdirigeant" class="entraineuretdirigeant">
+		<h3>
+			<b>Entraîneurs & dirigeants</b>
+		</h3>
+		<p>
+			<b>Les émotions mal gérées peuvent perturber la communication et la cohésion au sein d'une équipe, affectant la dynamique et la performance collective. La spirale négative vous parle ?</b>
+		</p>
+		<h4>
+			<b>Êtes-vous prêts à ...</b>
+		</h4>
+		<ul>
+			<li>Gérer votre stress face aux
+				<b>exigences</b>
+				extérieures pour favoriser une atmosphère plus
+				<b>sereine</b>
+				et performante au sein de l’équipe.</li>
+			<li>Apprendre à gérer les échecs et les contretemps, développant ainsi une
+				<b>résilience</b>
+				essentielle pour surmonter les
+				<b>défis</b>
+				sportifs.</li>
+			<li>Renforcer la
+				<b>confiance</b>
+				en vous-même et celle entre les membres de l'équipe, améliorant ainsi la coopération et la
+				<b>performance</b>
+				collective.</li>
+			<li>Développer une meilleure compréhension des dynamiques d’équipes et une
+				<b>communication</b>
+				plus claire et
+				<b>efficace</b>
+				entre vos joueurs et vous-même.</li>
+			<li>Prendre de la hauteur sur
+				<b>vos choix</b>
+				et
+				<b>stratégies</b>
+				pour une amélioration continue de vos propres capacités d'entraîneur.</li>
+			<li>
+				<b>Comprendre</b>
+				et mieux gérer vos réactions émotionnelles lors de périodes difficiles ou de baisse de moral de la part de l’équipe pour créer un environnement de travail plus
+				<b>équilibré</b>
+				et harmonieux.</li>
+		</ul>
+		<img src="{{ asset('asset/img/etoiletransparente.png') }}" alt="Des étoile de couleur beige.">
+		<div class="rdv">
+			<h2 style="color:#172D4B; font-family:quicksand;">
+				<b>Quels sont vos défis ?</b>
+			</h2>
+			<a href="{{ path('app_contact') }}">
+				<button class="text-align">Je réserve mon rdv offert</button>
+			</a>
+		</div>
+	</div>
+	<div id="arbitres" class="arbitres">
+		<h3>
+			<b>Arbitres</b>
+		</h3>
+		<p>
+			<b>Vous faites face à une multitude de défis psychologiques et émotionnels dans ce rôle crucial, allant du stress intense, aux critiques constantes en passant par la gestion des erreurs et la solitude.</b>
+		</p>
+		<h4>
+			<b>Êtes-vous prêts à ...</b>
+		</h4>
+		<ul>
+			<li>Retrouver votre
+				<b>sérénité</b>
+				pour prendre des
+				<b>décisions justes</b>
+				et rapides.</li>
+			<li>Conserver votre
+				<b>confiance</b>
+				en vous-même en vous détachant des jugements et des critiques extérieures.</li>
+			<li>Développer la
+				<b>résilience</b>
+				nécessaire pour rebondir après des erreurs et à rester
+				<b>focus</b>
+				sur le reste du match.</li>
+			<li>
+				<b>Manager</b>
+				les situations de conflits sur le terrain, que ce soit entre joueurs ou avec les entraîneurs, de manière efficace et
+				<b>apaisée</b>.</li>
+			<li>Gérer votre
+				<b>énergie</b>
+				et la fatigue mentale pour être en
+				<b>excellente</b>
+				forme physique et mentale et suivre le rythme des jeux.</li>
+		</ul>
+		<img src="{{ asset('asset/img/etoilerosebonbon.png') }}" alt="Des étoile de rose clair">
+		<div class="rdv">
+			<h2 style="color:#172D4B; font-family:quicksand;">
+				<b>Quel est votre plus grand défi ?</b>
+			</h2>
+			<a href="{{ path('app_contact') }}">
+				<button class="text-align">Je réserve mon rdv offert</button>
+			</a>
+		</div>
+	</div>
+	<div class="pourquoiavecmoi">
+		<h2>Pourquoi avec moi ?</h2>
+		<p>
+			Mon
+			<b>approche unique</b>
+			alliant le Dialogue Intérieur et la constellation systémique permet de mettre au coeur de notre travail vos émotions et vos sensations.
+			<b>La tête, le coeur et le corps sont pris en compte</b>
+			pour un choix aligné de votre part.<br><br>
+			En tant que sportif de haut-niveau, nous pouvons avoir tendance à nous adapter, à être formaté par nos entraîneurs, et ne plus savoir comment écouter notre propre voix intérieure. Mon approche unique permet de
+			<b>révéler vos vraies craintes, vos réelles motivations et de découvrir vos ressources cachées.</b><br><br>
+			Ensemble, nous irons au-delà des techniques traditionnelles de visualisation et de respiration, en explorant l'<b>origine des blocages</b>
+			pour aboutir à une véritable
+			<b>compréhension</b>
+			et à un
+			<b>apaisement durable</b>.<br><br>
+			Forte de mon expérience personnelle en tant que sportive et arbitre officielle, j'offre à mes clients un
+			<b>sentiment profond d'être compris</b>
+			et une
+			<b>alliance authentique.</b><br><br>
+			En étant extérieure à votre club, j'apporte un
+			<b>regard neuf et impartial</b>, garantissant un accompagnement sur-mesure et dénué de tout biais.<br><br>
+		</p>
+	</div>
+	<div class="flcphoto55">
+		<img src="{{asset('asset/img/flaviefootballbalon.png')}}" alt="Flavie en tenue de joueuse de foot">
+		<div class="text-container55">
+			<p>
+				Je suis Flavie Carette,<b>
+					coach professionnelle</b>
+				certifiée, ancienne<b>
+					joueuse de haut-niveau</b>
+				et<b>
+					arbitre de football</b>, j’utilise mon expertise du sport collectif et mon intelligence émotionnelle pour accompagner les<b>
+					leaders</b>
+				en entreprise et dans le sport à œuvrer à un<b>
+					projet inédit et humain.</b>
+			</p>
+			<a href="{{ path('app_qui_suis_je') }}">
+				<button class="text-align">En savoir +</button>
+			</a>
+		</div>
+	</div>
+	<div class="carrequibougepourflavie">
+		<img src="{{asset('asset/img/rondbleu.png')}}" alt="Un rond avec des lignes bleu">
+		<div class="pieddepagequisuisje0105">
+			<h2 style="color:#1c6a8d">Déroulement des séances</h2>
+		</div>
+	</div>
 
-<p style="font-size:30px; text-align:center; ">8 séances de coaching + 1 séance exploratoire incluse </p>
-<ul>
-<li  style="font-size:30px">Pour les particuliers : 1200€ TTC (au lieu de 1800€)</li>
-<li  style="font-size:30px">Pour les entreprises : 2400€ HT</li>
-</ul>
-</div>
-<div class="packBoost">
-<h5 style="font-size:35px">Pack “Boost”</h5>
-<p style="font-size:30px; text-align:center; "> 5 séances de coaching +  1 séance exploratoire incluse </p>
-<ul>
-<li  style="font-size:30px">Pour les particuliers : 900€ TTC (au lieu de 1200€)</li>
-<li  style="font-size:30px">Pour les entreprises : 1700€ HT</li>
-</ul>
-</div>
+	<div class="deroulcoaching">
+		<div class="zone01">
+			<div class="card-flip">
+				<div class="card-front01 defisobjectifs01">
+					<h2 style="text-align: right;">Prise de contact et objectifs</h2>
+				</div>
+				<div class="card-back01">
+					<div class="defisobjectifs01">
+						<p>
+							Lors de notre première rencontre, nous établirons un premier lien de confiance essentiel pour votre cheminement.<br><br>
+							Cette séance permettra de comprendre votre environnement, définir vos objectifs et indicateurs spécifiques du coaching, qu'ils soient professionnels ou personnels.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="card-flip">
+				<div class="card-front01 coachingcollectif01">
+					<h2>Clôture & Bilan</h2>
+				</div>
+				<div class="card-back01">
+					<div class="coachingcollectif01">
+						<p>
+							À la fin du programme de coaching, une séance de clôture est organisée pour faire le point sur l'ensemble du parcours.<br><br>
+							Nous discuterons des progrès réalisés, des objectifs atteints et des apprentissages.<br><br>
+							Vous me formaliserez vos feedbacks quant à cet accompagnement.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="zone02">
+			<div class="card-flip">
+				<div class="card-front01 diagnostic01">
+					<h2>Séances</h2>
+				</div>
+				<div class="card-back01">
+					<div class="diagnostic01">
+						<p>
+							Nous co-créerons un plan de coaching sur plusieurs séances.<br><br>
+							Tout au long du processus, nous évalurons régulièrement les progrès réalisés. Des ajustements au plan de coaching peuvent être faits en fonction des résultats obtenus et des nouveaux défis qui émergent.<br><br>
+							A chaque fin de séance, vous déciderez des actions spécifiques à entreprendre avant la prochaine
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="card-flip">
+				<div class="card-front01 bilanetsuivi01">
+					<h2>Pratico-pratique</h2>
+				</div>
+				<div class="card-back01">
+					<div class="bilanetsuivi01">
+						<p>
+							Accompagnement entre 6 et 10 séances, sur 4 à 6 mois. Cela vous permet d’ancrer vos prises de conscience, de vous mettre en mouvement et d’atteindre vos objectifs de manière sereine et durable.<br><br>
+							Une séance dure en moyenne 1h15.<br><br>
+							Elle peut se faire en visio ou en présentiel (bureau ou en extérieur) entre Annecy & Genève.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<div class="packSeance" style="font-size:35px;color:#172D4B; ">
-<b>La séance : </b>
-<ul>
-<li>Pour les particuliers : 200€ TTC </li>
-<li>Pour les entreprises : 300€ HT</li>
-</ul>
+	<h1 style="color:#1c6a8d;text-align:center; margin-top:75px">Tarifs</h1>
+	<div class="packELite">
+		<h5 style="font-size:35px">Pack “Elite”</h5>
 
-<b>Modalités de paiement : </b>
-<ul>
-<li>Pour les particuliers : Le règlement s’effectue à l’issue de chaque séance</li>
-<li>Pour les entreprises : 50% d’acompte à la signature du contrat, le solde en fin de prestation.</li>
-</ul>
-</div>
+		<p style="font-size:30px; text-align:center; ">8 séances de coaching + 1 séance exploratoire incluse
+		</p>
+		<ul>
+			<li style="font-size:30px">Pour les particuliers : 1200€ TTC (au lieu de 1800€)</li>
+			<li style="font-size:30px">Pour les entreprises : 2400€ HT</li>
+		</ul>
+	</div>
+	<div class="packBoost">
+		<h5 style="font-size:35px">Pack “Boost”</h5>
+		<p style="font-size:30px; text-align:center; ">
+			5 séances de coaching +  1 séance exploratoire incluse
+		</p>
+		<ul>
+			<li style="font-size:30px">Pour les particuliers : 900€ TTC (au lieu de 1200€)</li>
+			<li style="font-size:30px">Pour les entreprises : 1700€ HT</li>
+		</ul>
+	</div>
 
- <div style="height:120px;"></div>
-</div>
-{% endblock %}
+	<div class="packSeance" style="font-size:35px;color:#172D4B; ">
+		<b>La séance :
+		</b>
+		<ul>
+			<li>Pour les particuliers : 200€ TTC
+			</li>
+			<li>Pour les entreprises : 300€ HT</li>
+		</ul>
+
+		<b>Modalités de paiement :
+		</b>
+		<ul>
+			<li>Pour les particuliers : Le règlement s’effectue à l’issue de chaque séance</li>
+			<li>Pour les entreprises : 50% d’acompte à la signature du contrat, le solde en fin de prestation.</li>
+		</ul>
+	</div>
+
+	<div style="height:120px;"></div>
+</div>{% endblock %}
