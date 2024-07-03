@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType; 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class UtilisateurType extends AbstractType
 {
@@ -20,7 +21,15 @@ class UtilisateurType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
-                'label' => 'Email*'
+                'label' => 'Email*',
+                'constraints' => [
+                    new Assert\Email([
+                        'message' => 'L\'adresse email "{{ value }}" n\'est pas valide.',
+                    ]),
+                    new Assert\NotBlank([
+                        'message' => 'L\'email ne peut pas être vide.',
+                    ]),
+                ],
             ]) 
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
@@ -39,7 +48,32 @@ class UtilisateurType extends AbstractType
                         'placeholder' => 'Votre mot de passe',
                         'style' => 'background-color: transparent;',
                     ]
-                ]
+                ],
+                'constraints' => [
+                    new Assert\NotBlank([
+                        'message' => 'Le mot de passe ne peut pas être vide.',
+                    ]),
+                    new Assert\Length([
+                        'min' => 8,
+                        'minMessage' => 'Le mot de passe doit contenir au moins {{ limit }} caractères.',
+                    ]),
+                    new Assert\Regex([
+                        'pattern' => '/[A-Z]/',
+                        'message' => 'Le mot de passe doit contenir au moins une lettre majuscule.',
+                    ]),
+                    new Assert\Regex([
+                        'pattern' => '/[a-z]/',
+                        'message' => 'Le mot de passe doit contenir au moins une lettre minuscule.',
+                    ]),
+                    new Assert\Regex([
+                        'pattern' => '/\d/',
+                        'message' => 'Le mot de passe doit contenir au moins un chiffre.',
+                    ]),
+                    new Assert\Regex([
+                        'pattern' => '/[\W_]/',
+                        'message' => 'Le mot de passe doit contenir au moins un caractère spécial.',
+                    ]),
+                ],
             ]) 
             ->add('Civilite', ChoiceType::class, [
                 'label' => 'Civilité*',
@@ -60,13 +94,28 @@ class UtilisateurType extends AbstractType
                 'required' => false,
             ])
             ->add('Nom', TextType::class, [
-                'label' => 'Nom*'
+                'label' => 'Nom*',
+                'constraints' => [
+                    new Assert\NotBlank([
+                        'message' => 'Le nom ne peut pas être vide.',
+                    ]),
+                ],
             ])
             ->add('Prenom', TextType::class, [
-                'label' => 'Prénom*'
+                'label' => 'Prénom*',
+                'constraints' => [
+                    new Assert\NotBlank([
+                        'message' => 'Le prénom ne peut pas être vide.',
+                    ]),
+                ],
             ]) 
             ->add('NumeroDeTelephone', TextType::class, [
-                'label' => 'Numéro de téléphone*'
+                'label' => 'Numéro de téléphone*',
+                'constraints' => [
+                    new Assert\NotBlank([
+                        'message' => 'Le numéro de téléphone ne peut pas être vide.',
+                    ]),
+                ],
             ]) 
             ->add('Entreprise', TextType::class, [
                 'required' => false,
@@ -74,9 +123,9 @@ class UtilisateurType extends AbstractType
             ->add('NumeroDeSiret', TextType::class, [
                 'required' => false,
             ])
-            
         ;
     }
+    
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

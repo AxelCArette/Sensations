@@ -55,7 +55,7 @@
     <img src="{{ asset('asset/img/salledereunion.png') }}" alt="Des personnes faisant une activité ensemble">
   </div>
   <div class="backgroundcoachingdequipe02">
-    <h1 style="font-size: 65px; text-align: center;">Formations <br>& Ebook</h1><br><br>
+    <h1 style="font-size: 65px; text-align: center; color:#172d4b;">Formations <br>& Ebook</h1><br><br>
     <p style="font-size:35px; text-align: center;">Plongez dans nos formations et e-books<br> innovants en management, RH et<br> gestion mentale du sportif.</p>
   </div>
 </div>
@@ -99,7 +99,7 @@
                 {% if formation.publier %}
                     {% set formations_publiees = true %}
                     {% set commande_detail = commandeDetails[formation.id]|default(null) %}
-                    <div class="col-md-6 mb-3"> {# Utilisation de col-md-6 pour 2 colonnes sur les grands écrans #}
+                    <div class="col-md-6 mb-3"> 
                         <div class="card">
                             <div class="card-body">
                                 <img src="/uploads/image/{{ formation.Image }}" alt="Couverture de la formation" style="width:100%;" > 

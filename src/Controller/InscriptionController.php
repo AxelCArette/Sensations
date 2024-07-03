@@ -53,7 +53,7 @@ class InscriptionController extends AbstractController
                     $mail->sendTemplateA($utilisateur->getEmail(), $utilisateur->getPrenom(), '', $content);
                     $loginUrl = $this->generateUrl('app_login', [], UrlGeneratorInterface::ABSOLUTE_URL);
 
-                    // Message de notification avec le lien vers la page de connexion
+                 
                     $notification = "Votre inscription s'est correctement déroulée. Vous pouvez vous connecter à votre compte par ici : <a href=\"" . $loginUrl . "\">Se connecter</a>";
                    
 

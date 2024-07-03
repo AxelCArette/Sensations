@@ -85,8 +85,9 @@ public function paiement(Cart $cart, Request $request, FormationsRepository $for
     if (empty($nomsFormationsStr) || $totalPrixCommande <= 0) {
         throw new \Exception('Les informations nécessaires pour la session de paiement sont manquantes.');
     }
-
-    Stripe::setApiKey("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");
+// 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
+ 
+    Stripe::setApiKey(" sk_test_51OeCoOLne9zIBO1LFsIggYXSCeeeAlmO3g1Afr1XD2Goex6leMNqAtoRklDbmHyxBun3OcdDeIQkRPGGhLKIfps500yL0fKbML");
     $YOUR_DOMAIN = 'https://sensations-coaching.com/';
     
     $checkout_session = \Stripe\Checkout\Session::create([
@@ -143,7 +144,7 @@ public function paiement(Cart $cart, Request $request, FormationsRepository $for
 }
 
      #[Route('/continue-paiement/{id}', name: 'app_continue_paiement')]
- public function continuePaiement(int $id, CommandeDetailRepository $commandeDetailRepository): Response
+     public function continuePaiement(int $id, CommandeDetailRepository $commandeDetailRepository): Response
  {
      $commandeDetail = $commandeDetailRepository->find($id);
 
@@ -166,7 +167,6 @@ public function paiement(Cart $cart, Request $request, FormationsRepository $for
                ],
                 'quantity' => 1,
             ]],
-            'allow_promotion_codes' => true,
             'mode' => 'payment',
             'success_url' => $YOUR_DOMAIN . '/success?session_id={CHECKOUT_SESSION_ID}',
          'cancel_url' => $YOUR_DOMAIN . '/cancel?session_id={CHECKOUT_SESSION_ID}',

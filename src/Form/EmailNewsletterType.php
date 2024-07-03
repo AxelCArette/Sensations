@@ -9,7 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
 
 class EmailNewsletterType extends AbstractType
 {
@@ -31,7 +31,7 @@ class EmailNewsletterType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => 'Rejoindre la newsletter',
                 'attr'=> [
-                    'style' => 'color: white; background-color:#172d4b;', // Ajoute du style en ligne
+                    'style' => 'color: white; background-color:#172d4b;', 
             ]
             ]);
     }
