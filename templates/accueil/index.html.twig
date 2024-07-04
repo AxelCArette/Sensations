@@ -65,6 +65,10 @@ document.addEventListener('DOMContentLoaded', function () {
 			.imagetorsader01 img {
 				display: none;
 			}
+			.text-container img 
+			{
+				display:none;
+			}
 			.bulle {
 				display: none;
 			}
@@ -90,22 +94,10 @@ document.addEventListener('DOMContentLoaded', function () {
 				margin-bottom: 20px;
 				text-align: center;
 			}
-			.card-flip {
-				display: block !important;
-				margin: 0 auto 20px;
-				max-width: 300px;
-			}
 		}
 		@media(max-width: 683px) {
-			.card-flip {
-				margin-left: 0 !important;
-			}
 			.col {
 				flex-basis: 100%;
-			}
-			.card-flip {
-				margin-left: auto;
-				margin-right: auto;
 			}
 		}
 		@media(max-width: 420px) {
@@ -189,7 +181,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		{
 			display:none;
 		}
-
 			.lestrucslide {
 				margin: 75px auto auto;
 			}
@@ -205,11 +196,10 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 		}
 
-/* Styles par défaut pour les éléments avec animations désactivées */
 @media (max-width: 1599px) {
     .lestrucslide {
-        opacity: 1 !important; /* Assurez-vous que l'opacité est forcée à 1 */
-        transform: none !important; /* Assurez-vous qu'il n'y a pas de transformation */
+        opacity: 1 !important; 
+        transform: none !important;
     }
 }
 	</style>
@@ -223,15 +213,9 @@ document.addEventListener('DOMContentLoaded', function () {
 	<script>
 		 AOS.init({
     disable: function() {
-        return window.innerWidth < 1600;
+    
     },
-    startEvent: 'DOMContentLoaded', // Ajustez en fonction de votre événement de démarrage
-    initClassName: 'aos-init', // Nom de classe appliqué après l'initialisation
-    animatedClassName: 'aos-animate', // Nom de classe appliqué pour les animations
-    useClassNames: true, // Ajoute des noms de classes pour l'animation et l'initialisation
-    disableMutationObserver: false, // Désactive l'observateur de mutation si true
-    debounceDelay: 50, // délai avant d'exécuter la détection de scroll
-    throttleDelay: 99, // délai avant d'exécuter la détection de scroll en mode throttling
+
 
 });
 
@@ -312,7 +296,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				<p class="shift-right">Et si les émotions ne restaient pas au vestiaire ?</p>
 		
 		
-				<img src="{{ asset('asset/img/petitpoint.png') }}" alt="Petit point jaune" style="  margin-left:1300px; width: 500px; margin-top: -150px;" >
+				<img src="{{ asset('asset/img/petitpoint.png') }}" alt="Petit point jaune" style=" margin-left:1300px; width: 500px; margin-top: -150px;" >
 			
 			</div>
 		</div>

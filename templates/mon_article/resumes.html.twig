@@ -43,8 +43,10 @@
 
 <div class="container">
     <div class="row justify-content-center" id="articles-container">
+        {% set has_resumes = false %}
         {% for resume in resumes %}
-            {% if resume.published %}
+            {% if resume.resumer is not empty %}
+                {% set has_resumes = true %}
                 <div class="col-md-6 mb-4 article-card">
                     <div class="card">
                         <img src="/uploads/image/{{ resume.image }}" class="card-img-top" alt="Image de l'article">
@@ -59,8 +61,12 @@
                 </div>
             {% endif %}
         {% endfor %}
+        {% if not has_resumes %}
+            <p class="text-center" style="font-size:40px;">Les articles sont en cours d'écritures.</p>
+        {% endif %}
     </div>
 </div>
+
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
@@ -98,7 +104,6 @@
         });
     });
 });
-
 </script>
 {% endblock %}
 
