@@ -88,7 +88,7 @@ public function paiement(Cart $cart, Request $request, FormationsRepository $for
 // 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
  
     Stripe::setApiKey(" sk_test_51OeCoOLne9zIBO1LFsIggYXSCeeeAlmO3g1Afr1XD2Goex6leMNqAtoRklDbmHyxBun3OcdDeIQkRPGGhLKIfps500yL0fKbML");
-    $YOUR_DOMAIN = 'https://sensations-coaching.com/';
+    $YOUR_DOMAIN = 'http://localhost:8000';
     
     $checkout_session = \Stripe\Checkout\Session::create([
         'payment_method_types' => ['card','paypal'],
@@ -153,7 +153,8 @@ public function paiement(Cart $cart, Request $request, FormationsRepository $for
          }
 
         Stripe::setApiKey("sk_test_51OeCoOLne9zIBO1LFsIggYXSCeeeAlmO3g1Afr1XD2Goex6leMNqAtoRklDbmHyxBun3OcdDeIQkRPGGhLKIfps500yL0fKbML");
-        $YOUR_DOMAIN = 'https://sensations-coaching.com/';
+        $YOUR_DOMAIN = 'http://localhost:8000';
+        // https://sensations-coaching.com/
 
         $nouvelleSessionStripe = Session::create([
             'payment_method_types' => ['card','paypal'],
@@ -180,48 +181,47 @@ public function paiement(Cart $cart, Request $request, FormationsRepository $for
         }
 
 
-    #[Route('/success', name: 'app_success')]
-    public function success(Request $request, CommandeDetailRepository $commandeDetailRepository, EntityManagerInterface $entityManager, Mail $mail): Response
-    {
-        $sessionId = $request->query->get('session_id');
-    
-        if (!$sessionId) {
-            throw new \Exception('Session ID manquant');
-        }
-    
-     
-        Stripe::setApiKey("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");
-        $session = Session::retrieve($sessionId);
- 
-        if ($session && $session->payment_status === 'paid') {
-           
-            $totalPaid = $session->amount_total;
-    
-            
-            $commandeDetail = $commandeDetailRepository->findOneBy(['sessionStripeId' => $sessionId]);
-    
-            if ($commandeDetail) {
-              
-                $commandeDetail->setStatut(1);
-                $commandeDetail->setPrixtotal($totalPaid);
-                $entityManager->flush();
-                $commande = $commandeDetail->getCommande();
-                $utilisateur = $commande->getUtilisateur();
-                $content = "Bonjour" . $utilisateur->getPrenom() . "";
-                $mail->sendTemplateB($utilisateur->getEmail(), $utilisateur->getPrenom(), '', $content);
-    
-                $message = 'Votre paiement a été réussi et votre commande est confirmée. Vous pouvez la retrouver dans votre compte client.';
-            } else {
-                throw new \Exception('Commande non trouvée.');
+        #[Route('/success', name: 'app_success')]
+        public function success(Request $request, CommandeDetailRepository $commandeDetailRepository, EntityManagerInterface $entityManager, Mail $mail): Response
+        {
+            $sessionId = $request->query->get('session_id');
+        
+            if (!$sessionId) {
+                throw new \Exception('Session ID manquant');
             }
-        } else {
-            throw new \Exception('La session de paiement n\'a pas été trouvée ou n\'a pas été payée.');
+        
+            Stripe::setApiKey("sk_test_51OeCoOLne9zIBO1LFsIggYXSCeeeAlmO3g1Afr1XD2Goex6leMNqAtoRklDbmHyxBun3OcdDeIQkRPGGhLKIfps500yL0fKbML");
+            $session = Session::retrieve($sessionId);
+        
+            if ($session && $session->payment_status === 'paid') {
+                $totalPaid = $session->amount_total;
+        
+                $commandeDetails = $commandeDetailRepository->findBy(['sessionStripeId' => $sessionId]);
+        
+                if (count($commandeDetails) === 0) {
+                    throw new \Exception('Commande non trouvée.');
+                }
+                $message = 'Votre paiement a été réussi et votre commande est confirmée. Vous pouvez la retrouver dans votre compte client.';
+        
+                foreach ($commandeDetails as $commandeDetail) {
+                    $commandeDetail->setStatut(1);
+                    $commandeDetail->setPrixtotal($totalPaid);
+                    $commande = $commandeDetail->getCommande();
+                    $utilisateur = $commande->getUtilisateur();
+                    $content = "Bonjour " . $utilisateur->getPrenom() . "";
+                    $mail->sendTemplateB($utilisateur->getEmail(), $utilisateur->getPrenom(), '', $content);
+                }
+        
+                $entityManager->flush();
+            } else {
+                throw new \Exception('La session de paiement n\'a pas été trouvée ou n\'a pas été payée.');
+            }
+        
+            return $this->render('succes/index.html.twig', [
+                'message' => $message,
+            ]);
         }
-    
-        return $this->render('succes/index.html.twig', [
-            'message' => $message,
-        ]);
-    }
+        
     #[Route('/cancel', name: 'app_cancel')]
     public function cancel(Request $request, CommandeDetailRepository $commandeDetailRepository): Response
     {

@@ -59,6 +59,11 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Commande::class, mappedBy: 'Utilisateur')]
     private Collection $commandes;
 
+    public function getNomComplet(): string
+    {
+        return $this->getNom().' '.$this->getPrenom();
+    }
+
     public function __construct()
     {
         $this->adresses = new ArrayCollection();

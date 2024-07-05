@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CommandeDetailRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CommandeDetailRepository::class)]
@@ -35,6 +36,7 @@ class CommandeDetail
 
     #[ORM\Column(length: 255)]
     private ?string $sessionStripeId = null;
+
 
     public function getId(): ?int
     {

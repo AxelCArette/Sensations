@@ -97,7 +97,7 @@ class Commande
     {
         return $this->Reference;
     }
-
+    
     public function setReference(string $Reference): static
     {
         $this->Reference = $Reference;
