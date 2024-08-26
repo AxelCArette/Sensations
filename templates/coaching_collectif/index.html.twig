@@ -12,12 +12,88 @@
 {% block body %}
 <style>
 @media (max-width: 1600px) {
-  .hautdepagecoachingdequipe {
-  display:none;
+  .hautdepagecoachingdequipe img {
+    display: none;
+  }
+  
+  .backgroundcoachingdequipe, 
+  .backgroundcoachingdequipe01, 
+  .backgroundcoachingdequipe02 img {
+    display: none;
+  }
+  .carrequibougepourflavie img 
+  {
+    display:none;
+  }
+  .pieddepagequisuisje0105 h2 
+  {
+    font-size:25px;
+  }
+.card-flip {
+    margin-right: 0; 
+  display: flex;         /* Définit le conteneur comme un conteneur Flexbox */
+  align-items: center;  /* Aligne les éléments verticalement au centre */
+  justify-content: center; /* Aligne les éléments horizontalement au centre */
 }
+
+  .pieddepagequisuisje0105
+  {
+    margin-top: 0;       /* Réinitialiser la marge en haut */
+    margin-left: 0;  
+  }
+  .pieddepagequisuisje0105 a 
+  {
+    font-size:25px;
+  }
+.coachingcollectif01 {
+  font-size: 13px;
+}
+.defisobjectifs01 p
+ {
+  font-size: 13px; /* Définit la taille de police des paragraphes */
+}
+.diagnostic01 
+{
+  font-size: 13px;
+}
+.bilanetsuivi01
+{
+  font-size: 13px;
+}
+
+  .card-flip h2 {
+   
+    text-align:center;
+  }
+.card-flip {
+  width: 300px;
+  height: 300px; /* Vous pouvez également ajouter une hauteur si nécessaire */
+  
+}
+
+  /* Assurons-nous que le <h1> soit bien visible */
+   .backgroundcoachingdequipe02 h1 {
+    padding-top:50px;
+    margin-top: 0;       /* Réinitialiser la marge en haut */
+    margin-left: 0;      /* Réinitialiser la marge à gauche */
+    width: auto;         /* Réinitialiser la largeur à la taille automatique */
+    position: static;   /* Réinitialiser la position pour utiliser le flux normal du document */
+    text-align: center;  /* Centrer le texte si nécessaire */
+  }
+  .backgroundcoachingdequipe02 p {
+    display: none; /* Cacher le texte du <p> */
+  }
 .pourquoichoi
 {
   display:none;
+}
+.caffouillagedanslasurface01 b 
+{
+  font-size:25px;
+}
+.caffouillagedanslasurface01 h3 
+{
+  font-size:25px;
 }
 .piedinversercontainer
 {
@@ -49,8 +125,12 @@
 .caffouillagedanslasurface h2
 {
  margin-top:50px;
+ font-size:25px;
 }
-
+.caffouillagedanslasurface p 
+{
+   font-size:20px;
+}
 .eveiller06
 {
   display:none;
@@ -58,7 +138,7 @@
 
 .Orchestrer05 p
 {
-   width:50%
+width:50%
 }
 
 @media (max-width: 950px){
@@ -78,9 +158,6 @@
   .zone01, .zone02 {
     flex-direction: column;
   }
-  .card-flip {
-    margin-bottom: 20px;
-  }
 }
 	.CPSA05 {
 				flex-direction: column; 
@@ -91,7 +168,7 @@
 }
 @media (max-width: 1599px) {
     .lestrucslide {
-        opacity: 1 !important; /* Assurez-vous que l'opacité est forcée à 1 */
+        opacity: 1 !important;
         transform: none !important; 
     }
 }
@@ -234,6 +311,7 @@
         </div>
       </div>
     </div>
+ 
   </div>
   <div class="zone02">
     <div class="card-flip">
@@ -264,7 +342,7 @@
       </div>
     </div>
   </div>
-</DIV>
+</div>
 </div>
  <div class="femmetriangle">
   <img src="{{asset('asset/img/femmeavecdestriangleetrond.png')}}" alt="Une femme sur la pointe des pieds avec des triangles et rond">

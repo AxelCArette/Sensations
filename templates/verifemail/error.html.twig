@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur de vérification{% endblock %}
+
+{% block body %}
+    <h1>Erreur de vérification</h1>
+    <p>{{ message }}</p>
+    <a href="{{ path('app_accueil') }}">Retour à l'accueil</a>
+{% endblock %}

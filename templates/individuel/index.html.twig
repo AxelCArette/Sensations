@@ -11,9 +11,51 @@
 {% block body %}
 	<style>
 		@media(max-width: 1600px) {
-			.hautdepagecoachingdequipe {
-				display: none;
-			}
+	.hautdepagecoachingdequipe img
+	{
+		display:none;
+	}		  
+	.backgroundcoachingdequipe02 h1 {
+		padding-top:50px;
+    margin-top: 0;       /* Réinitialiser la marge en haut */
+    margin-left: 0;      /* Réinitialiser la marge à gauche */
+    width: auto;         /* Réinitialiser la largeur à la taille automatique */
+    position: static;   /* Réinitialiser la position pour utiliser le flux normal du document */
+    display: block !important; /* Assurer que l'élément est visible */
+    text-align: center;  /* Centrer le texte si nécessaire */
+  }
+  .pieddepagequisuisje0105
+  {
+    margin-top: 0;       /* Réinitialiser la marge en haut */
+    margin-left: 0;  
+  }
+  .caffouillagedanslasurface
+{
+  width:100%;
+  padding: 5px;
+}
+.carrequibougepourflavie
+{
+	margin-top:0;
+}
+.carrequibougepourflavie img 
+{
+	display:none;
+}
+  .caffouillagedanslasurface h2 
+{
+	font-size:30px;
+}
+
+.caffouillagedanslasurface p {
+	font-size:15px;
+	text-align:center;
+}
+
+  .backgroundcoachingdequipe02 p {
+    display: none;       /* Cacher le texte du <p> */
+  }
+	
 			.caffouillagedanslasurface h2 {
 				margin-top: 50px;
 			}
@@ -33,7 +75,7 @@
       {
         display:none;
       }
-
+}
 			@media(max-width: 700px) {
 				.deroulcoaching {
 					flex-direction: column;
@@ -99,7 +141,7 @@
         font-size: 1em;
     }
 }
-		}
+		
 	</style>
 	<script>
 			 AOS.init({

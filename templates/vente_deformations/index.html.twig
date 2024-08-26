@@ -1,252 +1,317 @@
 {% extends 'base.html.twig' %}
 {% block head %}
-<meta name="description" content="Découvrez nos formations et ebook en ressources humaines, management, coaching mental et performance. Adaptez votre parcours avec nos experts.">
-<meta name="keywords" content="formations, développement personnel, coaching, performance, ateliers, séminaires, formation management, formation rh, formations ressources humaines, ebook gestion mentale, teambuilding">
-<meta name="author" content=" Flavie Carette de Sensations Coaching ">
+	<meta name="description" content="Découvrez nos formations et ebook en ressources humaines, management, coaching mental et performance. Adaptez votre parcours avec nos experts.">
+	<meta name="keywords" content="formations, développement personnel, coaching, performance, ateliers, séminaires, formation management, formation rh, formations ressources humaines, ebook gestion mentale, teambuilding">
+	<meta name="author" content=" Flavie Carette de Sensations Coaching ">
 {% endblock %}
 
-{% block title %}Formations - Votre Site de Coaching{% endblock %}
+{% block title %}Formations - Votre Site de Coaching
+{% endblock %}
 
 
 {% block body %}
-<style>
-@media(max-width: 1600px) {
+	<style>
+		@media(max-width: 1600px) {
 			.hautdepagecoachingdequipe {
 				display: none;
 			}
-     .image-container
-     {
-        display:none;
-     }
-     .ebook h3
-     {
-        margin-top:500px;
-     }
-     .caffouillagedanslasurface01 
-     {
-        margin-top:150px;
-     }
-      .vousetesportif
-      {
-        display:none;
-      }
-      .card
-      {
-        margin-top:100px;
-      }
-@media(max-width: 500px){
-      .formationmanagement h3
-      {
-        width: 200px;
-      }
-      .formationRH05 img 
-      {
-        display:none;
-      }
+			.image-container {
+				display: none;
+			}
+			.ebook h3 {
+				margin-top: 500px;
+			}
+			.caffouillagedanslasurface01 {
+				margin-top: 150px;
+			}
+			.vousetesportif {
+				display: none;
+			}
+			.card {
+				margin-top: 100px;
+			}
+			@media(max-width: 500px) {
+				.formationmanagement h3 {
+					width: 200px;
+				}
+				.formationRH05 img {
+					display: none;
+				}
 
-      }
-      }
-</style>
-<div class="hautdepagecoachingdequipe">
-  <div class="backgroundcoachingdequipe">
-    <img src="{{ asset('asset/img/backgroundmontagne.png') }}" alt="Un fond représenté par des montagnes">
-  </div>
-  <div class="backgroundcoachingdequipe01">
-    <img src="{{ asset('asset/img/salledereunion.png') }}" alt="Des personnes faisant une activité ensemble">
-  </div>
-  <div class="backgroundcoachingdequipe02">
-    <h1 style="font-size: 65px; text-align: center; color:#172d4b;">Formations <br>& Ebook</h1><br><br>
-    <p style="font-size:35px; text-align: center;">Plongez dans nos formations et e-books<br> innovants en management, RH et<br> gestion mentale du sportif.</p>
-  </div>
-</div>
+			}
+		}
+	</style>
+	<div class="hautdepagecoachingdequipe">
+		<div class="backgroundcoachingdequipe">
+			<img src="{{ asset('asset/img/backgroundmontagne.png') }}" alt="Un fond représenté par des montagnes">
+		</div>
+		<div class="backgroundcoachingdequipe01">
+			<img src="{{ asset('asset/img/salledereunion.png') }}" alt="Des personnes faisant une activité ensemble">
+		</div>
+		<div class="backgroundcoachingdequipe02">
+			<h1 style="font-size: 65px; text-align: center; color:#172d4b;">Formations
+				<br>& Ebook</h1><br><br>
+			<p style="font-size:35px; text-align: center;">Plongez dans nos formations et e-books<br>
+				innovants en management, RH et<br>
+				gestion mentale du sportif.</p>
+		</div>
+	</div>
 
-<div class="caffouillagedanslasurface01">
-  <h2 style="color:#1c6a8d;margin-top:-85px">Révélez le leader inspiré et performant<br> qui sommeille en vous</h2>
-</div>
+	<div class="caffouillagedanslasurface01">
+		<h2 style="color:#1c6a8d;margin-top:-85px">Révélez le leader inspiré et performant<br>
+			qui sommeille en vous</h2>
+	</div>
 
-<div class="vousetesportif">
-  <img src="{{ asset('asset/img/vagueblancorange.png') }}" alt="Des vagues blanche et oranges.">
-</div>
+	<div class="vousetesportif">
+		<img src="{{ asset('asset/img/vagueblancorange.png') }}" alt="Des vagues blanche et oranges.">
+	</div>
 
-<div class="vousetesportif01">
-  <div class="image-container">
-    <a href="{{ path('app_vente_deformations') }}#ebook">
-      <img src="{{ asset('asset/img/livrerouge.png') }}" alt="Des vagues blanche et oranges.">
-      <p><b>Ebook</b></p>
-    </a>
-  </div>
-  <div class="image-container">
-    <a href="{{ path('app_vente_deformations') }}#formationRH">
-      <img src="{{ asset('asset/img/FlavieTravailBleu.png') }}" alt="Un entraineur parlant à des enfants">
-      <p style="text-align: center;"><b>Formations<br>RH</b></p>
-    </a>
-  </div>
-  <div class="image-container">
-    <a href="{{ path('app_vente_deformations') }}#FormationManagement">
-      <img src="{{ asset('asset/img/mainorange01.png') }}" alt="Des vagues blanche et oranges.">
-      <p style="text-align:center; margin-left:-50px;"><b>Formations<br>Management</b></p>
-    </a>
-  </div>
-</div>
+	<div class="vousetesportif01">
+		<div class="image-container">
+			<a href="{{ path('app_vente_deformations') }}#ebook">
+				<img src="{{ asset('asset/img/livrerouge.png') }}" alt="Des vagues blanche et oranges.">
+				<p>
+					<b>Ebook</b>
+				</p>
+			</a>
+		</div>
+		<div class="image-container">
+			<a href="{{ path('app_vente_deformations') }}#formationRH">
+				<img src="{{ asset('asset/img/FlavieTravailBleu.png') }}" alt="Un entraineur parlant à des enfants">
+				<p style="text-align: center;">
+					<b>Formations<br>RH</b>
+				</p>
+			</a>
+		</div>
+		<div class="image-container">
+			<a href="{{ path('app_vente_deformations') }}#FormationManagement">
+				<img src="{{ asset('asset/img/mainorange01.png') }}" alt="Des vagues blanche et oranges.">
+				<p style="text-align:center; margin-left:-50px;">
+					<b>Formations<br>Management</b>
+				</p>
+			</a>
+		</div>
+	</div>
 
-<div id="ebook" class="ebook">
-  <h3>Ebook</h3>
- {% if app.user %}
-    {% set formations_publiees = false %}
-    <div class="container">
-        <div class="row justify-content-center">
-            {% for formation in formations %}
-                {% if formation.publier %}
-                    {% set formations_publiees = true %}
-                    {% set commande_detail = commandeDetails[formation.id]|default(null) %}
-                    <div class="col-md-6 mb-3"> 
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="/uploads/image/{{ formation.Image }}" alt="Couverture de la formation" style="width:100%;" > 
-                                <div style="margin-top:2rem; font-size:25px; text-align:center;color:#172D4B">
-                                    <strong>{{ formation.titreDeLaFormation }}</strong><br>
-                                </div>
-                                <div style="color:#172D4B">
-                                    <b>Description :</b> <br><br>{{ formation.description | raw }}
-                                </div><br>
-                                <div style="margin-top:1rem; color:#172D4B;">
-                                    <b>Prix : {{ (formation.prix / 100)|number_format('2', '.', ',') }} €</b>
-                                </div><br>
-                                {% if formation.getFichierPDF() %}
-                                    <p style="color:#172D4B">Format PDF</p>
-                                {% endif %}
-                                {% if formation.getVideo() %}
-                                    <p style="color:#172D4B">Format vidéo</p>
-                                {% endif %}
-                                <div class="formation-container">
-                                    {% if not commande_detail %}
-                                        <form action="{{ path('add_to_cart',{'id': formation.id}) }}" method="post">
-                                            <input type="hidden" name="formationId" value="{{ formation.id }}">
-                                            <p style="text-align: center;">
-                                                <button type="submit" class="btn formation-button" style="background-color:#1B6A8D; color:white; text-align:center;">Ajouter au panier</button>
-                                            </p>
-                                        </form>
-                                    {% elseif commande_detail.getStatut() == 0 %}
-                                        <p style="color:#172D4B; text-align: center;"><i>En cours d'achat</i></p>
-                                        <p style="text-align: center;">
-                                            <a href="{{ path('app_consulter_ces_formations') }}" class="btn btn-warning formation-button">Continuez l'achat</a>
-                                        </p>
-                                    {% elseif commande_detail.getStatut() == 1 %}
-                                        <p style="color:#172D4B; text-align: center;">Formation achetée</p>
-                                        <p style="text-align: center;">
-                                            <a href="{{ path('app_consulter_ces_formations') }}" class="btn btn-success formation-button">Consulter</a>
-                                        </p>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div>
-    </div>
-    {% if not formations_publiees %}
-        <p style="margin-top:2rem; font-size:25px; text-align:center;color:#172D4B">Les ebooks arrivent très prochainement.</p>
-    {% endif %}
-{% else %}
-    <div class="container">
-        <div class="row justify-content-center">
-            {% for formation in formations %}
-                {% if formation.publier %}
-                    <div class="col-md-6 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="/uploads/image/{{ formation.Image }}" alt="Couverture de la formation" style="width:100%;" >
-                                <div style="margin-top:2rem; font-size:25px; text-align:center;color:#172D4B">
-                                    <strong>{{ formation.titreDeLaFormation }}</strong><br>
-                                </div>
-                                <div style="color:#172D4B">
-                                    <b>Description :</b> <br><br>{{ formation.description | raw }}
-                                </div><br>
-                                <div style="margin-top:1rem; color:#172D4B;">
-                                    <b>Prix : {{ (formation.prix / 100)|number_format('2', '.', ',') }} €</b>
-                                </div><br>
-                                {% if formation.getFichierPDF() %}
-                                    <p style="color:#172D4B">Format PDF</p>
-                                {% endif %}
-                                {% if formation.getVideo() %}
-                                    <p style="color:#172D4B">Format vidéo</p>
-                                {% endif %}
-                                <div class="formation-container">
-                                    <form action="{{ path('add_to_cart',{'id': formation.id}) }}" method="post">
-                                        <input type="hidden" name="formationId" value="{{ formation.id }}">
-                                        <p style="text-align: center;">
-                                            <button type="submit" class="btn formation-button" style="background-color:#1B6A8D; color:white; text-align:center;">Ajouter au panier</button>
-                                        </p>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div>
-    </div>
-{% endif %}
+	<div id="ebook" class="ebook">
+		<h3>Ebook</h3>
+		{% set formations_publiees = false %}
+		{% set formations_gratuites_publiees = false %}
+		<div class="container">
+			<div class="row justify-content-center">
 
-</div>
+				{% for formationGratuite in formationsGratuites %}
+					{% if formationGratuite.publier %}
+						{% set formations_gratuites_publiees = true %}
+						<div class="col-md-6 mb-3">
+							<div class="card">
+								<div class="card-body">
+									<img src="/uploads/image/{{ formationGratuite.imaegratuit }}" alt="Couverture de la formation" style="width:100%;"/>
+									<div style="margin-top:2rem; font-size:25px; text-align:center; color:#172D4B;">
+										<strong>{{ formationGratuite.titregratuit | raw }}</strong><br>
+									</div>
+									<div style="color:#172D4B;">
+										<b>Description :</b>
+										<br><br>{{ formationGratuite.DescriptionGratuit | raw }}
+									</div><br>
 
+									{% if app.user %}
+										{% if app.user.statutverifier == 'vérifié' %}
+											{% if formationGratuite.getVideoGratuite() %}
+												<p style="color:#172D4B;">Consulter la vidéo</p>
+												<iframe class="embed-responsive-item" src="{{ formationGratuite.VideoGratuite }}" allowfullscreen></iframe>
+											{% endif %}
+											<div style="margin-top:1rem;">
+												<a href="{{ path('download_pdf01', {'id': formationGratuite.id}) }}" class="btn btn-primary mt-3">Télécharger PDF</a>
+											</div>
+										{% else %}
+											<p style="color:#FF0000;">On y est presque ! Avant de pouvoir utiliser votre compte, vous devez vérifier que cette adresse e-mail est bien la vôtre. Un mail vous a été envoyé.</p>
+										{% endif %}
+									{% else %}
+										<p>Dedans vous allez retrouver :</p>
+										{% if formationGratuite.getFichierpdfgratuit() %}
+											<p style="color:#172D4B">Format PDF</p>
+										{% endif %}
+										{% if formationGratuite.getVideoGratuite() %}
+											<p style="color:#172D4B">Format vidéo</p>
+										{% endif %}
+										<div style="margin-top:1rem;">
+											<p style="color:#172D4B;">Vous souhaitez consulter le contenu ? Connectez-vous pour y accéder !</p>
+											<a href="{{ path('app_login') }}" class="btn btn-secondary mt-3">Se connecter</a>
+										</div>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+					{% endif %}
+				{% endfor %}
 
-<div id="formationRH" class="formationRH05" style="padding-bottom:50px">
+			</div>
+			{% for formation in formations %}
+				{% if formation.publier %}
+					{% set formations_publiees = true %}
+					{% set commande_detail = commandeDetails[formation.id]|default(null) %}
+					<div class="col-md-6 mb-3">
+						<div class="card">
+							<div class="card-body">
+								<img src="/uploads/image/{{ formation.Image }}" alt="Couverture de la formation" style="width:100%;">
+								<div style="margin-top:2rem; font-size:25px; text-align:center;color:#172D4B">
+									<strong>{{ formation.titreDeLaFormation }}</strong><br>
+								</div>
+								<div style="color:#172D4B">
+									<b>Description :</b>
+									<br><br>{{ formation.description | raw }}
+								</div><br>
+								<div style="margin-top:1rem; color:#172D4B;">
+									<b>Prix :
+										{{ (formation.prix / 100)|number_format('2', '.', ',') }}
+										€</b>
+								</div><br>
+								{% if formation.getFichierPDF() %}
+									<p style="color:#172D4B">Format PDF</p>
+								{% endif %}
+								{% if formation.getVideo() %}
+									<p style="color:#172D4B">Format vidéo</p>
+								{% endif %}
+								<div class="formation-container">
+									{% if app.user %}
+										{% if app.user.statutverifier == 'vérifié' %}
+											{% if not commande_detail %}
+												<form action="{{ path('add_to_cart',{'id': formation.id}) }}" method="post">
+													<input type="hidden" name="formationId" value="{{ formation.id }}">
+													<p style="text-align: center;">
+														<button type="submit" class="btn formation-button" style="background-color:#1B6A8D; color:white; text-align:center;">Ajouter au panier</button>
+													</p>
+												</form>
+											{% elseif commande_detail.getStatut() == 0 %}
+												<p style="color:#172D4B; text-align: center;">
+													<i>En cours d'achat</i>
+												</p>
+												<p style="text-align: center;">
+													<a href="{{ path('app_consulter_ces_formations') }}" class="btn btn-warning formation-button">Continuez l'achat</a>
+												</p>
+											{% elseif commande_detail.getStatut() == 1 %}
+												<p style="color:#172D4B; text-align: center;">Formation achetée</p>
+												<p style="text-align: center;">
+													<a href="{{ path('app_consulter_ces_formations') }}" class="btn btn-success formation-button">Consulter</a>
+												</p>
+											{% endif %}
+										{% else %}
+											<p style="color:#FF0000;">On y est presque ! Avant de pouvoir utiliser votre compte, vous devez vérifier que cette adresse e-mail est bien la vôtre. Un mail vous a été envoyé.</p>
+										{% endif %}
+									{% else %}
+										<p style="color:#172D4B;">Vous souhaitez acheter cette formation ? Connectez-vous pour y accéder !</p>
+										<a href="{{ path('app_login') }}" class="btn btn-secondary mt-3">Se connecter</a>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
 
-    <img src="{{ asset('asset/img/vagueorangeetjauneetrouge.png') }}" alt="Des vagues jaune orange et rouges">
-    <h3>Formations RH</h3>
-    
-    <h4>Recrutement et fidélisation :<br>vers une identité employeur innovante et responsable</h4>
-    <div class="formaforma05">
-    <div class="listeapuceformation">
-        <p style="padding-top:25px; padding-bottom:25px; font-size:25px"><b>Devenez un employeur de choix</b> grâce à notre démarche structurante et ludique, en : </p>
-        <ul>
-            <li style="color:#172D4B">Développant un <b>leadership inspirant</b> avec notre<b> accompagnement personnalisé</b> et adoptez des pratiques alignées avec les<b> valeurs de la RSO</b>. </li>
-            <li style="color:#172D4B">Optant pour une approche qui allie<b> expertise, engagement</b> et<b> vision systémique</b> pour un<b> impact durable et positif.</b></li>
-        </ul>
-        <p style="color:#172D4B">Notre équipe, composée d’experts en recrutement forts d'une solide expérience terrain et de coachs certifiés, vous guidera dans chacune des étapes de votre stratégie. </p>
-    </div>
-    <p style="color:#172D4B; text-align:left"><b>Notre offre vous permettra de :</b></p>
-    <ul>
-        <li style="color:#172D4B">Attirer et fidéliser les meilleurs candidats : Ajustez vos processus de recrutement en adoptant des stratégies gagnantes et adaptées.</li>
-        <li style="color:#172D4B">Renforcer votre marque employeur : Devenez un employeur de choix grâce à des pratiques éthiques et responsables.</li>
-        <li style="color:#172D4B">Développer la diversité et l’inclusion : Favorisez une culture d'entreprise inclusive, valorisant la diversité sous toutes ses formes.</li>
-        <li style="color:#172D4B">Stimuler l'engagement de votre équipe : Développez votre leadership pour inspirer vos collaborateurs et faciliter la transformation.</li>
-    </ul>
-    <p style="color:#172D4B"><b>Pourquoi choisir notre accompagnement ?</b></p>
-    <ul>
-        <li style="color:#172D4B">Choisissez notre accompagnement pour sa méthodologie structurante et éprouvée, applicable à tout type d’entreprise, et modulable selon vos besoins spécifiques.</li>
-        <li style="color:#172D4B">Notre approche ludique et innovante favorise l'engagement des collaborateurs en prenant de la hauteur sur les enjeux réciproques entre candidats et recruteurs.</li>
-        <li style="color:#172D4B">Nous impliquons activement les différents acteurs pour atteindre un objectif commun, grâce à des outils simples et efficaces définissant les cibles et actions à chaque étape du processus.</li>
-        <li style="color:#172D4B">Nous vous proposons un coaching individuel ou collectif pour développer votre leadership, inspirer et guider vos équipes.</li>
-        <li style="color:#172D4B">Nous vous accompagnons sur la durée au fil de la progression de votre projet pour s'assurer de la mise en œuvre effective de vos décisions.</li>
-        <li style="color:#172D4B">Avec une solide expérience terrain et une vision systémique, nous vous aiderons à transformer vos pratiques et à aligner votre projet de recrutement avec vos valeurs.</li>
-    </ul>
-    <h5 style="text-align:center;color:#172D4B">Transformez votre entreprise en un employeur vertueux, responsable et attractif !</h5>
-    <div class="rdv">
-        <a href="{{ path('app_contact') }}"><button class="text-align">Parlons-nous !</button></a>
-        </div>
-    </div>
-</div>
+	{% if not formations_publiees and not formations_gratuites_publiees %}
+		<p style=";font-size:25px; text-align:center;color:#172D4B">Les ebooks arrivent très prochainement.</p>
+	{% endif %}
 
-<div id="FormationManagement" class="formationmanagement">
-    <h3>Formations Management</h3>
-    <div class="formaforma05">
-    <p >Nos formations en management sont conçues pour vous doter des compétences essentielles afin de devenir un leader accompli et inspirant. <br><br> Chaque module est conçu sur-mesure pour être interactif et pratique, garantissant une application immédiate et concrète dans votre environnement professionnel.<br><br></p>
-    <h4><b>Sujets pouvant être abordés :</b></h4>
-    <ul>
-        <li><b><span style="color: #F1902F;">L’intelligence émotionnelle:</span></b> compréhension et gestion des émotions, développement de l'empathie ...</li>
-        <li><b><span style="color: #F1902F;">La gestion du stress :</span></b> Identification des sources de stress au travail, techniques de gestion et réduction du stress ...</li>
-        <li><b><span style="color: #F1902F;">L’intelligence collective :</span></b> techniques de brainstorming et co-création, gestion des dynamiques de groupe ...</li>
-        <li><b><span style="color: #F1902F;">La communication en entreprise :</span></b> CNV, écoute active, feedback, gestion des conflits ...</li>
-        <li><b><span style="color: #F1902F;">Être un manager coach :</span></b> techniques pour favoriser l'autonomie et la croissance personnelle des membres de l'équipe, gestion émotionnelle ...</li>
-    </ul>
-    <h5 style="text-align:center"><b>Rejoignez-nous pour un voyage vers<br>le plaisir de l’excellence</b> </h5>
-    <div class="rdv" style="padding-bottom:50px">
-        <a href="{{ path('app_contact') }}"><button class="text-align">Parlons-nous !</button></a>
-    </div>
-    </div>
-</div>
-
+</div></div><div id="formationRH" class="formationRH05" style="padding-bottom:50px"><img src="{{ asset('asset/img/vagueorangeetjauneetrouge.png') }}" alt="Des vagues jaune orange et rouges"><h3>Formations RH</h3>
+<h4>Recrutement et fidélisation :<br>vers une identité employeur innovante et responsable</h4>
+<div class="formaforma05">
+	<div class="listeapuceformation">
+		<p style="padding-top:25px; padding-bottom:25px; font-size:25px">
+			<b>Devenez un employeur de choix</b>
+			grâce à notre démarche structurante et ludique, en :
+		</p>
+		<ul>
+			<li style="color:#172D4B">Développant un
+				<b>leadership inspirant</b>
+				avec notre<b>
+					accompagnement personnalisé</b>
+				et adoptez des pratiques alignées avec les<b>
+					valeurs de la RSO</b>.
+			</li>
+			<li style="color:#172D4B">Optant pour une approche qui allie<b>
+					expertise, engagement</b>
+				et<b>
+					vision systémique</b>
+				pour un<b>
+					impact durable et positif.</b>
+			</li>
+		</ul>
+		<p style="color:#172D4B">Notre équipe, composée d’experts en recrutement forts d'une solide expérience terrain et de coachs certifiés, vous guidera dans chacune des étapes de votre stratégie.
+		</p>
+	</div>
+	<p style="color:#172D4B; text-align:left">
+		<b>Notre offre vous permettra de :</b>
+	</p>
+	<ul>
+		<li style="color:#172D4B">Attirer et fidéliser les meilleurs candidats : Ajustez vos processus de recrutement en adoptant des stratégies gagnantes et adaptées.</li>
+		<li style="color:#172D4B">Renforcer votre marque employeur : Devenez un employeur de choix grâce à des pratiques éthiques et responsables.</li>
+		<li style="color:#172D4B">Développer la diversité et l’inclusion : Favorisez une culture d'entreprise inclusive, valorisant la diversité sous toutes ses formes.</li>
+		<li style="color:#172D4B">Stimuler l'engagement de votre équipe : Développez votre leadership pour inspirer vos collaborateurs et faciliter la transformation.</li>
+	</ul>
+	<p style="color:#172D4B">
+		<b>Pourquoi choisir notre accompagnement ?</b>
+	</p>
+	<ul>
+		<li style="color:#172D4B">Choisissez notre accompagnement pour sa méthodologie structurante et éprouvée, applicable à tout type d’entreprise, et modulable selon vos besoins spécifiques.</li>
+		<li style="color:#172D4B">Notre approche ludique et innovante favorise l'engagement des collaborateurs en prenant de la hauteur sur les enjeux réciproques entre candidats et recruteurs.</li>
+		<li style="color:#172D4B">Nous impliquons activement les différents acteurs pour atteindre un objectif commun, grâce à des outils simples et efficaces définissant les cibles et actions à chaque étape du processus.</li>
+		<li style="color:#172D4B">Nous vous proposons un coaching individuel ou collectif pour développer votre leadership, inspirer et guider vos équipes.</li>
+		<li style="color:#172D4B">Nous vous accompagnons sur la durée au fil de la progression de votre projet pour s'assurer de la mise en œuvre effective de vos décisions.</li>
+		<li style="color:#172D4B">Avec une solide expérience terrain et une vision systémique, nous vous aiderons à transformer vos pratiques et à aligner votre projet de recrutement avec vos valeurs.</li>
+	</ul>
+	<h5 style="text-align:center;color:#172D4B">Transformez votre entreprise en un employeur vertueux, responsable et attractif !</h5>
+	<div class="rdv">
+		<a href="{{ path('app_contact') }}">
+			<button class="text-align">Parlons-nous !</button>
+		</a>
+	</div>
+</div></div><div id="FormationManagement" class="formationmanagement">
+<h3>Formations Management</h3>
+<div class="formaforma05">
+	<p>Nos formations en management sont conçues pour vous doter des compétences essentielles afin de devenir un leader accompli et inspirant.
+		<br><br>
+		Chaque module est conçu sur-mesure pour être interactif et pratique, garantissant une application immédiate et concrète dans votre environnement professionnel.<br><br></p>
+	<h4>
+		<b>Sujets pouvant être abordés :</b>
+	</h4>
+	<ul>
+		<li>
+			<b>
+				<span style="color: #F1902F;">L’intelligence émotionnelle:</span>
+			</b>
+			compréhension et gestion des émotions, développement de l'empathie ...</li>
+		<li>
+			<b>
+				<span style="color: #F1902F;">La gestion du stress :</span>
+			</b>
+			Identification des sources de stress au travail, techniques de gestion et réduction du stress ...</li>
+		<li>
+			<b>
+				<span style="color: #F1902F;">L’intelligence collective :</span>
+			</b>
+			techniques de brainstorming et co-création, gestion des dynamiques de groupe ...</li>
+		<li>
+			<b>
+				<span style="color: #F1902F;">La communication en entreprise :</span>
+			</b>
+			CNV, écoute active, feedback, gestion des conflits ...</li>
+		<li>
+			<b>
+				<span style="color: #F1902F;">Être un manager coach :</span>
+			</b>
+			techniques pour favoriser l'autonomie et la croissance personnelle des membres de l'équipe, gestion émotionnelle ...</li>
+	</ul>
+	<h5 style="text-align:center">
+		<b>Rejoignez-nous pour un voyage vers<br>le plaisir de l’excellence</b>
+	</h5>
+	<div class="rdv" style="padding-bottom:50px">
+		<a href="{{ path('app_contact') }}">
+			<button class="text-align">Parlons-nous !</button>
+		</a>
+	</div>
+</div></div>
 {% endblock %}

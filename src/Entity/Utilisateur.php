@@ -59,6 +59,12 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Commande::class, mappedBy: 'Utilisateur')]
     private Collection $commandes;
 
+    #[ORM\Column(length: 255)]
+    private ?string $token = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $statutverifier = null;
+
     public function getNomComplet(): string
     {
         return $this->getNom().' '.$this->getPrenom();
@@ -296,5 +302,30 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
 
         // Retourner la première commande (la plus récente)
         return $commandes[0];
+    }
+
+    public function getToken(): ?string
+    {
+        return $this->token;
+    }
+
+    public function setToken(?string $token): static
+{
+    $this->token = $token;
+
+    return $this;
+}
+
+
+    public function getStatutverifier(): ?string
+    {
+        return $this->statutverifier;
+    }
+
+    public function setStatutverifier(string $statutverifier): static
+    {
+        $this->statutverifier = $statutverifier;
+
+        return $this;
     }
 }

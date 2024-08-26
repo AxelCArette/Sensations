@@ -23,6 +23,7 @@ class UtilisateurCrudController extends AbstractCrudController
             TextField::new('Prenom'),
             IntegerField::new('NumeroDeTelephone'),
             TextField::new('email'),
+            TextField::new('statutverifier', 'Statut Vérification'),
             AssociationField::new('adresses', 'Adresse(s)')
                 ->hideOnForm()
                 ->formatValue(function ($value, $entity) {

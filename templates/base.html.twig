@@ -75,8 +75,14 @@
         {% block modal %}
         {% endblock %}
     </head>
-  
-
+    <style>
+	@media (max-width: 1700px)
+  {
+   form#newsletter-form {
+  display: none;
+}
+ } 
+</style>
  <body>
 <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
  
@@ -202,12 +208,13 @@
         </div>
         
         
-  <form method="post" action="{{ path('app_newsletter') }}">
+<form method="post" action="{{ path('app_newsletter') }}" id="newsletter-form">
     <button class="btn btn-custom" type="submit" id="button-addon2" style="display: flex; align-items: center; font-size: 14px; height: 45px; width: 450px; border-radius: 20px; margin-top: 20px; background-color:#1C6A8D; color:white">
         <input type="email" name="emailpournewletter" class="form-control" placeholder="Votre email" aria-label="Votre email" aria-describedby="button-addon2" style="font-size:15px; height:20px; padding: 12px; " required>
         <span style="margin-left: 7px; white-space: nowrap;">Je m'inscris à la newsletter</span>
     </button>
 </form>
+
       </div>
     </div>
     <div class="row" style="margin-top: 30px;">
@@ -215,7 +222,7 @@
        <p class="mb-0">
     Copyright ©Sensations Coaching |<a href="{{path('app_mentions_legale')}}" style="color: black; text-decoration: none;"> Mentions Légales | 
     <a href="{{ path('app_c_g_v') }}" style="color: black; text-decoration: none;">CGV</a> | 
-    <a href="https://www.linkedin.com/in/axel-carette-aa9060280/" style="color: black; text-decoration: none;">Réalisation Axel Carette</a>
+    <a href="https://www.linkedin.com/in/axel-carette-dev/" style="color: black; text-decoration: none;">Réalisation Axel Carette</a>
 </p>
 
     </div>

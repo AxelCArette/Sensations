@@ -3,10 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\ArticleTag;
-use App\Entity\Commande;
 use App\Entity\CommandeDetail;
 use App\Entity\EmailNewsletter;
 use App\Entity\Formations;
+use App\Entity\FormationsGratuite;
 use App\Entity\RedactionArticles;
 use App\Entity\Utilisateur;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractDashboardController
 {
-    #[Route('/admin', name: 'admin')]
+    #[Route('/licorne', name: 'admin')]
     public function index(): Response
     {
         return $this->render('admin/admin.html.twig');
@@ -43,6 +43,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Email Newsletter', 'fa fa-envelope', EmailNewsletter::class);
 
         yield MenuItem::section('Formations en ligne');
+        yield MenuItem::linkToCrud('Échantillon Gratuit', 'fa fa-graduation-cap', FormationsGratuite::class);
         yield MenuItem::linkToCrud('Formations', 'fa fa-graduation-cap', Formations::class);
         yield MenuItem::linkToCrud('Commande Détail', 'fa fa-shopping-cart', CommandeDetail::class);
 
@@ -50,7 +51,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Tag des articles', 'fa-solid fa-tags', ArticleTag::class);
         yield MenuItem::linkToCrud('Rédaction d\'articles', 'fas fa-newspaper', RedactionArticles::class);
         yield MenuItem::linkToRoute('Voir les résumés d\'articles', 'fa fa-arrow-left', 'app_resumer_article');
-
     }
     
 }
