@@ -12,8 +12,42 @@
 {% block body %}
 	<style>
 		@media(max-width: 1600px) {
-			.hautdepagecoachingdequipe {
+			.hautdepagecoachingdequipe img {
 				display: none;
+			}
+			.ebook p 
+			{
+				display:none;
+			}
+			.backgroundcoachingdequipe02 p 
+			{
+				display:none;
+			}
+			.listeapuceformation
+			{
+				font-size:10px;
+			}
+			.formaforma05 p 
+			{
+				font-size:15px;
+			}
+			 .text-align button {
+        font-size: 18px; /* Taille de la police pour les écrans moyens */
+    }
+			.backgroundcoachingdequipe02 h1 {
+				padding-top: 50px;
+				margin-top: 0; /* Réinitialiser la marge en haut */
+				margin-left: 0; /* Réinitialiser la marge à gauche */
+				width: auto; /* Réinitialiser la largeur à la taille automatique */
+				position: static; /* Réinitialiser la position pour utiliser le flux normal du document */
+				display: block !important; /* Assurer que l'élément est visible */
+				text-align: center; /* Centrer le texte si nécessaire */
+			}
+		
+			.formaforma05 li 
+			{
+				width:100%;
+				font-size:15px;
 			}
 			.image-container {
 				display: none;
@@ -210,12 +244,12 @@
 				{% endif %}
 			{% endfor %}
 		</div>
-	</div>
+	
 
 	{% if not formations_publiees and not formations_gratuites_publiees %}
 		<p style=";font-size:25px; text-align:center;color:#172D4B">Les ebooks arrivent très prochainement.</p>
 	{% endif %}
-
+</div>
 </div></div><div id="formationRH" class="formationRH05" style="padding-bottom:50px"><img src="{{ asset('asset/img/vagueorangeetjauneetrouge.png') }}" alt="Des vagues jaune orange et rouges"><h3>Formations RH</h3>
 <h4>Recrutement et fidélisation :<br>vers une identité employeur innovante et responsable</h4>
 <div class="formaforma05">

@@ -12,6 +12,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,10 +20,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class DetailCommandeController extends AbstractController
 {
     private $entityManager;
+    private $params;
 
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager, ParameterBagInterface $params)
     {
         $this->entityManager = $entityManager;
+        $this->params = $params; // Stockez le ParameterBag
     }
 
     #[Route('/commande', name: 'app_detail_commande')]
@@ -85,9 +88,9 @@ class DetailCommandeController extends AbstractController
         if (empty($nomsFormationsStr) || $totalPrixCommande <= 0) {
             throw new \Exception('Les informations nécessaires pour la session de paiement sont manquantes.');
         }
-        //sk_test_51OeCoOLne9zIBO1LFsIggYXSCeeeAlmO3g1Afr1XD2Goex6leMNqAtoRklDbmHyxBun3OcdDeIQkRPGGhLKIfps500yL0fKbML
 
-        Stripe::setApiKey("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 ");
+        // Remplacez la clé API par celle provenant de .env
+        Stripe::setApiKey($this->params->get('STRIPE_API_KEY'));
         $YOUR_DOMAIN = 'https://sensations-coaching.com/';
 
         $checkout_session = \Stripe\Checkout\Session::create([
@@ -125,7 +128,6 @@ class DetailCommandeController extends AbstractController
                 $adresseUtilisateur = $this->getUser()->getAdresses()->first();
                 $adresseUser = $adresseUtilisateur ? $adresseUtilisateur->getAdresseComplete() : '';
                 $commandeDetail->setAdresseUser($adresseUser);
-
                 $commandeDetail->setSessionStripeId($checkout_session->id);
 
                 $commandeDetails[] = $commandeDetail;
@@ -152,10 +154,9 @@ class DetailCommandeController extends AbstractController
             throw $this->createNotFoundException('Détail de commande non trouvé');
         }
 
-        Stripe::setApiKey("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");
+        // Remplacez la clé API par celle provenant de .env
+        Stripe::setApiKey($this->params->get('STRIPE_API_KEY'));
         $YOUR_DOMAIN = 'https://sensations-coaching.com/';
-        //http://localhost:8000
-
 
         $nouvelleSessionStripe = Session::create([
             'payment_method_types' => ['card', 'paypal'],
@@ -175,12 +176,11 @@ class DetailCommandeController extends AbstractController
         ]);
 
         $commandeDetail->setSessionStripeId($nouvelleSessionStripe->id);
-        $commandeDetail->setPrixtotal($commandeDetail->getprix());
+        $commandeDetail->setPrixtotal($commandeDetail->getPrix());
         $this->entityManager->flush();
 
         return $this->redirect($nouvelleSessionStripe->url);
     }
-
 
     #[Route('/success', name: 'app_success')]
     public function success(Request $request, CommandeDetailRepository $commandeDetailRepository, EntityManagerInterface $entityManager, Mail $mail): Response
@@ -191,7 +191,8 @@ class DetailCommandeController extends AbstractController
             throw new \Exception('Session ID manquant');
         }
 
-        Stripe::setApiKey("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");
+        // Remplacez la clé API par celle provenant de .env
+        Stripe::setApiKey($this->params->get('STRIPE_API_KEY'));
         $session = Session::retrieve($sessionId);
 
         if ($session && $session->payment_status === 'paid') {
@@ -228,10 +229,14 @@ class DetailCommandeController extends AbstractController
     {
         $sessionId = $request->query->get('session_id');
 
-        $commandeDetail = $commandeDetailRepository->findOneBy(['sessionStripeId' => $sessionId]);
+        if (!$sessionId) {
+            throw new \Exception('Session ID manquant');
+        }
 
-        return $this->render('cancel/index.html.twig', [
-            'message' => 'Votre commande a été annulée avec succès.'
+        // Vous pouvez également ajouter ici des logs pour les sessions annulées, etc.
+
+        return $this->render('succes/index.html.twig', [
+            'message' => 'Le paiement a été annulé.',
         ]);
     }
 }

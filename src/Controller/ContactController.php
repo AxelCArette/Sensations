@@ -18,6 +18,14 @@ class ContactController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Vérifier si le champ honeypot est rempli
+            if (!empty($form->get('honeypot')->getData())) {
+                // Ajouter un message d'erreur et rediriger vers la page contact
+                $this->addFlash('error', 'Erreur : veuillez ne pas remplir le champ honeypot.');
+                return $this->redirectToRoute('app_contact');
+            }
+
+            // Traitement normal si le honeypot est vide
             $data = $form->getData();
             $to_name = $data['Prenom'] . ' ' . $data['Nom'];
             $content = "Nom: " . $data['Nom'] . "\n" .
@@ -26,12 +34,11 @@ class ContactController extends AbstractController
                        "Sujet: " . $data['Sujet'] . "\n" .
                        "Message: " . $data['VotreMessage'];
 
-         
             $mail->send(
                 'flavie.c@sensations-coaching.com',
                 $to_name,
                 'Nouveau contact: ' . $data['Sujet'],
-                $content 
+                $content
             );
 
             $this->addFlash('notice', 'Merci de me contacter, je vais vous répondre au plus vite.');
@@ -42,4 +49,3 @@ class ContactController extends AbstractController
         ]);
     }
 }
-

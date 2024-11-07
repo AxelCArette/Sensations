@@ -21,13 +21,13 @@ class FormationsGratuite
     private ?string $fichierpdfgratuit = null;
 
     #[ORM\Column]
-    private ?int $NombreDePdf = null;
+    private ?int $nombreDePdf = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $DescriptionGratuit = null;
+    private ?string $descriptionGratuit = null;
 
-    #[ORM\Column]
-    private ?int $publier = null;
+    #[ORM\Column(type: 'boolean')]
+    private bool $publier = false;
 
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
@@ -36,7 +36,9 @@ class FormationsGratuite
     private ?string $imaegratuit = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $VideoGratuite = null;
+    private ?string $videoGratuite = null;
+
+    // Getters and Setters...
 
     public function getId(): ?int
     {
@@ -69,34 +71,34 @@ class FormationsGratuite
 
     public function getNombreDePdf(): ?int
     {
-        return $this->NombreDePdf;
+        return $this->nombreDePdf;
     }
 
-    public function setNombreDePdf(int $NombreDePdf): static
+    public function setNombreDePdf(int $nombreDePdf): static
     {
-        $this->NombreDePdf = $NombreDePdf;
+        $this->nombreDePdf = $nombreDePdf;
 
         return $this;
     }
 
     public function getDescriptionGratuit(): ?string
     {
-        return $this->DescriptionGratuit;
+        return $this->descriptionGratuit;
     }
 
-    public function setDescriptionGratuit(string $DescriptionGratuit): static
+    public function setDescriptionGratuit(string $descriptionGratuit): static
     {
-        $this->DescriptionGratuit = $DescriptionGratuit;
+        $this->descriptionGratuit = $descriptionGratuit;
 
         return $this;
     }
 
-    public function getPublier(): ?int
+    public function getPublier(): bool
     {
         return $this->publier;
     }
 
-    public function setPublier(int $publier): static
+    public function setPublier(bool $publier): static
     {
         $this->publier = $publier;
 
@@ -129,12 +131,12 @@ class FormationsGratuite
 
     public function getVideoGratuite(): ?string
     {
-        return $this->VideoGratuite;
+        return $this->videoGratuite;
     }
 
-    public function setVideoGratuite(?string $VideoGratuite): static
+    public function setVideoGratuite(?string $videoGratuite): static
     {
-        $this->VideoGratuite = $VideoGratuite;
+        $this->videoGratuite = $videoGratuite;
 
         return $this;
     }

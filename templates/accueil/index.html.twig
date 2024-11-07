@@ -7,38 +7,42 @@
 
 
 {% block modal %}
-	<div class="modal fade" id="popupModal" tabindex="-1" aria-labelledby="popupModalLabel">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<div class="">
-						<h1 class="modal-title" id="popupModalLabel" style="font-size:20px;text-align:center">Rejoignez notre communauté de champions</h1>
-					</div>
+<div class="modal fade" id="popupModal" tabindex="-1" aria-labelledby="popupModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="">
+                    <h1 class="modal-title" id="popupModalLabel" style="font-size:20px;text-align:center">Rejoignez notre communauté de champions</h1>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="quicksand-font">Recevez des conseils exclusifs, des stratégies éprouvées et des inspirations directement dans votre boîte de réception. Que vous soyez un leader en entreprise ou un sportif de haut niveau, notre newsletter est conçue pour vous aider à oser le plaisir de votre excellence.</p>
+                    </div>
+                    <div class="col-md-12">
+                        {{ form_start(form) }}
+                        
+                        {# Champ Honeypot - Ajouté ici #}
+                        <input type="text" name="honeypot" style="display:none;" />
 
-				</div>
-				<div class="modal-body">
-					<div class="row">
-						<div class="col-md-12">
-							<p class="quicksand-font">Recevez des conseils exclusifs, des stratégies éprouvées et des inspirations directement dans votre boîte de réception. Que vous soyez un leader en entreprise ou un sportif de haut niveau, notre newsletter est conçue pour vous aider à oser le plaisir de votre excellence.</p>
-						</div>
-						<div class="col-md-12">
-							{{ form_start(form) }}
-							{{ form_row(form.emailpournewletter) }}
-							{{ form_row(form.entreprise, {
-                                    'label': 'Entreprises',
-                                }) }}
-							{{ form_row(form.sportifDeHautNiveau, {
-                                    'label': 'Sportifs de haut-niveau',
-                                }) }}
-							{{ form_row(form._token) }}
-							{{ form_row(form.submit) }}
-							{{ form_end(form) }}
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                        {{ form_row(form.emailpournewletter) }}
+                        {{ form_row(form.entreprise, {
+                            'label': 'Entreprises',
+                        }) }}
+						
+                        {{ form_row(form.sportifDeHautNiveau, {
+                            'label': 'Sportifs de haut-niveau',
+                        }) }}
+                        {{ form_row(form._token) }}
+                        {{ form_row(form.submit) }}
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 
@@ -52,7 +56,7 @@
 		document.addEventListener('DOMContentLoaded', function () {
 setTimeout(function () {
 $('#popupModal').modal('show');
-}, 40000);
+}, 10000);
 });
 	</script>
 	<style>

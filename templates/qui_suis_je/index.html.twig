@@ -1,380 +1,511 @@
 {% extends 'base.html.twig' %}
 
 {% block head %}
-   <meta name="description" content="Découvrez le parcours de Flavie Carette, coach professionnelle certifiée, ancienne joueuse de football en haut-niveau, arbitre officielle et fondatrice de Sensations Coaching.">
-<meta name="keywords" content="Flavie Carette, coach professionnelle, parcours, intelligence émotionnelle, gestion de la blessure, Sensations Coaching, joueuse de football, sportif, sportif de haut niveau, haut-niveau, sport de haut niveau, arbitre, arbitre de foot, arbitre officielle">
-<meta name="author" content=" Flavie Carette de Sensations Coaching ">
+	<meta name="description" content="Découvrez le parcours de Flavie Carette, coach professionnelle certifiée, ancienne joueuse de football en haut-niveau, arbitre officielle et fondatrice de Sensations Coaching.">
+	<meta name="keywords" content="Flavie Carette, coach professionnelle, parcours, intelligence émotionnelle, gestion de la blessure, Sensations Coaching, joueuse de football, sportif, sportif de haut niveau, haut-niveau, sport de haut niveau, arbitre, arbitre de foot, arbitre officielle">
+	<meta name="author" content=" Flavie Carette de Sensations Coaching ">
 {% endblock %}
 
-{% block title %}Qui suis-je ? - Sensations Coaching{% endblock %}
+{% block title %}Qui suis-je ? - Sensations Coaching
+{% endblock %}
 
 {% block body %}
-<style>
-/* Styles pour les écrans jusqu'à 1599px */
-@media (max-width: 1599px) {
-    /* Styles existants */
-    .flcquisuisje,
-    .cerveauinge,
-    .damerouge,
-    .mapromesseunepuissante,
-    .eclairrouge,
-    .multiwork,
-    .decouvrezflaviecarette,
-    .parlons-en,
-    .decouvrezflaviecarette65,
-    .parcoursetdentologie202152023,
-    .parcoursetdentologie20215,
-    .parcoursetdentologie2023,
-    .cemodeledenergie,
-    .jaijustechaque,
-    .tacheorange05,
-    .cemodeledenergie img,
-    .Historique img {
-        display: none;
-    }
-    .organigramedemavie {
-    display:none;
-}
-.Deantologiequementparlant h3 {
-     width:500px;
-    text-align: left;
-    text:center;
-    }
-.Deantologiequementparlant ul li {
-    padding-bottom:0;
-    width:500px;
-
-    }
-.content-wrapper
-{
-    width:500px;
-}
-    .Aventureetincertitude,
-    .PuissanceElandevie
-    {
-          width: 250px;
-        margin-left:0;
-     }
-     .decouvrezflaviecarette 
-     {
-        width: 250px;
-        margin-top:50px;
-     }
-     .resilience-sensibilitetexte {
-        width: 300px; 
-        margin-left:0;
-         text-align:left;
-    }
-     .ParlonsEn 
-{
-    width:200px;
-}
-
-.parlons-en {
-        padding-left: 0;
-        padding-right: 0;
-    }
-     .Pourquoimechoisir .image-container01
-     {
-            display: flex;
-            flex-direction: column;
-     }
-     .Aventureetincertitudetexte,
-     .Pourquoimechoisir,
-     .PuissanceElandevieTexte
-     {
-         width: 250px;
-        margin-left:0;
-     }
-    .MonHistoire h2 {
-        margin-top: -420px;
-        margin-left:0;
-        text-align:left;
-    }
-     .Historique h3 {
-          width: 250px;
-        margin-left:0;
-     }
-    .Historique p {
-        width: 500px;
-        font-size: 20px;
-        margin-top:0;
-        margin-left:0;
+	<style>
+		@media(max-width: 1599px) {
+			.flaviesoleil {
+				margin: 0;
+			}
+			.flctexte {
+				margin: 0;
+			}
+			.flctexte p {
+				display: none;
+			}
+			.flctexte h2 {
+				margin-left: -150px;
+				text-align: center;
+				margin-top: 500px;
+			}
+			.mapromesseunepuissante h2 
+			{
+				margin:0;
+			}
+			.flcquisuisje {
+				margin: 0;
+			}
+            .jaijustechaque
+            {
+                margin-left:auto;
+                        margin-top: 0;
+                        width: 80%;
+            }
+			.Historique h3 {
+				margin-left: auto;
+				font-size: 20px;
+				width: 90%;
+			}
         
-    }
-    .Pourquoimechoisir h3 
-    {
-        margin-top:30px;
-    }
-    .Historique .resilience-sensibilite , 
-    .resilience-sensibilitetexte, 
-    .PuissanceElandevie, 
-    .PuissanceElandevieTexte,
-    ..Historique h3
-     {
-         text-align:left;
-        margin-left:0;
-             }
-   .Historique .resilience-sensibilite 
-               {
-                width:250px;
-        margin-left:0;
-             }
-    .frigo,
-    .soleiletlune 
-    {
-        display:none;
-    }
-    .Historique h3,
-    .Historique p,
-    .Aventureetincertitude,
-    .Aventureetincertitudetexte,
-    .resilience-sensibilite,
-    {
-        margin-left:0;
-        width: 400px;
-    }
+			.cemodeledenergie {
+                margin:auto;
+                margin-top:15px;
+                width: 80%;
+			}
+			.Aventureetincertitude {
+				margin-top: 25px;
+				margin-bottom: 15px;
+				margin-left: auto;
+				font-size: 15px;
+				width: 80%;
+			}
+			.Pourquoimechoisir p {
+				width: 80%;
+				font-size: 20px;
+				margin-left: 0;
+			}
+			.frigo {
+				display: none;
+			}
+			.Pourquoimechoisir {
+				background: white;
+			}
+			.tacheorange05
+			{
+				display:none;
+			}
+			.Pourquoimechoisir .image-container01 {
+				display: flex;
+				flex-wrap: nowrap;
+				justify-content: center;
+				gap: 100px;
+				margin-top: 20px;
+				width: 100%;
+				box-sizing: border-box;
+				flex-direction: column;
+			}
+			.lorsdecoaching 
+			{
+				padding-bottom:15px;
+			}
+			.multiwork {
+				width: 100%;
+                margin-top: 0;
+			}
+			.Pourquoimechoisir .image-container01 .image-item h4 {
+				width: auto;
+			}
+			.Historique .resilience-sensibilite {
+				margin-top: 25px;
+				margin-bottom: 15px;
+				margin-left: auto;
+				font-size: 15px;
+				width: 80%;
+			}
+			.ParlonsEn a {
+            font-size: 24px;
+            padding: 15px 30px;
+        }
+			.item .title 
+			{
+				margin-left:0;
+			}
+			.decouvrezflaviecarette b
+			{
+				font-size:20px;
+			}
+			.title 
+			{
+				
+				width:100% ;
+			}
+			.item {
+				display: block;
+				width:100% ;
+			}
+			.eclairrouge {
+				display: none;
+			}
+			.PuissanceElandevie {
+				margin-top: 25px;
+				margin-bottom: 15px;
+				margin-left: auto;
+				font-size: 15px;
+				width: 80%;
+			}
+			.PuissanceElandevieTexte {
+				margin: auto;
+				font-size: 15px;
+				width: 75%;
+				text-align: center;
+				padding-top: 25px;
+			}
+
+			.Aventureetincertitudetexte {
+				margin: auto;
+				font-size: 15px;
+				width: 75%;
+				text-align: center;
+			}
+			.soleiletlune {
+				display: none;
+			}
+			.resilience-sensibilitetexte {
+				margin: auto;
+				font-size: 15px;
+				width: 75%;
+				text-align: center;
+			}
+			.Pourquoimechoisir h3 {
+				margin-top: 50px;
+			}
+			.Historique p {
+				margin: auto;
+				font-size: 15px;
+				width: 75%;
+				text-align: center;
+			}
+			.Historique img {
+				display: none;
+			}
+			.resilience-sensibilitetexte img {
+				display: none;
+			}
+			.damerouge {
+				display: none;
+			}
+			.decouvrezflaviecarette65 img 
+			{
+				display:none;
+			}
+
+			.parcoursetdentologie2024,
+  .parcoursetdentologie2023,
+  .parcoursetdentologie202152023,
+  .parcoursetdentologie20215 {
+    margin: 20px 0;
+  }
+  
+  /* Suppression des marges spécifiques sur petit écran */
+  .parcoursetdentologie2024,
+  .parcoursetdentologie202152023 {
+    margin-left: 0;
+    margin-top: 0;
+  }
+  
+  .parcoursetdentologie2023,
+  .parcoursetdentologie20215 {
+    margin-right: 0;
+    margin-top: 0;
+  }
+
+  /* Adaptation des images */
+  .organigramedemavie {
+    width: 100%;
+  }
+
+  /* Adaptation des textes */
+  .parcoursetdentologie2024 p,
+  .parcoursetdentologie2023 p,
+  .parcoursetdentologie202152023 p,
+  .parcoursetdentologie20215 p {
+    width: 100%;
+    font-size: 20px;
+  }
+
+  .parcoursetdentologie2024 h4,
+  .parcoursetdentologie2023 h4,
+  .parcoursetdentologie202152023 h4,
+  .parcoursetdentologie20215 h4 {
+    width: auto;
+    font-size: 18px;
+  }
 }
 
-/* Styles pour les écrans jusqu'à 991px (tablettes) */
-@media (max-width: 991px) {
-    .flaviesoleil {
-        margin-top: -400px; /* Ajustement pour l'image sur tablette */
-    }
-   
-    .PuissanceElandevieTexte
-    .Historique .resilience-sensibilite h3 {
-        margin-left: 0; /* Centrage pour les petits écrans */
-        width: 100%; /* Pleine largeur */
-    }
-    
+@media (max-width: 768px) {
+  .backgroundcoachingdequipe01 img,
+  .backgroundcoachingdequipe02 img {
+    position: relative;
+    margin: 0;
+    width: 100%;
+  }
+
+  .backgroundcoachingdequipe02 h1,
+  .backgroundcoachingdequipe02 p {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .backgroundcoachingdequipe02 h1 {
+    margin-top: 20px;
+  }
+
+  .backgroundcoachingdequipe02 p {
+    margin-top: 10px;
+    font-size: 18px;
+  }
 }
 
-@media (max-width: 767px) {
-    .flaviesoleil {
-        margin-top: -300px; 
-    }
-    .PuissanceElandevie {
-        display: none;
-    }
-    .Historique {
-        width: 100px;
-}
+		
+		
+		}
+	</style>
 
-
-}
-</style>
-
-<script>
-   AOS.init({
-    disable: function() {
-        return window.innerWidth < 1600;
-    },
-    startEvent: 'DOMContentLoaded', // Ajustez en fonction de votre événement de démarrage
-    initClassName: 'aos-init', // Nom de classe appliqué après l'initialisation
-    animatedClassName: 'aos-animate', // Nom de classe appliqué pour les animations
-    useClassNames: true, // Ajoute des noms de classes pour l'animation et l'initialisation
-    disableMutationObserver: false, // Désactive l'observateur de mutation si true
-    debounceDelay: 50, // délai avant d'exécuter la détection de scroll
-    throttleDelay: 99, // délai avant d'exécuter la détection de scroll en mode throttling
+	<script>
+		AOS.init({
+disable: function () {
+return window.innerWidth < 1600;
+},
+startEvent: 'DOMContentLoaded', // Ajustez en fonction de votre événement de démarrage
+initClassName: 'aos-init', // Nom de classe appliqué après l'initialisation
+animatedClassName: 'aos-animate', // Nom de classe appliqué pour les animations
+useClassNames: true, // Ajoute des noms de classes pour l'animation et l'initialisation
+disableMutationObserver: false, // Désactive l'observateur de mutation si true
+debounceDelay: 50, // délai avant d'exécuter la détection de scroll
+throttleDelay: 99, // délai avant d'exécuter la détection de scroll en mode throttling
 
 });
-</script>
-<div class="flcquisuisje">
-    <img src="{{asset('asset/img/backgroundmontagne.png')}}" alt="Un fond représenté par des montagnes">
+	</script>
+	<div class="flcquisuisje">
+		<img src="{{asset('asset/img/backgroundmontagne.png')}}" alt="Un fond représenté par des montagnes">
 
-    <div class="flaviesoleil" style="margin-top:-800px">
-        <img src="{{asset('asset/img/flaviesoleil.png')}}" alt="La coaching Flavie Carette">
-        
-        <div class="flctexte">
-            <h2>Flavie Carette, une coach<br> au coeur du jeu</h2>
-            <p style="color:#172D4B; font-family:quicksand;">
-                Coach professionnelle certifiée, <b>joueuse et arbitre de football,</b> je jongle avec les défis du sport collectif et les subtilités de l'intelligence émotionnelle pour <b>guider les leaders,</b> que ce soit dans le monde de l'<b>entreprise</b> ou <b>sur le terrain</b>, à œuvrer à un projet inédit et humain.
-                <br><br>
-                Tout au long de ma vie, que ce soit dans le sport ou en entreprise, j'ai été confronté à <b>des émotions</b> intenses, parfois même débordantes, que je le souhaitais ou non. J'ai depuis réalisé à quel point elles ont été <b>mon moteur</b>, alimentant ma passion et mes choix.<br>
-                <b>Et si, elles l’étaient pour vous ?</b>
-            </p>
-            </div>
-        </div>
-  
-    </div>
-<div style="height: 470px;"></div>
+		<div class="flaviesoleil" style="margin-top:-800px">
+			<img src="{{asset('asset/img/flaviesoleil.png')}}" alt="La coaching Flavie Carette">
 
-    <div id="monHistoire" class="MonHistoire" style="margin-top:-275px;">
-        <h2>Mon histoire</h2>
-    </div>
-    <div class="Historique">
-        <h3>Passion et Discipline</h3>
-        <img src="{{asset('asset/img/etoileorangeclair.png')}}" alt="Des étoiles orange clair" class="etoileorangeclair">
-        <p>
-            Finale de la coupe du monde 98 : j’ai 6 ans, je suis en joie et je profite de l’union incroyable que je vis avec ma famille. C’est à ce moment précis que j’ai pris une des <b>meilleures décisions de ma vie</b> : je jouerai au foot.
-            <br><br>
-            Depuis mes modestes débuts sur les terrains de football, jusqu'à mon <b>ascension</b> en D2, mon histoire est celle d'une <b>passion dévorante</b> pour le jeu collectif. Le football, c'est bien plus qu'un simple sport pour moi, c'est un <b>exécutoire</b> où je me libère et surtout où je m’éclate comme une enfant.
-            <br><br>
-            Mais bon, soyons honnêtes, le football féminin ne m'a pas exactement rapporté des millions. Alors, plutôt que d'attendre mon transfert record, j'ai opté pour un plan B : une école de commerce international. A la suite de quoi, je suis devenue <b>chef de projets</b> dans l'événementiel sportif.
-            <br><br>
-            J'ai donc vogué sur les océans houleux de deux sphères souvent considérées comme des bastions masculins. Mais dans ces arènes où règnent la discipline de fer et la compétition féroce, <b>mes émotions devaient rester sur le banc de touche ...</b>
-        </p>
-        <img src="{{asset('asset/img/cerveauinge.png')}}" alt="Cerveau ingénieux" class="cerveauinge">
-        <h3 class="resilience-sensibilite"> Résilience et Sensibilité</h3>
-        </div>
-        <p class="resilience-sensibilitetexte" style="color:#172D4B; font-family:quicksand;">
-        Je m'adapte à ces mondes avec une <b>agilité</b> <br>déconcertante, répondant aux attentes des autres et aux<br> <b>exigences extérieures</b>. Je me sens, cependant, souvent<br> en<b> décalage</b>, comme une étrangère dans ma propre<br> maison. 
-        <br>
-        <br>
-        Je ne le savais pas encore mais je reniais avec force une <br>part essentielle de mon être : ma<b> sensibilité</b>. Les <br><b> blessures</b> s'enchaînent, un gros trauma crânien jusqu'à<br> une algoneurodystrophie. Le corps ne ment jamais, n’est-ce pas ?<br> Mon destin sur le terrain semble scellé, mais la<br> vie m'offre un <b> nouveau chemin à explorer</b>.
-        </p>
-        </div>
-         <img src="{{asset('asset/img/damerouge.png')}}" alt="DAme rouge" class="damerouge">
-         <h3 class="Aventureetincertitude">Aventure et incertitude</h3>
-         <p class="Aventureetincertitudetexte" style="color:#172D4B; font-family:quicksand;"> Je déménage en<b> Haute-Savoie</b>, laissant derrière moi les stades de football pour les montagnes enneigées et les lacs cristallins. Quelques mois plus tard, après une discussion autour de « je m’ennuie au taff », mon compagnon a prononcé ces mots magiques : "Viens, on part<b> voyager</b>." Ces quelques mots ont été comme une bouffée d'air frais, une invitation à l'aventure que je ne pouvais pas refuser.
-         <br>
-         <br>
-                30’000 km pour réfléchir à mes envies et au sens que je voulais donner à ma vie.
-                <br>
-                <br>
-                <b>P</b>etit <b>S</b>coop : Oui je ramène un magnet par destination, mon plus grand héritage (ahah).
-         </p>
-         <img src="{{asset('asset/img/frigo.png')}}" alt="Une femme qui met des magnet sur un frigo" class="frigo">
-           <h3 class="PuissanceElandevie">Puissance et Élan de vie</h3>
-             <img src="{{asset('asset/img/soleilrouge.png')}}" alt="Une femme qui met des magnet sur un frigo" class="eclairrouge">
-             <p class="PuissanceElandevieTexte" style="color:#172D4B; font-family:quicksand;">
-             Et c'est là que je découvre le<b> coaching professionnel</b>, un métier dans lequel je découvre que l’alchimie se crée grâce à l’<b>alliance des opposés</b> offrant une infinité de possibilités. 2 ans de formation plus tard, c'est la<b> révélation, je me lance à mon compte !</b>
-            <br>
-            <br>
-            Aujourd'hui, j’ai retrouvé les lignes blanches, je suis là,<b> prête à partager mon expertise, mon expérience,</b> et surtout,<b> mes émotions</b>, avec ceux et celles qui cherchent à<b> se surpasser</b>, à explorer de nouveaux horizons, et à trouver leur propre<b> chemin vers la victoire</b>. Car c'est en embrassant toutes nos facettes, même les plus inattendues, que nous pouvons réellement<b> briller</b>.
-             </p>
-         <img src="{{asset('asset/img/soleiletlune.png')}}" alt="Une femme qui met des magnet sur un frigo" class="soleiletlune">
-         </div>
-    </div>
-    </div>
-    </div>
-   <div id="pourQuoiMechoisir" class="Pourquoimechoisir">
-  <h3>Pourquoi me choisir ?</h3>
-  <p style="color:#172D4B; font-family:quicksand;">
-    Choisir un coach, c'est choisir un coéquipier dans votre parcours de développement personnel. Avec moi, vous trouverez un cocktail ensoleillé d'optimisme, une dose d'humanité profonde, et une pincée d'intégrité inébranlable. 
-  </p>
-  <div class="image-container01">
-    <div class="image-item">
-      <img src="{{asset('asset/img/tetebleu.png')}}" alt="Une tête bleu">
-      <h4>Optimisme</h4>
-      <p>Je suis là pour vous guider avec une approche orientée solutions, toujours prête à trouver le chemin vers la lumière même dans les moments les plus sombres. </p>
-    </div>
-    <div class="image-item">
-      <img src="{{asset('asset/img/coeurmain.png')}}" alt="Une coeur avec des mains à l'intérieur" style="margin-top: 145px;">
-      <h4>Humanité</h4>
-      <p>Mon écoute est bienveillante et sans jugement, vous permettant de vous sentir pleinement compris et soutenu dans votre cheminement. </p>
-    </div>
-    <div class="image-item">
-      <img src="{{asset('asset/img/superneno.png')}}" alt="Un super héros"style="margin-top:30px">
-      <h4>Intégrité</h4>
-      <p>Je crois en la puissance de l'intégrité, et je m'engage à travailler sur moi-même pour être toujours à la hauteur des défis que vous m'apportez. </p>
-    </div>
-  </div>
+			<div class="flctexte">
+				<h2>Flavie Carette, une coach<br>
+					au coeur du jeu</h2>
+				<p style="color:#172D4B; font-family:quicksand;">
+					Coach professionnelle certifiée,
+					<b>joueuse et arbitre de football,</b>
+					je jongle avec les défis du sport collectif et les subtilités de l'intelligence émotionnelle pour
+					<b>guider les leaders,</b>
+					que ce soit dans le monde de l'<b>entreprise</b>
+					ou
+					<b>sur le terrain</b>, à œuvrer à un projet inédit et humain.
+					<br><br>
+					Tout au long de ma vie, que ce soit dans le sport ou en entreprise, j'ai été confronté à
+					<b>des émotions</b>
+					intenses, parfois même débordantes, que je le souhaitais ou non. J'ai depuis réalisé à quel point elles ont été
+					<b>mon moteur</b>, alimentant ma passion et mes choix.<br>
+					<b>Et si, elles l’étaient pour vous ?</b>
+				</p>
+			</div>
+		</div>
 
-     <h2 class="orange-background">Ma pratique : une approche systémique innovante,<br>ludique et sur-mesure</h2>
-     <div class="demarches"style="color:#172D4B; font-family:quicksand;">
-     <p>Associant 3 démarches, j’utilise un modèle unique d’accompagnement, associant le Voice Dialogue, la constellation systémique et l’Ennéagramme. </p>
-    </div>
-    <div class="cemodeledenergie" style="color:#172D4B; font-family:quicksand;">
-    <p>Ce<b> modèle de l’énergie</b> favorise un<b> alignement puissant de la tête, du coeur et du corps</b> . Il permet d’aller au-delà de nos automatismes mentaux et de retrouver une<b> liberté</b> de penser, d’agir et de choisir en conscience dans des contextes personnels et professionnels.</p>
-    </div>
-    <img src="{{asset('asset/img/multiwork.png')}}" alt="plusieurs personne qui travaille avec de multi compétence" class="multiwork">
-    <div class="jaijustechaque" style="color:#172D4B; font-family:quicksand;">
-    <p>J'ajuste chaque session en fonction des objectifs spécifiques et des dynamiques propres à votre besoin et/ou celui de votre équipe, garantissant une expérience<b> personnalisée et pertinente.</b></p>
-    </div>
-    <div class="lorsdecoaching" style="color:#172D4B; font-family:quicksand;">
-    <p style="color:#172D4B; font-family:quicksand;">Lors de coaching d’équipe, plongez dans des <b>ateliers</b> très ludiques où chaque jeu devient une<b> aventure</b> et découvrez à travers des<b> débriefs percutants</b> comment le reflet de vos actions peut transformer votre perception et<b> booster</b> votre<b> croissance personnelle au service de la performance collective</b>.</p>
-     </div>
+	</div>
+	<div style="height: 470px;"></div>
+
+	<div id="monHistoire" class="MonHistoire" style="margin-top:-275px;">
+		<h2>Mon histoire</h2>
+	</div>
+	<div class="Historique">
+		<h3>Passion et Discipline</h3>
+		<img src="{{asset('asset/img/etoileorangeclair.png')}}" alt="Des étoiles orange clair" class="etoileorangeclair">
+		<p>
+			Finale de la coupe du monde 98 : j’ai 6 ans, je suis en joie et je profite de l’union incroyable que je vis avec ma famille. C’est à ce moment précis que j’ai pris une des
+			<b>meilleures décisions de ma vie</b>
+			: je jouerai au foot.
+			<br><br>
+			Depuis mes modestes débuts sur les terrains de football, jusqu'à mon
+			<b>ascension</b>
+			en D2, mon histoire est celle d'une
+			<b>passion dévorante</b>
+			pour le jeu collectif. Le football, c'est bien plus qu'un simple sport pour moi, c'est un
+			<b>exécutoire</b>
+			où je me libère et surtout où je m’éclate comme une enfant.
+			<br><br>
+			Mais bon, soyons honnêtes, le football féminin ne m'a pas exactement rapporté des millions. Alors, plutôt que d'attendre mon transfert record, j'ai opté pour un plan B : une école de commerce international. A la suite de quoi, je suis devenue
+			<b>chef de projets</b>
+			dans l'événementiel sportif.
+			<br><br>
+			J'ai donc vogué sur les océans houleux de deux sphères souvent considérées comme des bastions masculins. Mais dans ces arènes où règnent la discipline de fer et la compétition féroce,
+			<b>mes émotions devaient rester sur le banc de touche ...</b>
+		</p>
+		<img src="{{asset('asset/img/cerveauinge.png')}}" alt="Cerveau ingénieux" class="cerveauinge">
+		<h3 class="resilience-sensibilite">
+			Résilience et Sensibilité</h3>
+	</div>
+	<p class="resilience-sensibilitetexte" style="color:#172D4B; font-family:quicksand;">
+		Je m'adapte à ces mondes avec une
+		<b>agilité</b>
+		<br>déconcertante, répondant aux attentes des autres et aux<br>
+		<b>exigences extérieures</b>. Je me sens, cependant, souvent<br>
+		en<b>
+			décalage</b>, comme une étrangère dans ma propre<br>
+		maison.
+		<br>
+		<br>
+		Je ne le savais pas encore mais je reniais avec force une
+		<br>part essentielle de mon être : ma<b>
+			sensibilité</b>. Les
+		<br><b>
+			blessures</b>
+		s'enchaînent, un gros trauma crânien jusqu'à<br>
+		une algoneurodystrophie. Le corps ne ment jamais, n’est-ce pas ?<br>
+		Mon destin sur le terrain semble scellé, mais la<br>
+		vie m'offre un
+		<b>
+			nouveau chemin à explorer</b>.
+	</p>
+</div>
+<img src="{{asset('asset/img/damerouge.png')}}" alt="DAme rouge" class="damerouge">
+<h3 class="Aventureetincertitude">Aventure et incertitude</h3>
+<p class="Aventureetincertitudetexte" style="color:#172D4B; font-family:quicksand;">
+	Je déménage en<b>
+		Haute-Savoie</b>, laissant derrière moi les stades de football pour les montagnes enneigées et les lacs cristallins. Quelques mois plus tard, après une discussion autour de « je m’ennuie au taff », mon compagnon a prononcé ces mots magiques : "Viens, on part<b>
+		voyager</b>." Ces quelques mots ont été comme une bouffée d'air frais, une invitation à l'aventure que je ne pouvais pas refuser.
+	<br>
+	<br>
+	30’000 km pour réfléchir à mes envies et au sens que je voulais donner à ma vie.
+	<br>
+	<br>
+	<b>P</b>etit
+	<b>S</b>coop : Oui je ramène un magnet par destination, mon plus grand héritage (ahah).
+</p>
+<img src="{{asset('asset/img/frigo.png')}}" alt="Une femme qui met des magnet sur un frigo" class="frigo">
+<h3 class="PuissanceElandevie">Puissance et Élan de vie</h3>
+<img src="{{asset('asset/img/soleilrouge.png')}}" alt="Une femme qui met des magnet sur un frigo" class="eclairrouge">
+<p class="PuissanceElandevieTexte" style="color:#172D4B; font-family:quicksand;">
+	Et c'est là que je découvre le<b>
+		coaching professionnel</b>, un métier dans lequel je découvre que l’alchimie se crée grâce à l’<b>alliance des opposés</b>
+	offrant une infinité de possibilités. 2 ans de formation plus tard, c'est la<b>
+		révélation, je me lance à mon compte !</b>
+	<br>
+	<br>
+	Aujourd'hui, j’ai retrouvé les lignes blanches, je suis là,<b>
+		prête à partager mon expertise, mon expérience,</b>
+	et surtout,<b>
+		mes émotions</b>, avec ceux et celles qui cherchent à<b>
+		se surpasser</b>, à explorer de nouveaux horizons, et à trouver leur propre<b>
+		chemin vers la victoire</b>. Car c'est en embrassant toutes nos facettes, même les plus inattendues, que nous pouvons réellement<b>
+		briller</b>.
+</p>
+<img src="{{asset('asset/img/soleiletlune.png')}}" alt="Une femme qui met des magnet sur un frigo" class="soleiletlune"></div></div></div></div><div id="pourQuoiMechoisir" class="Pourquoimechoisir"><h3>Pourquoi me choisir ?</h3><p style="color:#172D4B; font-family:quicksand;">Choisir un coach, c'est choisir un coéquipier dans votre parcours de développement personnel. Avec moi, vous trouverez un cocktail ensoleillé d'optimisme, une dose d'humanité profonde, et une pincée d'intégrité inébranlable.</p><div class="image-container01"><div class="image-item"><img src="{{asset('asset/img/tetebleu.png')}}" alt="Une tête bleu">
+
+<h4>Optimisme</h4>
+<p>Je suis là pour vous guider avec une approche orientée solutions, toujours prête à trouver le chemin vers la lumière même dans les moments les plus sombres.</p></div><div class="image-item"><img src="{{asset('asset/img/coeurmain.png')}}" alt="Une coeur avec des mains à l'intérieur" style="margin-top: 145px;"><h4>Humanité</h4><p>Mon écoute est bienveillante et sans jugement, vous permettant de vous sentir pleinement compris et soutenu dans votre cheminement.</p></div><div class="image-item"><img src="{{asset('asset/img/superneno.png')}}" alt="Un super héros" style="margin-top:30px"><h4>Intégrité</h4><p>Je crois en la puissance de l'intégrité, et je m'engage à travailler sur moi-même pour être toujours à la hauteur des défis que vous m'apportez.</p></div></div>
+
+<h2 class="orange-background">Ma pratique : une approche systémique innovante,<br>ludique et sur-mesure</h2><div class="demarches" style="color:#172D4B; font-family:quicksand;"><p>Associant 3 démarches, j’utilise un modèle unique d’accompagnement, associant le Voice Dialogue, la constellation systémique et l’Ennéagramme.</p></div><div class="cemodeledenergie" style="color:#172D4B; font-family:quicksand;"><p>Ce<b>
+modèle de l’énergie</b>favorise un<b>
+alignement puissant de la tête, du coeur et du corps</b>. Il permet d’aller au-delà de nos automatismes mentaux et de retrouver une<b>
+liberté</b>de penser, d’agir et de choisir en conscience dans des contextes personnels et professionnels.</p>
+</div><img src="{{asset('asset/img/multiwork.png')}}" alt="plusieurs personne qui travaille avec de multi compétence" class="multiwork"><div class="jaijustechaque" style="color:#172D4B; font-family:quicksand;"><p>J'ajuste chaque session en fonction des objectifs spécifiques et des dynamiques propres à votre besoin et/ou celui de votre équipe, garantissant une expérience<b>
+personnalisée et pertinente.</b></p></div>
+<div class="lorsdecoaching" style="color:#172D4B; font-family:quicksand;">
+<p style="color:#172D4B; font-family:quicksand;">Lors de coaching d’équipe, plongez dans des<b>ateliers</b>très ludiques où chaque jeu devient une<b>
+aventure</b>et découvrez à travers des<b>
+débriefs percutants</b>comment le reflet de vos actions peut transformer votre perception et<b>
+booster</b>votre<b>
+croissance personnelle au service de la performance collective</b>.</p></div>
 
 <div class="mapromesseunepuissante" style="color:#172D4B; font-family:quicksand;">
-    <h2 style="margin-bottom:50px;">Ma promesse : une puissante légèreté</h2>
-    <div data-aos="fade-left" class="item left">
-        <h4 class="title" style="color:#FFEFD7;background-color:#172D4B;">efficience</h4>
-        <p class="text" style="color:#172D4B; font-family:quicksand;">J'apporte sérieusement mon expertise et mon<b> professionnalisme</b> tout en cultivant une ambiance où l'humour et la<b> légèreté</b> sont les bienvenus. Je crois fermement que l'efficacité et le plaisir peuvent coexister dans le cheminement vers le<b> succès.</b></p>
-    </div>
-    <div data-aos="fade-right" class="item right">
-        <h4 class="title" style="color:#FFEFD7;background-color:#DD3E1A;">confiance</h4>
-        <p class="text">Je mets un point d’honneur pour nouer<b> l’alliance</b> avec vous, être présent ici et maintenant, sans aucun projet, ni solution ou savoir pour vous. Nous irons à votre rythme.</p>
-    </div>
-    <div data-aos="fade-left" class="item left">
-        <h4 class="title" style="color:#172D4B;background-color:#F1902F;">équilibre</h4>
-        <p class="text" style="color:#172D4B; font-family:quicksand;">Sentez-vous autorisé à être qui vous êtes, je vous permets d’<b>accueillir toutes vos facettes</b>, sans jugement et d’en découvrir de nouvelles pour un équilibre optimal.</p>
-    </div>
-    <div data-aos="fade-right" class="item right">
-        <h4 class="title" style="color:#FFEFD7;background-color:#1C6A8D;">sens</h4>
-        <p class="text" style="color:#172D4B; font-family:quicksand;">Développer votre conscience et connaissance de vous-même pour vous sentir<b> puissant, libre</b> et<b> serein</b> : votre rêve est à votre portée.</p>
-    </div>
-    <div data-aos="fade-left" class="item left">
-        <h4 class="title" style="color:#FFEFD7;background-color:#DD3E1A;">expérience</h4>
-        <p class="text" style="color:#172D4B; font-family:quicksand;">Ayant évolué dans le haut niveau sportif, je comprends intimement les défis et exigences auxquels vous faites face, ce qui me permet de vous offrir un accompagnement où <b> vous vous sentirez compris</b> et entendu.</p>
-    </div>
+<h2 style="margin-bottom:50px;">Ma promesse : une puissante légèreté</h2>
+<div data-aos="fade-left" class="item left"><h4 class="title" style="color:#FFEFD7;background-color:#172D4B;">efficience</h4><p class="text" style="color:#172D4B; font-family:quicksand;">J'apporte sérieusement mon expertise et mon<b>
+	professionnalisme</b>
+tout en cultivant une ambiance où l'humour et la<b>
+	légèreté</b>
+sont les bienvenus. Je crois fermement que l'efficacité et le plaisir peuvent coexister dans le cheminement vers le<b>
+	succès.</b></p></div>
+	<div data-aos="fade-right" class="item right">
+	<h4 class="title" style="color:#FFEFD7;background-color:#DD3E1A;">confiance</h4>
+	<p class="text">Je mets un point d’honneur pour nouer<b>
+	l’alliance</b>
+avec vous, être présent ici et maintenant, sans aucun projet, ni solution ou savoir pour vous. Nous irons à votre rythme.</p></div><div data-aos="fade-left" class="item left"><h4 class="title" style="color:#172D4B;background-color:#F1902F;">équilibre</h4><p class="text" style="color:#172D4B; font-family:quicksand;">Sentez-vous autorisé à être qui vous êtes, je vous permets d’<b>accueillir toutes vos facettes</b>, sans jugement et d’en découvrir de nouvelles pour un équilibre optimal.</p></div>
+<div data-aos="fade-right" class="item right"><h4 class="title" style="color:#FFEFD7;background-color:#1C6A8D;">sens</h4><p class="text" style="color:#172D4B; font-family:quicksand;">Développer votre conscience et connaissance de vous-même pour vous sentir<b>
+	puissant, libre</b>
+et<b>serein</b>
+: votre rêve est à votre portée.</p></div>
+<div data-aos="fade-left" class="item left"><h4 class="title" style="color:#FFEFD7;background-color:#DD3E1A;">expérience</h4>
+<p class="text" style="color:#172D4B; font-family:quicksand;">Ayant évolué dans le haut niveau sportif, je comprends intimement les défis et exigences auxquels vous faites face, ce qui me permet de vous offrir un accompagnement où
+<b>
+	vous vous sentirez compris</b>
+et entendu.</p>
 </div>
+	</div>
+		</div>
 
-     </div>
-     <div class="decouvrezflaviecarette"> 
-        
-     <h2 style="font-size: 50px; text-align:center; margin-top:-40px; position:relative;color:#172D4B; font-family:quicksand;" ><b>Découvrez votre potentiel !</b></h2>
-   </div>
-   <div class="ParlonsEn" style="text-align: center; margin-top:50px; margin-bottom:50px" >
-    <a href="{{ path('app_contact') }}" style="background-color:#1C6A8D; font-size: 40px; color:white; padding:25px; padding-left:400px; padding-right:400px; border-radius: 50px; text-decoration: none; font-family: 'Abril Fatface';" class="parlons-en"> Parlons-en !</a>
-</div>
+<div class="decouvrezflaviecarette"><h2 style="font-size: 50px; text-align:center; margin-top:-40px; position:relative;color:#172D4B; font-family:quicksand;">
+<b>Découvrez votre potentiel !</b></h2></div>
+
+<div class="ParlonsEn" style="text-align: center; margin: 50px 0;">
+    <a href="{{ path('app_contact') }}" 
+       style="background-color:#1C6A8D; 
+              font-size: 40px; 
+              color: white; 
+              padding: 25px 60px; 
+              border-radius: 50px; 
+              text-decoration: none; 
+              font-family: 'Abril Fatface'; 
+              display: inline-block;" 
+       class="parlons-en">
+        Parlons-en !
+    </a>
 
 <div id="parcoursetdentologie" class="Parcoursetdentologie">
 <div class="decouvrezflaviecarette65">
-<h2 style="font-family: 'Abril Fatface'; text-align: center; font-size:50px; margin-top:150px ; color:#1c618d;"> Parcours & Déontologie</h2>
+<h2 style="font-family: 'Abril Fatface'; text-align: center; font-size:50px; margin-top:150px ; color:#1c618d;">Parcours & Déontologie</h2>
+
 <div style="text-align: center;">
 <img src="{{asset('asset/img/organigramemulticouleur.png')}}" style="margin-top:50px; width:500px" alt="Organigrame de ma vie" class="organigramedemavie">
-  <div class="parcoursetdentologie2024" style="display: flex; flex-direction: column; align-items: center;">
-  <h4 style="background-color:#FFEFD7; width:100px; border-radius: 10px; padding:10px;">2024</h4>
-  <p style="width:500px; font-size:25px; text-align:center; color:#172D4B; font-family:quicksand;">
-    Certificat<b> “Coaching systémique d’équipe”</b>, Méthode des énergies, NRGy Training<br> +<br><b> Lancement de mon activité</b>
-  </p>
+<div class="parcoursetdentologie2024" style="display: flex; flex-direction: column; align-items: center;">
+<h4 style="background-color:#FFEFD7; width:100px; border-radius: 10px; padding:10px;">2024</h4>
+<p style="width:500px; font-size:25px; text-align:center; color:#172D4B; font-family:quicksand;">
+	Certificat<b>
+		“Coaching systémique d’équipe”</b>, Méthode des énergies, NRGy Training<br>
+	+<br><b>
+		Lancement de mon activité</b>
+</p></div><div class="parcoursetdentologie2023" style="display: flex; flex-direction: column; align-items: center;">
+<h4 style="background-color:#FFEFD7; width:100px; border-radius: 10px;padding:10px; ">2023</h4>
+<p style="width:500px; font-size:25px; text-align:center;color:#172D4B; font-family:quicksand;">Certificat “<b>Faciliteur Coach professionnelle Systémique</b>”, avec le Voice Dialogue, RNCP niv. 6, EFFC<br>
+	+<br><b>
+		Arbitre officielle</b>
+	de football</p></div><div class="parcoursetdentologie202152023" style="display: flex; flex-direction: column; align-items: center;">
+<h4 style="background-color:#FFEFD7; width:150px; border-radius: 10px;padding:10px;  margin: auto">2015-2023</h4>
+<p style="width:500px; font-size:25px; text-align:center; color:#172D4B; font-family:quicksand">Expériences en entreprise
+	<br>
+	<b style="display: inline-block; margin-top:15px;">LinkedIn</b>
+</p>
 
 </div>
-   <div class="parcoursetdentologie2023"  style="display: flex; flex-direction: column; align-items: center;">
-    <h4 style="background-color:#FFEFD7; width:100px; border-radius: 10px;padding:10px; ">2023</h4>
-<p style="width:500px; font-size:25px; text-align:center;color:#172D4B; font-family:quicksand;">Certificat “<b>Faciliteur Coach professionnelle Systémique</b>”, avec le Voice Dialogue, RNCP niv. 6, EFFC<br> +<br><b> Arbitre officielle</b> de football</p>
-    </div>
-    <div class="parcoursetdentologie202152023" style="display: flex; flex-direction: column; align-items: center;">
-    <h4 style="background-color:#FFEFD7; width:150px; border-radius: 10px;padding:10px;  margin: auto">2015-2023</h4>
-<p style="width:500px; font-size:25px; text-align:center; color:#172D4B; font-family:quicksand">Expériences en entreprise <br> <b style="display: inline-block; margin-top:15px;">LinkedIn</b></p>
-</div>
+
 <div class="parcoursetdentologie20215" style="display: flex; flex-direction: column; align-items: center;">
 <h4 style="background-color:#FFEFD7; width:100px; border-radius: 10px;padding:10px;  margin: auto">2015</h4>
 <p style="width:300px; font-size:25px; text-align:center; margin-bottom:300px; color:#172D4B; font-family:quicksand;">Master<br>“International Sales & E-<br>business", ISCID-CO</p>
-</div>
-</div>
-</div>
-
-<div class="Deantologiequementparlant" style="color:#172D4B; font-family:quicksand; padding-bottom:50px">
-    <div class="content-wrapper">
-        <div class="tacheorange05 text-center">
-            <img src="{{asset('asset/img/tacheorange.png')}}" alt="Une tache orange" style="width:250px; margin-left: 43.1%;">
-        </div>
-        <h3>Déontologie en accord avec le “Code de déontologie et bonne conduite” de l’EMCC :</h3>
-        <ul>
-            <li><b>Définition du coaching : </b>Le coaching vous permet de prendre conscience de ce qui se joue en vous, ici et maintenant et de découvrir vos ressources pour aller au-delà de vos blocages. Le coaching (présent/futur) n’est pas une thérapie (passé/présent).</li>
-            <li><b>Autonomie du client : </b>Le coach encourage l'autonomie du client et évite toute forme de dépendance. Le but est de permettre au client de trouver ses propres solutions et de développer son propre potentiel.</li>
-            <li><b>Confidentialité : </b>Le coach est tenu par le secret professionnel. Je prends toutes les précautions pour maintenir l’anonymat des personnes qui me consultent et, en particulier, ne communique aucune information à un tiers sur un client sans son accord formel.</li>
-            <li><b>Non-jugement : </b>Le coach accueille le client sans préjugé ni jugement. Chaque individu est respecté dans sa diversité culturelle, sociale, et personnelle.</li>
-            <li><b>Respect des engagements : </b>Le coach et le client respectent les engagements pris ensemble, notamment en ce qui concerne les horaires et la durée des séances.</li>
-            <li><b>Processus et protection : </b>Je m’adapte au rythme de développement de mon coaché sans le précipiter et reste à la juste distance (interdiction de tout abus d’influence).</li>
-            <li><b>Supervision : </b>Je m’engage à me faire superviser régulièrement par un professionnel qualifié garantissant la qualité et la justesse de mon accompagnement.</li>
-            <li><b>Formation continue : </b>Je m’engage à développer continuellement mon niveau de compétences et à me tenir informée des nouvelles approches et recherches en participant à des formations, à un club de coachs (réseau NRGy) et conférences.</li>
-            <li><b>Démarche de travail sur soi : </b>J’atteste d’une démarche de travail sur moi-même (thérapie) approfondie et en cours.</li>
-            <li><b>Indépendance : </b>Je garde ma liberté de refuser d’aider un coaché qui agirait en dehors du cadre de la loi française ou contre mon éthique ou si mon intervention risquerait d’aller à l’encontre du respect d’autrui.</li>
-            <li><b>Responsabilités du coach et du coaché : </b>Le coach a une obligation de moyens concernant le développement professionnel et personnel du client, y compris en ayant recours, si besoin, à un confrère ou autre professionnel. Le coaché reste néanmoins seul responsable de ses décisions.</li>
-        </ul>
-        <b style="font-size: 25px; border-bottom:50px; color:#172D4B; font-family:quicksand;">En respectant ces principes, en tant que coach professionnel, j’assure un cadre sécurisant, respectueux et propice au développement personnel et professionnel de mes clients.</b>
-</div>
-</div>
-<div class="pieddepagequisuisje01" style="color:#172D4B; font-family:quicksand; padding-bottom:100px">
-<h2 style="margin-top:80px "><b>Explorons ensemble vos défis !</b></h2>
-
-<a href="{{ path('app_contact')  }} ">Réservez votre rdv gratuit !</a>
-</div>
-</div>
-</div>
-</div>
-{% endblock %}
+</div></div></div>
+<div class="Deantologiequementparlant" style="color:#172D4B; font-family:quicksand; padding-bottom:50px"><div class="content-wrapper"><div class="tacheorange05 text-center">
+<img src="{{asset('asset/img/tacheorange.png')}}" alt="Une tache orange" style="width:250px; margin-left: 43.1%;"></div><h3>Déontologie en accord avec le “Code de déontologie et bonne conduite” de l’EMCC :</h3><ul>
+<li>
+	<b>Définition du coaching :
+	</b>Le coaching vous permet de prendre conscience de ce qui se joue en vous, ici et maintenant et de découvrir vos ressources pour aller au-delà de vos blocages. Le coaching (présent/futur) n’est pas une thérapie (passé/présent).</li>
+<li>
+	<b>Autonomie du client :
+	</b>Le coach encourage l'autonomie du client et évite toute forme de dépendance. Le but est de permettre au client de trouver ses propres solutions et de développer son propre potentiel.</li>
+<li>
+	<b>Confidentialité :
+	</b>Le coach est tenu par le secret professionnel. Je prends toutes les précautions pour maintenir l’anonymat des personnes qui me consultent et, en particulier, ne communique aucune information à un tiers sur un client sans son accord formel.</li>
+<li>
+	<b>Non-jugement :
+	</b>Le coach accueille le client sans préjugé ni jugement. Chaque individu est respecté dans sa diversité culturelle, sociale, et personnelle.</li>
+<li>
+	<b>Respect des engagements :
+	</b>Le coach et le client respectent les engagements pris ensemble, notamment en ce qui concerne les horaires et la durée des séances.</li>
+<li>
+	<b>Processus et protection :
+	</b>Je m’adapte au rythme de développement de mon coaché sans le précipiter et reste à la juste distance (interdiction de tout abus d’influence).</li>
+<li>
+	<b>Supervision :
+	</b>Je m’engage à me faire superviser régulièrement par un professionnel qualifié garantissant la qualité et la justesse de mon accompagnement.</li>
+<li>
+	<b>Formation continue :
+	</b>Je m’engage à développer continuellement mon niveau de compétences et à me tenir informée des nouvelles approches et recherches en participant à des formations, à un club de coachs (réseau NRGy) et conférences.</li>
+<li>
+	<b>Démarche de travail sur soi :
+	</b>J’atteste d’une démarche de travail sur moi-même (thérapie) approfondie et en cours.</li>
+<li>
+	<b>Indépendance :
+	</b>Je garde ma liberté de refuser d’aider un coaché qui agirait en dehors du cadre de la loi française ou contre mon éthique ou si mon intervention risquerait d’aller à l’encontre du respect d’autrui.</li>
+<li>
+	<b>Responsabilités du coach et du coaché :
+	</b>Le coach a une obligation de moyens concernant le développement professionnel et personnel du client, y compris en ayant recours, si besoin, à un confrère ou autre professionnel. Le coaché reste néanmoins seul responsable de ses décisions.</li></ul><b style="font-size: 25px; border-bottom:50px; color:#172D4B; font-family:quicksand;">En respectant ces principes, en tant que coach professionnel, j’assure un cadre sécurisant, respectueux et propice au développement personnel et professionnel de mes clients.</b></div></div><div class="pieddepagequisuisje01" style="color:#172D4B; font-family:quicksand; padding-bottom:100px"><h2 style="margin-top:80px "><b>Explorons ensemble vos défis !</b></h2><a href="{{ path('app_contact') }} ">Réservez votre rdv gratuit !</a></div></div></div></div>{% endblock %}

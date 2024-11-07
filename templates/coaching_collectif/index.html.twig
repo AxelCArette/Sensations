@@ -15,7 +15,10 @@
   .hautdepagecoachingdequipe img {
     display: none;
   }
-  
+  .pourquoichoi h1 
+  {
+    display:none;
+  }
   .backgroundcoachingdequipe, 
   .backgroundcoachingdequipe01, 
   .backgroundcoachingdequipe02 img {
@@ -45,6 +48,7 @@
   {
     font-size:25px;
   }
+
 .coachingcollectif01 {
   font-size: 13px;
 }
@@ -83,10 +87,7 @@
   .backgroundcoachingdequipe02 p {
     display: none; /* Cacher le texte du <p> */
   }
-.pourquoichoi
-{
-  display:none;
-}
+
 .caffouillagedanslasurface01 b 
 {
   font-size:25px;
@@ -142,7 +143,7 @@ width:50%
 }
 
 @media (max-width: 950px){
-.row
+.CPSA05 .row
 {
   display:none;
 }
@@ -159,6 +160,7 @@ width:50%
     flex-direction: column;
   }
 }
+
 	.CPSA05 {
 				flex-direction: column; 
 				align-items: center; 
@@ -367,7 +369,6 @@ width:50%
 <h1 style="text-align:center; margin-bottom:100px; margin-top:-200px;">Pourquoi me choisir ?</h1>
 </div>
 <div class="flcphoto01">
-
   <img src="{{asset('asset/img/flaviedoigt.png')}}" alt="Flavie Carette coaching">
   <div class="text-container01">
     <p style="margin-top:25px; color:#172D4B; font-family:quicksand;" >Je suis Flavie Carette, coach professionnelle certifiée, ancienne joueuse de haut-niveau et arbitre de football. J’utilise mon expertise du sport collectif et mon intelligence émotionnelle pour accompagner les leaders en entreprise et dans le sport à œuvrer à un projet inédit et humain.</p>
@@ -376,6 +377,6 @@ width:50%
     </a>
   </div>
 </div>
-<div style="height:100px;"></div>
-
+<div style="height:100px;">
+</div>
 {% endblock %}

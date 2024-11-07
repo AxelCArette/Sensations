@@ -12,12 +12,19 @@ class Mail
 
     public function sendTemplateA($to_email, $to_name, $subject, $content)
     {
-        $this->sendEmail($to_email, $to_name, $subject, $content,6056140 );
+        $this->sendEmail($to_email, $to_name, $subject, $content, 6056140);
     }
 
     public function sendTemplateB($to_email, $to_name, $subject, $content)
     {
-        $this->sendEmail($to_email, $to_name, $subject, $content,6056182 ); 
+        $this->sendEmail($to_email, $to_name, $subject, $content, 6056182); 
+    }
+
+    // Voici la méthode send que vous ajoutez
+    public function send($to_email, $to_name, $subject, $content)
+    {
+        // Choisissez d'envoyer avec un template par défaut, ici le Template A
+        $this->sendTemplateA($to_email, $to_name, $subject, $content);
     }
 
     private function sendEmail($to_email, $to_name, $subject, $content, $templateId)

@@ -3,7 +3,17 @@
 {% block title %}Vérification réussie{% endblock %}
 
 {% block body %}
-    <h1>Votre compte a été vérifié avec succès !</h1>
-    <p>Vous pouvez maintenant vous connecter à votre compte.</p>
-    <a href="{{ path('app_login') }}">Se connecter</a>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h1 class="card-title text-success">Vérification réussie !</h1>
+                    <p class="card-text">Votre compte a été vérifié avec succès. Vous pouvez maintenant vous connecter à votre compte.</p>
+                    <a href="{{ path('app_login') }}" class="btn btn-primary mt-3">Se connecter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

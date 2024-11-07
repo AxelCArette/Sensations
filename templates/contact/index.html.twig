@@ -1,20 +1,35 @@
 {% extends 'base.html.twig' %}
 {% block head %}
-<meta name="description" content="Contactez-moi pour toute demande d'information ou de prise de rendez-vous pour un accompagnement en coaching et de la formations.">
+<meta name="description" content="Contactez-moi pour toute demande d'information ou de prise de rendez-vous pour un accompagnement en coaching et des formations.">
 <meta name="keywords" content="contact, prise de contact, coaching, demande d'information, rendez-vous, formulaire de contact">
-<meta name="author" content=" Flavie Carette de Sensations Coaching ">
-
+<meta name="author" content="Flavie Carette de Sensations Coaching">
 {% endblock %}
+
 {% block title %}Me Contacter - Sensations Coaching{% endblock %}
 
 {% block body %}
+<!-- Affichage des messages de succès et d'erreur -->
+{% for message in app.flashes('notice') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+{% endfor %}
+
+{% for message in app.flashes('error') %}
+    <div class="alert alert-danger">
+        {{ message }}
+    </div>
+{% endfor %}
+
+<!-- Section pour le rendez-vous -->
 <div style="margin-top: 100px;"></div>
 <div>
     <h2 class="text-center" style="color:#1c618d; font-family: Abril Fatface">Prendre un rendez-vous</h2>
     <div class="calendly-inline-widget" data-url="https://calendly.com/flavie-c?primary_color=1b6a8d" style="min-width:320px;height:700px;"></div>
 </div>
 
-<h2 class="text-center" style="color:#1c618d; font-family: Abril Fatface" >Contactez-moi</h2>
+<!-- Formulaire de contact -->
+<h2 class="text-center" style="color:#1c618d; font-family: Abril Fatface">Contactez-moi</h2>
 
 <div class="container mt-5">
     <div class="row justify-content-center text-center">
@@ -26,10 +41,4 @@
     </div>
     <div style="margin-bottom: 45px;"></div>
 </div>
-{% for message in app.flashes('notice') %}
-    <div class="alert alert-success">
-        {{ message }}
-    </div>
-{% endfor %}
-
 {% endblock %}
